@@ -43,7 +43,7 @@ export default function ContactPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero — background image */}
-      <section className="relative text-white py-24 px-6">
+      <section className="relative text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
         <Image
           src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=600&fit=crop"
           alt="Contact us background"
@@ -57,7 +57,7 @@ export default function ContactPage() {
           <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6">
             We&apos;re Here to Help
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 sm:mb-6 tracking-tight">
             Get In Touch
           </h1>
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
@@ -68,11 +68,11 @@ export default function ContactPage() {
       </section>
 
       {/* Two-Column Layout */}
-      <section className="py-20 px-6 -mt-8">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 -mt-4 sm:-mt-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — Contact Form */}
           <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-border bg-surface p-8 md:p-10 shadow-card">
+            <div className="rounded-2xl border border-border bg-surface p-4 sm:p-6 md:p-8 lg:p-10 shadow-card">
               <h2 className="text-2xl font-heading font-bold text-text mb-2">
                 Request a Quote
               </h2>

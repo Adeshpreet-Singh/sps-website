@@ -67,36 +67,36 @@ export default function HomePage() {
         <div className="absolute bottom-[20%] left-[40%] h-32 w-32 rounded-lg border border-white/[0.03] rotate-45" />
 
         {/* Content */}
-        <div className="relative mx-auto max-w-7xl w-full px-6 lg:px-8 pt-32 pb-16">
+        <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-12 sm:pb-16">
           <div className="max-w-3xl">
             <p className="text-accent font-semibold tracking-wide uppercase text-sm mb-6">
               {siteConfig.tagline}
             </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
               Need a Plumber?
               <br />
               Need an Installer?
             </h1>
             <p
-              className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight"
+              className="mt-2 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight"
               style={{ color: "var(--color-accent)", textShadow: "0 0 40px rgba(var(--color-accent-rgb, 59,130,246), 0.35)" }}
             >
               We&apos;ve Got You.
             </p>
-            <p className="mt-8 text-lg sm:text-xl text-white/90 max-w-xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 lg:mt-8 text-base sm:text-lg lg:text-xl text-white/90 max-w-xl leading-relaxed">
               {siteConfig.description}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-accent px-10 py-5 text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5"
               >
                 Get a Free Quote
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <a
                 href={siteConfig.phoneLink}
-                className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/25 px-10 py-5 text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-lg sm:rounded-xl border border-white/25 px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5"
               >
                 <Phone className="h-5 w-5" />
                 Call Now
@@ -112,8 +112,8 @@ export default function HomePage() {
         </div>
 
         {/* Stats row at bottom of hero */}
-        <div className="relative mx-auto max-w-7xl w-full px-6 lg:px-8 pb-20">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-white/10">
+        <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none">
             {[
               { value: siteConfig.stats.yearsInBusiness, label: "Years in Business" },
               { value: siteConfig.stats.installations, label: "Installations" },
@@ -138,7 +138,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       <section className="relative z-10 -mt-12 mx-auto max-w-5xl px-6 lg:px-8">
         <div
-          className="rounded-2xl bg-white px-8 py-8 sm:px-12 sm:py-10"
+          className="rounded-2xl bg-white px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10"
           style={{ boxShadow: "0 8px 30px rgba(50,50,93,0.25), 0 2px 8px rgba(0,0,0,0.08)" }}
         >
           <p className="text-center text-sm font-medium text-text-muted uppercase tracking-wide mb-6">
@@ -186,7 +186,7 @@ export default function HomePage() {
                   className="group relative rounded-2xl bg-white p-8 border-t-4 border-accent shadow-[0_4px_20px_rgba(27,42,74,0.06),0_8px_32px_rgba(27,42,74,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(27,42,74,0.1),0_16px_48px_rgba(27,42,74,0.06)] overflow-hidden"
                 >
                   {/* Service image */}
-                  <div className="-mx-8 -mt-8 relative h-48 overflow-hidden rounded-t-2xl">
+                  <div className="-mx-8 -mt-8 relative h-40 sm:h-48 overflow-hidden rounded-t-2xl">
                     <Image
                       src={
                         svc.slug === "appliance-installation"
@@ -441,7 +441,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 text-center">
           {/* Heading with animated gradient shimmer */}
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white"
           >
             Ready to get started?
           </h2>

@@ -57,7 +57,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col">
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-20 sm:py-28 md:py-36">
         {/* Background image */}
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop"
@@ -81,7 +81,7 @@ export default function AboutPage() {
           <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 rounded-full border border-accent/20">
             Est. {siteConfig.legal.incorporated}
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
             About {siteConfig.name}
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
             {/* Left — text */}
             <div className="lg:col-span-3 space-y-6 text-text-muted leading-relaxed text-lg">
-              <h2 className="text-3xl md:text-4xl font-bold text-text">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text">
                 Our Story
               </h2>
               <p>
@@ -136,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────── */}
-      <section className="bg-surface-alt py-16 md:py-20">
+      <section className="bg-surface-alt py-10 sm:py-12 md:py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
@@ -158,12 +158,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── Our Values (glass-morphism on dark) ──────────── */}
-      <section className="relative py-20 md:py-28 bg-navy-dark overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 lg:py-28 bg-navy-dark overflow-hidden">
         {/* Decorative background */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-navy-light/20 blur-3xl" />
 
         <div className="relative mx-auto max-w-5xl px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center">
             Our Values
           </h2>
           <p className="mt-4 text-white/50 text-center max-w-xl mx-auto text-lg">
@@ -203,9 +203,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Leadership ───────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-surface">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-text text-center">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-surface">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text text-center">
             Led by a team committed to excellence
           </h2>
           <p className="mt-4 text-text-muted text-center max-w-xl mx-auto text-lg">
@@ -236,7 +236,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-20 md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-12 sm:py-16 md:py-20 lg:py-28">
         {/* Decorative elements */}
         <div className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
         <div className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
@@ -244,7 +244,7 @@ export default function AboutPage() {
         <div className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
 
         <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Ready to work with us?
           </h2>
           <p className="mt-4 text-white/60 text-lg max-w-xl mx-auto">

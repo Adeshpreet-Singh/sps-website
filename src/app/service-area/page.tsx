@@ -15,7 +15,7 @@ export default function ServiceAreaPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero — background image */}
-      <section className="relative text-white py-24 px-6">
+      <section className="relative text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop"
           alt="Service area background"
@@ -29,7 +29,7 @@ export default function ServiceAreaPage() {
           <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6">
             Serving Metro Vancouver
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 sm:mb-6 tracking-tight">
             Where We Work
           </h1>
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
@@ -40,10 +40,10 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Coverage Area — gradient border card, CSS grid pattern */}
-      <section className="py-20 px-6 -mt-12">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 -mt-6 sm:-mt-12">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-accent via-accent-light to-navy">
-            <div className="rounded-[14px] bg-surface p-8 md:p-12">
+            <div className="rounded-[14px] bg-surface p-4 sm:p-6 md:p-8 lg:p-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Service area image */}
                 <div className="relative aspect-square max-h-[320px] rounded-xl overflow-hidden">

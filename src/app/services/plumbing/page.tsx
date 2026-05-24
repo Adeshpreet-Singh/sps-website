@@ -72,7 +72,7 @@ export default function PlumbingPage() {
   return (
     <main className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-6 py-24 text-center text-white lg:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white">
         <Image
           src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop"
           alt="Plumbing installation"
@@ -85,7 +85,7 @@ export default function PlumbingPage() {
           <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur">
             Service #{service.number}
           </span>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white lg:text-6xl">
+          <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
             {service.title}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-white/70 lg:text-xl">
@@ -122,7 +122,7 @@ export default function PlumbingPage() {
       </section>
 
       {/* Our Process */}
-      <section className="bg-surface-alt px-6 py-20 lg:py-28">
+      <section className="bg-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-3xl font-bold text-navy lg:text-4xl">
             Our Process

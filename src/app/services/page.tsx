@@ -32,7 +32,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="relative overflow-hidden px-6 py-24 text-center text-white lg:py-32">
+      <section className="relative overflow-hidden px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white">
         {/* Background video */}
         <video
           autoPlay
@@ -49,7 +49,7 @@ export default function ServicesPage() {
           <span className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/70">
             What We Do
           </span>
-          <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Our Services
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
@@ -61,7 +61,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services List ── */}
-      <section className="bg-surface-alt px-6 py-20 lg:py-28">
+      <section className="bg-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto flex max-w-5xl flex-col gap-10">
           {services.map((service, idx) => {
             const Icon = iconMap[service.icon];
