@@ -1,12 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Menu, X } from "lucide-react";
 import { siteConfig, navLinks } from "@/lib/data";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-[var(--shadow-nav)]">
@@ -62,39 +74,68 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="border-t border-border bg-white px-4 pb-4 pt-2 lg:hidden">
-          <nav className="flex flex-col gap-1">
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 lg:hidden ${
+          mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Menu Slide-in */}
+      <div
+        className={`fixed right-0 top-0 z-50 flex h-full w-72 flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close button */}
+        <div className="flex items-center justify-between border-b border-border px-4 py-3">
+          <span className="text-lg font-bold text-navy">Menu</span>
+          <button
+            type="button"
+            className="rounded-md p-2 text-text transition-colors hover:text-accent"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <nav className="flex-1 overflow-y-auto px-4 py-4">
+          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-alt hover:text-accent"
+                className="rounded-md px-3 py-2.5 text-sm font-medium text-text transition-colors hover:bg-surface-alt hover:text-accent"
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
-          <div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-            <a
-              href={siteConfig.phoneLink}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy"
-            >
-              <Phone className="h-4 w-4" />
-              {siteConfig.phone}
-            </a>
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-            >
-              Get a Quote
-            </Link>
           </div>
+        </nav>
+
+        {/* Bottom CTAs */}
+        <div className="border-t border-border px-4 py-4">
+          <a
+            href={siteConfig.phoneLink}
+            className="mb-3 flex items-center gap-1.5 text-sm font-semibold text-navy"
+          >
+            <Phone className="h-4 w-4" />
+            {siteConfig.phone}
+          </a>
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="block w-full rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+          >
+            Get a Quote
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
