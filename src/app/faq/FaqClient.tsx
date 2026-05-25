@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig, type FaqItem } from "@/lib/data";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import CursorGlow from "@/components/CursorGlow";
 
 const generalFaqs: FaqItem[] = [
   {
@@ -100,7 +101,7 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -119,9 +120,11 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section aria-label="FAQ hero" className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-20 sm:py-28 md:py-36">
-        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-3xl" />
+      <section aria-label="FAQ hero" className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-16 sm:py-24 md:py-36">
+        {/* Cursor glow effect */}
+        <CursorGlow />
+        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-accent/5 blur-3xl" />
+        <div aria-hidden="true" className="absolute bottom-[-20%] left-[-10%] w-[350px] h-[350px] sm:w-[600px] sm:h-[600px] rounded-full bg-white/[0.03] blur-3xl" />
         <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30" />
         <div aria-hidden="true" className="absolute top-32 right-[20%] w-2 h-2 rounded-full bg-white/20" />
         <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20" />
@@ -177,9 +180,11 @@ export default function FAQPage() {
       />
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-12 sm:py-16 md:py-20 lg:py-28">
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
+      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-10 sm:py-14 md:py-20 lg:py-28">
+        {/* Cursor glow effect */}
+        <CursorGlow />
+        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
 
         <div ref={ctaRef} className={`relative mx-auto max-w-3xl px-4 sm:px-6 text-center reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
@@ -192,7 +197,7 @@ export default function FAQPage() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <Link
               href="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
             >
               Contact Us
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -206,7 +211,7 @@ export default function FAQPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
@@ -230,7 +235,7 @@ function FAQSection({
   const [ref, isVisible] = useScrollReveal();
 
   return (
-    <section id={id} aria-label={title} className={`${bgColor} px-4 sm:px-6 py-20 lg:py-28`}>
+    <section id={id} aria-label={title} className={`${bgColor} px-4 sm:px-6 py-16 sm:py-20 lg:py-28`}>
       <div ref={ref} className={`mx-auto max-w-3xl reveal-hidden ${isVisible ? "reveal-visible" : ""}`}>
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
           {title}

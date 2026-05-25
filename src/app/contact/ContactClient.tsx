@@ -85,9 +85,9 @@ function ContactCard({
     <Wrapper
       {...(href ? { href, className: "group block" } : { className: "group" })}
     >
-      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5">
+      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 card-tilt gradient-border-shine">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
-          <Icon className="w-5 h-5 text-white" />
+          <Icon className="w-5 h-5 text-white" aria-hidden="true" />
         </div>
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mb-1">
@@ -109,7 +109,7 @@ export default function ContactPage() {
   const fullAddress = `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.province} ${siteConfig.address.postal}`;
 
   return (
-    <main className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -128,7 +128,7 @@ export default function ContactPage() {
       {/* Hero — background image */}
       <section
         aria-label="Contact hero"
-        className="relative text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
+        className="relative overflow-hidden text-white py-14 sm:py-20 lg:py-24 px-4 sm:px-6"
       >
         <Image
           src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=600&fit=crop"
@@ -155,7 +155,7 @@ export default function ContactPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <a
               href={siteConfig.phoneLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press btn-shimmer"
               aria-label={`Call us at ${siteConfig.phone}`}
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
@@ -176,14 +176,14 @@ export default function ContactPage() {
       {/* Two-Column Layout */}
       <section
         aria-label="Contact form and information"
-        className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 -mt-4 sm:-mt-8"
+        className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 -mt-4 sm:-mt-8"
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — Contact Form */}
           <div ref={formRef} className={`lg:col-span-3 reveal-hidden ${formVisible ? "reveal-visible" : ""}`}>
-            <div className="rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 sm:p-6 md:p-8 lg:p-10 shadow-card dark:shadow-none">
+            <div className="rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 sm:p-6 md:p-8 lg:p-10 shadow-card dark:shadow-none focus-within-highlight">
               <div className="flex items-center gap-3 mb-2">
-                <MessageCircle className="h-6 w-6 text-accent" />
+                <MessageCircle className="h-6 w-6 text-accent" aria-hidden="true" />
                 <h2 className="text-2xl font-heading font-bold text-text dark:text-dark-text">
                   Request a Quote
                 </h2>
@@ -210,7 +210,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right — Contact Image + Info Cards */}
-          <div ref={infoRef} className={`lg:col-span-2 flex flex-col gap-6 lg:sticky lg:top-8 self-start reveal-left-hidden ${infoVisible ? "reveal-left-visible" : ""}`}>
+          <div ref={infoRef} className={`lg:col-span-2 flex flex-col gap-6 lg:sticky lg:top-8 self-start stagger-children reveal-left-hidden ${infoVisible ? "reveal-left-visible" : ""}`}>
             {/* Contact image */}
             <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-2xl lg:h-72">
               <Image
@@ -282,6 +282,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

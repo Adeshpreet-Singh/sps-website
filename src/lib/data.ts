@@ -1,6 +1,17 @@
 // SPS Installation — All content data
 // Source: spsinstallation.com + Canada Company Registry
 
+/** Icon names used in data.ts that map to lucide-react components */
+export type LucideIconName =
+  | "Wrench"
+  | "Droplets"
+  | "Home"
+  | "Building2"
+  | "Shield"
+  | "Clock"
+  | "BadgeCheck"
+  | "Sparkles";
+
 export const siteConfig = {
   name: "Smith Pro Services Ltd.",
   shortName: "SPS",
@@ -53,7 +64,7 @@ export const navLinks = [
 export interface Service {
   slug: string;
   number: string;
-  icon: string;
+  icon: LucideIconName;
   title: string;
   shortDescription: string;
   description: string;
@@ -183,9 +194,14 @@ export const testimonials: Testimonial[] = [
 ];
 
 export interface WhyUsFeature {
-  icon: string;
+  icon: LucideIconName;
   title: string;
   description: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
 }
 
 export const whyUsFeatures: WhyUsFeature[] = [
@@ -262,4 +278,38 @@ export const retailerOptions = [
 export const mapConfig = {
   center: { lat: 49.28, lng: -122.55 },
   zoom: 9,
+};
+
+/** Hero/background images per service slug — used by HomeClient and ServicesClient */
+export const serviceImages: Record<string, string> = {
+  "appliance-installation":
+    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
+  plumbing:
+    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+  residential:
+    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
+  commercial:
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+};
+
+/** Descriptive alt text per service slug */
+export const serviceImageAlts: Record<string, string> = {
+  "appliance-installation":
+    "Professional technician installing a modern kitchen appliance in a Metro Vancouver home",
+  plumbing:
+    "Licensed plumber working on bathroom fixture installation with precision tools",
+  residential:
+    "Residential home exterior representing appliance and plumbing services for homeowners",
+  commercial:
+    "Commercial building lobby representing large-scale appliance installation projects",
+};
+
+/** Avatar URLs for testimonial authors — keyed by name */
+export const testimonialAvatars: Record<string, string> = {
+  "Michael T.":
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+  "Sandra & James K.":
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
+  "Patricia M.":
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
 };

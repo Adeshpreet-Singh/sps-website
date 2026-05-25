@@ -3,9 +3,10 @@
 import { Star, ExternalLink, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { testimonials, siteConfig } from "@/lib/data";
+import { testimonials, siteConfig, testimonialAvatars } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import EmptyState from "@/components/EmptyState";
+import CursorGlow from "@/components/CursorGlow";
 
 export default function ReviewsPage() {
   const [ratingRef, ratingVisible] = useScrollReveal();
@@ -16,12 +17,6 @@ export default function ReviewsPage() {
   const rating: number = 4.6;
   const fullStars = Math.floor(rating);
   const hasHalf = rating % 1 >= 0.5;
-
-  const avatarMap: Record<string, string> = {
-    "Michael T.": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-    "Sandra & James K.": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
-    "Patricia M.": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
-  };
 
   // Build AggregateRating JSON-LD
   const ratingSchema = {
@@ -51,7 +46,7 @@ export default function ReviewsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-dark-surface">
+    <div className="min-h-screen bg-white dark:bg-dark-surface">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -70,7 +65,9 @@ export default function ReviewsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
       />
       {/* Hero */}
-      <section aria-label="Reviews hero" className="relative overflow-hidden py-20 sm:py-28 md:py-36">
+      <section aria-label="Reviews hero" className="relative overflow-hidden py-16 sm:py-24 md:py-36">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Background image — decorative */}
         <div aria-hidden="true" className="absolute inset-0">
           <Image
@@ -119,7 +116,7 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
-                <p className="mt-4 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
+                <p className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
                   {rating}
                 </p>
                 <span className="sr-only">{rating} out of 5 stars</span>
@@ -140,7 +137,7 @@ export default function ReviewsPage() {
       {/* Testimonials Grid */}
       <section aria-label="Customer testimonials" className="bg-gradient-to-b from-surface-alt dark:from-dark-surface-alt to-white dark:to-dark-surface py-16 sm:py-20">
         <div ref={gridRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${gridVisible ? "reveal-visible" : ""}`}>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 stagger-children">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children">
             {testimonials.length === 0 ? (
               <div className="md:col-span-2 lg:col-span-3">
                 <EmptyState
@@ -152,7 +149,7 @@ export default function ReviewsPage() {
               testimonials.map((t, idx) => (
               <div
                 key={t.name}
-                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-shadow duration-300 hover:shadow-card-hover dark:hover:border-accent/20 card-hover reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-shadow duration-300 hover:shadow-card-hover dark:hover:border-accent/20 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* Left accent gradient border */}
                 <div className="absolute left-0 top-8 bottom-8 w-1 rounded-r-full bg-gradient-to-b from-accent to-accent-light" />
@@ -171,6 +168,7 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
+                <span className="sr-only">{t.rating} out of 5 stars</span>
                 {/* Quote */}
                 <blockquote className="mt-4 text-base leading-relaxed text-text-muted dark:text-dark-text-muted italic">
                   &ldquo;{t.quote}&rdquo;
@@ -179,10 +177,10 @@ export default function ReviewsPage() {
                 {/* Author info */}
                 <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    {avatarMap[t.name] && (
+                    {testimonialAvatars[t.name] && (
                       <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20">
                         <Image
-                          src={avatarMap[t.name]}
+                          src={testimonialAvatars[t.name]}
                           alt={t.name}
                           fill
                           className="object-cover"
@@ -235,7 +233,7 @@ export default function ReviewsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Read our reviews on Google Business (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover gradient-border-shine"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -260,7 +258,7 @@ export default function ReviewsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Read our reviews on Homestars (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover gradient-border-shine"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -284,6 +282,8 @@ export default function ReviewsPage() {
 
       {/* CTA */}
       <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-16 sm:py-20">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent-light/10 via-transparent to-transparent" />
         <div ref={ctaRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
@@ -298,7 +298,7 @@ export default function ReviewsPage() {
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-accent px-6 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 btn-press"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-accent px-6 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer"
               >
                 Get in Touch
               </Link>
@@ -306,6 +306,6 @@ export default function ReviewsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

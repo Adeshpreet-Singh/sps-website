@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy dark:bg-dark-surface text-white transition-colors duration-300">
       <div ref={footerRef} className={`mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 reveal-hidden ${footerVisible ? "reveal-visible" : ""}`}>
-        <div className="grid gap-10 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 stagger-children">
           {/* Column 1 — Logo & About */}
           <div>
             <Link href="/" className="inline-block group" aria-label="SPS Smith Pro Services — Home">
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block py-1.5 text-sm text-white/70 transition-colors hover:text-accent motion-reduce:transition-none link-underline"
+                    className="block py-1.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
                   >
                     {service.title}
                   </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-1.5 text-sm text-white/70 transition-colors hover:text-accent motion-reduce:transition-none link-underline"
+                    className="block py-1.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
                   >
                     {link.label}
                   </Link>
@@ -84,23 +84,21 @@ export default function Footer() {
             </h3>
             <ul aria-labelledby="footer-contact" className="mt-3 flex flex-col gap-2 text-sm text-white/70">
               <li>
-                <li>
-                  <a
-                    href={siteConfig.phoneLink}
-                    aria-label={`Call us at ${siteConfig.phone}`}
-                    className="block py-1.5 transition-colors hover:text-accent motion-reduce:transition-none link-underline"
-                  >
-                    {siteConfig.phone}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={siteConfig.emailLink}
-                    aria-label={`Email us at ${siteConfig.email}`}
-                    className="block py-1.5 transition-colors hover:text-accent motion-reduce:transition-none link-underline"
-                  >
-                    {siteConfig.email}
-                  </a>
+                <a
+                  href={siteConfig.phoneLink}
+                  aria-label={`Call us at ${siteConfig.phone}`}
+                  className="block py-1.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                >
+                  {siteConfig.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.emailLink}
+                  aria-label={`Email us at ${siteConfig.email}`}
+                  className="block py-1.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                >
+                  {siteConfig.email}
                 </a>
               </li>
               <li className="transition-colors duration-200 hover:text-white/90">Metro Vancouver, B.C.</li>

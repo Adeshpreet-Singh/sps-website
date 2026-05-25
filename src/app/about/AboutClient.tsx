@@ -14,6 +14,7 @@ import {
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import Breadcrumb from "@/components/Breadcrumb";
+import CursorGlow from "@/components/CursorGlow";
 
 function AboutStat({
   stat,
@@ -35,7 +36,7 @@ function AboutStat({
   return (
     <div className="relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-none dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden reveal-scale-visible">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-accent rounded-b-full" />
-      <p className="text-4xl md:text-5xl font-bold text-navy dark:text-dark-text mt-2 tabular-nums">
+      <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy dark:text-dark-text mt-2 tabular-nums">
         {display}
         {String(stat.value).includes("★") && "★"}
       </p>
@@ -62,14 +63,14 @@ export default function AboutPage() {
       image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop",
     },
     {
-      icon: <BadgeCheck className="w-7 h-7" />,
+      icon: <BadgeCheck className="w-7 h-7" aria-hidden="true" />,
       title: "Quality",
       description:
         "Every installation meets manufacturer specs and building codes.",
       image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
     },
     {
-      icon: <Users className="w-7 h-7" />,
+      icon: <Users className="w-7 h-7" aria-hidden="true" />,
       title: "Respect",
       description:
         "We treat your home like our own. Clean, careful, professional.",
@@ -97,7 +98,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="flex flex-col">
+    <div className="flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -112,7 +113,7 @@ export default function AboutPage() {
         }}
       />
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section aria-label="About hero" className="relative overflow-hidden py-20 sm:py-28 md:py-36">
+      <section aria-label="About hero" className="relative overflow-hidden py-16 sm:py-24 md:py-36">
         {/* Background image — decorative */}
         <div aria-hidden="true" className="absolute inset-0">
           <Image
@@ -151,9 +152,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Our Story (two-column) ────────────────────────── */}
-      <section aria-label="Our story" className="py-20 md:py-28 bg-surface dark:bg-dark-surface">
+      <section aria-label="Our story" className="py-16 sm:py-20 md:py-28 bg-surface dark:bg-dark-surface">
         <div ref={storyRef} className={`mx-auto max-w-6xl px-4 sm:px-6 reveal-hidden ${storyVisible ? "reveal-visible" : ""}`}>
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-start">
             {/* Left — text */}
             <div className="lg:col-span-3 space-y-6 text-text-muted dark:text-dark-text-muted leading-relaxed text-lg">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text">
@@ -196,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────── */}
-      <section aria-label="Company statistics" className="bg-surface-alt dark:bg-dark-surface-alt py-10 sm:py-12 md:py-16 lg:py-20">
+      <section aria-label="Company statistics" className="bg-surface-alt dark:bg-dark-surface-alt py-12 sm:py-14 md:py-16 lg:py-20">
         <div ref={statsRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${statsVisible ? "reveal-visible" : ""}`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stagger-children">
             {stats.map((stat) => (
@@ -207,9 +208,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── Our Values (glass-morphism on dark) ──────────── */}
-      <section aria-label="Our values" className="relative py-12 sm:py-16 md:py-20 lg:py-28 bg-navy-dark overflow-hidden">
+      <section aria-label="Our values" className="relative py-10 sm:py-14 md:py-20 lg:py-28 bg-navy-dark overflow-hidden">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Decorative background */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-navy-light/20 blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] rounded-full bg-navy-light/20 blur-3xl" />
 
         <div ref={valuesRef} className={`relative mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${valuesVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center">
@@ -255,7 +258,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Leadership ───────────────────────────────────── */}
-      <section aria-label="Leadership team" className="py-12 sm:py-16 md:py-20 lg:py-28 bg-surface dark:bg-dark-surface">
+      <section aria-label="Leadership team" className="py-10 sm:py-14 md:py-20 lg:py-28 bg-surface dark:bg-dark-surface">
         <div ref={leadersRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${leadersVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text text-center">
             Led by a team committed to excellence
@@ -268,14 +271,14 @@ export default function AboutPage() {
             {leaders.map((leader) => (
               <div
                 key={leader.name}
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/30 gradient-border-shine"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/30 gradient-border-shine card-tilt"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />
                 <div className="absolute inset-[1.5px] rounded-[10px] bg-white dark:bg-dark-surface -z-10" />
 
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center mb-4 shadow-lg">
-                  <Sparkles className="w-8 h-8 text-accent" />
+                  <Sparkles className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="text-lg font-semibold text-text dark:text-dark-text">
                   {leader.name}
@@ -288,10 +291,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section aria-label="Get started" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-12 sm:py-16 md:py-20 lg:py-28">
+      <section aria-label="Get started" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-10 sm:py-14 md:py-20 lg:py-28">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Decorative elements */}
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
+        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
         <div aria-hidden="true" className="absolute top-12 right-[15%] w-20 h-20 rounded-full border border-white/[0.06]" />
         <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
 
@@ -320,6 +325,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { Component, type ReactNode } from "react";
-import { AlertTriangle, RefreshCw, Home } from "lucide-react";
+import { RefreshCw, Home } from "lucide-react";
+import ErrorIcon from "@/components/ErrorIcon";
 import Link from "next/link";
 
 interface ErrorBoundaryProps {
@@ -68,13 +69,7 @@ export default class ErrorBoundary extends Component<
           aria-label="Something went wrong"
           className="flex flex-col items-center justify-center min-h-[50vh] px-4 sm:px-6 py-16 text-center"
         >
-          <div className="relative mb-6">
-            <div className="w-20 h-20 rounded-full bg-error/10 flex items-center justify-center">
-              <AlertTriangle className="w-10 h-10 text-error" />
-            </div>
-            <div className="absolute inset-0 rounded-full border-2 border-error/20 animate-pulse" />
-          </div>
-
+          <ErrorIcon />
           <h2 className="text-xl sm:text-2xl font-heading font-bold text-text dark:text-dark-text mb-3">
             Something went wrong
           </h2>
@@ -92,10 +87,11 @@ export default class ErrorBoundary extends Component<
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center mt-6">
             <button
+              type="button"
               onClick={this.handleRetry}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark hover:shadow-lg btn-press"
             >
-              <RefreshCw className="h-4 w-4" />
+              <RefreshCw className="h-4 w-4" aria-hidden="true" />
               Try Again
             </button>
             <Link

@@ -8,9 +8,9 @@ export default function NotFound() {
       className="flex flex-col items-center justify-center min-h-[70vh] px-4 sm:px-6 py-16 sm:py-24 text-center"
     >
       {/* Large 404 number */}
-      <div className="relative mb-6">
+      <div className="relative mb-6" aria-hidden="true">
         <span
-          className="text-[8rem] sm:text-[12rem] md:text-[16rem] font-heading font-bold leading-none select-none"
+          className="text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] font-heading font-bold leading-none select-none"
           style={{
             background:
               "linear-gradient(135deg, var(--color-navy) 0%, var(--color-accent) 100%)",

@@ -3,10 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Wrench,
-  Droplets,
-  Home,
-  Building2,
   ArrowRight,
   Phone,
   CheckCircle2,
@@ -14,29 +10,11 @@ import {
   Clock,
   Star,
 } from "lucide-react";
-import { services, siteConfig, serviceImageAlts, type LucideIconName } from "@/lib/data";
+import { services, siteConfig, serviceImageAlts, serviceImages } from "@/lib/data";
+import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import EmptyState from "@/components/EmptyState";
 
-const serviceImages: Record<string, string> = {
-  "appliance-installation":
-    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=300&fit=crop",
-  plumbing:
-    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=300&fit=crop",
-  residential:
-    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=300&fit=crop",
-  commercial:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=300&fit=crop",
-};
-
-
-
-const iconMap: Record<LucideIconName, React.ComponentType<{ className?: string }>> = {
-  Wrench,
-  Droplets,
-  Home,
-  Building2,
-};
 
 /* Service highlights — trust badges per service */
 const serviceHighlights: Record<string, string[]> = {
@@ -155,7 +133,7 @@ export default function ServicesPage() {
   const [ctaRef, ctaVisible] = useScrollReveal();
 
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <ServicesJsonLd />
       <script
         type="application/ld+json"
@@ -212,7 +190,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services List ── */}
-      <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
         <div ref={servicesListRef} className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
           {services.length === 0 ? (
             <EmptyState
@@ -227,7 +205,7 @@ export default function ServicesPage() {
             return (
               <article
                 key={service.slug}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:border-accent/20 card-hover reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:border-accent/20 card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* ── Top: Image ── */}
                 {serviceImages[service.slug] && (
@@ -252,7 +230,7 @@ export default function ServicesPage() {
                   {/* ── Left: Icon + Number ── */}
                   <div className="flex shrink-0 items-center justify-center gap-3 bg-gradient-to-br from-[#0f1b3d] to-[#1a2760] px-6 py-6 text-white md:flex-col md:px-8 md:w-56 md:py-14">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                      {Icon && <Icon className="h-8 w-8" />}
+                      {Icon && <Icon className="h-8 w-8" aria-hidden="true" />}
                     </div>
                     <span className="text-sm font-semibold tracking-wider text-white/50">
                       Service {service.number}
@@ -294,7 +272,7 @@ export default function ServicesPage() {
                     <div className="mt-8">
                       <Link
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-navy-light hover:gap-3 btn-press"
+                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer"
                       >
                         Learn More
                         <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -310,7 +288,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Why Choose Us ── */}
-      <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
         <div ref={whyRef} className={`mx-auto max-w-5xl reveal-hidden ${whyVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-center font-heading text-3xl font-bold text-text dark:text-dark-text sm:text-4xl">
             Why Choose SPS?
@@ -319,7 +297,7 @@ export default function ServicesPage() {
             We combine expertise with reliability to deliver installations that
             last.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
             {[
               {
                 icon: Shield,
@@ -362,7 +340,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-12 sm:py-16 lg:py-24">
         <div ref={ctaRef} className={`mx-auto max-w-2xl reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
             <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text sm:text-3xl lg:text-4xl">
@@ -390,6 +368,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

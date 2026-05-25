@@ -10,6 +10,7 @@ import {
   AlertTriangle,
   RefreshCw,
 } from "lucide-react";
+import ErrorIcon from "@/components/ErrorIcon";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -99,9 +100,9 @@ function FloatingInput({
       </label>
       {/* Validation icon */}
       {(error || valid) && (
-        <span className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+        <span aria-hidden="true" className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
           {error ? (
-            <XCircle className="h-5 w-5 text-error" />
+            <XCircle className="h-5 w-5 text-error" aria-hidden="true" />
           ) : (
             <CheckCircle className="h-5 w-5 text-success" aria-hidden="true" />
           )}
@@ -269,20 +270,17 @@ function ErrorMessage({
 }) {
   return (
     <div aria-live="assertive" role="alert" className="flex flex-col items-center justify-center py-12 text-center animate-scale-in">
-      <div className="relative mb-6">
-        <div className="w-20 h-20 rounded-full bg-error/10 flex items-center justify-center">
-          <AlertTriangle className="w-10 h-10 text-error" />
-        </div>
-      </div>
+      <ErrorIcon pulse={false} />
       <h3 className="text-2xl font-heading font-bold text-text dark:text-dark-text mb-2">
         Something went wrong
       </h3>
       <p className="text-text-muted dark:text-dark-text-muted max-w-md mb-6">{message}</p>
       <button
+        type="button"
         onClick={onRetry}
         className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press"
       >
-        <RefreshCw className="h-4 w-4" />
+        <RefreshCw className="h-4 w-4" aria-hidden="true" />
         Try Again
       </button>
     </div>
@@ -490,7 +488,7 @@ export default function ContactForm() {
           role="alert"
           className="flex items-start gap-3 rounded-xl border border-error/20 bg-error/5 px-4 py-3 text-sm text-error animate-slide-up"
         >
-          <AlertTriangle className="h-5 w-5 shrink-0 mt-0.5" />
+          <AlertTriangle className="h-5 w-5 shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <p className="font-medium">Submission failed</p>
             <p className="mt-1 text-error/80">{error}</p>
@@ -506,12 +504,12 @@ export default function ContactForm() {
       >
         {loading ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
             <span className="animate-pulse">Sending…</span>
           </>
         ) : (
           <>
-            <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             Request a Quote
           </>
         )}

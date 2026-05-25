@@ -30,7 +30,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ServiceAreaPage() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -82,7 +82,7 @@ export default function ServiceAreaPage() {
               <div className="rounded-[14px] bg-surface dark:bg-dark-surface p-4 sm:p-6 md:p-8 lg:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   {/* Service area image */}
-                  <div className="relative aspect-[4/3] sm:aspect-square max-h-[200px] sm:max-h-[280px] md:max-h-[320px] rounded-xl overflow-hidden img-zoom-hover">
+                  <div className="relative aspect-[4/3] sm:aspect-square max-h-[240px] sm:max-h-[300px] md:max-h-[340px] rounded-xl overflow-hidden img-zoom-hover">
                     <Image
                       src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop"
                       alt="Service area coverage"
@@ -136,7 +136,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Cities Grid — badges with hover fill */}
-      <section aria-label="Cities we serve" className="py-20 px-4 sm:px-6 bg-surface-alt dark:bg-dark-surface-alt">
+      <section aria-label="Cities we serve" className="py-16 sm:py-20 px-4 sm:px-6 bg-surface-alt dark:bg-dark-surface-alt">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -166,7 +166,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Service Details — two-column icon cards */}
-      <section aria-label="Service details" className="py-20 px-4 sm:px-6">
+      <section aria-label="Service details" className="py-16 sm:py-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-14">
@@ -225,7 +225,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* CTA — gradient bg */}
-      <section aria-label="Contact us" className="py-20 px-4 sm:px-6 bg-gradient-to-br from-navy via-navy-light to-navy-dark text-white">
+      <section aria-label="Contact us" className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-navy via-navy-light to-navy-dark text-white">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
@@ -239,7 +239,7 @@ export default function ServiceAreaPage() {
               <a
                 href={siteConfig.phoneLink}
                 aria-label={`Call us at ${siteConfig.phone}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 btn-press"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer"
               >
                 <Phone className="w-4 h-4" aria-hidden="true" />
                 {siteConfig.phone}
@@ -256,6 +256,6 @@ export default function ServiceAreaPage() {
           </div>
         </ScrollReveal>
       </section>
-    </main>
+    </div>
   );
 }

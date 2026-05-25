@@ -98,13 +98,13 @@ export default function Navbar() {
           <span className="inline-flex items-center rounded-full bg-navy dark:bg-accent px-4 py-1.5 text-sm font-bold text-white tracking-wide transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(232,122,46,0.3)] motion-reduce:transition-none motion-reduce:transform-none">
             SPS
           </span>
-          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted sm:inline">
+          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted lg:inline">
             Smith Pro Services
           </span>
         </Link>
 
         {/* Desktop Nav — visible on tablet (md) and up */}
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -123,7 +123,7 @@ export default function Navbar() {
                 <span
                   className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-300 ease-out motion-reduce:transition-none ${
                     isActive
-                      ? "w-5"
+                      ? "w-5 animate-accent-pulse"
                       : "w-0 group-hover:w-5"
                   }`}
                 />
@@ -133,7 +133,7 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTAs — visible on tablet (md) and up */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href={siteConfig.phoneLink}
             aria-label={`Call us at ${siteConfig.phone}`}
@@ -153,12 +153,12 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button + Theme Toggle — 44px min touch target */}
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 lg:hidden">
           <ThemeToggle />
           <button
             ref={toggleRef}
             type="button"
-            className={`inline-flex flex-col items-center justify-center gap-[5px] rounded-md p-3 text-text dark:text-dark-text transition-colors duration-200 hover:text-accent md:hidden motion-reduce:transition-none min-w-[44px] min-h-[44px] ${mobileOpen ? "hamburger-open" : ""}`}
+            className={`inline-flex flex-col items-center justify-center gap-[5px] rounded-md p-3 text-text dark:text-dark-text transition-colors duration-200 hover:text-accent lg:hidden motion-reduce:transition-none min-w-[44px] min-h-[44px] ${mobileOpen ? "hamburger-open" : ""}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -174,7 +174,7 @@ export default function Navbar() {
       {/* Mobile Slide-in Panel */}
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300 md:hidden motion-reduce:transition-none ${
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300 lg:hidden motion-reduce:transition-none ${
           mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setMobileOpen(false)}
@@ -187,7 +187,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-white dark:bg-dark-surface shadow-[-4px_0_20px_rgba(0,0,0,0.15)] dark:shadow-[-4px_0_20px_rgba(0,0,0,0.5)] border-l border-border/50 dark:border-dark-border/50 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden motion-reduce:transition-none ${
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-white dark:bg-dark-surface shadow-[-4px_0_20px_rgba(0,0,0,0.15)] dark:shadow-[-4px_0_20px_rgba(0,0,0,0.5)] border-l border-border/50 dark:border-dark-border/50 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden motion-reduce:transition-none ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -201,7 +201,7 @@ export default function Navbar() {
             className="rounded-md p-2.5 text-text-muted dark:text-dark-text-muted transition-colors hover:text-text dark:hover:text-dark-text motion-reduce:transition-none"
             aria-label="Close menu"
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 

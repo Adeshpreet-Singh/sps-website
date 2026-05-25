@@ -114,11 +114,6 @@
     color: #ffffff;
   }
 
-  :focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
 
   /* Respect users who prefer reduced motion */
   @media (prefers-reduced-motion: reduce) {
@@ -131,6 +126,13 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/* ── Focus styles (outside @layer so utilities can't override) ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ── Animation Keyframes ── */
@@ -919,6 +921,97 @@
   .animate-text-reveal {
     animation: textReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  /* ── Animation Polish — Additional Enhancements ── */
+
+  /* Smooth image load-in — fade + slight scale */
+  .img-load-fade {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .img-load-fade.loaded {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Parallax float — slower, more subtle than animate-float */
+  @keyframes parallaxFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-4px) rotate(0.5deg); }
+    75% { transform: translateY(4px) rotate(-0.5deg); }
+  }
+  .animate-parallax-float {
+    animation: parallaxFloat 10s ease-in-out infinite;
+  }
+
+  /* Gradient text shimmer — animated gradient for headings */
+  @keyframes gradientTextShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient-text {
+    background-size: 200% 200%;
+    animation: gradientTextShimmer 4s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth number counter entrance */
+  @keyframes counterEnter {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  .animate-counter-enter {
+    animation: counterEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Accent line pulse — for active nav indicator */
+  @keyframes accentPulse {
+    0%, 100% { opacity: 1; width: 20px; }
+    50% { opacity: 0.7; width: 24px; }
+  }
+  .animate-accent-pulse {
+    animation: accentPulse 2s ease-in-out infinite;
+  }
+
+  /* Card tilt — subtle 3D perspective on hover */
+  .card-tilt {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .card-tilt:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  }
+
+  /* Smooth focus-within — highlight entire form group on focus */
+  .focus-within-highlight {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .focus-within-highlight:focus-within {
+    box-shadow: 0 0 0 3px rgba(232, 122, 46, 0.15);
+    border-color: var(--color-accent);
+  }
+
+  /* Stagger fade for loading states */
+  @keyframes staggerFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-stagger-fade {
+    animation: staggerFade 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
 
 /* ── Nav enter keyframe (outside @layer for specificity) ── */
@@ -931,4 +1024,41 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ── Performance Hints ── */
+
+/* Promote animated elements to their own compositor layer */
+.animate-float,
+.animate-pulse-glow,
+.animate-shimmer,
+.animate-parallax-float {
+  will-change: transform, opacity;
+}
+
+/* Use CSS contain for independent sections to reduce layout thrashing.
+   Note: avoid contain:layout on sections with position:absolute/sticky
+   children as it creates a new containing block and can break positioning. */
+
+/* Reduce paint area for the hero video overlay */
+video {
+  will-change: auto;
+  contain: strict;
+}
+
+/* Optimize scroll-driven animations for GPU */
+.reveal-hidden,
+.reveal-scale-hidden,
+.reveal-left-hidden {
+  will-change: opacity, transform;
+}
+.reveal-visible,
+.reveal-scale-visible,
+.reveal-left-visible {
+  will-change: auto;
+}
+
+/* Reduce reflows on the fixed-position scroll-to-top button */
+.fixed {
+  contain: layout style;
 }

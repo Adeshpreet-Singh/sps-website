@@ -4,42 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Wrench,
-  Droplets,
-  Home,
-  Building2,
   Shield,
-  Clock,
-  BadgeCheck,
-  Sparkles,
   Phone,
   ChevronRight,
   ChevronDown,
   ArrowRight,
   MapPin,
   Quote,
-  type LucideIcon,
 } from "lucide-react";
-import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars, type LucideIconName } from "@/lib/data";
+import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars } from "@/lib/data";
+import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
 import EmptyState from "@/components/EmptyState";
-import ErrorBoundary from "@/components/ErrorBoundary";
-
-/* ------------------------------------------------------------------ */
-/*  Icon registry — maps data.ts icon strings to lucide-react components */
-/* ------------------------------------------------------------------ */
-
-const iconMap: Record<LucideIconName, LucideIcon> = {
-  Wrench,
-  Droplets,
-  Home,
-  Building2,
-  Shield,
-  Clock,
-  BadgeCheck,
-  Sparkles,
-};
+import CursorGlow from "@/components/CursorGlow";
 
 /* ================================================================== */
 /*  Animated stat counter for hero                                    */
@@ -69,7 +48,7 @@ function HeroStat({
   });
 
   return (
-    <div role="listitem" className="flex flex-col items-center py-6 px-4 animate-slide-up">
+    <div role="listitem" className={`flex flex-col items-center py-6 px-4 animate-slide-up ${started ? "animate-counter-enter" : ""}`}>
       <p className="text-3xl sm:text-4xl font-bold text-white tabular-nums">
         {isText ? value : display}
         {suffix && <span className="text-accent">{suffix}</span>}
@@ -106,6 +85,8 @@ export default function HomePage() {
       {/*  1. HERO — full-height with gradient, floating shapes, stats */}
       {/* ============================================================ */}
       <section ref={heroRef} aria-label="Hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-dark text-white">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Background video — deferred until hero is in viewport */}
         {heroVisible && (
           <video
@@ -127,9 +108,9 @@ export default function HomePage() {
         <div aria-hidden="true" className="absolute top-20 left-[10%] h-48 w-48 sm:h-72 sm:w-72 rounded-full bg-accent/5 blur-3xl animate-float" />
         <div aria-hidden="true" className="absolute bottom-32 right-[8%] h-64 w-64 sm:h-96 sm:w-96 rounded-full bg-accent/4 blur-3xl animate-float delay-300" />
         <div aria-hidden="true" className="hidden sm:block absolute top-1/3 right-[15%] h-48 w-48 rounded-full border border-white/5 animate-float delay-500" />
-        <div aria-hidden="true" className="hidden sm:block absolute bottom-1/4 left-[20%] h-24 w-24 rounded-lg border border-white/5 rotate-12" />
-        <div aria-hidden="true" className="absolute top-[15%] right-[35%] h-16 w-16 rounded-full border border-white/5" />
-        <div aria-hidden="true" className="hidden sm:block absolute bottom-[20%] left-[40%] h-32 w-32 rounded-lg border border-white/[0.03] rotate-45" />
+        <div aria-hidden="true" className="hidden sm:block absolute bottom-1/4 left-[20%] h-24 w-24 rounded-lg border border-white/5 rotate-12 animate-parallax-float" />
+        <div aria-hidden="true" className="absolute top-[15%] right-[35%] h-16 w-16 rounded-full border border-white/5 animate-parallax-float delay-300" />
+        <div aria-hidden="true" className="hidden sm:block absolute bottom-[20%] left-[40%] h-32 w-32 rounded-lg border border-white/[0.03] rotate-45 animate-parallax-float delay-500" />
 
         {/* Content */}
         <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-32 pb-12 sm:pb-16">
@@ -143,8 +124,8 @@ export default function HomePage() {
               Need an Installer?
             </h1>
             <p
-              className="mt-2 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight animate-slide-up delay-100"
-              style={{ color: "var(--color-accent)", textShadow: "0 0 40px rgba(var(--color-accent-rgb, 59,130,246), 0.35)" }}
+              className="mt-2 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight animate-slide-up delay-100 animate-gradient-text"
+              style={{ backgroundImage: "linear-gradient(135deg, var(--color-accent), var(--color-accent-light), #fbbf24, var(--color-accent))", textShadow: "0 0 40px rgba(var(--color-accent-rgb, 59,130,246), 0.35)" }}
             >
               We&apos;ve Got You.
             </p>
@@ -154,7 +135,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up delay-300">
               <Link
                 href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer animate-pulse-glow"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer"
               >
                 Get a Free Quote
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -170,7 +151,7 @@ export default function HomePage() {
             </div>
 
             {/* Scroll-down indicator — smooth scroll to services */}
-            <div className="mt-16 flex items-center gap-2 text-white/70 animate-fade-in delay-500">
+            <div className="mt-10 sm:mt-16 flex items-center gap-2 text-white/70 animate-fade-in delay-500">
               <a href="#services" className="flex items-center gap-2 hover:text-white/80 transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm" aria-label="Scroll to services section">
                 <ChevronDown className="h-5 w-5 animate-bounce-limited" aria-hidden="true" />
                 <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
@@ -181,7 +162,7 @@ export default function HomePage() {
 
         {/* Stats row at bottom of hero — animated counters */}
         <div ref={statsRef} className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
-          <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
+          <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
             <HeroStat value={siteConfig.stats.yearsInBusiness} label="Years in Business" suffix="" started={statsVisible} />
             <HeroStat value={siteConfig.stats.installations} label="Installations" suffix="+" started={statsVisible} />
             <HeroStat value={siteConfig.stats.licensedInsured} label="Licensed &amp; Insured" suffix="" started={statsVisible} isText />
@@ -196,7 +177,7 @@ export default function HomePage() {
       <section id="trust" aria-label="Trusted retailers" className="relative z-10 -mt-12 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div
           ref={trustRef}
-          className={`rounded-2xl bg-white dark:bg-dark-surface px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 reveal-scale-hidden ${trustVisible ? "reveal-scale-visible" : ""}`}
+          className={`rounded-2xl bg-white dark:bg-dark-surface px-4 sm:px-6 lg:px-12 py-5 sm:py-8 lg:py-10 reveal-scale-hidden ${trustVisible ? "reveal-scale-visible" : ""}`}
           style={{ boxShadow: "0 8px 30px rgba(50,50,93,0.25), 0 2px 8px rgba(0,0,0,0.08)" }}
         >
           <p className="text-center text-sm font-medium text-text-muted dark:text-dark-text-muted uppercase tracking-wide mb-6">
@@ -219,11 +200,11 @@ export default function HomePage() {
       {/*  4. SERVICES OVERVIEW                                        */}
       {/* ============================================================ */}
       <section id="services" aria-label="Services" className="bg-gradient-to-b from-white to-surface-alt dark:from-dark-surface dark:to-dark-surface-alt">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
           {/* Section header with accent dot */}
           <div ref={servicesHeaderRef} className={`text-center max-w-2xl mx-auto mb-14 reveal-hidden ${servicesHeaderVisible ? "reveal-visible" : ""}`}>
             <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="inline-block h-2 w-2 rounded-full bg-accent" />
+              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
                 What We Do
               </p>
@@ -264,13 +245,13 @@ src={serviceImages[svc.slug]}
                   </div>
 
                   {/* Number badge */}
-                  <span className="absolute top-5 right-6 text-6xl font-bold text-navy/[0.06] dark:text-white/[0.04] select-none leading-none pointer-events-none z-10">
+                  <span aria-hidden="true" className="absolute top-5 right-6 text-6xl font-bold text-navy/[0.06] dark:text-white/[0.04] select-none leading-none pointer-events-none z-10">
                     {svc.number}
                   </span>
 
                   {/* Icon in gradient rounded square */}
                   <div className="mt-4 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-light text-white shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
-<Phone className="h-5 w-5" aria-hidden="true" />
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
 
                   {/* Title */}
@@ -313,6 +294,8 @@ src={serviceImages[svc.slug]}
       {/*  5. WHY CHOOSE US                                            */}
       {/* ============================================================ */}
       <section id="why-us" aria-label="Why choose us" className="relative overflow-hidden bg-navy-dark text-white">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Decorative geometric shapes (CSS-only) */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full border border-white/[0.04]" />
@@ -321,12 +304,12 @@ src={serviceImages[svc.slug]}
           <div className="absolute -bottom-10 left-1/3 h-24 w-24 rotate-12 border border-white/[0.04]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
           {/* Section header with accent underline */}
           <div ref={whyUsHeaderRef} className={`text-center max-w-3xl mx-auto mb-14 reveal-hidden ${whyUsHeaderVisible ? "reveal-visible" : ""}`}>
             <h2 className="text-3xl sm:text-4xl font-bold text-white inline-block relative">
               Built on reliability, driven by results.
-              <span className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent" />
+              <span className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent animate-line-grow" />
             </h2>
             <p className="mt-6 text-white/70 leading-relaxed max-w-2xl mx-auto">
               We&apos;ve built our reputation one job at a time — showing up when we say we
@@ -347,11 +330,11 @@ src={serviceImages[svc.slug]}
               return (
                 <div
                   key={feature.title}
-                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(232,122,46,0.08)]"
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] card-tilt"
                 >
                   {/* Icon in accent circle */}
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white icon-lift">
-<Phone className="h-5 w-5" aria-hidden="true" />
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
 
                   <div>
@@ -370,7 +353,7 @@ src={serviceImages[svc.slug]}
       {/*  6. TESTIMONIALS                                             */}
       {/* ============================================================ */}
       <section id="testimonials" aria-label="Testimonials" className="relative bg-white dark:bg-dark-surface border-t border-border dark:border-dark-border">
-        <div ref={testimonialsRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
+        <div ref={testimonialsRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
           {/* Section header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm mb-3">
@@ -448,10 +431,10 @@ src={testimonialAvatars[t.name]}
       {/*  7. SERVICE AREA                                             */}
       {/* ============================================================ */}
       <section id="service-area" aria-label="Service area" className="relative bg-dot-grid">
-        <div ref={serviceAreaRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:px-8 reveal-hidden ${serviceAreaVisible ? "reveal-visible" : ""}`}>
+        <div ref={serviceAreaRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${serviceAreaVisible ? "reveal-visible" : ""}`}>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <MapPin className="h-5 w-5 text-accent" aria-hidden="true" />
+              <MapPin className="h-5 w-5 text-accent animate-dot-pulse" aria-hidden="true" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
                 Service Area
               </p>
@@ -489,13 +472,15 @@ src={testimonialAvatars[t.name]}
       {/*  8. FINAL CTA BANNER                                         */}
       {/* ============================================================ */}
       <section id="contact" aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white">
+        {/* Cursor glow effect */}
+        <CursorGlow />
         {/* Decorative floating shapes */}
         <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
         <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
         <div aria-hidden="true" className="absolute top-12 right-[15%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/[0.06]" />
         <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
 
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center">
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16 lg:py-28 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Ready to get started?
           </h2>

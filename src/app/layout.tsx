@@ -2,17 +2,65 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { ThemeProvider, themeScript } from "@/components/ThemeProvider";
+import RouteChangeProgress from "@/components/RouteChangeProgress";
+import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgress from "@/components/ScrollProgress";
+import { Suspense } from "react";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
+  metadataBase: new URL("https://spsinstallation.com"),
+  title: {
+    default: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
+    template: "%s | SPS Installation",
+  },
   description:
-    "Metro Vancouver's trusted partner for professional appliance installation and plumbing services — serving both residential homes and commercial properties.",
+    "Metro Vancouver's trusted appliance installation & plumbing team. Licensed, insured, warranty-compliant. Serving Surrey, Vancouver, Burnaby & beyond.",
+  alternates: {
+    canonical: "https://spsinstallation.com/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "https://spsinstallation.com",
+    siteName: "SPS Installation",
+    title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
+    description: "Metro Vancouver's trusted appliance installation & plumbing team.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SPS Installation — Appliance Installation & Plumbing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SPS Installation — Appliance Installation & Plumbing",
+    description: "Metro Vancouver's trusted appliance installation & plumbing team.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -20,11 +68,110 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Smith Pro Services Ltd.",
+    image: "https://spsinstallation.com/og-image.jpg",
+    url: "https://spsinstallation.com",
+    telephone: "+1-604-865-0619",
+    email: "info@spsinstallation.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "10750 135a St, #4205",
+      addressLocality: "Surrey",
+      addressRegion: "BC",
+      postalCode: "V3T 0V4",
+      addressCountry: "CA",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 49.28,
+      longitude: -122.55,
+    },
+    openingHours: "Mo-Sa 08:00-18:00",
+    priceRange: "$$",
+    areaServed: [
+      "Vancouver",
+      "Surrey",
+      "Burnaby",
+      "Richmond",
+      "Coquitlam",
+      "North Vancouver",
+      "West Vancouver",
+      "Langley",
+      "Delta",
+      "New Westminster",
+      "Port Moody",
+      "Maple Ridge",
+      "Abbotsford",
+      "Pitt Meadows",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.6",
+      reviewCount: "10000",
+    },
+    founder: [
+      { "@type": "Person", name: "Rajat Kumar" },
+      { "@type": "Person", name: "Diksha Saini" },
+    ],
+  };
+
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "SPS Installation",
+              url: "https://spsinstallation.com",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://spsinstallation.com/faq?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
+        <ThemeProvider>
+          {/* Route change progress indicator */}
+          <Suspense fallback={null}>
+            <RouteChangeProgress />
+          </Suspense>
+          {/* Scroll progress bar */}
+          <ScrollProgress />
+          {/* Skip to main content link — visible on focus for keyboard users */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white focus:shadow-lg focus:text-sm focus:font-semibold"
+          >
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content" className="flex-1 animate-fade-in" tabIndex={-1}>
+            <ErrorBoundary>{children}</ErrorBoundary>
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </ThemeProvider>
       </body>
     </html>
   );
