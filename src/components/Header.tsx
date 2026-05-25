@@ -85,12 +85,13 @@ export default function Header() {
 
       {/* Mobile Menu Slide-in */}
       <div
-        className={`fixed right-0 top-0 z-50 flex h-full w-72 flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
+        style={{ backgroundColor: '#ffffff' }}
+        className={`fixed right-0 top-0 z-50 flex h-full w-72 flex-col shadow-2xl transition-transform duration-300 ease-in-out lg:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close button */}
-        <div className="flex items-center justify-between border-b border-border px-4 py-3">
+        <div style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0' }} className="flex items-center justify-between px-4 py-3">
           <span className="text-lg font-bold text-navy">Menu</span>
           <button
             type="button"
@@ -103,7 +104,7 @@ export default function Header() {
         </div>
 
         {/* Nav links */}
-        <nav className="flex-1 overflow-y-auto px-4 py-4">
+        <nav style={{ backgroundColor: '#ffffff' }} className="flex-1 overflow-y-auto px-4 py-4">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
@@ -119,7 +120,7 @@ export default function Header() {
         </nav>
 
         {/* Bottom CTAs */}
-        <div className="border-t border-border px-4 py-4">
+        <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e2e8f0' }} className="px-4 py-4">
           <a
             href={siteConfig.phoneLink}
             className="mb-3 flex items-center gap-1.5 text-sm font-semibold text-navy"
