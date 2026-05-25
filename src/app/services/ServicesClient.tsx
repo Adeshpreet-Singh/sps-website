@@ -123,7 +123,7 @@ function ServicesJsonLd() {
 function HighlightBadge({ label }: { label: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent-safe">
-      <CheckCircle2 className="h-3 w-3" />
+      <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
       {label}
     </span>
   );
@@ -141,7 +141,7 @@ function TrustBar() {
     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
       {items.map(({ icon: Icon, label }) => (
         <div key={label} className="flex items-center gap-2 text-white/70">
-          <Icon className="h-5 w-5 text-accent" />
+          <Icon className="h-5 w-5 text-accent" aria-hidden="true" />
           <span className="text-sm font-medium">{label}</span>
         </div>
       ))}
@@ -212,7 +212,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services List ── */}
-      <section className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
         <div ref={servicesListRef} className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
           {services.length === 0 ? (
             <EmptyState
@@ -260,7 +260,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* ── Right: Content ── */}
-                  <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 lg:p-10 min-w-0">
                     <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text lg:text-[1.7rem]">
                       {service.title}
                     </h2>
@@ -284,7 +284,7 @@ export default function ServicesPage() {
                           key={item}
                           className="flex items-start gap-2.5 text-sm text-text-muted dark:text-dark-text-muted"
                         >
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                           {item}
                         </li>
                       ))}
@@ -310,7 +310,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Why Choose Us ── */}
-      <section className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
         <div ref={whyRef} className={`mx-auto max-w-5xl reveal-hidden ${whyVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-center font-heading text-3xl font-bold text-text dark:text-dark-text sm:text-4xl">
             Why Choose SPS?
@@ -347,7 +347,7 @@ export default function ServicesPage() {
                 className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 icon-lift">
-                  <Icon className="h-6 w-6 text-accent" />
+                  <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-bold text-text dark:text-dark-text">
                   {title}
@@ -362,7 +362,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
         <div ref={ctaRef} className={`mx-auto max-w-2xl reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
             <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text sm:text-3xl lg:text-4xl">
@@ -377,7 +377,7 @@ export default function ServicesPage() {
                 href={siteConfig.phoneLink}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press"
               >
-                <Phone className="h-5 w-5" />
+                <Phone className="h-5 w-5" aria-hidden="true" />
                 Call {siteConfig.phone}
               </a>
               <Link

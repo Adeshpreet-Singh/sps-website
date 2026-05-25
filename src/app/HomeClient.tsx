@@ -22,6 +22,7 @@ import {
 import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars, type LucideIconName } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useLazyVideo } from "@/hooks/useLazyVideo";
 import EmptyState from "@/components/EmptyState";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -68,7 +69,7 @@ function HeroStat({
   });
 
   return (
-    <div className="flex flex-col items-center py-6 px-4 animate-slide-up">
+    <div role="listitem" className="flex flex-col items-center py-6 px-4 animate-slide-up">
       <p className="text-3xl sm:text-4xl font-bold text-white tabular-nums">
         {isText ? value : display}
         {suffix && <span className="text-accent">{suffix}</span>}
@@ -85,7 +86,7 @@ function HeroStat({
 /* ================================================================== */
 
 export default function HomePage() {
-  // Scroll-reveal hooks for each section
+  // Scroll-reveal hooks for each section (now sharing a single IntersectionObserver pool)
   const [trustRef, trustVisible] = useScrollReveal();
   const [servicesHeaderRef, servicesHeaderVisible] = useScrollReveal();
   const [servicesGridRef, servicesGridVisible] = useScrollReveal();
@@ -96,24 +97,29 @@ export default function HomePage() {
   const [ctaRef, ctaVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal({ threshold: 0.3 });
 
+  // Lazy-load hero video — only starts buffering when hero is in/near viewport
+  const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
+
   return (
     <>
       {/* ============================================================ */}
       {/*  1. HERO — full-height with gradient, floating shapes, stats */}
       {/* ============================================================ */}
-      <section aria-label="Hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-dark text-white">
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/videos/hero-poster.jpg"
-          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+      <section ref={heroRef} aria-label="Hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-dark text-white">
+        {/* Background video — deferred until hero is in viewport */}
+        {heroVisible && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/videos/hero-poster.jpg"
+            className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
           src="/videos/hero-bg.mp4"
           aria-hidden="true"
         />
+        )}
         {/* Dark overlay for text readability — semi-transparent to show video */}
         <div className="absolute inset-0 bg-navy/60" />
 
@@ -175,7 +181,7 @@ export default function HomePage() {
 
         {/* Stats row at bottom of hero — animated counters */}
         <div ref={statsRef} className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
+          <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
             <HeroStat value={siteConfig.stats.yearsInBusiness} label="Years in Business" suffix="" started={statsVisible} />
             <HeroStat value={siteConfig.stats.installations} label="Installations" suffix="+" started={statsVisible} />
             <HeroStat value={siteConfig.stats.licensedInsured} label="Licensed &amp; Insured" suffix="" started={statsVisible} isText />
@@ -375,7 +381,7 @@ src={serviceImages[svc.slug]}
             </h2>
             {/* Large decorative quote icon */}
             <div className="mt-4 flex justify-center">
-              <Quote className="h-12 w-12 text-accent/15" />
+              <Quote className="h-12 w-12 text-accent/15" aria-hidden="true" />
             </div>
           </div>
 
@@ -398,7 +404,7 @@ src={serviceImages[svc.slug]}
                 }}
               >
                 {/* Subtle quote decoration */}
-                <Quote className="absolute top-4 right-4 h-8 w-8 text-accent/10" />
+                <Quote className="absolute top-4 right-4 h-8 w-8 text-accent/10" aria-hidden="true" />
 
                 {/* Avatar + author info */}
                 <div className="flex items-center gap-3 mb-4">
@@ -445,7 +451,7 @@ src={testimonialAvatars[t.name]}
         <div ref={serviceAreaRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-20 lg:px-8 reveal-hidden ${serviceAreaVisible ? "reveal-visible" : ""}`}>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <MapPin className="h-5 w-5 text-accent" />
+              <MapPin className="h-5 w-5 text-accent" aria-hidden="true" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
                 Service Area
               </p>
@@ -484,3 +490,38 @@ src={testimonialAvatars[t.name]}
       {/* ============================================================ */}
       <section id="contact" aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white">
         {/* Decorative floating shapes */}
+        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
+        <div aria-hidden="true" className="absolute top-12 right-[15%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/[0.06]" />
+        <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
+
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+            Ready to get started?
+          </h2>
+          <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl mx-auto">
+            Get a free quote for your next appliance installation or plumbing
+            project. We&apos;re here to help.
+          </p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
+            >
+              Get a Free Quote
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+            <a
+              href={siteConfig.phoneLink}
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 active:translate-y-0 btn-press"
+              aria-label={`Call us at ${siteConfig.phone}`}
+            >
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              Call {siteConfig.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

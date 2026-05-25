@@ -119,7 +119,7 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-20 sm:py-28 md:py-36">
+      <section aria-label="FAQ hero" className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-20 sm:py-28 md:py-36">
         <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
         <div aria-hidden="true" className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-3xl" />
         <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30" />
@@ -177,7 +177,7 @@ export default function FAQPage() {
       />
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-12 sm:py-16 md:py-20 lg:py-28">
+      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-12 sm:py-16 md:py-20 lg:py-28">
         <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
         <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
 
@@ -195,7 +195,7 @@ export default function FAQPage() {
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press"
             >
               Contact Us
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <a
               href={siteConfig.phoneLink}

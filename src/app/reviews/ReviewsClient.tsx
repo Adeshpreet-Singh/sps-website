@@ -119,7 +119,7 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
-                <p className="mt-4 text-5xl sm:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
+                <p className="mt-4 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
                   {rating}
                 </p>
                 <span className="sr-only">{rating} out of 5 stars</span>
@@ -159,7 +159,7 @@ export default function ReviewsPage() {
 
                 {/* Decorative quote mark */}
                 <div className="mb-4">
-                  <Quote className="h-10 w-10 text-accent/15 fill-accent/5" />
+                  <Quote className="h-10 w-10 text-accent/15 fill-accent/5" aria-hidden="true" />
                 </div>
 
                 {/* Stars */}
@@ -171,8 +171,6 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
-                <span className="sr-only">{t.rating} out of 5 stars</span>
-
                 {/* Quote */}
                 <blockquote className="mt-4 text-base leading-relaxed text-text-muted dark:text-dark-text-muted italic">
                   &ldquo;{t.quote}&rdquo;
@@ -225,7 +223,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Review Links */}
-      <section className="py-16 sm:py-20">
+      <section aria-label="External review platforms" className="py-16 sm:py-20">
         <div ref={linksRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${linksVisible ? "reveal-visible" : ""}`}>
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold text-text-muted dark:text-dark-text-muted uppercase tracking-wider">
@@ -285,7 +283,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA */}
-      <section aria-label="Get in touch" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-16 sm:py-20">
+      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-16 sm:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent-light/10 via-transparent to-transparent" />
         <div ref={ctaRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>

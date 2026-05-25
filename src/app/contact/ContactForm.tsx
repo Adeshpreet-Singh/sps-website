@@ -103,7 +103,7 @@ function FloatingInput({
           {error ? (
             <XCircle className="h-5 w-5 text-error" />
           ) : (
-            <CheckCircle className="h-5 w-5 text-success" />
+            <CheckCircle className="h-5 w-5 text-success" aria-hidden="true" />
           )}
         </span>
       )}
@@ -244,7 +244,7 @@ function SuccessMessage() {
     <div aria-live="polite" role="status" className="flex flex-col items-center justify-center py-16 text-center animate-badge-enter">
       <div className="relative mb-6">
         <div className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center">
-          <CheckCircle className="w-10 h-10 text-success" />
+          <CheckCircle className="w-10 h-10 text-success" aria-hidden="true" />
         </div>
         <div className="absolute inset-0 rounded-full border-2 border-success/30 animate-ping-once" />
       </div>
