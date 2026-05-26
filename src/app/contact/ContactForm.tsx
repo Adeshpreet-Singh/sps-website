@@ -42,6 +42,15 @@ const MAX_MESSAGE_LENGTH = 500;
 /** Fields that must pass validation before the form can be submitted. */
 const REQUIRED_FIELDS = ["name", "email", "phone", "serviceType"] as const;
 
+/* ---------- Shared helpers ---------- */
+
+/** Returns the appropriate border/focus ring classes based on validation state. */
+function getBorderClass(error?: string | null, valid?: boolean): string {
+  if (error) return "border-error focus:border-error focus:ring-error/20";
+  if (valid) return "border-success focus:border-success focus:ring-success/20";
+  return "border-border dark:border-dark-border focus:border-accent focus:ring-accent/20";
+}
+
 /* ---------- Shared validation error icon + text ---------- */
 function ValidationError({ error }: { error: string }) {
   return (
@@ -123,12 +132,6 @@ function FloatingInput({
   onBlur,
   onChange,
 }: FloatingInputProps) {
-  const borderClass = error
-    ? "border-error focus:border-error focus:ring-error/20"
-    : valid
-      ? "border-success focus:border-success focus:ring-success/20"
-      : "border-border dark:border-dark-border focus:border-accent focus:ring-accent/20";
-
   return (
     <div className="relative">
       <input
@@ -141,7 +144,7 @@ function FloatingInput({
         onChange={(e) => onChange?.(e.target.value)}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`peer w-full rounded-xl border-2 bg-surface dark:bg-dark-surface px-4 pt-6 pb-2 text-text dark:text-dark-text placeholder-transparent focus:outline-none focus:ring-2 transition-all duration-200 ${borderClass}`}
+        className={`peer w-full rounded-xl border-2 bg-surface dark:bg-dark-surface px-4 pt-6 pb-2 text-text dark:text-dark-text placeholder-transparent focus:outline-none focus:ring-2 transition-all duration-200 ${getBorderClass(error, valid)}`}
         style={{ transition: 'all 0.2s cubic-bezier(0.22, 1, 0.36, 1)' }}
       />
       <label
@@ -198,12 +201,6 @@ function FloatingSelect({
   const [hasValue, setHasValue] = useState(false);
   const [focused, setFocused] = useState(false);
 
-  const borderClass = error
-    ? "border-error focus:border-error focus:ring-error/20"
-    : valid
-      ? "border-success focus:border-success focus:ring-success/20"
-      : "border-border dark:border-dark-border focus:border-accent focus:ring-accent/20";
-
   return (
     <div className="relative">
       <select
@@ -222,7 +219,7 @@ function FloatingSelect({
         }}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`peer w-full rounded-xl border-2 bg-surface dark:bg-dark-surface px-4 pt-5 pb-2 text-text dark:text-dark-text appearance-none focus:outline-none focus:ring-2 transition-all duration-200 ${borderClass}`}
+        className={`peer w-full rounded-xl border-2 bg-surface dark:bg-dark-surface px-4 pt-5 pb-2 text-text dark:text-dark-text appearance-none focus:outline-none focus:ring-2 transition-all duration-200 ${getBorderClass(error, valid)}`}
       >
         <option value="" disabled hidden>
           &nbsp;

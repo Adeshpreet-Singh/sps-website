@@ -21,7 +21,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <section
+    <main
       aria-label="Page not found"
       className="flex flex-col items-center justify-center min-h-[70vh] px-4 sm:px-6 py-16 sm:py-24 text-center"
     >
@@ -182,6 +182,6 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

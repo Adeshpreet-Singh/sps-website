@@ -31,7 +31,6 @@ import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, servic
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
-import { useParallax } from '@/hooks/useParallax';
 import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 import StatCounter from "@/components/StatCounter";
@@ -56,8 +55,6 @@ export default function HomeClient() {
 
   // Lazy-load hero video — only starts buffering when hero is in/near viewport
   const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
-  // Parallax hooks for hero depth effect
-  const heroContentParallax = useParallax<HTMLDivElement>({ speed: 0.15, maxOffset: 50 });
 
   return (
     <>

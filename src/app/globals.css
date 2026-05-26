@@ -702,22 +702,24 @@
   }
 
 
-  /* Stagger children — auto-delays nth children */
-  .stagger-children > *:nth-child(1) { animation-delay: 0ms; transition-delay: 0ms; }
-  .stagger-children > *:nth-child(2) { animation-delay: 60ms; transition-delay: 60ms; }
-  .stagger-children > *:nth-child(3) { animation-delay: 120ms; transition-delay: 120ms; }
-  .stagger-children > *:nth-child(4) { animation-delay: 180ms; transition-delay: 180ms; }
-  .stagger-children > *:nth-child(5) { animation-delay: 240ms; transition-delay: 240ms; }
-  .stagger-children > *:nth-child(6) { animation-delay: 300ms; transition-delay: 300ms; }
-  .stagger-children > *:nth-child(7) { animation-delay: 360ms; transition-delay: 360ms; }
-  .stagger-children > *:nth-child(8) { animation-delay: 420ms; transition-delay: 420ms; }
-  .stagger-children > *:nth-child(9) { animation-delay: 480ms; transition-delay: 480ms; }
-  .stagger-children > *:nth-child(10) { animation-delay: 540ms; transition-delay: 540ms; }
-  .stagger-children > *:nth-child(11) { animation-delay: 600ms; transition-delay: 600ms; }
-  .stagger-children > *:nth-child(12) { animation-delay: 660ms; transition-delay: 660ms; }
-  .stagger-children > *:nth-child(13) { animation-delay: 720ms; transition-delay: 720ms; }
-  .stagger-children > *:nth-child(14) { animation-delay: 780ms; transition-delay: 780ms; }
-  .stagger-children > *:nth-child(15) { animation-delay: 840ms; transition-delay: 840ms; }
+  /* Stagger children — auto-delays nth children via CSS custom property.
+     Override --stagger-step for different cadences (default 60ms). */
+  .stagger-children { --stagger-step: 60ms; }
+  .stagger-children > *:nth-child(1)  { animation-delay: calc(var(--stagger-step) * 0);  transition-delay: calc(var(--stagger-step) * 0); }
+  .stagger-children > *:nth-child(2)  { animation-delay: calc(var(--stagger-step) * 1);  transition-delay: calc(var(--stagger-step) * 1); }
+  .stagger-children > *:nth-child(3)  { animation-delay: calc(var(--stagger-step) * 2);  transition-delay: calc(var(--stagger-step) * 2); }
+  .stagger-children > *:nth-child(4)  { animation-delay: calc(var(--stagger-step) * 3);  transition-delay: calc(var(--stagger-step) * 3); }
+  .stagger-children > *:nth-child(5)  { animation-delay: calc(var(--stagger-step) * 4);  transition-delay: calc(var(--stagger-step) * 4); }
+  .stagger-children > *:nth-child(6)  { animation-delay: calc(var(--stagger-step) * 5);  transition-delay: calc(var(--stagger-step) * 5); }
+  .stagger-children > *:nth-child(7)  { animation-delay: calc(var(--stagger-step) * 6);  transition-delay: calc(var(--stagger-step) * 6); }
+  .stagger-children > *:nth-child(8)  { animation-delay: calc(var(--stagger-step) * 7);  transition-delay: calc(var(--stagger-step) * 7); }
+  .stagger-children > *:nth-child(9)  { animation-delay: calc(var(--stagger-step) * 8);  transition-delay: calc(var(--stagger-step) * 8); }
+  .stagger-children > *:nth-child(10) { animation-delay: calc(var(--stagger-step) * 9);  transition-delay: calc(var(--stagger-step) * 9); }
+  .stagger-children > *:nth-child(11) { animation-delay: calc(var(--stagger-step) * 10); transition-delay: calc(var(--stagger-step) * 10); }
+  .stagger-children > *:nth-child(12) { animation-delay: calc(var(--stagger-step) * 11); transition-delay: calc(var(--stagger-step) * 11); }
+  .stagger-children > *:nth-child(13) { animation-delay: calc(var(--stagger-step) * 12); transition-delay: calc(var(--stagger-step) * 12); }
+  .stagger-children > *:nth-child(14) { animation-delay: calc(var(--stagger-step) * 13); transition-delay: calc(var(--stagger-step) * 13); }
+  .stagger-children > *:nth-child(15) { animation-delay: calc(var(--stagger-step) * 14); transition-delay: calc(var(--stagger-step) * 14); }
 
   /* Nav entrance — slide down on mount */
   .animate-nav-enter {
@@ -840,16 +842,17 @@
   }
 
   /* Star rating pop — use with reveal-visible for staggered star entrance */
+  .star-rating-pop { --stagger-step: 80ms; }
   .star-rating-pop > * {
     opacity: 0;
     transform: scale(0) rotate(-15deg);
     animation: starPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .star-rating-pop > *:nth-child(1) { animation-delay: 0ms; }
-  .star-rating-pop > *:nth-child(2) { animation-delay: 80ms; }
-  .star-rating-pop > *:nth-child(3) { animation-delay: 160ms; }
-  .star-rating-pop > *:nth-child(4) { animation-delay: 240ms; }
-  .star-rating-pop > *:nth-child(5) { animation-delay: 320ms; }
+  .star-rating-pop > *:nth-child(1) { animation-delay: calc(var(--stagger-step) * 0); }
+  .star-rating-pop > *:nth-child(2) { animation-delay: calc(var(--stagger-step) * 1); }
+  .star-rating-pop > *:nth-child(3) { animation-delay: calc(var(--stagger-step) * 2); }
+  .star-rating-pop > *:nth-child(4) { animation-delay: calc(var(--stagger-step) * 3); }
+  .star-rating-pop > *:nth-child(5) { animation-delay: calc(var(--stagger-step) * 4); }
 
 
   /* Enhanced CTA pulse — subtle scale breathing for hero buttons */
@@ -966,22 +969,23 @@
   }
 
 
-  /* Stagger children for service include items */
+  /* Stagger children for service include items — uses --stagger-step override */
+  .stagger-check { --stagger-step: 40ms; }
   .stagger-check > * {
     opacity: 0;
     transform: translateX(-8px);
     animation: checkItemEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .stagger-check > *:nth-child(1) { animation-delay: 0ms; }
-  .stagger-check > *:nth-child(2) { animation-delay: 40ms; }
-  .stagger-check > *:nth-child(3) { animation-delay: 80ms; }
-  .stagger-check > *:nth-child(4) { animation-delay: 120ms; }
-  .stagger-check > *:nth-child(5) { animation-delay: 160ms; }
-  .stagger-check > *:nth-child(6) { animation-delay: 200ms; }
-  .stagger-check > *:nth-child(7) { animation-delay: 240ms; }
-  .stagger-check > *:nth-child(8) { animation-delay: 280ms; }
-  .stagger-check > *:nth-child(9) { animation-delay: 320ms; }
-  .stagger-check > *:nth-child(10) { animation-delay: 360ms; }
+  .stagger-check > *:nth-child(1)  { animation-delay: calc(var(--stagger-step) * 0); }
+  .stagger-check > *:nth-child(2)  { animation-delay: calc(var(--stagger-step) * 1); }
+  .stagger-check > *:nth-child(3)  { animation-delay: calc(var(--stagger-step) * 2); }
+  .stagger-check > *:nth-child(4)  { animation-delay: calc(var(--stagger-step) * 3); }
+  .stagger-check > *:nth-child(5)  { animation-delay: calc(var(--stagger-step) * 4); }
+  .stagger-check > *:nth-child(6)  { animation-delay: calc(var(--stagger-step) * 5); }
+  .stagger-check > *:nth-child(7)  { animation-delay: calc(var(--stagger-step) * 6); }
+  .stagger-check > *:nth-child(8)  { animation-delay: calc(var(--stagger-step) * 7); }
+  .stagger-check > *:nth-child(9)  { animation-delay: calc(var(--stagger-step) * 8); }
+  .stagger-check > *:nth-child(10) { animation-delay: calc(var(--stagger-step) * 9); }
 
 
   /* Response badge hover glow */
@@ -1056,26 +1060,27 @@
   }
 
   /* City tag stagger — for service area pages */
+  .stagger-tags { --stagger-step: 30ms; }
   .stagger-tags > * {
     opacity: 0;
     transform: scale(0.9) translateY(4px);
     animation: tagEnter 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .stagger-tags > *:nth-child(1) { animation-delay: 0ms; }
-  .stagger-tags > *:nth-child(2) { animation-delay: 30ms; }
-  .stagger-tags > *:nth-child(3) { animation-delay: 60ms; }
-  .stagger-tags > *:nth-child(4) { animation-delay: 90ms; }
-  .stagger-tags > *:nth-child(5) { animation-delay: 120ms; }
-  .stagger-tags > *:nth-child(6) { animation-delay: 150ms; }
-  .stagger-tags > *:nth-child(7) { animation-delay: 180ms; }
-  .stagger-tags > *:nth-child(8) { animation-delay: 210ms; }
-  .stagger-tags > *:nth-child(9) { animation-delay: 240ms; }
-  .stagger-tags > *:nth-child(10) { animation-delay: 270ms; }
-  .stagger-tags > *:nth-child(11) { animation-delay: 300ms; }
-  .stagger-tags > *:nth-child(12) { animation-delay: 330ms; }
-  .stagger-tags > *:nth-child(13) { animation-delay: 360ms; }
-  .stagger-tags > *:nth-child(14) { animation-delay: 390ms; }
-  .stagger-tags > *:nth-child(15) { animation-delay: 420ms; }
+  .stagger-tags > *:nth-child(1)  { animation-delay: calc(var(--stagger-step) * 0); }
+  .stagger-tags > *:nth-child(2)  { animation-delay: calc(var(--stagger-step) * 1); }
+  .stagger-tags > *:nth-child(3)  { animation-delay: calc(var(--stagger-step) * 2); }
+  .stagger-tags > *:nth-child(4)  { animation-delay: calc(var(--stagger-step) * 3); }
+  .stagger-tags > *:nth-child(5)  { animation-delay: calc(var(--stagger-step) * 4); }
+  .stagger-tags > *:nth-child(6)  { animation-delay: calc(var(--stagger-step) * 5); }
+  .stagger-tags > *:nth-child(7)  { animation-delay: calc(var(--stagger-step) * 6); }
+  .stagger-tags > *:nth-child(8)  { animation-delay: calc(var(--stagger-step) * 7); }
+  .stagger-tags > *:nth-child(9)  { animation-delay: calc(var(--stagger-step) * 8); }
+  .stagger-tags > *:nth-child(10) { animation-delay: calc(var(--stagger-step) * 9); }
+  .stagger-tags > *:nth-child(11) { animation-delay: calc(var(--stagger-step) * 10); }
+  .stagger-tags > *:nth-child(12) { animation-delay: calc(var(--stagger-step) * 11); }
+  .stagger-tags > *:nth-child(13) { animation-delay: calc(var(--stagger-step) * 12); }
+  .stagger-tags > *:nth-child(14) { animation-delay: calc(var(--stagger-step) * 13); }
+  .stagger-tags > *:nth-child(15) { animation-delay: calc(var(--stagger-step) * 14); }
 
 
 /* 404 page number pulse */
