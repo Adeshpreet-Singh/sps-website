@@ -406,18 +406,10 @@ export default function ContactForm() {
     errorRef.current = null;
     setError(null);
 
-    // Simulate network request with occasional failure for demo
+    // Simulate network request (no backend wired yet — always succeed)
     setTimeout(() => {
       setLoading(false);
-      // Simulate ~10% failure rate for realistic UX
-      const shouldFail = Math.random() < 0.1;
-      if (shouldFail) {
-        const msg = "We couldn't send your request due to a network issue. Please try again or call us directly.";
-        errorRef.current = msg;
-        setError(msg);
-      } else {
-        setSubmitted(true);
-      }
+      setSubmitted(true);
     }, 1200);
   }
 

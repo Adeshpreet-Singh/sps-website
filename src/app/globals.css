@@ -173,6 +173,29 @@
   }
 }
 
+/* ── Animation utility classes (outside @layer for specificity) ── */
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
 /* ── Focus styles (outside @layer so utilities can't override) ── */
 :focus-visible {
   outline: 2px solid var(--color-accent);
@@ -1466,10 +1489,11 @@
   opacity: 1;
 }
 
-/* Reduce paint area for the hero video overlay */
+/* Video performance — will-change:auto avoids promoting to compositor layer
+   indefinitely. Removed contain:strict which can collapse video height
+   when explicit dimensions aren't set. */
 video {
   will-change: auto;
-  contain: strict;
 }
 
 /* Optimize scroll-driven animations for GPU */
