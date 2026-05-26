@@ -127,7 +127,7 @@ function TrustBar() {
   );
 }
 
-export default function ServicesPage() {
+export default function ServicesClient() {
   const [servicesListRef, servicesListVisible] = useScrollReveal();
   const [whyRef, whyVisible] = useScrollReveal();
   const [ctaRef, ctaVisible] = useScrollReveal();

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HomePage from "./HomeClient";
+import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
   title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HomePage />;
+  return <HomeClient />;
 }

@@ -48,7 +48,7 @@ function AboutStat({
   );
 }
 
-export default function AboutPage() {
+export default function AboutClient() {
   const [storyRef, storyVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal();
   const [valuesRef, valuesVisible] = useScrollReveal();

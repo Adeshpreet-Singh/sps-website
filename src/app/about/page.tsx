@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AboutPage from "./AboutClient";
+import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AboutPage />;
+  return <AboutClient />;
 }

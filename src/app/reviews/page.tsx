@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ReviewsPage from "./ReviewsClient";
+import ReviewsClient from "./ReviewsClient";
 
 export const metadata: Metadata = {
   title: "Customer Reviews",
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ReviewsPage />;
+  return <ReviewsClient />;
 }

@@ -62,7 +62,7 @@ function HeroStat({
 /*  HOME PAGE                                                          */
 /* ================================================================== */
 
-export default function HomePage() {
+export default function HomeClient() {
   // Scroll-reveal hooks for each section (now sharing a single IntersectionObserver pool)
   const [trustRef, trustVisible] = useScrollReveal();
   const [servicesHeaderRef, servicesHeaderVisible] = useScrollReveal();

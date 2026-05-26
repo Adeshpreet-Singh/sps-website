@@ -8,7 +8,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
-export default function ReviewsPage() {
+export default function ReviewsClient() {
   const [ratingRef, ratingVisible] = useScrollReveal();
   const [gridRef, gridVisible] = useScrollReveal();
   const [linksRef, linksVisible] = useScrollReveal();

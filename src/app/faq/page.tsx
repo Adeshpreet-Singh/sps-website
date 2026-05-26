@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import FaqPage from "./FaqClient";
+import FaqClient from "./FaqClient";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FaqPage />;
+  return <FaqClient />;
 }

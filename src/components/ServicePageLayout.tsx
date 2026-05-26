@@ -4,6 +4,7 @@ import { Check, Plus, Minus } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 interface ServicePageLayoutProps {
   service: Service;
@@ -38,16 +39,6 @@ function ServiceJsonLd({
       name: faq.question,
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${baseUrl}/services` },
-      { "@type": "ListItem", position: 3, name: service.title, item: serviceUrl },
-    ],
   };
 
   const serviceSchema = {
@@ -94,7 +85,7 @@ function ServiceJsonLd({
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: "Services", path: "/services" }, { name: service.title, path: `/services/${service.slug}` }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
     </>

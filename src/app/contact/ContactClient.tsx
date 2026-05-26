@@ -103,7 +103,7 @@ function ContactCard({
   );
 }
 
-export default function ContactPage() {
+export default function ContactClient() {
   const [formRef, formVisible] = useScrollReveal();
   const [infoRef, infoVisible] = useScrollReveal();
 

@@ -80,7 +80,7 @@ const plumbingFaqs: FaqItem[] = [
   },
 ];
 
-export default function FAQPage() {
+export default function FaqClient() {
   const [ctaRef, ctaVisible] = useScrollReveal();
 
   // Build FAQPage JSON-LD schema
