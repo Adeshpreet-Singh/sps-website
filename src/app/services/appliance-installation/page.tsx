@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Appliance Installation | SPS Installation",
-    description: "Professional appliance installation — refrigerators, ranges, washers, dryers & more. Serving Metro Vancouver.",
+    description: "Professional appliance installation for fridges, ranges, dishwashers, washers & dryers. Warranty-compliant.",
     url: "/services/appliance-installation",
   },
 };

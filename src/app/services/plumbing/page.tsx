@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   description:
     "Licensed plumbing installation — toilets, vanities, bathtubs, faucets & more. Serving Metro Vancouver.",
   alternates: {
-    canonical: "https://spsinstallation.com/services/plumbing",
+    canonical: "/services/plumbing",
   },
   openGraph: {
     title: "Plumbing Services | SPS Installation",
     description: "Licensed plumbing installation — toilets, vanities, bathtubs, faucets & more. Serving Metro Vancouver.",
-    url: "https://spsinstallation.com/services/plumbing",
+    url: "/services/plumbing",
   },
 };
 

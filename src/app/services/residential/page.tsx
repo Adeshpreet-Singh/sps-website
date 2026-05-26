@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   description:
     "Home appliance & plumbing installation for houses, condos & townhomes across Metro Vancouver.",
   alternates: {
-    canonical: "https://spsinstallation.com/services/residential",
+    canonical: "/services/residential",
   },
   openGraph: {
-    title: "Residential Installation | SPS Installation",
-    description: "Home appliance & plumbing installation for houses, condos & townhomes across Metro Vancouver.",
-    url: "https://spsinstallation.com/services/residential",
+    title: "Residential Services | SPS Installation",
+    description: "Trusted by homeowners across Metro Vancouver for appliance installation, plumbing & more.",
+    url: "/services/residential",
   },
 };
 

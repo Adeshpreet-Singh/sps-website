@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   description:
     "Large-scale appliance & plumbing installation for hotels, offices & multi-unit buildings.",
   alternates: {
-    canonical: "https://spsinstallation.com/services/commercial",
+    canonical: "/services/commercial",
   },
   openGraph: {
     title: "Commercial Installation | SPS Installation",
     description: "Large-scale appliance & plumbing installation for hotels, offices & multi-unit buildings.",
-    url: "https://spsinstallation.com/services/commercial",
+    url: "/services/commercial",
   },
 };
 
