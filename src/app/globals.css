@@ -1182,6 +1182,23 @@
     transform: translateY(-50%) scale(0.95);
   }
 
+  /* Input focus glow — subtle premium feel */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    box-shadow: 0 0 0 3px rgba(232, 122, 46, 0.1), 0 0 12px rgba(232, 122, 46, 0.08);
+  }
+  .dark input:focus-visible,
+  .dark select:focus-visible,
+  .dark textarea:focus-visible {
+    box-shadow: 0 0 0 3px rgba(232, 122, 46, 0.15), 0 0 16px rgba(232, 122, 46, 0.12);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    input:focus-visible, select:focus-visible, textarea:focus-visible {
+      box-shadow: none;
+    }
+  }
+
   /* Counter — tabular numbers for stat counters */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
