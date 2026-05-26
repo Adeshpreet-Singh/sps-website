@@ -19,6 +19,10 @@ export default function CursorGlow() {
     const glow = glowRef.current;
     if (!parent || !glow) return;
 
+    // Skip on mobile/touch devices and reduced motion
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mql.matches || "ontouchstart" in window) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const rect = parent.getBoundingClientRect();
       const x = e.clientX - rect.left;

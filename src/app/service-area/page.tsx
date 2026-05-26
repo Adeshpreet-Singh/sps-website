@@ -147,7 +147,7 @@ export default function ServiceAreaPage() {
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-text dark:text-dark-text mb-4">
                 Cities We Serve
               </h2>
-              <p className="text-text-muted dark:text-dark-text-muted max-w-xl mx-auto">
+              <p className="text-text-muted dark:text-dark-text-muted max-w-xl mx-auto leading-relaxed">
                 We provide professional installation services throughout the
                 following communities.
               </p>

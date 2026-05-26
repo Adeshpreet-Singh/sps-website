@@ -53,7 +53,7 @@ export default function CTABanner({
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           {title}
         </h2>
-        <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl mx-auto">
+        <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
           {description}
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
@@ -69,6 +69,7 @@ export default function CTABanner({
           ) : (
             <Link
               href={primaryHref}
+              aria-label={primaryLabel}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
             >
               {primaryLabel}

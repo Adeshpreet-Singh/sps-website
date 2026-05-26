@@ -108,7 +108,7 @@ export default function Navbar() {
     const timer = setTimeout(() => {
       const firstLink = panelRef.current?.querySelector<HTMLElement>("a, button");
       firstLink?.focus();
-    }, 50);
+    }, 100); // Slightly longer delay to ensure panel transition has started
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);

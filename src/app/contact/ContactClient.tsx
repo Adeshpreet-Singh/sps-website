@@ -158,7 +158,7 @@ export default function ContactClient() {
       {/* Hero — background image */}
       <section
         aria-label="Contact hero"
-        className="relative overflow-hidden text-white py-14 sm:py-20 lg:py-24 px-4 sm:px-6"
+        className="relative overflow-hidden text-white py-16 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-6"
       >
         <Image
           src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=600&fit=crop"

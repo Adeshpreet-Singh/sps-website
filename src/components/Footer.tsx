@@ -181,12 +181,12 @@ export default function Footer() {
             >
               Company
             </h3>
-            <ul className="mt-3 flex flex-col gap-1">
+            <ul className="mt-3 flex flex-col gap-1 stagger-children">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline min-h-[40px] flex items-center"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none link-underline min-h-[40px] flex items-center animate-fade-in"
                   >
                     {link.label}
                   </Link>
@@ -280,7 +280,7 @@ export default function Footer() {
             <button
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 transition-all duration-300 hover:bg-accent hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-accent/25 motion-reduce:transition-none motion-reduce:transform-none"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition-all duration-300 hover:bg-accent hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-accent/25 motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               <ArrowUp className="h-4 w-4" aria-hidden="true" />
             </button>

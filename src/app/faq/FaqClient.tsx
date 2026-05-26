@@ -219,7 +219,7 @@ function FAQSection({
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl heading-underline">
           {title}
         </h2>
-        <p className="mt-4 text-text-muted dark:text-dark-text-muted text-center max-w-xl mx-auto text-lg">
+        <p className="mt-4 text-text-muted dark:text-dark-text-muted text-center max-w-xl mx-auto text-lg leading-relaxed">
           {description}
         </p>
         <div className="mt-12 stagger-children">

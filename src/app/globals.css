@@ -138,6 +138,39 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Firefox scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+  .dark * {
+    scrollbar-color: var(--color-dark-border) transparent;
+  }
+
+  /* Print styles — clean output */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    .no-print,
+    header,
+    footer,
+    .fixed,
+    [aria-hidden="true"] {
+      display: none !important;
+    }
+    a[href]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #666;
+    }
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
 }
 
 /* ── Focus styles (outside @layer so utilities can't override) ── */
@@ -1401,6 +1434,7 @@ video {
 }
 
 /* Reduce reflows on the fixed-position scroll-to-top button */
-.fixed {
+/* Note: contain:layout on .fixed breaks positioning for nested absolute children */
+.fixed-bottom-right {
   contain: layout style;
 }

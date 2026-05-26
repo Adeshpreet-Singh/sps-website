@@ -233,7 +233,7 @@ export default function ServicesClient() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
                       <Icon className="h-8 w-8" aria-hidden="true" />
                     </div>
-                    <span className="text-sm font-semibold tracking-wider text-white/70">
+                    <span className="text-sm font-semibold tracking-wider text-white/80">
                       Service {service.number}
                     </span>
                   </div>

@@ -134,7 +134,7 @@ export default function TestimonialCarousel({
       role="region"
       aria-label="Customer testimonials carousel"
       aria-roledescription="carousel"
-      tabIndex={0}
+      tabIndex={-1}
     >
       {/* Carousel viewport — with peeking cards on desktop */}
       <div

@@ -142,7 +142,7 @@ export default function HomeClient() {
 
         {/* Stats row at bottom of hero — animated counters */}
         <div ref={statsRef} className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
-          <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
+          <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 overflow-hidden rounded-xl animate-fade-in delay-400 stagger-children">
             <StatCounter value={siteConfig.stats.yearsInBusiness} label="Years in Business" suffix="" started={statsVisible} />
             <StatCounter value={siteConfig.stats.installations} label="Installations" suffix="+" started={statsVisible} />
             <StatCounter value={siteConfig.stats.licensedInsured} label="Licensed &amp; Insured" suffix="" started={statsVisible} isText />

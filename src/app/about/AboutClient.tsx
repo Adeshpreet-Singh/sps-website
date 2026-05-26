@@ -140,7 +140,7 @@ export default function AboutClient() {
                 <div className="w-10 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-accent">Our Story</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text heading-underline">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text">
                 Built on Trust, Driven by Craft
               </h2>
               {/* Decorative quote */}
