@@ -107,7 +107,7 @@ function ContactCard({
   const Wrapper = href ? "a" : "div";
   return (
     <Wrapper
-      {...(href ? { href, className: "group block focus-visible:outline-none", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
+      {...(href ? { href, className: "group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface rounded-xl", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
       <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-[400ms] hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
@@ -265,10 +265,10 @@ export default function ContactClient() {
 
             {/* Trust signals below form */}
             <div ref={trustRef} className={`mt-8 reveal-hidden ${trustVisible ? "reveal-visible" : ""}`}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <TrustSignal icon={Shield} label="Licensed & Insured" />
-                <TrustSignal icon={BadgeCheck} label="Warranty-Compliant" />
-                <TrustSignal icon={Star} label={`${siteConfig.stats.rating}★ Rating`} />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="list" aria-label="Trust signals">
+                <div role="listitem"><TrustSignal icon={Shield} label="Licensed & Insured" /></div>
+                <div role="listitem"><TrustSignal icon={BadgeCheck} label="Warranty-Compliant" /></div>
+                <div role="listitem"><TrustSignal icon={Star} label={`${siteConfig.stats.rating}★ Rating`} /></div>
               </div>
             </div>
           </div>

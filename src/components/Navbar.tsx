@@ -270,7 +270,7 @@ export default function Navbar() {
           </a>
           <Link
             href="/contact"
-            aria-label="Get a free quote"
+            aria-label="Get a free quote — contact SPS Installation"
             className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
           >
             Get a Quote
@@ -447,6 +447,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
+            aria-label="Get a free quote — contact SPS Installation"
             className="rounded-full bg-accent px-5 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
           >
             Get a Free Quote

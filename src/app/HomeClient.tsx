@@ -116,6 +116,7 @@ export default function HomeClient() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up delay-300">
               <Link
                 href="/contact"
+                aria-label="Get a free quote — contact us for appliance installation or plumbing"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/35 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer animate-cta-pulse motion-reduce:transition-none motion-reduce:transform-none"
               >
                 Get a Free Quote
@@ -164,10 +165,11 @@ export default function HomeClient() {
           <p className="text-center text-sm font-medium text-text-muted dark:text-dark-text-muted uppercase tracking-wide mb-6">
             Trusted by Canada&apos;s top retailers
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 stagger-children">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 stagger-children" role="list" aria-label="Trusted retailers">
             {siteConfig.retailers.map((retailer) => (
               <span
                 key={retailer}
+                role="listitem"
                 className="inline-flex items-center rounded-full border border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface-alt px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-navy dark:text-dark-text select-none transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-md hover:shadow-accent/10 hover:scale-105 cursor-default active:scale-95 motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {retailer}
@@ -196,13 +198,14 @@ export default function HomeClient() {
           </div>
 
           {/* Service cards — 2×2 grid */}
-          <div ref={servicesGridRef} className={`grid gap-8 sm:grid-cols-2 reveal-hidden ${servicesGridVisible ? "reveal-visible" : ""}`}>
+          <div ref={servicesGridRef} role="list" aria-label="Our services" className={`grid gap-8 sm:grid-cols-2 reveal-hidden ${servicesGridVisible ? "reveal-visible" : ""}`}>
             {services.map((svc) => {
               const Icon = iconMap[svc.icon];
               return (
                 <Link
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
+                  role="listitem"
                   aria-label={`${svc.title} - ${svc.shortDescription}`}
                   className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover card-tilt motion-reduce:transition-none motion-reduce:transform-none"
                 >
@@ -297,12 +300,13 @@ src={serviceImages[svc.slug]}
           </div>
 
           {/* Feature cards — 2×2 grid */}
-          <div ref={whyUsGridRef} className={`grid gap-8 sm:grid-cols-2 max-w-3xl mx-auto reveal-hidden ${whyUsGridVisible ? "reveal-visible" : ""}`}>
+          <div ref={whyUsGridRef} role="list" aria-label="Why choose us" className={`grid gap-8 sm:grid-cols-2 max-w-3xl mx-auto reveal-hidden ${whyUsGridVisible ? "reveal-visible" : ""}`}>
             {whyUsFeatures.map((feature) => {
               const Icon = iconMap[feature.icon];
               return (
                 <div
                   key={feature.title}
+                  role="listitem"
                   className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] card-tilt motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   {/* Icon in accent circle */}
@@ -428,6 +432,7 @@ src={serviceImages[svc.slug]}
           <div className="mt-10 text-center">
             <Link
               href="/faq"
+              aria-label="View all frequently asked questions"
               className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors"
             >
               View all FAQs

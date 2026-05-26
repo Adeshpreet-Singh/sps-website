@@ -85,7 +85,7 @@ export default function PricingClient() {
           </p>
 
           {/* Trust badges */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 animate-slide-up delay-300">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 animate-slide-up delay-300" role="list" aria-label="Pricing guarantees">
             <TrustBadge icon={<DollarSign className="h-5 w-5" />} text="Free Estimates" />
             <TrustBadge icon={<ShieldCheck className="h-5 w-5" />} text="90-Day Warranty" />
             <TrustBadge icon={<Clock className="h-5 w-5" />} text="Same-Day Available" />
@@ -117,9 +117,9 @@ export default function PricingClient() {
           </div>
 
           {/* Pricing cards — 3-column grid */}
-          <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-3" role="list" aria-label="Installation pricing packages">
             {pricingTiers.map((tier, idx) => (
-              <TierCard key={tier.slug} tier={tier} index={idx} />
+              <div key={tier.slug} role="listitem"><TierCard tier={tier} index={idx} /></div>
             ))}
           </div>
 
@@ -127,7 +127,7 @@ export default function PricingClient() {
           <p className="mt-8 text-center text-sm text-text-muted dark:text-dark-text-muted">
             All prices are starting points. Final quotes depend on appliance type,
             complexity, and site conditions.{" "}
-            <Link href="/contact" className="text-accent-safe font-semibold hover:underline">
+            <Link href="/contact" aria-label="Contact us for a free estimate" className="text-accent-safe font-semibold hover:underline">
               Contact us
             </Link>{" "}
             for a free estimate.
@@ -212,9 +212,9 @@ export default function PricingClient() {
           </div>
 
           {/* Plumbing cards — 3-column grid */}
-          <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-3" role="list" aria-label="Plumbing pricing packages">
             {plumbingTiers.map((tier, idx) => (
-              <TierCard key={tier.slug} tier={tier} index={idx} popularBadge="Best Value" />
+              <div key={tier.slug} role="listitem"><TierCard tier={tier} index={idx} popularBadge="Best Value" /></div>
             ))}
           </div>
         </ScrollReveal>
@@ -240,7 +240,7 @@ export default function PricingClient() {
             </p>
           </ScrollReveal>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto" role="list" aria-label="Pricing advantages">
             <ValueProp
               icon={<DollarSign className="h-6 w-6" />}
               title="Free Estimates"
@@ -420,6 +420,7 @@ function TierCard({
         {/* CTA */}
         <Link
           href={tier.ctaHref}
+          aria-label={`${tier.ctaLabel} — ${tier.name} package`}
           className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
             tier.popular
               ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"

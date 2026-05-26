@@ -63,16 +63,16 @@ export default function Footer() {
       {/* Trust badges bar */}
       <div className="border-b border-white/10 dark:border-dark-border">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/70 sm:gap-10">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/70 sm:gap-10" role="list" aria-label="Credentials">
+            <div className="flex items-center gap-2" role="listitem">
               <Shield className="h-4 w-4 text-accent" aria-hidden="true" />
               <span>Licensed &amp; Insured</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="listitem">
               <Clock className="h-4 w-4 text-accent" aria-hidden="true" />
               <span>Mon – Sat, 8 AM – 6 PM</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="listitem">
               <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
               <span>Metro Vancouver, B.C.</span>
             </div>
@@ -248,6 +248,7 @@ export default function Footer() {
             {/* Quick CTA */}
             <Link
               href="/contact"
+              aria-label="Get a free quote from SPS Installation"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             >
               Get a Free Quote

@@ -148,10 +148,12 @@ export default function ReviewsClient() {
       {/* Testimonials Grid */}
       <section aria-label="Customer testimonials" className="bg-gradient-to-b from-surface-alt dark:from-dark-surface-alt to-white dark:to-dark-surface py-16 sm:py-20">
         <div ref={gridRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${gridVisible ? "reveal-visible" : ""}`}>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children" role="list" aria-label="Customer reviews">
             {testimonials.map((t, idx) => (
               <div
                 key={t.name}
+                role="listitem"
+                aria-label={`Review by ${t.name}`}
                 className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* Left accent gradient border */}
@@ -230,11 +232,12 @@ export default function ReviewsClient() {
             <p className="text-sm font-semibold text-text-muted dark:text-dark-text-muted uppercase tracking-wider">
               See more reviews on
             </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2" role="list" aria-label="Review platforms">
               <a
                 href="https://www.google.com/maps/search/smith+pro+services+surrey"
                 target="_blank"
                 rel="noopener noreferrer"
+                role="listitem"
                 aria-label="Read our reviews on Google Business (opens in new tab)"
                 className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >
@@ -260,6 +263,7 @@ export default function ReviewsClient() {
                 href="https://www.homestars.com/companies/smith-pro-services"
                 target="_blank"
                 rel="noopener noreferrer"
+                role="listitem"
                 aria-label="Read our reviews on Homestars (opens in new tab)"
                 className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >

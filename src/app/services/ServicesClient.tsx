@@ -214,13 +214,15 @@ export default function ServicesClient() {
 
       {/* ── Services List ── */}
       <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
-        <div ref={servicesListRef} className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
+        <div ref={servicesListRef} role="list" aria-label="Services" className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
           {services.map((service, idx) => {
             const Icon = iconMap[service.icon];
             const highlights = serviceHighlights[service.slug] ?? [];
             return (
               <article
                 key={service.slug}
+                role="listitem"
+                aria-label={service.title}
                 className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* ── Top: Image ── */}
@@ -314,12 +316,13 @@ export default function ServicesClient() {
             We combine expertise with reliability to deliver installations that
             last.
           </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 stagger-children" role="list" aria-label="Why choose SPS">
             {whyUsFeatures.map(({ icon, title, description }) => {
               const Icon = iconMap[icon];
               return (
               <div
                 key={title}
+                role="listitem"
                 className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 icon-lift">

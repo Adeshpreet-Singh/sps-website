@@ -208,7 +208,7 @@ export default function AboutClient() {
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border dark:via-dark-border to-transparent" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stagger-children">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stagger-children" role="list" aria-label="Company statistics">
             {STATS.map((stat) => (
               <StatCounter
                 key={stat.label}
@@ -250,10 +250,11 @@ export default function AboutClient() {
               every day.
             </p>
           </div>
-          <div className="mt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 stagger-children">
+          <div className="mt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 stagger-children" role="list" aria-label="Our values">
             {VALUES_DATA.map((value, idx) => (
               <div
                 key={value.title}
+                role="listitem"
                 className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_40px_rgba(232,122,46,0.12)] transition-all duration-500 hover:-translate-y-1.5 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* Background image — decorative */}
