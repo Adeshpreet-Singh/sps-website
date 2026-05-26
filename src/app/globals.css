@@ -458,6 +458,9 @@
   .gradient-border-accent:hover::before {
     opacity: 1;
   }
+  .dark .gradient-border-accent::before {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light), #334155);
+  }
 
   /* Text gradient accent */
   .text-gradient-accent {

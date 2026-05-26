@@ -9,8 +9,9 @@ import {
   Shield,
   Clock,
   Star,
+  Wrench,
 } from "lucide-react";
-import { services, siteConfig, serviceImageAlts, serviceImages } from "@/lib/data";
+import { services, siteConfig, serviceImageAlts, serviceImages, whyUsFeatures } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import EmptyState from "@/components/EmptyState";
@@ -200,7 +201,7 @@ export default function ServicesPage() {
             />
           ) : (
             services.map((service, idx) => {
-            const Icon = iconMap[service.icon];
+            const Icon = iconMap[service.icon] ?? Wrench;
             const highlights = serviceHighlights[service.slug] ?? [];
             return (
               <article
@@ -230,7 +231,7 @@ export default function ServicesPage() {
                   {/* ── Left: Icon + Number ── */}
                   <div className="flex shrink-0 items-center justify-center gap-3 bg-gradient-to-br from-[#0f1b3d] to-[#1a2760] px-6 py-6 text-white md:flex-col md:px-8 md:w-56 md:py-14">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                      {Icon && <Icon className="h-8 w-8" aria-hidden="true" />}
+                      <Icon className="h-8 w-8" aria-hidden="true" />
                     </div>
                     <span className="text-sm font-semibold tracking-wider text-white/50">
                       Service {service.number}
@@ -298,28 +299,9 @@ export default function ServicesPage() {
             last.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
-            {[
-              {
-                icon: Shield,
-                title: "Licensed & Insured",
-                desc: "Every technician is fully licensed and carries comprehensive liability insurance.",
-              },
-              {
-                icon: Clock,
-                title: "On-Time Arrival",
-                desc: "Tight arrival windows with a courtesy call before we show up.",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Warranty-Compliant",
-                desc: "All installs follow manufacturer specs to keep your warranties intact.",
-              },
-              {
-                icon: Star,
-                title: "Top-Rated Service",
-                desc: `${siteConfig.stats.rating}★ average rating from hundreds of satisfied customers.`,
-              },
-            ].map(({ icon: Icon, title, desc }) => (
+            {whyUsFeatures.map(({ icon, title, description }) => {
+              const Icon = iconMap[icon] ?? Shield;
+              return (
               <div
                 key={title}
                 className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine"
@@ -331,10 +313,11 @@ export default function ServicesPage() {
                   {title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-muted dark:text-dark-text-muted">
-                  {desc}
+                  {description}
                 </p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
