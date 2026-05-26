@@ -187,7 +187,7 @@ export default function ServiceAreaPage() {
             </div>
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-6" role="list" aria-label="Service features">
-            [
+            {[
               {
                 icon: Home,
                 title: "On-Site Installation",

@@ -378,12 +378,18 @@ export default function ContactForm() {
     return getFieldError(field) === null;
   }
 
-  // Check if all required fields are valid
+  // Check if all required fields are valid (ignores touched state — used by handleSubmit)
   function isFormValid(): boolean {
     return REQUIRED_FIELDS.every((f) => {
       const value = values[f] ?? "";
       if (!value.trim()) return false;
-      return getFieldError(f) === null;
+      switch (f) {
+        case "name": return validateName(value) === null;
+        case "email": return validateEmail(value) === null;
+        case "phone": return validatePhone(value) === null;
+        case "serviceType": return validateRequired(value, "Service type") === null;
+        default: return true;
+      }
     });
   }
 
@@ -548,7 +554,7 @@ export default function ContactForm() {
       <div aria-live="polite">
         <button
           type="submit"
-          disabled={loading || !canSubmit()}
+          disabled={loading}
           className="relative inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 w-full sm:w-auto overflow-hidden btn-press btn-shimmer motion-reduce:transition-none motion-reduce:transform-none"
         >
           {loading ? (

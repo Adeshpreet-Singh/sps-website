@@ -2,8 +2,7 @@
  * @fileoverview Privacy Policy page.
  *
  * Outlines how SPS Installation collects, uses, and protects
- * customer information. This is a placeholder — review with legal
- * counsel before publishing.
+ * customer information.
  */
 
 import type { Metadata } from "next";
@@ -105,7 +104,7 @@ export default function PrivacyPage() {
           </p>
 
           <p className="text-sm text-text-muted dark:text-dark-text-muted">
-            Last updated: January 2026
+            Last updated: May 2026
           </p>
         </div>
       </section>

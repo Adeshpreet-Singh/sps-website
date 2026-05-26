@@ -2,7 +2,6 @@
  * @fileoverview Terms of Service page.
  *
  * Outlines the terms and conditions for using SPS Installation services.
- * This is a placeholder — review with legal counsel before publishing.
  */
 
 import type { Metadata } from "next";
@@ -115,7 +114,7 @@ export default function TermsPage() {
           </p>
 
           <p className="text-sm text-text-muted dark:text-dark-text-muted">
-            Last updated: January 2026
+            Last updated: May 2026
           </p>
         </div>
       </section>
