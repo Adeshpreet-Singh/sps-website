@@ -58,7 +58,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       <section
         aria-label="Pricing hero"
-        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-24 md:py-32 lg:py-36 text-center text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white"
       >
         {/* Decorative shapes */}
         <div aria-hidden="true" className="absolute top-20 left-[10%] h-48 w-48 sm:h-72 sm:w-72 rounded-full bg-accent/5 blur-3xl animate-float" />

@@ -39,7 +39,7 @@ export default function StatCounter({
   if (variant === "card") {
     return (
       <div
-        className={`relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-none dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden ${
+        className={`relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-dark-card dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden ${
           started ? "reveal-scale-visible" : ""
         }`}
       >

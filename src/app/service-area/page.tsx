@@ -50,7 +50,7 @@ export default function ServiceAreaPage() {
     <div className="flex flex-col min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Service Area", path: "/service-area" }]} />
       {/* Hero — background image with entrance animations */}
-      <section aria-label="Service area hero" className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+      <section aria-label="Service area hero" className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-28 px-4 sm:px-6">
         <div aria-hidden="true" className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop"
@@ -81,7 +81,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Coverage Area — gradient border card, CSS grid pattern */}
-      <section aria-label="Coverage details" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 -mt-6 sm:-mt-12">
+      <section aria-label="Coverage details" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 -mt-6 sm:-mt-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal variant="fade-scale">
             <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-accent via-accent-light to-navy gradient-border-shine">

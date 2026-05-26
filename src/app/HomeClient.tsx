@@ -105,7 +105,7 @@ export default function HomeClient() {
             </h1>
             <p
               className="mt-2 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight animate-slide-up delay-100 animate-gradient-text"
-              style={{ backgroundImage: "linear-gradient(135deg, var(--color-accent), var(--color-accent-light), #fbbf24, var(--color-accent))", textShadow: "0 0 40px rgba(var(--color-accent-rgb, 59,130,246), 0.35)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, var(--color-accent), var(--color-accent-light), #fbbf24, var(--color-accent))" }}
             >
               We&apos;ve Got You.
             </p>
@@ -203,7 +203,7 @@ export default function HomeClient() {
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
                   aria-label={`${svc.title} - ${svc.shortDescription}`}
-                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover"
+                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover card-tilt"
                 >
                   {/* Service image */}
                   <div className="-mx-6 -mt-6 sm:-mx-8 sm:-mt-8 relative h-40 sm:h-48 overflow-hidden rounded-t-2xl">
@@ -328,9 +328,9 @@ src={serviceImages[svc.slug]}
         <div aria-hidden="true" className="absolute top-10 left-[5%] h-64 w-64 rounded-full bg-accent/[0.03] blur-3xl" />
         <div aria-hidden="true" className="absolute bottom-10 right-[5%] h-48 w-48 rounded-full bg-accent/[0.02] blur-3xl" />
 
-        <div ref={testimonialsRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-24 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
+        <div ref={testimonialsRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
           {/* Section header — refined with accent underline */}
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
               <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
@@ -359,7 +359,7 @@ src={serviceImages[svc.slug]}
       {/* ============================================================ */}
       <section id="service-area" aria-label="Service area" className="relative bg-dot-grid">
         <div ref={serviceAreaRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${serviceAreaVisible ? "reveal-visible" : ""}`}>
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
               <MapPin className="h-5 w-5 text-accent animate-dot-pulse" aria-hidden="true" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">

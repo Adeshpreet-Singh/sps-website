@@ -83,7 +83,7 @@ export default function AboutClient() {
     <div className="flex flex-col">
       <BreadcrumbJsonLd items={[{ name: "About Us", path: "/about" }]} />
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section aria-label="About hero" className="relative overflow-hidden py-16 sm:py-24 md:py-36">
+      <section aria-label="About hero" className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
         {/* Background image — decorative */}
         <div aria-hidden="true" className="absolute inset-0">
           <Image
@@ -131,7 +131,7 @@ export default function AboutClient() {
       </section>
 
       {/* ── Our Story (two-column) ────────────────────────── */}
-      <section aria-label="Our story" className="py-16 sm:py-20 md:py-28 bg-surface dark:bg-dark-surface">
+      <section aria-label="Our story" className="py-16 sm:py-20 lg:py-28 bg-surface dark:bg-dark-surface">
         <div ref={storyRef} className={`mx-auto max-w-6xl px-4 sm:px-6 reveal-hidden ${storyVisible ? "reveal-visible" : ""}`}>
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-start">
             {/* Left — text */}
@@ -197,7 +197,7 @@ export default function AboutClient() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────── */}
-      <section aria-label="Company statistics" className="bg-surface-alt dark:bg-dark-surface-alt py-12 sm:py-14 md:py-16 lg:py-20">
+      <section aria-label="Company statistics" className="bg-surface-alt dark:bg-dark-surface-alt py-16 sm:py-20 lg:py-28">
         <div ref={statsRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${statsVisible ? "reveal-visible" : ""}`}>
           {/* Section divider */}
           <div className="flex items-center gap-4 mb-10">
@@ -224,7 +224,7 @@ export default function AboutClient() {
       </section>
 
       {/* ── Our Values (glass-morphism on dark) ──────────── */}
-      <section aria-label="Our values" className="relative py-10 sm:py-14 md:py-20 lg:py-28 bg-navy-dark overflow-hidden">
+      <section aria-label="Our values" className="relative py-16 sm:py-20 lg:py-28 bg-navy-dark overflow-hidden">
         {/* Cursor glow effect */}
         <CursorGlow />
         {/* Decorative background */}
@@ -289,7 +289,7 @@ export default function AboutClient() {
       </section>
 
       {/* ── Leadership ───────────────────────────────────── */}
-      <section aria-label="Leadership team" className="py-10 sm:py-14 md:py-20 lg:py-28 bg-surface dark:bg-dark-surface">
+      <section aria-label="Leadership team" className="py-16 sm:py-20 lg:py-28 bg-surface dark:bg-dark-surface">
         <div ref={leadersRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${leadersVisible ? "reveal-visible" : ""}`}>
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 mb-4">
@@ -312,7 +312,7 @@ export default function AboutClient() {
               <div
                 key={leader.name}
                 role="listitem"
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />

@@ -109,7 +109,7 @@ function ContactCard({
     <Wrapper
       {...(href ? { href, className: "group block focus-visible:outline-none", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
-      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-400 hover:shadow-card-hover dark:hover:border-accent/30 hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface">
+      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-400 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
           <Icon className="w-5 h-5 text-white" aria-hidden="true" />
         </div>
@@ -159,7 +159,7 @@ export default function ContactClient() {
       {/* Hero — background image */}
       <section
         aria-label="Contact hero"
-        className="relative overflow-hidden text-white py-16 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-6"
+        className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-28 px-4 sm:px-6"
       >
         <Image
           src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=600&fit=crop"
@@ -225,7 +225,7 @@ export default function ContactClient() {
       {/* Two-Column Layout */}
       <section
         aria-label="Contact form and information"
-        className="py-10 sm:py-14 lg:py-20 px-4 sm:px-6 -mt-4 sm:-mt-8"
+        className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 -mt-4 sm:-mt-8"
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — Contact Form */}

@@ -122,7 +122,7 @@ export default function FaqClient() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section aria-label="FAQ hero" className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-16 sm:py-24 md:py-36">
+      <section aria-label="FAQ hero" className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light py-16 sm:py-20 lg:py-28">
         {/* Cursor glow effect */}
         <CursorGlow />
         {/* Animated gradient overlay */}

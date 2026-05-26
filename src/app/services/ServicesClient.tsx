@@ -212,7 +212,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ── Services List ── */}
-      <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
+      <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <div ref={servicesListRef} className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
           {services.map((service, idx) => {
             const Icon = iconMap[service.icon];
@@ -220,7 +220,7 @@ export default function ServicesClient() {
             return (
               <article
                 key={service.slug}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:border-accent/20 card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* ── Top: Image ── */}
                 {serviceImages[service.slug] && (
@@ -303,7 +303,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ── Why Choose Us ── */}
-      <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
+      <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <div ref={whyRef} className={`mx-auto max-w-5xl reveal-hidden ${whyVisible ? "reveal-visible" : ""}`}>
           <h2 className="text-center font-heading text-3xl font-bold text-text dark:text-dark-text sm:text-4xl heading-underline">
             Why Choose SPS?
@@ -337,7 +337,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-12 sm:py-16 lg:py-24">
+      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <div ref={ctaRef} className={`mx-auto max-w-2xl reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
             <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text sm:text-3xl lg:text-4xl">

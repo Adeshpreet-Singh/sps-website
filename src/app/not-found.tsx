@@ -28,20 +28,13 @@ export default function NotFound() {
       {/* Large 404 number */}
       <div className="relative mb-6" aria-hidden="true">
         <span
-          className="text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] font-heading font-bold leading-none select-none animate-404-pulse"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--color-navy) 0%, var(--color-accent) 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}
+          className="text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] font-heading font-bold leading-none select-none animate-404-pulse text-gradient-404"
         >
           404
         </span>
         {/* Subtle pulse ring behind the number */}
         <div className="absolute inset-0 -z-10 flex items-center justify-center">
-          <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-2 border-accent/10 animate-pulse-glow" />
+          <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-2 border-accent/15 dark:border-accent/30 animate-pulse-glow" />
         </div>
       </div>
 

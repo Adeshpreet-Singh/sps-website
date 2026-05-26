@@ -152,7 +152,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* What's Included */}
-      <section aria-label="What's included" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-20 lg:py-28">
+      <section aria-label="What's included" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -168,7 +168,7 @@ export default function ServicePageLayout({
               {includedSubtitle}
             </p>
           </div>
-          <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-none dark:border dark:border-dark-border sm:p-8 lg:p-10">
+          <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-dark-card dark:border dark:border-dark-border sm:p-8 lg:p-10">
             <ul className="grid gap-4 sm:grid-cols-2 stagger-check list-none p-0 m-0">
               {service.items.map((item) => (
                 <li
@@ -242,7 +242,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* FAQs */}
-      <section aria-label="Frequently asked questions" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-20 lg:py-28">
+      <section aria-label="Frequently asked questions" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
@@ -259,7 +259,7 @@ export default function ServicePageLayout({
       {/* CTA */}
       <section
         aria-label="Get started"
-        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-20 text-center text-white lg:py-28"
+        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white"
       >
         <div aria-hidden="true" className="absolute inset-0">
           <Image
