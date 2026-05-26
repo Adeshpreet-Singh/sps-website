@@ -15,7 +15,6 @@ import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
-import TestimonialAvatars from "@/components/TestimonialAvatars";
 import CursorGlow from "@/components/CursorGlow";
 
 /* ================================================================== */

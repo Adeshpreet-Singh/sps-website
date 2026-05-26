@@ -57,7 +57,8 @@ export default function RouteError({
           <div className="mb-8 rounded-xl border border-accent/20 bg-accent/[0.04] dark:bg-accent/[0.08] px-6 py-4">
             <a
               href={siteConfig.phoneLink}
-              className="inline-flex items-center gap-2 text-accent font-semibold hover:underline"
+              aria-label={`Call us at ${siteConfig.phone}`}
+              className="inline-flex items-center gap-2 text-accent font-semibold hover:underline min-h-[44px]"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               {siteConfig.phone}
@@ -72,14 +73,14 @@ export default function RouteError({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press min-h-[44px]"
           >
             <RefreshCw className="h-4 w-4" aria-hidden="true" />
             Try Again
           </button>
           <Link
             href={secondaryHref}
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-all hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 btn-press"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-all hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 btn-press min-h-[44px]"
           >
             {secondaryHref === "/" && <Home className="h-4 w-4" aria-hidden="true" />}
             {secondaryLabel}

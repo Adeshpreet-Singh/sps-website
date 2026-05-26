@@ -49,7 +49,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block py-1.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                    className="block py-2.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline min-h-[44px] flex items-center"
                   >
                     {service.title}
                   </Link>
@@ -78,11 +78,11 @@ export default function Footer() {
           </nav>
 
           {/* Column 4 — Get in Touch */}
-          <div>
+          <nav aria-labelledby="footer-contact">
             <h3 id="footer-contact" className="text-sm font-semibold uppercase tracking-wider text-white/90">
               Get in Touch
             </h3>
-            <ul aria-labelledby="footer-contact" className="mt-3 flex flex-col gap-2 text-sm text-white/70">
+            <ul className="mt-3 flex flex-col gap-2 text-sm text-white/70">
               <li>
                 <a
                   href={siteConfig.phoneLink}
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li className="transition-colors duration-200 hover:text-white/90 text-white/80">Metro Vancouver, B.C.</li>
             </ul>
-          </div>
+          </nav>
         </div>
       </div>
 

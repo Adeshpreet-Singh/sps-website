@@ -168,11 +168,11 @@ export default function ServicePageLayout({
             {processSubtitle}
           </p>
           <div className="relative mt-14">
-            <div className="absolute left-0 right-0 top-7 hidden h-0.5 bg-border dark:bg-dark-border lg:block" />
-            <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-border dark:bg-dark-border lg:hidden" />
-            <div className="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
+            <div className="absolute left-0 right-0 top-7 hidden h-0.5 bg-border dark:bg-dark-border lg:block" aria-hidden="true" />
+            <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-border dark:bg-dark-border lg:hidden" aria-hidden="true" />
+            <ol className="relative grid gap-10 lg:grid-cols-4 lg:gap-6 list-none p-0 m-0" role="list">
               {processSteps.map(({ step, title, description, icon: Icon, image }, idx) => (
-                <div
+                <li
                   key={step}
                   className="relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up"
                   style={{ animationDelay: `${idx * 120}ms` }}
@@ -198,9 +198,9 @@ export default function ServicePageLayout({
                       {description}
                     </p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </ScrollReveal>
       </section>

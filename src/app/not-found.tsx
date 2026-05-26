@@ -39,7 +39,8 @@ export default function NotFound() {
       {/* Primary CTA */}
       <Link
         href="/"
-        className="inline-flex items-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 mb-12"
+        aria-label="Back to home page"
+        className="inline-flex items-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 mb-12 min-h-[44px]"
       >
         <Home className="w-5 h-5" aria-hidden="true" />
         Back to Home
@@ -50,10 +51,12 @@ export default function NotFound() {
         <p className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mb-4">
           Or try one of these
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="list" aria-label="Quick navigation">
           <Link
             href="/services"
-            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5"
+            role="listitem"
+            aria-label="View our services — installation and plumbing"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px]"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
               <Wrench className="w-5 h-5 text-white" aria-hidden="true" />
@@ -70,7 +73,9 @@ export default function NotFound() {
 
           <Link
             href="/contact"
-            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5"
+            role="listitem"
+            aria-label="Contact us for a free quote"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px]"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
               <Phone className="w-5 h-5 text-white" aria-hidden="true" />
@@ -87,7 +92,9 @@ export default function NotFound() {
 
           <Link
             href="/about"
-            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5"
+            role="listitem"
+            aria-label="Learn about SPS Smith Pro Services"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px]"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
               <ArrowLeft className="w-5 h-5 text-white" aria-hidden="true" />

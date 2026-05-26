@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { siteConfig, navLinks } from "@/lib/data";
 import ThemeToggle from "./ThemeToggle";
 

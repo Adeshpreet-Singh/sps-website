@@ -48,14 +48,14 @@ export default function GlobalError({
             <button
               type="button"
               onClick={reset}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark hover:shadow-lg btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark hover:shadow-lg btn-press min-h-[44px]"
             >
               <RefreshCw className="h-4 w-4" aria-hidden="true" />
               Try Again
             </button>
             <Link
               href="/"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-colors hover:bg-surface-alt dark:hover:bg-dark-surface-alt btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-colors hover:bg-surface-alt dark:hover:bg-dark-surface-alt btn-press min-h-[44px]"
             >
               <Home className="h-4 w-4" aria-hidden="true" />
               Back to Home

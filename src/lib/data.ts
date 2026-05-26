@@ -154,7 +154,7 @@ export const services: Service[] = [
   },
 ];
 
-export interface Testimonial {
+interface Testimonial {
   name: string;
   location: string;
   source: string;
@@ -193,7 +193,7 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export interface WhyUsFeature {
+interface WhyUsFeature {
   icon: LucideIconName;
   title: string;
   description: string;
@@ -274,11 +274,6 @@ export const retailerOptions = [
   "The Brick",
   "Other / Not Applicable",
 ];
-
-export const mapConfig = {
-  center: { lat: 49.28, lng: -122.55 },
-  zoom: 9,
-};
 
 /** Hero/background images per service slug — used by HomeClient and ServicesClient */
 export const serviceImages: Record<string, string> = {

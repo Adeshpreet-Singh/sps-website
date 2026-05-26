@@ -58,7 +58,7 @@ export default function ScrollToTop() {
             : ""
       }`}
     >
-      <ChevronUp className="h-5 w-5" />
+      <ChevronUp className="h-5 w-5" aria-hidden="true" />
     </button>
   );
 }
