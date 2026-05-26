@@ -18,8 +18,6 @@ import Image from "next/image";
 import { serviceAreas, siteConfig } from "@/lib/data";
 import {
   MapPin,
-  Phone,
-  Mail,
   Home,
   Wrench,
   Clock,
@@ -28,6 +26,7 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import CTABanner from "@/components/CTABanner";
 
 export default function ServiceAreaPage() {
   return (

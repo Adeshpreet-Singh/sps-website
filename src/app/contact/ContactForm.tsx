@@ -120,7 +120,7 @@ function FloatingInput({
       />
       <label
         htmlFor={id}
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted dark:text-dark-text-muted text-base pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs"
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted dark:text-dark-text-muted text-base pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent-safe peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs"
       >
         {label}
         {required && <span className="text-error ml-0.5">*</span>}
@@ -468,7 +468,7 @@ export default function ContactForm() {
         />
         <label
           htmlFor="message"
-          className="absolute left-4 top-6 text-text-muted dark:text-dark-text-muted text-base pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs"
+          className="absolute left-4 top-6 text-text-muted dark:text-dark-text-muted text-base pointer-events-none transition-all duration-200 peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent-safe peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs"
         >
           Tell us about your project…
         </label>

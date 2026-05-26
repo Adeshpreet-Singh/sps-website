@@ -161,7 +161,7 @@ export default function HomeClient() {
           {/* Section header with accent dot */}
           <div ref={servicesHeaderRef} className={`text-center max-w-2xl mx-auto mb-14 reveal-hidden ${servicesHeaderVisible ? "reveal-visible" : ""}`}>
             <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
+              <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
               <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
                 What We Do
               </p>
@@ -257,7 +257,7 @@ src={serviceImages[svc.slug]}
           <div ref={whyUsHeaderRef} className={`text-center max-w-3xl mx-auto mb-14 reveal-hidden ${whyUsHeaderVisible ? "reveal-visible" : ""}`}>
             <h2 className="text-3xl sm:text-4xl font-bold text-white inline-block relative">
               Built on reliability, driven by results.
-              <span className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent animate-line-grow" />
+              <span aria-hidden="true" className="block mx-auto mt-3 h-1 w-16 rounded-full bg-accent animate-line-grow" />
             </h2>
             <p className="mt-6 text-white/70 leading-relaxed max-w-2xl mx-auto">
               We&apos;ve built our reputation one job at a time — showing up when we say we
