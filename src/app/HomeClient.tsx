@@ -10,7 +10,7 @@ import {
   MapPin,
   Quote,
 } from "lucide-react";
-import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars } from "@/lib/data";
+import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars, homeFaqItems } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
@@ -18,6 +18,7 @@ import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 import StatCounter from "@/components/StatCounter";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import FaqAccordion from "@/components/FaqAccordion";
 
 /* ================================================================== */
 /*  HOME PAGE                                                          */
@@ -33,6 +34,7 @@ export default function HomeClient() {
   const [testimonialsRef, testimonialsVisible] = useScrollReveal();
   const [serviceAreaRef, serviceAreaVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal({ threshold: 0.3 });
+  const [faqRef, faqVisible] = useScrollReveal();
 
   // Lazy-load hero video — only starts buffering when hero is in/near viewport
   const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
@@ -365,7 +367,46 @@ src={serviceImages[svc.slug]}
       </section>
 
       {/* ============================================================ */}
-      {/*  7. FINAL CTA BANNER                                         */}
+      {/*  7. FAQ ACCORDION                                            */}
+      {/* ============================================================ */}
+      <section id="faq" aria-label="Frequently asked questions" className="relative bg-white dark:bg-dark-surface border-t border-border dark:border-dark-border">
+        <div ref={faqRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${faqVisible ? "reveal-visible" : ""}`}>
+          {/* Section header */}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
+              <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
+                FAQ
+              </p>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">
+              Got questions?
+            </h2>
+            <p className="mt-4 text-text-muted dark:text-dark-text-muted leading-relaxed">
+              Here are answers to the most common questions about our services.
+            </p>
+          </div>
+
+          {/* FAQ items */}
+          <div className="max-w-3xl mx-auto stagger-children">
+            <FaqAccordion faqs={homeFaqItems} />
+          </div>
+
+          {/* Link to full FAQ page */}
+          <div className="mt-10 text-center">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors"
+            >
+              View all FAQs
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  8. FINAL CTA BANNER                                         */}
       {/* ============================================================ */}
       <CTABanner
         description="Get a free quote for your next appliance installation or plumbing project. We&apos;re here to help."

@@ -66,6 +66,7 @@ export const navLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/reviews" },
+  { label: "FAQ", href: "/faq" },
   { label: "Service Area", href: "/service-area" },
   { label: "Contact", href: "/contact" },
 ];
@@ -674,6 +675,39 @@ export const plumbingTiers: PlumbingTier[] = [
     ],
     ctaLabel: "Request Quote",
     ctaHref: "/contact",
+  },
+];
+
+export const homeFaqItems: FaqItem[] = [
+  {
+    question: "What areas do you serve?",
+    answer:
+      "We serve all of Metro Vancouver and the Lower Mainland, including Vancouver, Burnaby, Surrey, Richmond, Coquitlam, North Vancouver, West Vancouver, Langley, Delta, New Westminster, Port Moody, Maple Ridge, Abbotsford, and Pitt Meadows.",
+  },
+  {
+    question: "Are your technicians licensed and insured?",
+    answer:
+      "Absolutely. Every SPS technician is fully licensed, bonded, and carries comprehensive liability insurance. Your home is protected from start to finish.",
+  },
+  {
+    question: "How quickly can you schedule an installation?",
+    answer:
+      "In most cases, we can schedule your installation within 2–5 business days. Same-day scheduling is available with our Standard and Pro packages. During peak seasons it may take a bit longer, but we always do our best to accommodate your preferred timing.",
+  },
+  {
+    question: "Will my appliance warranty be affected?",
+    answer:
+      "No. All of our installations follow manufacturer specifications to the letter, so your product warranty stays fully intact. We're warranty-compliant by design.",
+  },
+  {
+    question: "Do you remove old appliances?",
+    answer:
+      "Yes — removal and haul-away are included with our Standard and Pro installation packages. We'll disconnect, remove, and responsibly dispose of your old appliance so you don't have to worry about it.",
+  },
+  {
+    question: "How do I get a quote?",
+    answer:
+      "You can request a free quote by filling out our online contact form or calling us directly. We'll get back to you promptly with a transparent, no-obligation estimate. Estimates are always free.",
   },
 ];
 

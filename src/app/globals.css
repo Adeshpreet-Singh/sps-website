@@ -229,6 +229,561 @@
   100% { transform: scale(4); opacity: 0; }
 }
 
+/* ── Enhanced Animation Keyframes ── */
+
+/* Smooth slide down — for nav entrance */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle scale bounce — for interactive elements */
+@keyframes scaleBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Smooth number roll — for counter transitions */
+@keyframes numberRoll {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Accordion expand — smooth height transition */
+@keyframes accordionExpand {
+  from { max-height: 0; opacity: 0; }
+  to   { max-height: 500px; opacity: 1; }
+}
+
+/* Link underline expand — from center */
+@keyframes underlineExpand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Card hover lift — subtle 3D effect */
+@keyframes cardLift {
+  0% { transform: translateY(0) rotateX(0); }
+  50% { transform: translateY(-2px) rotateX(1deg); }
+  100% { transform: translateY(-4px) rotateX(0); }
+}
+
+/* Image zoom — subtle scale on hover */
+@keyframes imageZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
+/* Button ripple — water drop effect */
+@keyframes buttonRipple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Text highlight — for search results */
+@keyframes textHighlight {
+  0% { background-size: 0% 100%; }
+  100% { background-size: 100% 100%; }
+}
+
+/* Smooth content swap — for tab transitions */
+@keyframes contentSwap {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge entrance — for notification badges */
+@keyframes badgeEnter {
+  0% { transform: scale(0) translateY(4px); opacity: 0; }
+  60% { transform: scale(1.15) translateY(-1px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Icon spin — for loading indicators */
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Smooth blur reveal — for image loading */
+@keyframes blurReveal {
+  from { opacity: 0; filter: blur(10px); transform: scale(1.05); }
+  to   { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* Section entrance — for full sections */
+@keyframes sectionEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient border shine — animated light sweep */
+@keyframes gradientShine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Star pop — for rating stars */
+@keyframes starPop {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Scroll hint — subtle bounce for scroll indicators */
+@keyframes scrollHint {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
+}
+
+/* Dot pulse — for accent indicators */
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* CTA pulse — for hero buttons */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(232, 122, 46, 0.2); }
+  50% { box-shadow: 0 4px 30px rgba(232, 122, 46, 0.35); }
+}
+
+/* Accent pulse — for active nav indicator */
+@keyframes accentPulse {
+  0%, 100% { opacity: 1; width: 20px; }
+  50% { opacity: 0.7; width: 24px; }
+}
+
+/* Counter enter — for stat counters */
+@keyframes counterEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Text reveal — for hero headings */
+@keyframes textReveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0% 0 0); opacity: 1; }
+}
+
+/* Line grow — for horizontal dividers */
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Content swap — for tab/accordion transitions */
+@keyframes contentSwap {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Badge enter — for notification/counter badges */
+@keyframes badgeEnter {
+  0% { transform: scale(0) translateY(4px); opacity: 0; }
+  60% { transform: scale(1.15) translateY(-1px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Image reveal — for lazy-loaded images */
+@keyframes imageReveal {
+  from { opacity: 0; filter: blur(8px); transform: scale(1.02); }
+  to   { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+/* Tag enter — for city/service tags */
+@keyframes tagEnter {
+  from { opacity: 0; transform: scale(0.9) translateY(4px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Check item enter — for service list items */
+@keyframes checkItemEnter {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* 404 number pulse */
+@keyframes numberPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+}
+
+/* Tag bounce — more dynamic than tagEnter */
+@keyframes tagBounceIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(8px); }
+  60% { opacity: 1; transform: scale(1.05) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Gradient text shimmer */
+@keyframes gradientTextShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Parallax float — slower, more subtle */
+@keyframes parallaxFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(0.5deg); }
+  75% { transform: translateY(4px) rotate(-0.5deg); }
+}
+
+/* Focus ring pulse — smooth focus animation */
+@keyframes focusRingPulse {
+  0% { outline-color: rgba(232, 122, 46, 0.6); }
+  50% { outline-color: rgba(232, 122, 46, 0.3); }
+  100% { outline-color: rgba(232, 122, 46, 0.6); }
+}
+
+/* FAB enter — for scroll-to-top button */
+@keyframes fabEnter {
+  from { transform: translateY(16px) scale(0.8); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* FAB exit — for scroll-to-top button */
+@keyframes fabExit {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to   { transform: translateY(16px) scale(0.8); opacity: 0; }
+}
+
+/* Hamburger morph — for mobile menu toggle */
+@keyframes hamburgerMorph {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(3px) rotate(0); }
+  100% { transform: translateY(6px) rotate(45deg); }
+}
+
+/* Stagger fade — for loading states */
+@keyframes staggerFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth page enter — for route transitions */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient shift — for animated backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Skeleton pulse — for loading placeholders */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Float slow — for decorative elements */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Float medium — for subtle floating */
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(1deg); }
+  66% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+/* Badge pulse — for notifications */
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Progress stripe — for loading bars */
+@keyframes progressStripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+/* Check draw — for success states */
+@keyframes checkDraw {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Ripple — for button effects */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.35; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Spin loader — for loading indicators */
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+/* Tag pop — for city tags */
+@keyframes tagPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Toast slide in — for notifications */
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Toast slide out — for notifications */
+@keyframes toastSlideOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-12px) scale(0.96); }
+}
+
+/* Shimmer — for loading placeholders */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Glow pulse — for accent elements */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 122, 46, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(232, 122, 46, 0.12); }
+}
+
+/* Nav enter — for header entrance */
+@keyframes navEnter {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bounce — for scroll indicators */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25%); }
+}
+
+/* Ping — for success rings */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Spin — for loading icons */
+@keyframes spin360 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Details open — for FAQ accordions */
+@keyframes detailsOpen {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor blink — for typing effect */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scale bounce — for interactive elements */
+@keyframes scaleBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Gradient shift — for animated backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Gradient shine — for border effects */
+@keyframes gradientShine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Gradient text shimmer — for hero text */
+@keyframes gradientTextShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Parallax float — for decorative elements */
+@keyframes parallaxFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(0.5deg); }
+  75% { transform: translateY(4px) rotate(-0.5deg); }
+}
+
+/* Focus ring pulse — for accessibility */
+@keyframes focusRingPulse {
+  0% { outline-color: rgba(232, 122, 46, 0.6); }
+  50% { outline-color: rgba(232, 122, 46, 0.3); }
+  100% { outline-color: rgba(232, 122, 46, 0.6); }
+}
+
+/* FAB enter — for scroll-to-top */
+@keyframes fabEnter {
+  from { transform: translateY(16px) scale(0.8); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* FAB exit — for scroll-to-top */
+@keyframes fabExit {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to   { transform: translateY(16px) scale(0.8); opacity: 0; }
+}
+
+/* Hamburger morph — for mobile menu */
+@keyframes hamburgerMorph {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(3px) rotate(0); }
+  100% { transform: translateY(6px) rotate(45deg); }
+}
+
+/* Stagger fade — for loading states */
+@keyframes staggerFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page enter — for route transitions */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Skeleton pulse — for loading */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Float slow — for decorative elements */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Float medium — for subtle floating */
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(1deg); }
+  66% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+/* Badge pulse — for notifications */
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Progress stripe — for loading bars */
+@keyframes progressStripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+/* Check draw — for success states */
+@keyframes checkDraw {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Ripple — for button effects */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.35; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Spin loader — for loading indicators */
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+/* Tag pop — for city tags */
+@keyframes tagPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Toast slide in — for notifications */
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Toast slide out — for notifications */
+@keyframes toastSlideOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-12px) scale(0.96); }
+}
+
+/* Shimmer — for loading placeholders */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Glow pulse — for accent elements */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 122, 46, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(232, 122, 46, 0.12); }
+}
+
+/* Nav enter — for header */
+@keyframes navEnter {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bounce — for scroll indicators */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25%); }
+}
+
+/* Ping — for success rings */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Spin — for loading icons */
+@keyframes spin360 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Details open — for FAQ accordions */
+@keyframes detailsOpen {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor blink — for typing effect */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* ── Utility Classes ── */
 @layer utilities {
   .text-balance {
