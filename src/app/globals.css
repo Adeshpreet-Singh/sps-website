@@ -498,8 +498,10 @@
     100% { outline-color: rgba(232, 122, 46, 0.6); }
   }
 
-  :focus-visible {
-    animation: focusRingPulse 2s ease-in-out infinite;
+  @media (prefers-reduced-motion: no-preference) {
+    :focus-visible {
+      animation: focusRingPulse 2s ease-in-out infinite;
+    }
   }
 
   /* Dark mode input focus enhancement */

@@ -316,6 +316,7 @@ export default function ServicesClient() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
               <a
                 href={siteConfig.phoneLink}
+                aria-label={`Call us at ${siteConfig.phone}`}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />

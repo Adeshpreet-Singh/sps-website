@@ -236,7 +236,7 @@ export default function AboutClient() {
                   <h3 className="text-lg font-semibold text-white mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-white/70 text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </div>

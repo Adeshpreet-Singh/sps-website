@@ -13,49 +13,10 @@ import {
 import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useCountUp } from "@/hooks/useCountUp";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
 import CursorGlow from "@/components/CursorGlow";
-
-/* ================================================================== */
-/*  Animated stat counter for hero                                    */
-/* ================================================================== */
-
-function HeroStat({
-  value,
-  label,
-  suffix = "",
-  started,
-  decimals = 0,
-  isText = false,
-}: {
-  value: string | number;
-  label: string;
-  suffix?: string;
-  started: boolean;
-  decimals?: number;
-  isText?: boolean;
-}) {
-  const numericValue = typeof value === "number" ? value : parseFloat(String(value)) || 0;
-  const display = useCountUp({
-    target: numericValue,
-    duration: 2000,
-    shouldStart: started,
-    decimals,
-  });
-
-  return (
-    <div role="listitem" className={`flex flex-col items-center py-6 px-4 animate-slide-up ${started ? "animate-counter-enter" : ""}`}>
-      <p className="text-3xl sm:text-4xl font-bold text-white tabular-nums">
-        {isText ? value : display}
-        {suffix && <span className="text-accent">{suffix}</span>}
-      </p>
-      <p className="mt-1 text-sm font-medium text-white/70">
-        {label}
-      </p>
-    </div>
-  );
-}
+import CTABanner from "@/components/CTABanner";
+import StatCounter from "@/components/StatCounter";
 
 /* ================================================================== */
 /*  HOME PAGE                                                          */
@@ -160,10 +121,10 @@ export default function HomeClient() {
         {/* Stats row at bottom of hero — animated counters */}
         <div ref={statsRef} className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <div role="list" aria-label="Company statistics" className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 overflow-hidden rounded-xl sm:rounded-none animate-fade-in delay-400 stagger-children">
-            <HeroStat value={siteConfig.stats.yearsInBusiness} label="Years in Business" suffix="" started={statsVisible} />
-            <HeroStat value={siteConfig.stats.installations} label="Installations" suffix="+" started={statsVisible} />
-            <HeroStat value={siteConfig.stats.licensedInsured} label="Licensed &amp; Insured" suffix="" started={statsVisible} isText />
-            <HeroStat value={siteConfig.stats.rating} label="Google Rating" suffix="★" started={statsVisible} decimals={1} />
+            <StatCounter value={siteConfig.stats.yearsInBusiness} label="Years in Business" suffix="" started={statsVisible} />
+            <StatCounter value={siteConfig.stats.installations} label="Installations" suffix="+" started={statsVisible} />
+            <StatCounter value={siteConfig.stats.licensedInsured} label="Licensed &amp; Insured" suffix="" started={statsVisible} isText />
+            <StatCounter value={siteConfig.stats.rating} label="Google Rating" suffix="★" started={statsVisible} decimals={1} />
           </div>
         </div>
       </section>
@@ -426,16 +387,17 @@ src={testimonialAvatars[t.name]}
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10 stagger-children">
+          <ul className="flex flex-wrap justify-center gap-3 mb-10 stagger-children list-none p-0 m-0" role="list" aria-label="Service areas">
             {serviceAreas.map((city) => (
-              <span
+              <li
                 key={city}
+                role="listitem"
                 className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-md active:scale-95 reveal-hidden reveal-visible"
               >
                 {city}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <p className="text-center text-text-muted text-sm">
             Don&apos;t see your area?{" "}
@@ -450,41 +412,11 @@ src={testimonialAvatars[t.name]}
       {/* ============================================================ */}
       {/*  8. FINAL CTA BANNER                                         */}
       {/* ============================================================ */}
-      <section ref={ctaRef} id="contact" aria-label="Contact us" className={`relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
-        {/* Cursor glow effect */}
-        <CursorGlow />
-        {/* Decorative floating shapes */}
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />
-        <div aria-hidden="true" className="absolute top-12 right-[15%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/[0.06] animate-parallax-float delay-500" />
-        <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30 animate-parallax-float" />
-
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16 lg:py-28 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            Ready to get started?
-          </h2>
-          <p className="mt-4 text-white/70 text-base sm:text-lg max-w-xl mx-auto">
-            Get a free quote for your next appliance installation or plumbing
-            project. We&apos;re here to help.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
-            >
-              Get a Free Quote
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-            <a
-              href={siteConfig.phoneLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 active:translate-y-0 btn-press"
-              aria-label={`Call us at ${siteConfig.phone}`}
-            >
-              <Phone className="w-4 h-4" aria-hidden="true" />
-              Call {siteConfig.phone}
-            </a>
-          </div>
-        </div>
+      <CTABanner
+        description="Get a free quote for your next appliance installation or plumbing project. We&apos;re here to help."
+        secondaryLabel={`Call ${siteConfig.phone}`}
+        secondaryIsPhone
+      />
       </section>
     </>
   );
