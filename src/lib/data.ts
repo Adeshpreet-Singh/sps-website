@@ -63,6 +63,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Reviews", href: "/reviews" },
   { label: "Service Area", href: "/service-area" },
@@ -169,6 +170,7 @@ export interface Testimonial {
   rating: number;
   service: string;
   quote: string;
+  photo?: string;
 }
 
 export const testimonials: Testimonial[] = [
@@ -180,6 +182,7 @@ export const testimonials: Testimonial[] = [
     service: "Appliance Installation",
     quote:
       "Smith Pro installed our new dishwasher and range on the same day. The tech was professional, super tidy, and took the time to explain everything. No hidden fees. Exactly what I needed.",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Sandra & James K.",
@@ -189,6 +192,7 @@ export const testimonials: Testimonial[] = [
     service: "Plumbing Services",
     quote:
       "Had our entire master bathroom redone — new vanity, toilet, and soaker tub. The plumbing work was flawless and the crew was incredibly respectful of our home. Highly recommend for any bathroom renovation.",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Patricia M.",
@@ -198,6 +202,57 @@ export const testimonials: Testimonial[] = [
     service: "Appliance Installation",
     quote:
       "Smith Pro installed our new fridge and over-the-range microwave. They arrived early, worked quickly, and even hauled away the old appliances. Would absolutely use again — and already referred my sister.",
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "David L.",
+    location: "Richmond",
+    source: "Google Review",
+    rating: 5,
+    service: "Residential Services",
+    quote:
+      "From the initial quote to the final walkthrough, Smith Pro was outstanding. They installed a new washer/dryer set and fixed a leaky kitchen faucet — all in one visit. Fair pricing and excellent communication throughout.",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "Rachel & Tom W.",
+    location: "North Vancouver",
+    source: "Homestars Review",
+    rating: 5,
+    service: "Plumbing Services",
+    quote:
+      "Emergency call on a Sunday night — our basement was flooding. Smith Pro had a tech at our door within 45 minutes. They shut off the supply, replaced the burst pipe, and even helped us mop up. Can't say enough good things.",
+    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "Kevin P.",
+    location: "Langley",
+    source: "Google Review",
+    rating: 5,
+    service: "Commercial Services",
+    quote:
+      "We manage a 40-unit condo and Smith Pro handles all our appliance installs and plumbing needs. Reliable, competitively priced, and the residents always give positive feedback. They're our go-to contractor.",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "Linda C.",
+    location: "Delta",
+    source: "Homestars Review",
+    rating: 5,
+    service: "Appliance Installation",
+    quote:
+      "The installer showed up on time, wore booties, laid down floor protection, and cleaned up perfectly after installing our new gas range. You can tell they genuinely care about doing quality work. Five stars isn't enough.",
+    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+  },
+  {
+    name: "Ahmed & Fatima R.",
+    location: "Surrey",
+    source: "Google Review",
+    rating: 5,
+    service: "Plumbing Services",
+    quote:
+      "Complete ensuite renovation — new shower, double vanity, and heated floors. The plumbing was done to code and passed inspection first try. Smith Pro coordinated with the tile and electrical guys seamlessly.",
+    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
   },
 ];
 
@@ -464,6 +519,211 @@ export const serviceHeroImages: Record<string, string> = Object.fromEntries(
 );
 
 /** Avatar URLs for testimonial authors — keyed by name */
+export interface PricingFeature {
+  label: string;
+  included: boolean;
+  tooltip?: string;
+}
+
+export interface PricingTier {
+  slug: string;
+  name: string;
+  tagline: string;
+  price: string;
+  priceNote: string;
+  popular: boolean;
+  icon: ServiceIconName;
+  features: PricingFeature[];
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+export const pricingTiers: PricingTier[] = [
+  {
+    slug: "basic",
+    name: "Basic Install",
+    tagline: "Single appliance, done right",
+    price: "From $149",
+    priceNote: "per appliance",
+    popular: false,
+    icon: "Wrench",
+    features: [
+      { label: "Single appliance installation", included: true },
+      { label: "Licensed & insured technician", included: true },
+      { label: "Standard connection & testing", included: true },
+      { label: "Manufacturer warranty compliance", included: true },
+      { label: "Post-install walkthrough", included: true },
+      { label: "Old appliance removal", included: false, tooltip: "Available as add-on" },
+      { label: "Same-day scheduling", included: false, tooltip: "Available in Standard & Pro" },
+      { label: "Multi-appliance discount", included: false, tooltip: "Available in Pro" },
+    ],
+    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+  },
+  {
+    slug: "standard",
+    name: "Standard",
+    tagline: "Most popular for homeowners",
+    price: "From $249",
+    priceNote: "per visit",
+    popular: true,
+    icon: "Home",
+    features: [
+      { label: "Up to 2 appliance installations", included: true },
+      { label: "Licensed & insured technician", included: true },
+      { label: "Full connection, testing & cleanup", included: true },
+      { label: "Manufacturer warranty compliance", included: true },
+      { label: "Post-install walkthrough", included: true },
+      { label: "Old appliance removal & haul-away", included: true },
+      { label: "Same-day scheduling available", included: true },
+      { label: "Multi-appliance discount", included: false, tooltip: "Available in Pro" },
+    ],
+    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+  },
+  {
+    slug: "pro",
+    name: "Pro Package",
+    tagline: "Full-service for renovations & moves",
+    price: "From $449",
+    priceNote: "per project",
+    popular: false,
+    icon: "Building2",
+    features: [
+      { label: "Unlimited appliance installations", included: true },
+      { label: "Licensed & insured technician", included: true },
+      { label: "Full connection, testing & cleanup", included: true },
+      { label: "Manufacturer warranty compliance", included: true },
+      { label: "Post-install walkthrough", included: true },
+      { label: "Old appliance removal & haul-away", included: true },
+      { label: "Priority same-day scheduling", included: true },
+      { label: "Multi-appliance volume discount", included: true },
+    ],
+    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+  },
+];
+
+export interface PlumbingTier {
+  slug: string;
+  name: string;
+  tagline: string;
+  price: string;
+  priceNote: string;
+  popular: boolean;
+  icon: ServiceIconName;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+export const plumbingTiers: PlumbingTier[] = [
+  {
+    slug: "fixture-swap",
+    name: "Fixture Swap",
+    tagline: "Single fixture replacement",
+    price: "From $199",
+    priceNote: "per fixture",
+    popular: false,
+    icon: "Droplets",
+    features: [
+      "Single fixture install or replace",
+      "Shut-off valve check",
+      "Supply line connection",
+      "Leak testing & cleanup",
+      "Licensed plumber",
+    ],
+    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+  },
+  {
+    slug: "bathroom-refresh",
+    name: "Bathroom Refresh",
+    tagline: "Multi-fixture bathroom update",
+    price: "From $399",
+    priceNote: "per bathroom",
+    popular: true,
+    icon: "Sparkles",
+    features: [
+      "Up to 3 fixtures installed",
+      "Vanity, toilet & faucet combo",
+      "Supply & drain line work",
+      "Old fixture removal & disposal",
+      "Licensed plumber",
+      "Code-compliant installation",
+    ],
+    ctaLabel: "Get a Quote",
+    ctaHref: "/contact",
+  },
+  {
+    slug: "full-reno",
+    name: "Full Reno",
+    tagline: "Complete bathroom plumbing",
+    price: "Custom Quote",
+    priceNote: "per project",
+    popular: false,
+    icon: "Shield",
+    features: [
+      "Full bathroom rough-in & finish",
+      "All fixtures, supply & drain",
+      "Shower/tub installation",
+      "Code-compliant & inspected",
+      "Licensed plumber",
+      "Project coordination",
+      "Old material removal",
+    ],
+    ctaLabel: "Request Quote",
+    ctaHref: "/contact",
+  },
+];
+
+export const pricingFaqItems: FaqItem[] = [
+  {
+    question: "How are prices determined?",
+    answer:
+      "Our prices are starting points. The final quote depends on the specific appliance type, installation complexity, site conditions, and any additional parts or modifications needed. We always provide a transparent quote before starting work — no surprises.",
+  },
+  {
+    question: "Do you offer discounts for multiple appliances?",
+    answer:
+      "Yes! The Pro Package includes volume discounts for multiple appliance installations. For commercial projects or large-scale installs, contact us for a custom quote — we're competitive and transparent.",
+  },
+  {
+    question: "Is there a warranty on installation?",
+    answer:
+      "Absolutely. All our installations are warranty-compliant and we stand behind our work. If there's an issue related to our installation within 90 days, we'll fix it at no charge.",
+  },
+  {
+    question: "What's included in the post-install walkthrough?",
+    answer:
+      "We walk you through the finished work, test all connections, demonstrate how the appliance or fixture works, answer any questions, and make sure everything is perfect before we leave. For plumbing, we also check for leaks and verify water pressure.",
+  },
+  {
+    question: "Do you charge for estimates?",
+    answer:
+      "No — estimates and quotes are always free. We'll assess your project, discuss options, and provide a transparent quote with no obligation. Call us or fill out our online form to get started.",
+  },
+];
+
+export interface PricingFeatureRow {
+  feature: string;
+  basic: string | boolean;
+  standard: string | boolean;
+  pro: string | boolean;
+}
+
+export const comparisonRows: PricingFeatureRow[] = [
+  { feature: "Appliance installations", basic: "1 appliance", standard: "Up to 2", pro: "Unlimited" },
+  { feature: "Licensed & insured technician", basic: true, standard: true, pro: true },
+  { feature: "Connection & testing", basic: "Standard", standard: "Full", pro: "Full" },
+  { feature: "Warranty compliance", basic: true, standard: true, pro: true },
+  { feature: "Post-install walkthrough", basic: true, standard: true, pro: true },
+  { feature: "Old appliance removal", basic: false, standard: true, pro: true },
+  { feature: "Same-day scheduling", basic: false, standard: true, pro: "Priority" },
+  { feature: "Volume discount", basic: false, standard: false, pro: true },
+  { feature: "Cleanup included", basic: "Basic", standard: "Full", pro: "Full" },
+];
+
 export const testimonialAvatars: Record<string, string> = {
   "Michael T.":
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",

@@ -17,6 +17,7 @@ import { useLazyVideo } from "@/hooks/useLazyVideo";
 import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 import StatCounter from "@/components/StatCounter";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 /* ================================================================== */
 /*  HOME PAGE                                                          */
@@ -316,53 +317,8 @@ src={serviceImages[svc.slug]}
             </div>
           </div>
 
-          {/* Testimonial cards with scroll-triggered stagger animation */}
-          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t, idx) => (
-              <div
-                key={t.name}
-                className={`relative rounded-2xl bg-white dark:bg-dark-surface-alt p-8 shadow-card dark:shadow-dark-card border-l-4 border-transparent card-hover reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""} reveal-delay-${idx + 1}`}
-                style={{
-                  borderImage: "linear-gradient(to bottom, var(--color-accent), var(--color-accent-light)) 1",
-                }}
-              >
-                {/* Subtle quote decoration */}
-                <Quote className="absolute top-4 right-4 h-8 w-8 text-accent/10" aria-hidden="true" />
-
-                {/* Avatar + author info */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-accent/20">
-                    <Image
-src={testimonialAvatars[t.name]}
-                      alt={t.name}
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-bold text-navy dark:text-dark-text text-sm">{t.name}</p>
-                    <p className="text-xs text-text-muted dark:text-dark-text-muted">
-                      {t.location} &middot; {t.source}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-text-muted dark:text-dark-text-muted leading-relaxed italic text-base">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="mt-4 flex items-center gap-1 text-accent star-rating-pop">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <span key={i} className="text-sm" aria-hidden="true">&#9733;</span>
-                  ))}
-                  <span className="sr-only">{t.rating} out of 5 stars</span>
-                </div>
-                <span className="mt-3 inline-block text-xs font-medium bg-accent/10 text-accent-safe rounded-full px-3 py-1">
-                  {t.service}
-                </span>
-              </div>
-            ))}
-          </div>
+          {/* Testimonial carousel with auto-play, swipe, and stagger animation */}
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 

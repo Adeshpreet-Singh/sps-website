@@ -157,10 +157,10 @@ export default function ReviewsClient() {
                 {/* Author info */}
                 <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    {testimonialAvatars[t.name] && (
+                    {(t.photo || testimonialAvatars[t.name]) && (
                       <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20">
                         <Image
-                          src={testimonialAvatars[t.name]}
+                          src={t.photo || testimonialAvatars[t.name]}
                           alt={t.name}
                           fill
                           className="object-cover"
