@@ -8,6 +8,7 @@
 
 import type { Metadata } from "next";
 import { siteConfig, pricingTiers, plumbingTiers } from "@/lib/data";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import PricingClient from "./PricingClient";
 
 // ISR: revalidate every 24 hours (pricing is stable)
@@ -20,13 +21,12 @@ export const metadata: Metadata = {
   description:
     "View SPS Installation pricing for appliance installation and plumbing services in Metro Vancouver. Free estimates, no hidden fees, 90-day warranty on all installs.",
   alternates: {
-    canonical: `${siteConfig.url}/pricing`,
+    canonical: "/pricing",
   },
   openGraph: {
-    title: "Pricing — Transparent Installation & Plumbing Quotes | SPS",
-    description:
-      "View SPS Installation pricing for appliance installation and plumbing services in Metro Vancouver. Free estimates, no hidden fees, 90-day warranty on all installs.",
-    url: `${siteConfig.url}/pricing`,
+    title: "Pricing | Transparent Flat-Rate Installation & Plumbing",
+    description: "Honest, upfront pricing for appliance installation, plumbing, and gas line services. No hidden fees, no surprises.",
+    url: "/pricing",
     siteName: siteConfig.name,
     type: "website",
   },
@@ -108,6 +108,7 @@ function PricingJsonLd() {
 export default function PricingPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Pricing", path: "/pricing" }]} />
       <PricingJsonLd />
       <PricingClient />
     </>

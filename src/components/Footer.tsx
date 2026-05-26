@@ -33,6 +33,7 @@ interface FooterLink {
 
 const companyLinks: FooterLink[] = [
   { label: "About", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Reviews", href: "/reviews" },
   { label: "Service Area", href: "/service-area" },
   { label: "FAQ", href: "/faq" },
