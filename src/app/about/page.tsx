@@ -8,8 +8,8 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About | SPS Installation",
-    description: "Licensed, insured, and trusted by Metro Vancouver's top retailers for appliance installation and plumbing services.",
+    title: "About Us | SPS Installation",
+    description: "Learn about SPS Installation — Metro Vancouver's trusted team for appliance installation & plumbing since 2025.",
     url: "/about",
   },
 };

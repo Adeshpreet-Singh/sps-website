@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   description:
     "Professional appliance installation for fridges, ranges, dishwashers, washers & dryers. Warranty-compliant.",
   alternates: {
-    canonical: "https://spsinstallation.com/services/appliance-installation",
+    canonical: "/services/appliance-installation",
   },
   openGraph: {
     title: "Appliance Installation | SPS Installation",
-    description: "Professional appliance installation for fridges, ranges, dishwashers, washers & dryers. Warranty-compliant.",
-    url: "https://spsinstallation.com/services/appliance-installation",
+    description: "Professional appliance installation — refrigerators, ranges, washers, dryers & more. Serving Metro Vancouver.",
+    url: "/services/appliance-installation",
   },
 };
 
