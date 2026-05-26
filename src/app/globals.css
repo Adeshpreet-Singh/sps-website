@@ -1029,7 +1029,6 @@
 /* Promote animated elements to their own compositor layer */
 .animate-float,
 .animate-pulse-glow,
-.animate-shimmer,
 .animate-parallax-float,
 .animate-404-pulse {
   will-change: transform, opacity;
