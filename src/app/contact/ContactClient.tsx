@@ -36,6 +36,7 @@ import dynamic from "next/dynamic";
 import { ContactFormSkeleton } from "@/components/Skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumb from "@/components/Breadcrumb";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ContactForm = dynamic(() => import("./ContactForm"), {
@@ -106,9 +107,9 @@ function ContactCard({
   const Wrapper = href ? "a" : "div";
   return (
     <Wrapper
-      {...(href ? { href, className: "group block", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
+      {...(href ? { href, className: "group block focus-visible:outline-none", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
-      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-400 hover:shadow-card-hover dark:hover:border-accent/30 hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine">
+      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-400 hover:shadow-card-hover dark:hover:border-accent/30 hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
           <Icon className="w-5 h-5 text-white" aria-hidden="true" />
         </div>
@@ -182,6 +183,7 @@ export default function ContactClient() {
         <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="relative max-w-4xl mx-auto text-center">
+          <Breadcrumb items={[{ name: "Contact Us", path: "/contact" }]} />
           <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in border border-white/10">
             We&apos;re Here to Help
           </span>

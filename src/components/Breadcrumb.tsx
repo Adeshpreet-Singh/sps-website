@@ -31,7 +31,7 @@ export default function Breadcrumb({
         <li>
           <Link
             href="/"
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none"
           >
             Home
           </Link>
@@ -48,7 +48,7 @@ export default function Breadcrumb({
             ) : (
               <Link
                 href={item.path}
-                className="text-white/70 hover:text-white transition-colors"
+                className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none"
               >
                 {item.name}
               </Link>

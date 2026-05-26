@@ -495,7 +495,7 @@ export default function ContactForm() {
       </div>
 
       {/* Textarea with character count */}
-      <div className="relative">
+      <div className="relative form-field-glow">
         <textarea
           id="message"
           name="message"

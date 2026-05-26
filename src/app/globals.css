@@ -1121,7 +1121,8 @@
     transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .heading-underline.reveal-visible::after,
-  .heading-underline.is-visible::after {
+  .heading-underline.is-visible::after,
+  .reveal-visible .heading-underline::after {
     width: 60px;
   }
 

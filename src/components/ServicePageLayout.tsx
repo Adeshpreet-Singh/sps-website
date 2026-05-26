@@ -154,12 +154,20 @@ export default function ServicePageLayout({
       {/* What's Included */}
       <section aria-label="What's included" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
-          <h2 className="text-center text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
-            What&apos;s Included
-          </h2>
-          <p className="mt-3 text-center text-text-muted dark:text-dark-text-muted lg:text-lg">
-            {includedSubtitle}
-          </p>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
+              <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
+                What&apos;s Included
+              </p>
+            </div>
+            <h2 className="text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
+              Everything You Need
+            </h2>
+            <p className="mt-3 text-text-muted dark:text-dark-text-muted lg:text-lg">
+              {includedSubtitle}
+            </p>
+          </div>
           <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-none dark:border dark:border-dark-border sm:p-8 lg:p-10">
             <ul className="grid gap-4 sm:grid-cols-2 stagger-check list-none p-0 m-0">
               {service.items.map((item) => (
@@ -179,14 +187,22 @@ export default function ServicePageLayout({
       </section>
 
       {/* Our Process */}
-      <section aria-label="Our process" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section aria-label="Our process" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
-          <h2 className="text-center text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
-            Our Process
-          </h2>
-          <p className="mt-3 text-center text-text-muted dark:text-dark-text-muted lg:text-lg">
-            {processSubtitle}
-          </p>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
+              <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
+                Our Process
+              </p>
+            </div>
+            <h2 className="text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
+              How It Works
+            </h2>
+            <p className="mt-3 text-text-muted dark:text-dark-text-muted lg:text-lg">
+              {processSubtitle}
+            </p>
+          </div>
           <div className="relative mt-14">
             <div className="absolute left-0 right-0 top-7 hidden h-0.5 bg-border dark:bg-dark-border lg:block" aria-hidden="true" />
             <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-border dark:bg-dark-border lg:hidden" aria-hidden="true" />
@@ -228,9 +244,14 @@ export default function ServicePageLayout({
       {/* FAQs */}
       <section aria-label="Frequently asked questions" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-3xl">
-          <h2 className="text-center text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
-            Frequently Asked Questions
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-3 text-text-muted dark:text-dark-text-muted lg:text-lg">
+              Common questions about our {service.title.toLowerCase()} service.
+            </p>
+          </div>
           <FaqAccordion faqs={faqs} />
         </ScrollReveal>
       </section>

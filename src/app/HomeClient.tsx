@@ -379,16 +379,16 @@ src={serviceImages[svc.slug]}
               <li
                 key={city}
                 role="listitem"
-                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-lg hover:shadow-accent/15 active:scale-95"
+                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent dark:hover:bg-accent dark:hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-lg hover:shadow-accent/15 active:scale-95 motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {city}
               </li>
             ))}
           </ul>
 
-          <p className="text-center text-text-muted text-sm">
+          <p className="text-center text-text-muted dark:text-dark-text-muted text-sm">
             Don&apos;t see your area?{" "}
-            <Link href="/contact" className="text-accent-safe font-semibold hover:underline">
+            <Link href="/contact" className="text-accent-safe font-semibold hover:underline underline-offset-2">
               Contact us
             </Link>{" "}
             — we may still be able to help.

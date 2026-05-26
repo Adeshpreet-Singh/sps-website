@@ -306,7 +306,7 @@ export default function PricingClient() {
 
 function TrustBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+    <div className="flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10 motion-reduce:transition-none motion-reduce:transform-none">
       {icon}
       {text}
     </div>

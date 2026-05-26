@@ -41,6 +41,7 @@ import {
   Truck,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CTABanner from "@/components/CTABanner";
 
@@ -65,6 +66,7 @@ export default function ServiceAreaPage() {
         <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
         <div aria-hidden="true" className="absolute bottom-[-15%] left-[-10%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
         <div className="relative max-w-4xl mx-auto text-center">
+          <Breadcrumb items={[{ name: "Service Area", path: "/service-area" }]} />
           <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in">
             Serving Metro Vancouver
           </span>
@@ -158,7 +160,7 @@ export default function ServiceAreaPage() {
               {serviceAreas.map((city) => (
                 <span
                   key={city}
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy hover:shadow-xl hover:shadow-navy/25 hover:scale-105 active:scale-95 cursor-default"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy dark:hover:bg-accent dark:hover:border-accent dark:hover:text-white hover:shadow-xl hover:shadow-navy/25 dark:hover:shadow-accent/25 hover:scale-105 active:scale-95 cursor-default motion-reduce:transition-none motion-reduce:transform-none"
                   role="listitem"
                 >
                   <MapPin className="w-3.5 h-3.5 text-accent group-hover:text-accent-light transition-colors" aria-hidden="true" />
@@ -209,7 +211,7 @@ export default function ServiceAreaPage() {
             ].map(({ icon: Icon, title, desc }, idx) => (
               <ScrollReveal key={title} delay={(idx + 1) as 1 | 2 | 3 | 4}>
                 <div
-                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-500 hover:shadow-card-hover hover:border-accent/30 hover:-translate-y-1 dark:hover:shadow-dark-card-hover dark:hover:border-accent/30"
+                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-500 hover:shadow-card-hover hover:border-accent/30 hover:-translate-y-1 dark:hover:shadow-dark-card-hover dark:hover:border-accent/30 motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Icon className="w-6 h-6 text-accent" aria-hidden="true" />
