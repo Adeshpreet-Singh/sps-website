@@ -6,8 +6,7 @@ import {
   processStepImages,
   serviceHeroImages,
 } from "@/lib/data";
-import type { ProcessStep } from "@/lib/types";
-import { processStepIconMap } from "@/lib/icons";
+import { buildProcessSteps } from "@/lib/icons";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
@@ -26,13 +25,7 @@ export const metadata: Metadata = {
 
 const service = services.find((s) => s.slug === "plumbing")!;
 
-const processSteps: ProcessStep[] = processStepsData["plumbing"].map(
-  (step, idx) => ({
-    ...step,
-    icon: processStepIconMap[step.iconName],
-    image: processStepImages[idx],
-  })
-);
+const processSteps = buildProcessSteps("plumbing", processStepsData, processStepImages);
 
 const faqs: FaqItem[] = [
   {

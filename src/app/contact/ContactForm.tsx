@@ -116,6 +116,7 @@ function FloatingInput({
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
         className={`peer w-full rounded-xl border-2 bg-surface dark:bg-dark-surface px-4 pt-6 pb-2 text-text dark:text-dark-text placeholder-transparent focus:outline-none focus:ring-2 transition-all duration-200 ${borderClass}`}
+        style={{ transition: 'all 0.2s cubic-bezier(0.22, 1, 0.36, 1)' }}
       />
       <label
         htmlFor={id}

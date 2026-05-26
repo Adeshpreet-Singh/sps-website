@@ -1,10 +1,11 @@
 import type { FaqItem, Service } from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { Check, Plus, Minus } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import FaqAccordion from "@/components/FaqAccordion";
 
 interface ServicePageLayoutProps {
   service: Service;
@@ -170,7 +171,7 @@ export default function ServicePageLayout({
           <div className="relative mt-14">
             <div className="absolute left-0 right-0 top-7 hidden h-0.5 bg-border dark:bg-dark-border lg:block" aria-hidden="true" />
             <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-border dark:bg-dark-border lg:hidden" aria-hidden="true" />
-            <ol className="relative grid gap-10 lg:grid-cols-4 lg:gap-6 list-none p-0 m-0" role="list">
+            <ol className="relative grid gap-10 lg:grid-cols-4 lg:gap-6 list-none p-0 m-0">
               {processSteps.map(({ step, title, description, icon: Icon, image }, idx) => (
                 <li
                   key={step}
@@ -211,27 +212,7 @@ export default function ServicePageLayout({
           <h2 className="text-center text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
             Frequently Asked Questions
           </h2>
-          <div className="mt-12 space-y-3">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="group rounded-xl bg-white dark:bg-dark-surface shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-dark-border transition-all open:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
-              >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold text-navy dark:text-dark-text select-none transition-colors hover:text-accent [&::-webkit-details-marker]:hidden faq-summary-hover">
-                  {faq.question}
-                  <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border dark:border-dark-border text-text-muted dark:text-dark-text-muted transition-all group-open:border-accent group-open:bg-accent group-open:text-white">
-                    <Plus className="h-4 w-4 transition-transform group-open:hidden" aria-hidden="true" />
-                    <Minus className="hidden h-4 w-4 group-open:block" aria-hidden="true" />
-                  </span>
-                </summary>
-                <div className="overflow-hidden transition-all">
-                  <div className="details-content border-l-3 border-accent bg-accent/[0.03] dark:bg-accent/[0.06] mx-4 sm:mx-6 mb-4 sm:mb-5 rounded-r-lg px-4 sm:px-5 py-3 sm:py-4 text-text-muted dark:text-dark-text-muted leading-relaxed text-sm sm:text-base">
-                    {faq.answer}
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion faqs={faqs} />
         </ScrollReveal>
       </section>
 

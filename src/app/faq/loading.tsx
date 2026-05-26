@@ -1,19 +1,11 @@
-import Skeleton from "@/components/Skeleton";
+import Skeleton, { HeroSkeleton } from "@/components/Skeleton";
 
 export default function FAQLoading() {
   return (
     <div role="status" aria-label="Loading FAQ">
       <span className="sr-only">Loading FAQ...</span>
 
-      {/* Hero skeleton */}
-      <div className="relative overflow-hidden bg-gray-100 dark:bg-dark-surface-alt py-20 sm:py-28 md:py-36">
-        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
-          <Skeleton className="h-5 w-28 mx-auto mb-4" />
-          <Skeleton className="h-10 w-80 mx-auto mb-6" />
-          <Skeleton className="h-5 w-96 mx-auto mb-2" />
-          <Skeleton className="h-5 w-80 mx-auto" />
-        </div>
-      </div>
+      <HeroSkeleton />
 
       {/* FAQ items skeleton */}
       <section className="px-4 sm:px-6 py-20 lg:py-28">

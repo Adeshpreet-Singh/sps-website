@@ -101,7 +101,7 @@ export default function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="transition-colors duration-200 hover:text-white/90 text-white/80">Metro Vancouver, B.C.</li>
+              <li className="text-white/80">Metro Vancouver, B.C.</li>
             </ul>
           </nav>
         </div>

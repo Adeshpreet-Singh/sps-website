@@ -1,8 +1,8 @@
 // SPS Installation — All content data
 // Source: spsinstallation.com + Canada Company Registry
 
-/** Icon names used in data.ts that map to lucide-react components */
-export type LucideIconName =
+/** Icon names used in data.ts service definitions (map to lucide-react via iconMap) */
+export type ServiceIconName =
   | "Wrench"
   | "Droplets"
   | "Home"
@@ -11,6 +11,17 @@ export type LucideIconName =
   | "Clock"
   | "BadgeCheck"
   | "Sparkles";
+
+/** Icon names used in processStepsData (map to lucide-react via processStepIconMap) */
+export type ProcessStepIconName =
+  | "MessageSquare"
+  | "ClipboardList"
+  | "Wrench"
+  | "ShieldCheck"
+  | "CalendarClock";
+
+/** @deprecated Use ServiceIconName instead */
+export type LucideIconName = ServiceIconName;
 
 export const siteConfig = {
   name: "Smith Pro Services Ltd.",
@@ -64,7 +75,7 @@ export const navLinks = [
 export interface Service {
   slug: string;
   number: string;
-  icon: LucideIconName;
+  icon: ServiceIconName;
   title: string;
   shortDescription: string;
   description: string;
@@ -154,7 +165,7 @@ export const services: Service[] = [
   },
 ];
 
-interface Testimonial {
+export interface Testimonial {
   name: string;
   location: string;
   source: string;
@@ -193,8 +204,8 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-interface WhyUsFeature {
-  icon: LucideIconName;
+export interface WhyUsFeature {
+  icon: ServiceIconName;
   title: string;
   description: string;
 }
@@ -275,17 +286,33 @@ export const retailerOptions = [
   "Other / Not Applicable",
 ];
 
-/** Hero/background images per service slug — used by HomeClient and ServicesClient */
-export const serviceImages: Record<string, string> = {
-  "appliance-installation":
-    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
-  plumbing:
-    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
-  residential:
-    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
-  commercial:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+/**
+ * Unsplash photo IDs per service slug — single source of truth.
+ * Use `getServiceImage(slug, size)` to get sized URLs.
+ */
+const servicePhotoIds: Record<string, string> = {
+  "appliance-installation": "photo-1556909114-f6e7ad7d3136",
+  plumbing: "photo-1585704032915-c3400ca199e7",
+  residential: "photo-1504328345606-18bbc8c9d7d1",
+  commercial: "photo-1497366216548-37526070297c",
 };
+
+/** Build an Unsplash URL for a service image at a given size. */
+export function getServiceImage(
+  slug: string,
+  width: number,
+  height: number,
+): string {
+  const photoId = servicePhotoIds[slug];
+  return photoId
+    ? `https://images.unsplash.com/${photoId}?w=${width}&h=${height}&fit=crop`
+    : "";
+}
+
+/** Card thumbnail images (600×400) — used by HomeClient and ServicesClient */
+export const serviceImages: Record<string, string> = Object.fromEntries(
+  Object.keys(servicePhotoIds).map((slug) => [slug, getServiceImage(slug, 600, 400)]),
+);
 
 /** Common process step images — reused by all service detail pages */
 export const processStepImages = [
@@ -307,10 +334,10 @@ export const serviceImageAlts: Record<string, string> = {
     "Commercial building lobby representing large-scale appliance installation projects",
 };
 
-/** Process step data per service slug — icon names map to lucide-react via iconMap */
+/** Process step data per service slug — icon names map to lucide-react via processStepIconMap */
 export const processStepsData: Record<
   string,
-  { step: number; title: string; description: string; iconName: string }[]
+  { step: number; title: string; description: string; iconName: ProcessStepIconName }[]
 > = {
   "appliance-installation": [
     {
@@ -434,17 +461,10 @@ export const processStepsData: Record<
   ],
 };
 
-/** Hero image URLs per service slug — used by ServicePageLayout */
-export const serviceHeroImages: Record<string, string> = {
-  "appliance-installation":
-    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop",
-  plumbing:
-    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop",
-  residential:
-    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=600&fit=crop",
-  commercial:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop",
-};
+/** Hero image URLs per service slug (1200×600) — used by ServicePageLayout */
+export const serviceHeroImages: Record<string, string> = Object.fromEntries(
+  Object.keys(servicePhotoIds).map((slug) => [slug, getServiceImage(slug, 1200, 600)]),
+);
 
 /** Avatar URLs for testimonial authors — keyed by name */
 export const testimonialAvatars: Record<string, string> = {

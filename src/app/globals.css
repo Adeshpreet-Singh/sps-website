@@ -1135,13 +1135,126 @@
   }
 }
 
+/* ── Animation Polish — Final Enhancements ── */
+
+/* 404 page number pulse */
+@keyframes numberPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+}
+.animate-404-pulse {
+  animation: numberPulse 3s ease-in-out infinite;
+}
+
+/* Tag stagger entrance — more dynamic than stagger-tags */
+@keyframes tagBounceIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(8px); }
+  60% { opacity: 1; transform: scale(1.05) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-tag-bounce {
+  animation: tagBounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Form field focus glow — enhanced for dark mode */
+.form-field-glow {
+  transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.form-field-glow:focus-within {
+  box-shadow: 0 0 0 3px rgba(232, 122, 46, 0.15),
+              0 4px 12px rgba(232, 122, 46, 0.08);
+}
+.dark .form-field-glow:focus-within {
+  box-shadow: 0 0 0 3px rgba(232, 122, 46, 0.25),
+              0 4px 16px rgba(232, 122, 46, 0.15);
+}
+
+/* Smooth content reveal — for lazy loaded images */
+@keyframes blurReveal {
+  from { opacity: 0; filter: blur(10px); transform: scale(1.05); }
+  to   { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+.animate-blur-reveal {
+  animation: blurReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Section entrance — for full sections appearing on scroll */
+@keyframes sectionEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-section-enter {
+  animation: sectionEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Card flip — for 3D card hover effect */
+.card-flip {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.card-flip:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(-3deg) translateY(-4px);
+}
+
+/* Text typing cursor blink — for hero text */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* Smooth scale bounce — for interactive elements */
+@keyframes scaleBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.animate-scale-bounce {
+  animation: scaleBounce 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Gradient border animated — for premium cards */
+.gradient-border-animated {
+  position: relative;
+  overflow: hidden;
+}
+.gradient-border-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    var(--color-navy),
+    var(--color-accent)
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+.gradient-border-animated:hover::before {
+  opacity: 1;
+}
+
 /* ── Performance Hints ── */
 
 /* Promote animated elements to their own compositor layer */
 .animate-float,
 .animate-pulse-glow,
 .animate-shimmer,
-.animate-parallax-float {
+.animate-parallax-float,
+.animate-404-pulse {
   will-change: transform, opacity;
 }
 

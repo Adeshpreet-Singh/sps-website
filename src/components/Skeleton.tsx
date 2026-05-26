@@ -36,7 +36,7 @@ export default function Skeleton({
    ================================================================ */
 
 /** Card skeleton: icon + title + description lines */
-export function CardSkeleton({ className = "" }: { className?: string }) {
+function CardSkeleton({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
