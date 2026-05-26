@@ -125,7 +125,7 @@ export default function PricingClient() {
           </div>
 
           {/* Comparison table */}
-          <div className="overflow-x-auto rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card">
+          <div className="overflow-x-auto rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card gradient-border-accent">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border dark:border-dark-border">
@@ -289,96 +289,101 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
   const Icon = iconMap[tier.icon];
 
   return (
-    <div
-      className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
-        tier.popular
-          ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)]"
-          : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card"
-      } reveal-hidden reveal-visible reveal-delay-${index + 1}`}
-    >
-      {/* Popular badge */}
-      {tier.popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
-            <Star className="h-4 w-4" />
-            Most Popular
+    <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
+      <div
+        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
+          tier.popular
+            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_40px_rgba(232,122,46,0.2)] dark:hover:shadow-[0_0_40px_rgba(232,122,46,0.15)]"
+            : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
+        }`}
+      >
+        {/* Popular badge */}
+        {tier.popular && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
+              <Star className="h-4 w-4" />
+              Most Popular
+            </span>
+          </div>
+        )}
+
+        {/* Icon */}
+        <div
+          className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${
+            tier.popular
+              ? "bg-gradient-to-br from-accent to-accent-light text-white shadow-md shadow-accent/20"
+              : "bg-accent/10 text-accent"
+          }`}
+        >
+          <Icon className="h-6 w-6" aria-hidden="true" />
+        </div>
+
+        {/* Title & tagline */}
+        <h3 className="text-xl font-bold text-navy dark:text-dark-text">
+          {tier.name}
+        </h3>
+        <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
+          {tier.tagline}
+        </p>
+
+        {/* Price */}
+        <div className="mt-6 mb-6 rounded-xl bg-surface-alt/60 dark:bg-dark-surface-alt/40 px-4 py-4 -mx-1">
+          <span className="text-4xl font-bold text-navy dark:text-dark-text tracking-tight">
+            {tier.price}
+          </span>
+          <span className="ml-1 text-sm text-text-muted dark:text-dark-text-muted">
+            {tier.priceNote}
           </span>
         </div>
-      )}
 
-      {/* Icon */}
-      <div
-        className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${
-          tier.popular
-            ? "bg-gradient-to-br from-accent to-accent-light text-white shadow-md shadow-accent/20"
-            : "bg-accent/10 text-accent"
-        }`}
-      >
-        <Icon className="h-6 w-6" aria-hidden="true" />
-      </div>
+        {/* Divider */}
+        <div className="mb-6 h-px bg-border dark:bg-dark-border" aria-hidden="true" />
 
-      {/* Title & tagline */}
-      <h3 className="text-xl font-bold text-navy dark:text-dark-text">
-        {tier.name}
-      </h3>
-      <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
-        {tier.tagline}
-      </p>
-
-      {/* Price */}
-      <div className="mt-6 mb-6">
-        <span className="text-4xl font-bold text-navy dark:text-dark-text tracking-tight">
-          {tier.price}
-        </span>
-        <span className="ml-1 text-sm text-text-muted dark:text-dark-text-muted">
-          {tier.priceNote}
-        </span>
-      </div>
-
-      {/* Features list */}
-      <ul className="flex-1 space-y-3 mb-8">
-        {tier.features.map((feature) => (
-          <li key={feature.label} className="flex items-start gap-3">
-            {feature.included ? (
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
-                <Check className="h-3 w-3 text-success" strokeWidth={3} aria-hidden="true" />
-              </span>
-            ) : (
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-surface-alt dark:bg-dark-surface-alt">
-                <X className="h-3 w-3 text-text-muted/50 dark:text-dark-text-muted/50" strokeWidth={3} aria-hidden="true" />
-              </span>
-            )}
-            <span
-              className={`text-sm ${
-                feature.included
-                  ? "text-text dark:text-dark-text"
-                  : "text-text-muted/60 dark:text-dark-text-muted/60"
-              }`}
-            >
-              {feature.label}
-              {feature.tooltip && !feature.included && (
-                <span className="ml-1 text-xs text-accent/70">
-                  ({feature.tooltip})
+        {/* Features list */}
+        <ul className="flex-1 space-y-3 mb-8">
+          {tier.features.map((feature) => (
+            <li key={feature.label} className="flex items-start gap-3 group/feature">
+              {feature.included ? (
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
+                  <Check className="h-3 w-3 text-success" strokeWidth={3} aria-hidden="true" />
+                </span>
+              ) : (
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-surface-alt dark:bg-dark-surface-alt">
+                  <X className="h-3 w-3 text-text-muted/50 dark:text-dark-text-muted/50" strokeWidth={3} aria-hidden="true" />
                 </span>
               )}
-            </span>
-          </li>
-        ))}
-      </ul>
+              <span
+                className={`text-sm ${
+                  feature.included
+                    ? "text-text dark:text-dark-text"
+                    : "text-text-muted/60 dark:text-dark-text-muted/60"
+                }`}
+              >
+                {feature.label}
+                {feature.tooltip && !feature.included && (
+                  <span className="ml-1 text-xs text-accent/70">
+                    ({feature.tooltip})
+                  </span>
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-      {/* CTA */}
-      <Link
-        href={tier.ctaHref}
-        className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press ${
-          tier.popular
-            ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 btn-shimmer"
-            : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
-        }`}
-      >
-        {tier.ctaLabel}
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </Link>
-    </div>
+        {/* CTA */}
+        <Link
+          href={tier.ctaHref}
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer ${
+            tier.popular
+              ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
+              : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
+          }`}
+        >
+          {tier.ctaLabel}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+      </div>
+    </ScrollReveal>
   );
 }
 
@@ -386,79 +391,84 @@ function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
   const Icon = iconMap[tier.icon];
 
   return (
-    <div
-      className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
-        tier.popular
-          ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)]"
-          : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card"
-      } reveal-hidden reveal-visible reveal-delay-${index + 1}`}
-    >
-      {/* Popular badge */}
-      {tier.popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
-            <Star className="h-4 w-4" />
-            Best Value
+    <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
+      <div
+        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
+          tier.popular
+            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_40px_rgba(232,122,46,0.2)] dark:hover:shadow-[0_0_40px_rgba(232,122,46,0.15)]"
+            : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
+        }`}
+      >
+        {/* Popular badge */}
+        {tier.popular && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
+              <Star className="h-4 w-4" />
+              Best Value
+            </span>
+          </div>
+        )}
+
+        {/* Icon */}
+        <div
+          className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${
+            tier.popular
+              ? "bg-gradient-to-br from-accent to-accent-light text-white shadow-md shadow-accent/20"
+              : "bg-accent/10 text-accent"
+          }`}
+        >
+          <Icon className="h-6 w-6" aria-hidden="true" />
+        </div>
+
+        {/* Title & tagline */}
+        <h3 className="text-xl font-bold text-navy dark:text-dark-text">
+          {tier.name}
+        </h3>
+        <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
+          {tier.tagline}
+        </p>
+
+        {/* Price */}
+        <div className="mt-6 mb-6 rounded-xl bg-surface-alt/60 dark:bg-dark-surface-alt/40 px-4 py-4 -mx-1">
+          <span className="text-4xl font-bold text-navy dark:text-dark-text tracking-tight">
+            {tier.price}
+          </span>
+          <span className="ml-1 text-sm text-text-muted dark:text-dark-text-muted">
+            {tier.priceNote}
           </span>
         </div>
-      )}
 
-      {/* Icon */}
-      <div
-        className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${
-          tier.popular
-            ? "bg-gradient-to-br from-accent to-accent-light text-white shadow-md shadow-accent/20"
-            : "bg-accent/10 text-accent"
-        }`}
-      >
-        <Icon className="h-6 w-6" aria-hidden="true" />
+        {/* Divider */}
+        <div className="mb-6 h-px bg-border dark:bg-dark-border" aria-hidden="true" />
+
+        {/* Features list */}
+        <ul className="flex-1 space-y-3 mb-8">
+          {tier.features.map((feature) => (
+            <li key={feature} className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
+                <Check className="h-3 w-3 text-success" strokeWidth={3} aria-hidden="true" />
+              </span>
+              <span className="text-sm text-text dark:text-dark-text">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <Link
+          href={tier.ctaHref}
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer ${
+            tier.popular
+              ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
+              : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
+          }`}
+        >
+          {tier.ctaLabel}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
       </div>
-
-      {/* Title & tagline */}
-      <h3 className="text-xl font-bold text-navy dark:text-dark-text">
-        {tier.name}
-      </h3>
-      <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
-        {tier.tagline}
-      </p>
-
-      {/* Price */}
-      <div className="mt-6 mb-6">
-        <span className="text-4xl font-bold text-navy dark:text-dark-text tracking-tight">
-          {tier.price}
-        </span>
-        <span className="ml-1 text-sm text-text-muted dark:text-dark-text-muted">
-          {tier.priceNote}
-        </span>
-      </div>
-
-      {/* Features list */}
-      <ul className="flex-1 space-y-3 mb-8">
-        {tier.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
-              <Check className="h-3 w-3 text-success" strokeWidth={3} aria-hidden="true" />
-            </span>
-            <span className="text-sm text-text dark:text-dark-text">
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      {/* CTA */}
-      <Link
-        href={tier.ctaHref}
-        className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press ${
-          tier.popular
-            ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 btn-shimmer"
-            : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
-        }`}
-      >
-        {tier.ctaLabel}
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </Link>
-    </div>
+    </ScrollReveal>
   );
 }
 
