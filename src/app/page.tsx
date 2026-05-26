@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/data";
 import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
@@ -6,12 +7,12 @@ export const metadata: Metadata = {
   description:
     "Metro Vancouver's trusted appliance installation & plumbing team. 5+ years, 10k+ installations, 4.6★ rating. Serving Surrey, Vancouver, Burnaby & beyond. Get a free quote.",
   alternates: {
-    canonical: "https://spsinstallation.com/",
+    canonical: "/",
   },
   openGraph: {
     title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
     description: "Metro Vancouver's trusted appliance installation & plumbing team. 5+ years, 10k+ installations, 4.6★ rating.",
-    url: "https://spsinstallation.com/",
+    url: "/",
   },
 };
 

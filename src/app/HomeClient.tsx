@@ -220,7 +220,7 @@ src={serviceImages[svc.slug]}
                         key={item}
                         className="flex items-start gap-2.5 text-sm text-text-muted dark:text-dark-text-muted"
                       >
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         {item}
                       </li>
                     ))}

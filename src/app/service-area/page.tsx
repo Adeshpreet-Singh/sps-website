@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   description:
     "Serving Vancouver, Surrey, Burnaby, Richmond, Coquitlam & all of Metro Vancouver's Lower Mainland.",
   alternates: {
-    canonical: "https://spsinstallation.com/service-area",
+    canonical: "/service-area",
   },
   openGraph: {
     title: "Service Area | SPS Installation",
     description: "Serving Vancouver, Surrey, Burnaby, Richmond, Coquitlam & all of Metro Vancouver's Lower Mainland.",
-    url: "https://spsinstallation.com/service-area",
+    url: "/service-area",
   },
 };
 
@@ -90,7 +90,7 @@ export default function ServiceAreaPage() {
                   {/* Coverage details */}
                   <div>
                     <span className="inline-flex items-center gap-2 rounded-full bg-success/10 text-success px-4 py-1.5 text-sm font-semibold mb-4">
-                      <span className="w-2 h-2 rounded-full bg-success animate-dot-pulse" />
+                      <span aria-hidden="true" className="w-2 h-2 rounded-full bg-success animate-dot-pulse" />
                       Full Coverage
                     </span>
                     <h2 className="text-2xl md:text-3xl font-heading font-bold text-text dark:text-dark-text mb-4">

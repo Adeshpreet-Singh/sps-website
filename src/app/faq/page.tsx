@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "FAQ",
   description: "Frequently asked questions about SPS Installation services — appliance installation, plumbing, pricing & scheduling.",
   alternates: {
-    canonical: "https://spsinstallation.com/faq",
+    canonical: "/faq",
   },
   openGraph: {
     title: "FAQ | SPS Installation",
     description: "Frequently asked questions about SPS Installation services — appliance installation, plumbing, pricing & scheduling.",
-    url: "https://spsinstallation.com/faq",
+    url: "/faq",
   },
 };
 
