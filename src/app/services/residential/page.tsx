@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     canonical: "/services/residential",
   },
   openGraph: {
-    title: "Residential Services | SPS Installation",
-    description: "Trusted by homeowners across Metro Vancouver for appliance installation, plumbing & more.",
+    title: "Residential Installation | SPS Installation",
+    description: "Home appliance & plumbing installation for houses, condos & townhomes across Metro Vancouver.",
     url: "/services/residential",
   },
 };

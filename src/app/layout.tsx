@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://spsinstallation.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
     template: "%s | SPS Installation",
