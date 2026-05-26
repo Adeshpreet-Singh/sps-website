@@ -1,4 +1,5 @@
 import type { FaqItem, Service } from "@/lib/data";
+import { siteConfig } from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
 import { Check } from "lucide-react";
 import Link from "next/link";
@@ -29,8 +30,7 @@ function ServiceJsonLd({
   processSteps: ProcessStep[];
   faqs: FaqItem[];
 }) {
-  const baseUrl = "https://spsinstallation.com";
-  const serviceUrl = `${baseUrl}/services/${service.slug}`;
+  const serviceUrl = `${siteConfig.url}/services/${service.slug}`;
 
   const faqSchema = {
     "@context": "https://schema.org",

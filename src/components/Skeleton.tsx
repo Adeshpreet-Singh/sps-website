@@ -184,3 +184,13 @@ export function GridSectionSkeleton({
     </div>
   );
 }
+
+/** Service detail page loading state — used by all /services/[slug]/loading.tsx files */
+export function ServiceDetailLoading() {
+  return (
+    <div role="status" aria-label="Loading service details">
+      <span className="sr-only">Loading service details...</span>
+      <ServicePageSkeleton />
+    </div>
+  );
+}

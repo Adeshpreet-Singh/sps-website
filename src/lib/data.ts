@@ -20,9 +20,6 @@ export type ProcessStepIconName =
   | "ShieldCheck"
   | "CalendarClock";
 
-/** @deprecated Use ServiceIconName instead */
-export type LucideIconName = ServiceIconName;
-
 export const siteConfig = {
   name: "Smith Pro Services Ltd.",
   shortName: "SPS",

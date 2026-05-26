@@ -126,7 +126,7 @@ export default function AboutClient() {
         <div aria-hidden="true" className="absolute bottom-1/3 left-[8%] w-16 h-16 rounded-full border border-accent/10" />
 
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
-          <Breadcrumb items={[{ name: "About Us", href: "/about" }]} />
+          <Breadcrumb items={[{ name: "About Us", path: "/about" }]} />
           <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 rounded-full border border-accent/20 animate-fade-in">
             Est. {siteConfig.legal.incorporated}
           </span>

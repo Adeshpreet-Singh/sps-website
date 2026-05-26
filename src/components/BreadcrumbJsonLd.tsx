@@ -7,13 +7,8 @@
  * "Home" is always prepended automatically as position 1.
  */
 
-const BASE_URL = "https://spsinstallation.com";
-
-interface BreadcrumbItem {
-  name: string;
-  /** Path relative to the site root, e.g. "/about" or "/services/plumbing" */
-  path: string;
-}
+import type { BreadcrumbItem } from "@/lib/types";
+import { siteConfig } from "@/lib/data";
 
 export default function BreadcrumbJsonLd({
   items,
@@ -28,13 +23,13 @@ export default function BreadcrumbJsonLd({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: BASE_URL,
+        item: siteConfig.url,
       },
       ...items.map((item, idx) => ({
         "@type": "ListItem" as const,
         position: idx + 2,
         name: item.name,
-        item: `${BASE_URL}${item.path}`,
+        item: `${siteConfig.url}${item.path}`,
       })),
     ],
   };

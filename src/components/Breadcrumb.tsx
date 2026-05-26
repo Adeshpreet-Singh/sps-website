@@ -1,9 +1,5 @@
 import Link from "next/link";
-
-interface BreadcrumbItem {
-  name: string;
-  href: string;
-}
+import type { BreadcrumbItem } from "@/lib/types";
 
 export default function Breadcrumb({
   items,
@@ -22,7 +18,7 @@ export default function Breadcrumb({
           </Link>
         </li>
         {items.map((item, idx) => (
-          <li key={item.href} className="flex items-center gap-2">
+          <li key={item.path} className="flex items-center gap-2">
             <span className="text-white/40" aria-hidden="true">
               /
             </span>
@@ -32,7 +28,7 @@ export default function Breadcrumb({
               </span>
             ) : (
               <Link
-                href={item.href}
+                href={item.path}
                 className="text-white/70 hover:text-white transition-colors"
               >
                 {item.name}
