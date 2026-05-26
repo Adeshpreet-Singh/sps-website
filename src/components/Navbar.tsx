@@ -34,6 +34,7 @@ export default function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const menuWasOpenRef = useRef(false);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 10);
@@ -116,9 +117,11 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Restore focus to toggle when menu closes
+  // Restore focus to toggle when menu closes (not on initial mount)
   useEffect(() => {
-    if (!mobileOpen) {
+    if (mobileOpen) {
+      menuWasOpenRef.current = true;
+    } else if (menuWasOpenRef.current) {
       toggleRef.current?.focus();
     }
   }, [mobileOpen]);

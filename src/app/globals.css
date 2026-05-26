@@ -609,7 +609,10 @@
 
   /* Dark mode input focus enhancement */
   .dark input:focus-visible,
-  .dark textarea:focus-visible,
+  .dark select:focus-visible,
+  .dark textarea:focus-visible {
+    outline-color: var(--color-accent-light);
+  }
 
   /* Link hover color for dark mode */
   .dark a:not([class]):hover {
@@ -737,6 +740,9 @@
   }
   .dark input:focus-visible,
   .dark select:focus-visible,
+  .dark textarea:focus-visible {
+    box-shadow: none;
+  }
   @media (prefers-reduced-motion: reduce) {
     input:focus-visible, select:focus-visible, textarea:focus-visible {
       box-shadow: none;
