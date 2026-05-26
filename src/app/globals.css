@@ -1415,6 +1415,56 @@
    Note: avoid contain:layout on sections with position:absolute/sticky
    children as it creates a new containing block and can break positioning. */
 
+/* Skip to content link — accessible keyboard shortcut */
+.skip-to-content {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-to-content:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Pricing table — scroll shadow hint for horizontal overflow */
+.table-scroll-hint {
+  position: relative;
+}
+.table-scroll-hint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dark .table-scroll-hint::after {
+  background: linear-gradient(to left, rgba(15,23,42,0.9), transparent);
+}
+.table-scroll-hint.is-scrollable::after {
+  opacity: 1;
+}
+
 /* Reduce paint area for the hero video overlay */
 video {
   will-change: auto;

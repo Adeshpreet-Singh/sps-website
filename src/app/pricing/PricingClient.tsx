@@ -150,15 +150,17 @@ export default function PricingClient() {
           </div>
 
           {/* Comparison table */}
-          <div className="overflow-x-auto rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card gradient-border-accent">
+          <div className="overflow-x-auto rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card gradient-border-accent table-scroll-hint">
             <table className="w-full text-sm">
+              <caption className="sr-only">Feature comparison of installation packages</caption>
               <thead>
                 <tr className="border-b border-border dark:border-dark-border">
-                  <th className="text-left px-4 sm:px-6 py-4 font-bold text-navy dark:text-dark-text">
+                  <th scope="col" className="text-left px-4 sm:px-6 py-4 font-bold text-navy dark:text-dark-text">
                     Feature
                   </th>
                   {pricingTiers.map((tier) => (
                     <th
+                      scope="col"
                       key={tier.slug}
                       className={`px-4 sm:px-6 py-4 text-center font-bold ${
                         tier.popular
@@ -507,7 +509,7 @@ function ComparisonRow({ row, index }: { row: ComparisonRow; index: number }) {
         index % 2 === 0 ? "" : "bg-surface-alt/30 dark:bg-dark-surface-alt/30"
       }`}
     >
-      <td className="px-4 sm:px-6 py-3.5 text-text dark:text-dark-text font-medium">
+      <td scope="row" className="px-4 sm:px-6 py-3.5 text-text dark:text-dark-text font-medium">
         {row.feature}
       </td>
       {values.map((value, colIdx) => (
@@ -565,7 +567,7 @@ function FaqItem({ faq, index }: { faq: { question: string; answer: string }; in
     <details
       className="group rounded-xl bg-white dark:bg-dark-surface border border-border dark:border-dark-border overflow-hidden transition-all duration-300 hover:border-accent/30 hover:shadow-sm"
     >
-      <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-base font-semibold text-navy dark:text-dark-text transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-base font-semibold text-navy dark:text-dark-text transition-colors hover:text-accent [&::-webkit-details-marker]:hidden min-h-[48px] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-[-2px] focus-visible:rounded-xl">
         <span>{faq.question}</span>
         <ChevronDown
           className="h-5 w-5 shrink-0 text-text-muted dark:text-dark-text-muted transition-transform duration-300 group-open:rotate-180"

@@ -112,7 +112,7 @@ export default function ReviewsClient() {
           <div className="mx-auto max-w-xl">
             <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 gradient-border-shine">
               <div className="text-center">
-                <div className="flex items-center justify-center gap-1.5 star-rating-pop" aria-hidden="true">
+                <div className="flex items-center justify-center gap-1.5 star-rating-pop" aria-label={`${RATING} out of 5 stars`}>
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}

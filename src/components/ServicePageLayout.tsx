@@ -22,6 +22,7 @@ import { Check } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -137,6 +138,7 @@ export default function ServicePageLayout({
         </div>
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 mx-auto max-w-3xl">
+          <Breadcrumb items={[{ name: "Services", path: "/services" }, { name: service.title, path: `/services/${service.slug}` }]} />
           <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in">
             Service #{service.number}
           </span>

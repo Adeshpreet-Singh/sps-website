@@ -507,7 +507,7 @@ export default function ContactForm() {
             updateValue("message", e.target.value);
           }}
           aria-describedby="message-count"
-          className="peer w-full rounded-xl border-2 border-border dark:border-dark-border bg-surface dark:bg-dark-surface px-4 pt-6 pb-2 text-text dark:text-dark-text placeholder-transparent focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 resize-none"
+          className="peer w-full rounded-xl border-2 border-border dark:border-dark-border bg-surface dark:bg-dark-surface px-4 pt-6 pb-2 text-text dark:text-dark-text placeholder-transparent focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 resize-none min-h-[120px]"
         />
         <label
           htmlFor="message"
