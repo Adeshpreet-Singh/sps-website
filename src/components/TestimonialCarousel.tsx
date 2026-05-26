@@ -145,9 +145,9 @@ export default function TestimonialCarousel({
               />
             </div>
           </div>
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-dark-surface to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-dark-surface to-transparent z-10 pointer-events-none" />
+          {/* Fade edges — match section background */}
+          <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-dark-surface dark:via-dark-surface/80 dark:to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-dark-surface dark:via-dark-surface/80 dark:to-transparent z-10 pointer-events-none" />
         </div>
 
         {/* Active slide — crossfade */}
@@ -267,15 +267,15 @@ function TestimonialCard({
   totalSlides,
 }: TestimonialCardProps) {
   return (
-    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-shadow duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover">
-      {/* Top accent gradient bar */}
-      <div className="h-1 w-full bg-gradient-to-r from-accent via-accent-light to-accent" />
+    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5">
+      {/* Top accent gradient bar — with hover glow */}
+      <div className="h-1 w-full bg-gradient-to-r from-accent via-accent-light to-accent transition-all duration-500 group-hover/card:h-1.5 group-hover/card:shadow-[0_2px_12px_rgba(232,122,46,0.3)]" />
 
       <div className="p-6 sm:p-8">
         {/* Quote icon — subtle background element */}
         <div className="relative">
           <Quote
-            className="absolute -top-1 -left-1 h-10 w-10 sm:h-12 sm:w-12 text-accent/[0.07] fill-accent/[0.03] transition-colors duration-500"
+            className="absolute -top-1 -left-1 h-10 w-10 sm:h-12 sm:w-12 text-accent/[0.07] fill-accent/[0.03] transition-all duration-500 group-hover/card:text-accent/[0.12] group-hover/card:fill-accent/[0.06] group-hover/card:scale-110"
             aria-hidden="true"
           />
 
@@ -306,7 +306,7 @@ function TestimonialCard({
         {/* Author info — with avatar */}
         <div className="mt-6 pt-5 border-t border-border/50 dark:border-dark-border/50 flex items-center gap-4">
           {/* Avatar */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 shadow-sm transition-shadow duration-300 group-hover/card:ring-accent/40 group-hover/card:shadow-md">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 shadow-sm transition-all duration-300 group-hover/card:ring-accent/40 group-hover/card:shadow-md group-hover/card:scale-105">
             <Image
               src={t.photo || testimonialAvatars[t.name] || ""}
               alt={t.name}
@@ -336,7 +336,7 @@ function TestimonialCard({
           </div>
 
           {/* Service badge */}
-          <span className="hidden sm:inline-flex shrink-0 text-xs font-medium bg-surface-alt dark:bg-dark-surface-alt text-text-muted dark:text-dark-text-muted rounded-full px-3 py-1.5 border border-border/50 dark:border-dark-border/50">
+          <span className="hidden sm:inline-flex shrink-0 text-xs font-medium bg-surface-alt dark:bg-dark-surface-alt text-text-muted dark:text-dark-text-muted rounded-full px-3 py-1.5 border border-border/50 dark:border-dark-border/50 transition-all duration-300 group-hover/card:border-accent/30 group-hover/card:text-accent-safe">
             {t.service}
           </span>
         </div>
