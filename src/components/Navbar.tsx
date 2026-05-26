@@ -371,6 +371,7 @@ export default function Navbar() {
                         : undefined
                     }
                     aria-expanded={mobileServicesOpen}
+                    aria-controls="mobile-services-submenu"
                   >
                     <span>{link.label}</span>
                     <ChevronDown
@@ -383,6 +384,7 @@ export default function Navbar() {
 
                   {/* Services submenu */}
                   <div
+                    id="mobile-services-submenu"
                     className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       mobileServicesOpen
                         ? "max-h-96 opacity-100"
@@ -428,7 +430,7 @@ export default function Navbar() {
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center motion-reduce:transition-none ${
                   isActive
                     ? "bg-accent/10 text-accent-safe border-l-[3px] border-accent"
-                    : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-[3px] border-transparent transition-all duration-200"
+                    : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-[3px] border-transparent"
                 } ${mobileOpen ? "animate-slide-in-right" : ""}`}
                 style={
                   mobileOpen

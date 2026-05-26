@@ -83,10 +83,14 @@ export default function TestimonialCarousel({
     return () => clearInterval(timer);
   }, [isPaused, goToNext, autoPlayInterval, totalSlides, currentIndex]);
 
-  // Keyboard navigation
+  // Keyboard navigation — scoped to container to avoid global key conflicts
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!containerRef.current?.contains(document.activeElement)) return;
+      // Only handle keys when focus is within this carousel
+      if (!container.contains(document.activeElement)) return;
       // Check if focus is on a dot (tablist)
       const isDotFocused = document.activeElement?.getAttribute("role") === "tab";
       if (e.key === "ArrowLeft") {
@@ -108,8 +112,8 @@ export default function TestimonialCarousel({
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    container.addEventListener("keydown", handleKeyDown);
+    return () => container.removeEventListener("keydown", handleKeyDown);
   }, [goToNext, goToPrev, currentIndex, totalSlides]);
 
   // Touch/swipe handlers
