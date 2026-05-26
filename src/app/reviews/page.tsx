@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "Customer Reviews",
   description: "Read reviews from SPS Installation customers. 4.6★ rating on Google & Homestars.",
   alternates: {
-    canonical: "https://spsinstallation.com/reviews",
+    canonical: "/reviews",
   },
   openGraph: {
     title: "Customer Reviews | SPS Installation",
     description: "Read reviews from SPS Installation customers. 4.6★ rating on Google & Homestars.",
-    url: "https://spsinstallation.com/reviews",
+    url: "/reviews",
   },
 };
 

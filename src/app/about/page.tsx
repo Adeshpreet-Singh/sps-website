@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "About Us",
   description: "Learn about SPS Installation — Metro Vancouver's trusted team for appliance installation & plumbing since 2025.",
   alternates: {
-    canonical: "https://spsinstallation.com/about",
+    canonical: "/about",
   },
   openGraph: {
-    title: "About Us | SPS Installation",
-    description: "Learn about SPS Installation — Metro Vancouver's trusted team for appliance installation & plumbing since 2025.",
-    url: "https://spsinstallation.com/about",
+    title: "About | SPS Installation",
+    description: "Licensed, insured, and trusted by Metro Vancouver's top retailers for appliance installation and plumbing services.",
+    url: "/about",
   },
 };
 
