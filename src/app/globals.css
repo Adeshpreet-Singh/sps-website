@@ -1104,12 +1104,14 @@ video {
 /* Optimize scroll-driven animations for GPU */
 .reveal-hidden,
 .reveal-scale-hidden,
-.reveal-left-hidden {
+.reveal-left-hidden,
+.reveal-right-hidden {
   will-change: opacity, transform;
 }
 .reveal-visible,
 .reveal-scale-visible,
-.reveal-left-visible {
+.reveal-left-visible,
+.reveal-right-visible {
   will-change: auto;
 }
 
