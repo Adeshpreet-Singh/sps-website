@@ -1,31 +1,42 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 /**
  * Subtle radial glow that follows the mouse cursor within a parent container.
  * Intended for dark hero/CTA sections to add ambient interactivity.
+ *
+ * Uses direct DOM manipulation for position updates to avoid React re-renders
+ * on every mouse move — only visibility changes trigger state updates.
  */
 export default function CursorGlow() {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
+  const glowRef = useRef<HTMLDivElement>(null);
+  const visibleRef = useRef(false);
 
   useEffect(() => {
     const parent = ref.current?.parentElement;
-    if (!parent) return;
+    const glow = glowRef.current;
+    if (!parent || !glow) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = parent.getBoundingClientRect();
-      setPosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-      setVisible(true);
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Direct DOM manipulation — no React re-render
+      glow.style.left = `${x}px`;
+      glow.style.top = `${y}px`;
+
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        ref.current!.style.opacity = "1";
+      }
     };
 
     const handleMouseLeave = () => {
-      setVisible(false);
+      visibleRef.current = false;
+      ref.current!.style.opacity = "0";
     };
 
     parent.addEventListener("mousemove", handleMouseMove, { passive: true });
@@ -42,16 +53,14 @@ export default function CursorGlow() {
       ref={ref}
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: "opacity 0.4s ease",
-      }}
+      style={{ opacity: 0, transition: "opacity 0.4s ease" }}
     >
       <div
+        ref={glowRef}
         className="absolute h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
+          left: "0px",
+          top: "0px",
           background: "radial-gradient(circle, rgba(232, 122, 46, 0.06) 0%, transparent 70%)",
           transition: "left 0.15s ease-out, top 0.15s ease-out",
         }}

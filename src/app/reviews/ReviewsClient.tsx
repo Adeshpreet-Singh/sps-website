@@ -21,48 +21,47 @@ import CursorGlow from "@/components/CursorGlow";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CTABanner from "@/components/CTABanner";
 
+const RATING = parseFloat(siteConfig.stats.rating);
+const FULL_STARS = Math.floor(RATING);
+const HAS_HALF = RATING % 1 >= 0.5;
+
+const RATING_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: siteConfig.name,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: RATING.toString(),
+    reviewCount: "150",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: testimonials.map((t) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: t.name,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: t.rating.toString(),
+      bestRating: "5",
+    },
+    reviewBody: t.quote,
+  })),
+};
+
 export default function ReviewsClient() {
   const [ratingRef, ratingVisible] = useScrollReveal();
   const [gridRef, gridVisible] = useScrollReveal();
   const [linksRef, linksVisible] = useScrollReveal();
-
-  const rating: number = parseFloat(siteConfig.stats.rating);
-  const fullStars = Math.floor(rating);
-  const hasHalf = rating % 1 >= 0.5;
-
-  // Build AggregateRating JSON-LD
-  const ratingSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: siteConfig.name,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: rating.toString(),
-      reviewCount: "150",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: testimonials.map((t) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: t.name,
-      },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: t.rating.toString(),
-        bestRating: "5",
-      },
-      reviewBody: t.quote,
-    })),
-  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-dark-surface">
       <BreadcrumbJsonLd items={[{ name: "Reviews", path: "/reviews" }]} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(RATING_SCHEMA) }}
       />
       {/* Hero */}
       <section aria-label="Reviews hero" className="relative overflow-hidden py-16 sm:py-24 md:py-36">
@@ -108,9 +107,9 @@ export default function ReviewsClient() {
                       key={i}
                       aria-hidden="true"
                       className={`h-7 w-7 sm:h-8 sm:w-8 ${
-                        i < fullStars
+                        i < FULL_STARS
                           ? "fill-yellow-400 text-yellow-400"
-                          : i === fullStars && hasHalf
+                          : i === FULL_STARS && HAS_HALF
                             ? "fill-yellow-400/50 text-yellow-400"
                             : "fill-border text-border"
                       }`}
@@ -118,7 +117,7 @@ export default function ReviewsClient() {
                   ))}
                 </div>
                 <p className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
-                  {rating}
+                  {RATING} / 5
                 </p>
                 <span className="sr-only">{rating} out of 5 stars</span>
                 <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted">

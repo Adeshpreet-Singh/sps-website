@@ -56,58 +56,64 @@ const serviceHighlights: Record<string, string[]> = {
 };
 
 /* ---------- JSON-LD Structured Data ---------- */
-function ServicesJsonLd() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    telephone: siteConfig.phone,
-    email: siteConfig.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.province,
-      postalCode: siteConfig.address.postal,
-      addressCountry: siteConfig.address.country,
+const SERVICES_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: siteConfig.name,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.province,
+    postalCode: siteConfig.address.postal,
+    addressCountry: siteConfig.address.country,
+  },
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 49.28,
+      longitude: -122.55,
     },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 49.28,
-        longitude: -122.55,
+    geoRadius: "50000",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "SPS Installation Services",
+    itemListElement: services.map((service, idx) => ({
+      "@type": "Offer",
+      position: idx + 1,
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+        url: `${siteConfig.url}/services/${service.slug}`,
       },
-      geoRadius: "50000",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "SPS Installation Services",
-      itemListElement: services.map((service, idx) => ({
-        "@type": "Offer",
-        position: idx + 1,
-        itemOffered: {
-          "@type": "Service",
-          name: service.title,
-          description: service.description,
-          url: `${siteConfig.url}/services/${service.slug}`,
-        },
-      })),
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: siteConfig.stats.rating,
-      bestRating: "5",
-      ratingCount: "50",
-    },
-  };
+    })),
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: siteConfig.stats.rating,
+    bestRating: "5",
+    ratingCount: "50",
+  },
+};
 
+const TRUST_ITEMS = [
+  { icon: Shield, label: "Licensed & Insured" },
+  { icon: Clock, label: "On-Time Guarantee" },
+  { icon: Star, label: `${siteConfig.stats.rating}★ Rating` },
+];
+
+function ServicesJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICES_JSON_LD) }}
     />
   );
 }
@@ -124,15 +130,9 @@ function HighlightBadge({ label }: { label: string }) {
 
 /* ---------- Trust Indicators ---------- */
 function TrustBar() {
-  const items = [
-    { icon: Shield, label: "Licensed & Insured" },
-    { icon: Clock, label: "On-Time Guarantee" },
-    { icon: Star, label: `${siteConfig.stats.rating}★ Rating` },
-  ];
-
   return (
     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-      {items.map(({ icon: Icon, label }) => (
+      {TRUST_ITEMS.map(({ icon: Icon, label }) => (
         <div key={label} className="flex items-center gap-2 text-white/70">
           <Icon className="h-5 w-5 text-accent" aria-hidden="true" />
           <span className="text-sm font-medium">{label}</span>
