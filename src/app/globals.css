@@ -49,6 +49,18 @@
   --shadow-dark-card: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
   --shadow-dark-card-hover: 0 10px 25px rgba(0,0,0,0.4), 0 4px 10px rgba(0,0,0,0.2);
   --shadow-dark-nav: 0 1px 3px rgba(0,0,0,0.3);
+  
+  /* Easing Curves */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring-subtle: cubic-bezier(0.22, 1.2, 0.36, 1);
+  
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
 }
 
 /* ── Base Layer ── */
@@ -846,6 +858,16 @@
   .star-rating-pop > *:nth-child(4) { animation-delay: 240ms; }
   .star-rating-pop > *:nth-child(5) { animation-delay: 320ms; }
 
+  /* Testimonial carousel progress bar */
+  .testimonial-progress {
+    width: 0%;
+    animation: testimonialProgress linear forwards;
+  }
+  @keyframes testimonialProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
   /* Counter number roll — smooth number transition */
   .counter-roll {
     display: inline-block;
@@ -1083,6 +1105,18 @@
   }
   .dark .faq-summary-hover:hover {
     background-color: rgba(232, 122, 46, 0.06);
+  }
+
+  /* FAQ accordion — smooth content fade on expand */
+  .faq-content {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+                transform 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+  }
+  .faq-panel--open .faq-content {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* City tag stagger — for service area pages */
