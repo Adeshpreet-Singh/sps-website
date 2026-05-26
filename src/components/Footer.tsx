@@ -68,7 +68,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-1.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                    className="block py-2.5 text-sm text-white/70 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
                 <a
                   href={siteConfig.phoneLink}
                   aria-label={`Call us at ${siteConfig.phone}`}
-                  className="block py-1.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                  className="block py-2.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline min-h-[44px] flex items-center"
                 >
                   {siteConfig.phone}
                 </a>
@@ -96,12 +96,12 @@ export default function Footer() {
                 <a
                   href={siteConfig.emailLink}
                   aria-label={`Email us at ${siteConfig.email}`}
-                  className="block py-1.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline"
+                  className="block py-2.5 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none link-underline min-h-[44px] flex items-center"
                 >
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="transition-colors duration-200 hover:text-white/90">Metro Vancouver, B.C.</li>
+              <li className="transition-colors duration-200 hover:text-white/90 text-white/80">Metro Vancouver, B.C.</li>
             </ul>
           </div>
         </div>

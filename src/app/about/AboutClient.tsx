@@ -14,6 +14,7 @@ import {
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CursorGlow from "@/components/CursorGlow";
 
 function AboutStat({
@@ -99,19 +100,7 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "About Us", item: "https://spsinstallation.com/about" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "About Us", path: "/about" }]} />
       {/* ── Hero ─────────────────────────────────────────── */}
       <section aria-label="About hero" className="relative overflow-hidden py-16 sm:py-24 md:py-36">
         {/* Background image — decorative */}
@@ -267,10 +256,11 @@ export default function AboutPage() {
             Our leadership brings hands-on trade experience and a relentless
             focus on customer satisfaction.
           </p>
-          <div className="mt-14 grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto stagger-children">
+          <div className="mt-14 grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto stagger-children" role="list" aria-label="Leadership team members">
             {leaders.map((leader) => (
               <div
                 key={leader.name}
+                role="listitem"
                 className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/30 gradient-border-shine card-tilt"
               >
                 {/* Gradient border effect */}
@@ -318,6 +308,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/services"
+              aria-label="View all services"
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:-translate-y-0.5 active:translate-y-0 transition-all btn-press"
             >
               View Services

@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { testimonials, siteConfig, testimonialAvatars } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import EmptyState from "@/components/EmptyState";
 import CursorGlow from "@/components/CursorGlow";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export default function ReviewsPage() {
   const [ratingRef, ratingVisible] = useScrollReveal();
@@ -47,19 +47,7 @@ export default function ReviewsPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-dark-surface">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "Reviews", item: "https://spsinstallation.com/reviews" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "Reviews", path: "/reviews" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
@@ -106,6 +94,7 @@ export default function ReviewsPage() {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
+                      aria-hidden="true"
                       className={`h-7 w-7 sm:h-8 sm:w-8 ${
                         i < fullStars
                           ? "fill-yellow-400 text-yellow-400"
@@ -138,15 +127,7 @@ export default function ReviewsPage() {
       <section aria-label="Customer testimonials" className="bg-gradient-to-b from-surface-alt dark:from-dark-surface-alt to-white dark:to-dark-surface py-16 sm:py-20">
         <div ref={gridRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${gridVisible ? "reveal-visible" : ""}`}>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children">
-            {testimonials.length === 0 ? (
-              <div className="md:col-span-2 lg:col-span-3">
-                <EmptyState
-                  title="No reviews yet"
-                  description="We're gathering feedback from our customers. Check back soon!"
-                />
-              </div>
-            ) : (
-              testimonials.map((t, idx) => (
+            {testimonials.map((t, idx) => (
               <div
                 key={t.name}
                 className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-shadow duration-300 hover:shadow-card-hover dark:hover:border-accent/20 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
@@ -215,7 +196,6 @@ export default function ReviewsPage() {
                 </span>
               </div>
             ))}
-            )}
           </div>
         </div>
       </section>

@@ -27,23 +27,12 @@ import {
   Truck,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 export default function ServiceAreaPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "Service Area", item: "https://spsinstallation.com/service-area" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "Service Area", path: "/service-area" }]} />
       {/* Hero — background image with entrance animations */}
       <section aria-label="Service area hero" className="relative overflow-hidden text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
         <div aria-hidden="true" className="absolute inset-0">
@@ -150,11 +139,12 @@ export default function ServiceAreaPage() {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-3 stagger-tags">
+            <div className="flex flex-wrap justify-center gap-3 stagger-tags" role="list" aria-label="Cities we serve">
               {serviceAreas.map((city) => (
                 <span
                   key={city}
                   className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy hover:shadow-lg hover:shadow-navy/20 hover:scale-105 active:scale-95 cursor-default"
+                  role="listitem"
                 >
                   <MapPin className="w-3.5 h-3.5 text-accent group-hover:text-accent-light transition-colors" aria-hidden="true" />
                   {city}

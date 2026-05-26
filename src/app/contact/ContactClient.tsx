@@ -13,6 +13,7 @@ import {
 import dynamic from "next/dynamic";
 import { ContactFormSkeleton } from "@/components/Skeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ContactForm = dynamic(() => import("./ContactForm"), {
@@ -83,7 +84,7 @@ function ContactCard({
   const Wrapper = href ? "a" : "div";
   return (
     <Wrapper
-      {...(href ? { href, className: "group block" } : { className: "group" })}
+      {...(href ? { href, className: "group block", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
       <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 card-tilt gradient-border-shine">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
@@ -110,19 +111,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://spsinstallation.com/contact" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "Contact Us", path: "/contact" }]} />
       <ContactJsonLd />
 
       {/* Hero — background image */}
@@ -188,7 +177,7 @@ export default function ContactPage() {
                   Request a Quote
                 </h2>
               </div>
-              <p className="text-text-muted dark:text-dark-text-muted text-sm mb-8">
+              <p id="form-instructions" className="text-text-muted dark:text-dark-text-muted text-sm mb-8">
                 Fields marked with <span className="text-error">*</span> are
                 required. We typically respond within 24 hours.
               </p>

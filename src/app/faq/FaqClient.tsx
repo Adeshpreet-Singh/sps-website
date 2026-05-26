@@ -5,6 +5,7 @@ import { siteConfig, type FaqItem } from "@/lib/data";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const generalFaqs: FaqItem[] = [
   {
@@ -102,19 +103,7 @@ export default function FAQPage() {
 
   return (
     <div className="flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "FAQ", item: "https://spsinstallation.com/faq" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "FAQ", path: "/faq" }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -204,6 +193,7 @@ export default function FAQPage() {
             </Link>
             <a
               href={siteConfig.phoneLink}
+              aria-label={`Call us at ${siteConfig.phone}`}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 active:translate-y-0 btn-press"
             >
               Call {siteConfig.phone}

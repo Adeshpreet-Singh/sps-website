@@ -13,6 +13,9 @@ import ErrorIcon from "@/components/ErrorIcon";
 
 const MAX_MESSAGE_LENGTH = 500;
 
+/** Fields that must pass validation before the form can be submitted. */
+const REQUIRED_FIELDS = ["name", "email", "phone", "serviceType"] as const;
+
 /* ---------- Shared validation error icon + text ---------- */
 function ValidationError({ error }: { error: string }) {
   return (
@@ -335,8 +338,7 @@ export default function ContactForm() {
 
   // Check if all required fields are valid
   function isFormValid(): boolean {
-    const requiredFields = ["name", "email", "phone", "serviceType"];
-    return requiredFields.every((f) => {
+    return REQUIRED_FIELDS.every((f) => {
       const value = values[f] ?? "";
       if (!value.trim()) return false;
       return getFieldError(f) === null;
@@ -345,17 +347,15 @@ export default function ContactForm() {
 
   // Check if all required fields have been touched and are valid
   function canSubmit(): boolean {
-    const requiredFields = ["name", "email", "phone", "serviceType"];
-    return requiredFields.every((f) => touched[f] && getFieldError(f) === null);
+    return REQUIRED_FIELDS.every((f) => touched[f] && getFieldError(f) === null);
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     // Touch all required fields to show any remaining errors
-    const requiredFields = ["name", "email", "phone", "serviceType"];
     const newTouched: Record<string, boolean> = {};
-    requiredFields.forEach((f) => (newTouched[f] = true));
+    REQUIRED_FIELDS.forEach((f) => (newTouched[f] = true));
     setTouched((prev) => ({ ...prev, ...newTouched }));
 
     if (!isFormValid()) return;
@@ -393,6 +393,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-5"
       aria-label="Contact us"
+      aria-describedby="form-instructions"
       noValidate
     >
       <div className="grid sm:grid-cols-2 gap-5">

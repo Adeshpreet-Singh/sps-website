@@ -3,8 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Wrench,
-  Shield,
   Phone,
   ChevronRight,
   ChevronDown,
@@ -17,7 +15,7 @@ import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
-import EmptyState from "@/components/EmptyState";
+import TestimonialAvatars from "@/components/TestimonialAvatars";
 import CursorGlow from "@/components/CursorGlow";
 
 /* ================================================================== */
@@ -151,7 +149,7 @@ export default function HomePage() {
             </div>
 
             {/* Scroll-down indicator — smooth scroll to services */}
-            <div className="mt-10 sm:mt-16 flex items-center gap-2 text-white/70 animate-fade-in delay-500">
+            <div className="mt-10 sm:mt-16 flex items-center gap-2 text-white/80 animate-fade-in delay-500">
               <a href="#services" className="flex items-center gap-2 hover:text-white/80 transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm" aria-label="Scroll to services section">
                 <ChevronDown className="h-5 w-5 animate-bounce-limited" aria-hidden="true" />
                 <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
@@ -216,21 +214,13 @@ export default function HomePage() {
 
           {/* Service cards — 2×2 grid */}
           <div ref={servicesGridRef} className={`grid gap-8 sm:grid-cols-2 reveal-hidden ${servicesGridVisible ? "reveal-visible" : ""}`}>
-            {services.length === 0 ? (
-              <div className="sm:col-span-2">
-                <EmptyState
-                  title="Services coming soon"
-                  description="We're updating our service offerings. Please contact us for details."
-                  action={{ label: "Contact Us", href: "/contact" }}
-                />
-              </div>
-            ) : (
-              services.map((svc) => {
-              const Icon = iconMap[svc.icon] ?? Wrench;
+            {services.map((svc) => {
+              const Icon = iconMap[svc.icon];
               return (
                 <Link
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
+                  aria-label={`${svc.title} - ${svc.shortDescription}`}
                   className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover"
                 >
                   {/* Service image */}
@@ -244,8 +234,8 @@ src={serviceImages[svc.slug]}
                     />
                   </div>
 
-                  {/* Number badge */}
-                  <span aria-hidden="true" className="absolute top-5 right-6 text-6xl font-bold text-navy/[0.06] dark:text-white/[0.04] select-none leading-none pointer-events-none z-10">
+                  {/* Number badge — decorative */}
+                  <span aria-hidden="true" className="absolute top-5 right-6 text-6xl font-bold text-navy/[0.06] dark:text-white/[0.04] select-none leading-none pointer-events-none z-10" role="presentation">
                     {svc.number}
                   </span>
 
@@ -285,7 +275,6 @@ src={serviceImages[svc.slug]}
                 </Link>
               );
             })}
-            )}
           </div>
         </div>
       </section>
@@ -326,7 +315,7 @@ src={serviceImages[svc.slug]}
           {/* Feature cards — 2×2 grid */}
           <div ref={whyUsGridRef} className={`grid gap-8 sm:grid-cols-2 max-w-3xl mx-auto reveal-hidden ${whyUsGridVisible ? "reveal-visible" : ""}`}>
             {whyUsFeatures.map((feature) => {
-              const Icon = iconMap[feature.icon] ?? Shield;
+              const Icon = iconMap[feature.icon];
               return (
                 <div
                   key={feature.title}
@@ -370,15 +359,7 @@ src={serviceImages[svc.slug]}
 
           {/* Testimonial cards with scroll-triggered stagger animation */}
           <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.length === 0 ? (
-              <div className="sm:col-span-2 lg:col-span-3">
-                <EmptyState
-                  title="No testimonials yet"
-                  description="Check back soon — we're always collecting feedback from our customers."
-                />
-              </div>
-            ) : (
-              testimonials.map((t, idx) => (
+            {testimonials.map((t, idx) => (
               <div
                 key={t.name}
                 className={`relative rounded-2xl bg-white dark:bg-dark-surface-alt p-8 shadow-card dark:shadow-dark-card border-l-4 border-transparent card-hover reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""} reveal-delay-${idx + 1}`}
@@ -413,7 +394,7 @@ src={testimonialAvatars[t.name]}
                 </p>
                 <div className="mt-4 flex items-center gap-1 text-accent star-rating-pop">
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <span key={i} className="text-sm">&#9733;</span>
+                    <span key={i} className="text-sm" aria-hidden="true">&#9733;</span>
                   ))}
                   <span className="sr-only">{t.rating} out of 5 stars</span>
                 </div>
@@ -422,7 +403,6 @@ src={testimonialAvatars[t.name]}
                 </span>
               </div>
             ))}
-            )}
           </div>
         </div>
       </section>

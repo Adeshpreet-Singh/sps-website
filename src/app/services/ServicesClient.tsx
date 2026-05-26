@@ -9,12 +9,11 @@ import {
   Shield,
   Clock,
   Star,
-  Wrench,
 } from "lucide-react";
 import { services, siteConfig, serviceImageAlts, serviceImages, whyUsFeatures } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import EmptyState from "@/components/EmptyState";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 
 /* Service highlights — trust badges per service */
@@ -136,19 +135,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       <ServicesJsonLd />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://spsinstallation.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://spsinstallation.com/services" },
-            ],
-          }),
-        }}
-      />
+      <BreadcrumbJsonLd items={[{ name: "Services", path: "/services" }]} />
 
       {/* ── Hero Section ── */}
       <section
@@ -193,15 +180,8 @@ export default function ServicesPage() {
       {/* ── Services List ── */}
       <section aria-label="Services list" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
         <div ref={servicesListRef} className={`mx-auto flex max-w-5xl flex-col gap-10 reveal-hidden ${servicesListVisible ? "reveal-visible" : ""}`}>
-          {services.length === 0 ? (
-            <EmptyState
-              title="No services listed"
-              description="We're updating our service catalog. Please contact us for details on available services."
-              action={{ label: "Contact Us", href: "/contact" }}
-            />
-          ) : (
-            services.map((service, idx) => {
-            const Icon = iconMap[service.icon] ?? Wrench;
+          {services.map((service, idx) => {
+            const Icon = iconMap[service.icon];
             const highlights = serviceHighlights[service.slug] ?? [];
             return (
               <article
@@ -220,8 +200,8 @@ export default function ServicesPage() {
                     />
                     {/* Gradient overlay on image */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-60" />
-                    {/* Service number badge */}
-                    <span className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-navy shadow-md backdrop-blur-sm">
+                    {/* Service number badge — decorative */}
+                    <span aria-hidden="true" className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-navy shadow-md backdrop-blur-sm">
                       {service.number}
                     </span>
                   </div>
@@ -273,6 +253,7 @@ export default function ServicesPage() {
                     <div className="mt-8">
                       <Link
                         href={`/services/${service.slug}`}
+                        aria-label={`Learn more about ${service.title}`}
                         className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer"
                       >
                         Learn More
@@ -284,7 +265,6 @@ export default function ServicesPage() {
               </article>
             );
           })}
-          )}
         </div>
       </section>
 
@@ -300,7 +280,7 @@ export default function ServicesPage() {
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 stagger-children">
             {whyUsFeatures.map(({ icon, title, description }) => {
-              const Icon = iconMap[icon] ?? Shield;
+              const Icon = iconMap[icon];
               return (
               <div
                 key={title}

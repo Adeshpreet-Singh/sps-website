@@ -150,9 +150,9 @@ export default function ServicePageLayout({
             {includedSubtitle}
           </p>
           <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-none dark:border dark:border-dark-border sm:p-8 lg:p-10">
-            <div className="grid gap-4 sm:grid-cols-2 stagger-check">
+            <ul className="grid gap-4 sm:grid-cols-2 stagger-check list-none p-0 m-0">
               {service.items.map((item) => (
-                <div
+                <li
                   key={item}
                   className="flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-surface-alt hover:translate-x-1 group"
                 >
@@ -160,9 +160,9 @@ export default function ServicePageLayout({
                     <Check className="h-4 w-4 text-accent" strokeWidth={3} aria-hidden="true" />
                   </span>
                   <span className="text-text dark:text-dark-text transition-colors duration-200 group-hover:text-accent">{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </ScrollReveal>
       </section>
