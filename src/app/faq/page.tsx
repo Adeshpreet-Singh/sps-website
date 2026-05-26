@@ -1,3 +1,10 @@
+/**
+ * @fileoverview FAQ page route.
+ *
+ * Server component that exports page-level metadata and renders
+ * the interactive FaqClient component with categorized FAQ sections.
+ */
+
 import type { Metadata } from "next";
 import FaqClient from "./FaqClient";
 

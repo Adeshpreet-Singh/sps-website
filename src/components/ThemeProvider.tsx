@@ -1,3 +1,29 @@
+/**
+ * @fileoverview Theme context provider for dark/light/system mode.
+ *
+ * Provides:
+ * - ThemeProvider: React context wrapper that manages theme state
+ * - useTheme: Hook to access theme, resolvedTheme, setTheme, toggleTheme
+ * - themeScript: Inline <script> string to apply theme before first paint
+ *
+ * Theme persistence uses localStorage with key "theme". The "system" mode
+ * listens for `prefers-color-scheme` media query changes. Theme transitions
+ * use a temporary CSS class (.theme-transition) that's removed after 350ms
+ * to avoid interfering with other animations.
+ *
+ * @example
+ * ```tsx
+ * // In layout.tsx
+ * <head>
+ *   <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+ * </head>
+ * <ThemeProvider>{children}</ThemeProvider>
+ *
+ * // In a component
+ * const { resolvedTheme, toggleTheme } = useTheme();
+ * ```
+ */
+
 "use client";
 
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
@@ -18,15 +44,24 @@ function getSystemTheme(): "light" | "dark" {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
+/**
+ * Applies the theme to the document root element.
+ *
+ * Strategy:
+ * 1. Add .theme-transition class (CSS transition on background/color)
+ * 2. Swap light/dark classes
+ * 3. Set color-scheme CSS property for native element theming (scrollbars, inputs)
+ * 4. Remove .theme-transition after 350ms to avoid interfering with other animations
+ *
+ * The transition class is intentionally short-lived — it only covers the theme
+ * switch itself, not ongoing page interactions.
+ */
 function applyTheme(theme: "light" | "dark") {
   const root = document.documentElement;
-  // Add transition class for smooth theme switch
   root.classList.add("theme-transition");
   root.classList.remove("light", "dark");
   root.classList.add(theme);
-  // Set color-scheme for native elements (scrollbars, form controls, etc.)
   root.style.colorScheme = theme;
-  // Remove transition class after animation completes to avoid interfering with other transitions
   setTimeout(() => root.classList.remove("theme-transition"), 350);
 }
 

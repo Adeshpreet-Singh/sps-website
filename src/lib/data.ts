@@ -1,5 +1,17 @@
-// SPS Installation — All content data
-// Source: spsinstallation.com + Canada Company Registry
+/**
+ * @fileoverview Central content data store for SPS Installation website.
+ *
+ * All business content is defined here — no CMS or external API.
+ * Edit this file to update: site config, navigation, services, testimonials,
+ * pricing tiers, FAQ items, service areas, process steps, and images.
+ *
+ * Data sources: spsinstallation.com, Canada Business Corporations Act registry.
+ *
+ * @remarks
+ * Icon names (ServiceIconName, ProcessStepIconName) are string literals
+ * that map to lucide-react components via the icon registry in icons.ts.
+ * This keeps data.ts import-free and enables tree-shaking.
+ */
 
 /** Icon names used in data.ts service definitions (map to lucide-react via iconMap) */
 export type ServiceIconName =

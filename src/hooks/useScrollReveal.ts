@@ -8,13 +8,19 @@ import { useEffect, useRef, useState, type RefObject } from "react";
  * of observers on the homepage from ~9 down to 1-2.
  */
 
+/**
+ * Observer pool key — combines threshold and rootMargin into a single string.
+ * Observers with identical config share a single IntersectionObserver instance.
+ */
 type ObserverKey = string; // "threshold|rootMargin"
 
+/** A single pooled observer and its registered element callbacks. */
 interface ObserverEntry {
   observer: IntersectionObserver;
   callbacks: Map<Element, (visible: boolean) => void>;
 }
 
+/** Module-level pool — survives across component mounts/unmounts. */
 const observerPool = new Map<ObserverKey, ObserverEntry>();
 
 function makeKey(threshold: number, rootMargin: string): ObserverKey {

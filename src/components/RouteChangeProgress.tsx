@@ -23,7 +23,10 @@ export default function RouteChangeProgress() {
     setOpacity(1);
     setProgress(0);
 
-    // Simulate incremental progress
+    // Simulate incremental progress — we can't know the actual load time
+    // of the next page (it depends on server response + JS hydration),
+    // so we fake progress at fixed intervals. The bar reaches 90% quickly
+    // and waits there until the route change completes (completeProgress).
     const steps = [
       { delay: 0, value: 20 },
       { delay: 200, value: 50 },

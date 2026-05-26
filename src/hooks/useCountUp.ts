@@ -45,6 +45,8 @@ export function useCountUp({
 
     const startTime = performance.now();
 
+    // Ease-out cubic: fast start, slow finish. Creates a natural "counting up"
+    // feel where numbers fly quickly at first then decelerate near the target.
     function easeOutCubic(t: number): number {
       return 1 - Math.pow(1 - t, 3);
     }

@@ -1,3 +1,21 @@
+/**
+ * @fileoverview Auto-playing testimonial carousel with touch/swipe support.
+ *
+ * Features:
+ * - Auto-advance with configurable interval (default 6s)
+ * - Progress bar that resets on slide change
+ * - Pause on hover/focus
+ * - Keyboard navigation (ArrowLeft/ArrowRight when focused)
+ * - Touch/swipe with 50px threshold
+ * - Peeking adjacent cards (prev/next visible at edges)
+ * - Direction-aware slide animations
+ * - Dot indicators + prev/next buttons
+ *
+ * @remarks
+ * The progress bar uses CSS transition for smooth fill animation.
+ * The auto-play timer resets on every slide change (manual or auto).
+ */
+
 "use client";
 
 import { useState, useEffect, useCallback, useRef, type TouchEvent } from "react";
@@ -46,12 +64,16 @@ export default function TestimonialCarousel({
   useEffect(() => {
     if (isPaused || totalSlides <= 1) return;
 
-    // Reset progress bar animation
+    // Reset the progress bar by:
+    // 1. Removing transition (instant reset to 0%)
+    // 2. Forcing a browser reflow so the 0% width is committed
+    // 3. Re-adding transition and setting 100% — the bar fills over autoPlayInterval ms
+    // The reflow (offsetHeight read) is critical — without it, the browser batches
+    // the style changes and skips the reset animation entirely.
     if (progressRef.current) {
       progressRef.current.style.transition = "none";
       progressRef.current.style.width = "0%";
-      // Force reflow
-      progressRef.current.offsetHeight;
+      progressRef.current.offsetHeight; // force reflow
       progressRef.current.style.transition = `width ${autoPlayInterval}ms linear`;
       progressRef.current.style.width = "100%";
     }

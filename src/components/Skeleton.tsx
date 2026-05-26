@@ -1,3 +1,19 @@
+/**
+ * @fileoverview Loading skeleton components for async content placeholders.
+ *
+ * Provides:
+ * - Skeleton: Generic shimmer-pulse placeholder with shape variants
+ * - CardSkeleton: Icon + title + description lines
+ * - TestimonialSkeleton: Avatar + quote lines
+ * - ServiceDetailLoading: Full-page skeleton for service detail pages
+ * - ContactFormSkeleton: Form field placeholders
+ * - HeroSkeleton: Full-height hero with title/CTA placeholders
+ * - GridSectionSkeleton: Configurable grid of card skeletons
+ *
+ * All skeletons use aria-hidden="true" since they're decorative.
+ * The animate-skeleton class provides a shimmer pulse effect.
+ */
+
 "use client";
 
 /**

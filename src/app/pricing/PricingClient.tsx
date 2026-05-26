@@ -1,3 +1,19 @@
+/**
+ * @fileoverview Pricing page client component.
+ *
+ * Renders:
+ * 1. Hero — dark gradient with trust badges
+ * 2. Installation pricing tiers — card grid with features and CTAs
+ * 3. Plumbing pricing tiers — separate card grid
+ * 4. Comparison table — side-by-side feature comparison
+ * 5. Pricing FAQ — common pricing questions
+ * 6. CTA Banner — contact call-to-action
+ *
+ * Pricing data (tiers, comparison rows, FAQs) is imported from data.ts.
+ * Each tier card shows price, tagline, feature list with check/x icons,
+ * and a CTA button. The "popular" tier gets a highlighted border.
+ */
+
 "use client";
 
 import Link from "next/link";

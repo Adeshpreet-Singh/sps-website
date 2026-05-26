@@ -1,3 +1,8 @@
+/**
+ * @fileoverview About page loading skeleton with story and values section placeholders.
+ * Shown by Next.js App Router while the page's async components load.
+ */
+
 import Skeleton, { HeroSkeleton } from "@/components/Skeleton";
 
 export default function AboutLoading() {

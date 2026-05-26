@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Residential service detail page.
+ *
+ * Uses the createServicePage factory to generate a fully-wired page with:
+ * - SEO metadata and OpenGraph tags
+ * - Service-specific FAQ items
+ * - Section subtitles for "What's Included", "Our Process", and CTA
+ *
+ * The factory handles service lookup, process step mapping, hero image
+ * assignment, and ServicePageLayout rendering.
+ */
+
 import type { Metadata } from "next";
 import type { FaqItem } from "@/lib/data";
 import { createServicePage } from "@/lib/createServicePage";

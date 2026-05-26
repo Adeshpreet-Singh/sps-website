@@ -1,3 +1,20 @@
+/**
+ * @fileoverview Contact page client component.
+ *
+ * Renders:
+ * - Hero section with background image and breadcrumb
+ * - Contact info cards (phone, email, hours, address, message)
+ * - JSON-LD LocalBusiness structured data for rich search results
+ * - Dynamically loaded ContactForm (code-split, no SSR)
+ *
+ * The ContactForm is loaded via next/dynamic with ssr:false because it
+ * contains form state and validation that only runs client-side. A
+ * ContactFormSkeleton is shown during the loading phase.
+ *
+ * ContactCard is a polymorphic wrapper — renders as <a> when href is
+ * provided, <div> otherwise.
+ */
+
 "use client";
 
 import Image from "next/image";

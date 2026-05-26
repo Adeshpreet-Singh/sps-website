@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Custom 404 page.
+ *
+ * Displays a large animated "404" number with gradient text, a friendly
+ * message, a primary CTA back to home, and quick-nav cards to key pages
+ * (Services, About, Contact). Focus is moved to the heading on mount
+ * for screen reader users.
+ */
+
 "use client";
 
 import { useEffect, useRef } from "react";

@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Dynamic robots.txt generation.
+ *
+ * Allows all crawlers to index the site while disallowing API routes
+ * and Next.js internal paths. Points to the sitemap for crawl discovery.
+ */
+
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/data";
 

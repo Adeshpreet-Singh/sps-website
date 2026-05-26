@@ -1,3 +1,21 @@
+/**
+ * @fileoverview Root layout for SPS Installation website.
+ *
+ * This is the outermost shell rendered by Next.js App Router. It wraps every
+ * page with:
+ * - Google Fonts (Inter) loaded via `next/font/google` with CSS variable
+ * - Global metadata (OpenGraph, Twitter cards, robots directives)
+ * - ThemeProvider for dark/light/system mode
+ * - Persistent UI: Navbar, Footer, ScrollProgress, ScrollToTop
+ * - PageTransition for route-change animations
+ * - RouteChangeProgress for navigation loading indicator
+ * - ErrorBoundary to catch rendering errors in persistent UI
+ * - JSON-LD LocalBusiness structured data for SEO
+ *
+ * The `themeScript` injected in <head> runs before first paint to apply the
+ * user's saved theme preference, preventing flash-of-wrong-theme (FOWT).
+ */
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

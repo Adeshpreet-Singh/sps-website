@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Services hub page loading skeleton.
+ * Shown by Next.js App Router while the page's async components load.
+ */
+
 import { ServicePageSkeleton } from "@/components/Skeleton";
 
 export default function ServicesLoading() {

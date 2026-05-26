@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Contact page loading skeleton with form and info card placeholders.
+ * Shown by Next.js App Router while the page's async components load.
+ */
+
 import Skeleton, { HeroSkeleton, ContactFormSkeleton } from "@/components/Skeleton";
 
 export default function ContactLoading() {

@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Reviews page route.
+ *
+ * Server component that exports page-level metadata and renders
+ * the interactive ReviewsClient component.
+ */
+
 import type { Metadata } from "next";
 import ReviewsClient from "./ReviewsClient";
 

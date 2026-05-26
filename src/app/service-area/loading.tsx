@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Service area page loading skeleton with map and city card placeholders.
+ * Shown by Next.js App Router while the page's async components load.
+ */
+
 import Skeleton, { HeroSkeleton } from "@/components/Skeleton";
 
 export default function ServiceAreaLoading() {

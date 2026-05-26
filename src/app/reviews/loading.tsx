@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Reviews page loading skeleton with testimonial card placeholders.
+ * Shown by Next.js App Router while the page's async components load.
+ */
+
 import Skeleton, { HeroSkeleton, TestimonialSkeleton } from "@/components/Skeleton";
 
 export default function ReviewsLoading() {

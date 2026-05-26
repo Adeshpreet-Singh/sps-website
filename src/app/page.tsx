@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Homepage route — the "/" entry point.
+ *
+ * Server component that exports page-level metadata and renders the
+ * interactive HomeClient component. The metadata here overrides the
+ * root layout defaults for the homepage specifically.
+ */
+
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 import HomeClient from "./HomeClient";

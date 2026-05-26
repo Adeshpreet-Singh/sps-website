@@ -1,3 +1,16 @@
+/**
+ * @fileoverview Service area page — shows Metro Vancouver coverage.
+ *
+ * Server component that renders:
+ * 1. Hero — background image with floating shapes and breadcrumb
+ * 2. Coverage grid — city cards with service availability
+ * 3. Trust features — licensed, insured, same-day availability
+ * 4. CTA Banner — contact call-to-action
+ *
+ * Includes BreadcrumbJsonLd for structured data. Service area data
+ * (cities, regions) is imported from data.ts.
+ */
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

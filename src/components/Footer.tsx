@@ -1,3 +1,16 @@
+/**
+ * @fileoverview Site-wide footer component.
+ *
+ * Renders:
+ * - Trust badges bar (Licensed & Insured, Hours, Location)
+ * - 4-column grid: Logo/About, Services links, Company links, Contact info
+ * - Legal links (Privacy Policy, Terms of Service)
+ * - Copyright notice with dynamic year
+ * - Scroll-to-top button
+ *
+ * Uses useScrollReveal for entrance animation when footer enters viewport.
+ */
+
 "use client";
 
 import Link from "next/link";

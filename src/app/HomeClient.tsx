@@ -1,3 +1,21 @@
+/**
+ * @fileoverview Interactive homepage component for SPS Installation.
+ *
+ * Renders all major homepage sections:
+ * 1. Hero — full-viewport with background video, floating shapes, parallax
+ * 2. Trust badges — retailer logos and credibility markers
+ * 3. Services grid — four service cards with icons and descriptions
+ * 4. Why Us — feature grid highlighting company differentiators
+ * 5. Testimonials — auto-playing customer review carousel
+ * 6. Stats — animated counters (years, installations, rating)
+ * 7. Service Area — coverage map with city list
+ * 8. FAQ — expandable accordion with common questions
+ * 9. CTA Banner — final call-to-action with phone/form links
+ *
+ * Uses shared IntersectionObserver pool (useScrollReveal) for performant
+ * scroll-triggered animations, and useLazyVideo to defer hero video loading.
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -13,6 +31,7 @@ import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, servic
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
+import { useParallax } from '@/hooks/useParallax';
 import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 import StatCounter from "@/components/StatCounter";
@@ -37,6 +56,8 @@ export default function HomeClient() {
 
   // Lazy-load hero video — only starts buffering when hero is in/near viewport
   const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
+  // Parallax hooks for hero depth effect
+  const heroContentParallax = useParallax<HTMLDivElement>({ speed: 0.15, maxOffset: 50 });
 
   return (
     <>

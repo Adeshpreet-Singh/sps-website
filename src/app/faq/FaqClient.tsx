@@ -1,3 +1,16 @@
+/**
+ * @fileoverview FAQ page client component.
+ *
+ * Renders categorized FAQ sections:
+ * 1. General — service area, licensing, quotes, hours, warranties, scheduling
+ * 2. Appliance Installation — retailer compatibility, warranty, removal, timing
+ * 3. Plumbing — licensing, emergency, fixtures, timing
+ *
+ * Each section uses the FaqAccordion component with hover effects enabled.
+ * Includes JSON-LD FAQPage structured data for rich search results and
+ * BreadcrumbJsonLd for breadcrumb navigation.
+ */
+
 "use client";
 
 import Link from "next/link";

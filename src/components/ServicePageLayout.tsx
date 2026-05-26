@@ -1,3 +1,20 @@
+/**
+ * @fileoverview Shared layout for all service detail pages.
+ *
+ * Renders the full service page structure:
+ * 1. JSON-LD structured data (Service, FAQ, HowTo, Breadcrumb)
+ * 2. Hero section with background image and breadcrumb
+ * 3. "What's Included" section with service items checklist
+ * 4. "Our Process" section with numbered steps and images
+ * 5. FAQ accordion section
+ * 6. CTA banner section
+ *
+ * Used by the createServicePage factory — each service page only needs
+ * to provide its unique metadata, FAQs, and section subtitles.
+ *
+ * @see {@link /lib/createServicePage.tsx} for the factory function
+ */
+
 import type { FaqItem, Service } from "@/lib/data";
 import { siteConfig } from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";

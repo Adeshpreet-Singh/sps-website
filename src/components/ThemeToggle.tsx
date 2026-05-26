@@ -1,3 +1,12 @@
+/**
+ * @fileoverview Sun/moon theme toggle button.
+ *
+ * Renders a circular button with animated sun (dark mode) and moon (light mode)
+ * icons that rotate/scale on theme change. Uses the useTheme hook from
+ * ThemeProvider for state. Includes aria-label for screen readers and
+ * meets minimum 44x44px touch target size.
+ */
+
 "use client";
 
 import { useTheme } from "./ThemeProvider";

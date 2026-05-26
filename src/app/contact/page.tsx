@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Contact page route.
+ *
+ * Server component that exports page-level metadata (including phone
+ * number in description for click-to-call in search results) and
+ * renders the interactive ContactClient component.
+ */
+
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 import ContactClient from "./ContactClient";

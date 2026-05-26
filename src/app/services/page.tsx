@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Services hub page route.
+ *
+ * Server component that exports page-level metadata and renders
+ * the interactive ServicesClient component showing all four service
+ * categories with links to detail pages.
+ */
+
 import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 

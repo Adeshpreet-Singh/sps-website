@@ -1,3 +1,11 @@
+/**
+ * @fileoverview About page route.
+ *
+ * Server component that exports page-level metadata and renders
+ * the interactive AboutClient component. Metadata includes OpenGraph
+ * overrides for the about page specifically.
+ */
+
 import type { Metadata } from "next";
 import AboutClient from "./AboutClient";
 

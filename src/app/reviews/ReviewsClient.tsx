@@ -1,3 +1,16 @@
+/**
+ * @fileoverview Reviews page client component.
+ *
+ * Renders:
+ * 1. Hero — dark overlay with background image, aggregate rating display
+ * 2. Review grid — testimonial cards with star ratings and quotes
+ * 3. External review links — Google, Homestars, Yelp badges
+ * 4. CTA Banner — contact call-to-action
+ *
+ * Includes JSON-LD AggregateRating structured data for rich search results.
+ * The star display calculates full/half stars from the numeric rating.
+ */
+
 "use client";
 
 import { Star, ExternalLink, Quote } from "lucide-react";

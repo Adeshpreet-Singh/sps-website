@@ -1,3 +1,18 @@
+/**
+ * @fileoverview Services hub page client component.
+ *
+ * Renders:
+ * 1. Hero — dark gradient with headline and trust badges
+ * 2. Service cards — 4 cards with images, descriptions, trust highlights,
+ *    and "Learn More" links to individual service detail pages
+ * 3. Why Us section — feature grid highlighting company differentiators
+ * 4. Process overview — numbered steps (inline, not using process step data)
+ * 5. CTA Banner — contact call-to-action
+ *
+ * Service highlights (trust badges per service) are defined locally.
+ * JSON-LD structured data includes LocalBusiness with OfferCatalog.
+ */
+
 "use client";
 
 import Link from "next/link";

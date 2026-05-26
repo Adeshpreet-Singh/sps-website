@@ -1,3 +1,21 @@
+/**
+ * @fileoverview Sticky navigation bar with responsive mobile drawer.
+ *
+ * Features:
+ * - Transparent → solid background on scroll (10px threshold)
+ * - Desktop: horizontal nav links + services dropdown + CTA button
+ * - Mobile: slide-in drawer with full nav, focus trap, Escape to close
+ * - Services dropdown with outside-click dismiss
+ * - Theme toggle (sun/moon) integrated in nav
+ * - Active route highlighting via usePathname
+ * - Body scroll lock when mobile menu is open
+ * - Full keyboard accessibility: Tab/Shift+Tab trapping, Escape dismiss
+ *
+ * @remarks
+ * The mobile panel uses a focus trap to keep keyboard navigation within
+ * the drawer when open. Focus is restored to the toggle button on close.
+ */
+
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -61,7 +79,10 @@ export default function Navbar() {
         return;
       }
 
-      // Focus trap: keep Tab within the mobile panel
+      // Focus trap: keep Tab cycling within the mobile panel.
+      // When Tab is pressed on the last focusable element, wrap to first.
+      // When Shift+Tab is pressed on the first element, wrap to last.
+      // This prevents focus from escaping the drawer while it's open.
       if (e.key === "Tab" && panelRef.current) {
         const focusable = panelRef.current.querySelectorAll<HTMLElement>(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'

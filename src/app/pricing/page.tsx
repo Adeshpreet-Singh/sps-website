@@ -1,3 +1,11 @@
+/**
+ * @fileoverview Pricing page route.
+ *
+ * Server component that exports SEO metadata, JSON-LD Service schemas
+ * for each pricing tier (both installation and plumbing), and renders
+ * the interactive PricingClient component.
+ */
+
 import type { Metadata } from "next";
 import { siteConfig, pricingTiers, plumbingTiers } from "@/lib/data";
 import PricingClient from "./PricingClient";

@@ -1,3 +1,19 @@
+/**
+ * @fileoverview About page client component.
+ *
+ * Renders the company story, core values, leadership team, and stats.
+ * Sections:
+ * 1. Hero — dark gradient with cursor glow and breadcrumb
+ * 2. Story — company history and mission
+ * 3. Stats — animated counters for key business metrics
+ * 4. Values — 4-card grid (Reliability, Quality, Respect, Transparency)
+ * 5. Leadership — director profiles
+ * 6. CTA Banner — contact call-to-action
+ *
+ * Values and stats are defined locally (not in data.ts) because they're
+ * specific to the about page and don't need to be shared.
+ */
+
 "use client";
 
 import Link from "next/link";

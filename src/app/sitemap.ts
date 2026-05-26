@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Dynamic sitemap.xml generation.
+ *
+ * Lists all public pages with their update frequency and priority.
+ * Service detail pages are included alongside top-level pages.
+ * The `lastModified` date is set to the current time on each build,
+ * which is acceptable for a content-managed site where changes are
+ * deployed as code.
+ */
+
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/data";
 

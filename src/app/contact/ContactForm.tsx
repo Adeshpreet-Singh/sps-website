@@ -1,3 +1,28 @@
+/**
+ * @fileoverview Contact/quote request form with client-side validation.
+ *
+ * Features:
+ * - Floating-label input design for all fields
+ * - Real-time validation on blur with inline error messages
+ * - Fields: name, email, phone, service type (select), retailer (optional),
+ *   preferred date (optional), message (textarea with 500 char limit)
+ * - Required field validation before submission
+ * - Success/error states with animated feedback
+ * - Retry capability on submission failure
+ * - Full keyboard accessibility
+ *
+ * Validation rules:
+ * - Name: min 2 chars, letters/spaces/hyphens only
+ * - Email: RFC 5322 simplified pattern
+ * - Phone: 10-15 digits (formatting chars stripped for validation)
+ * - Service type: required select
+ *
+ * @remarks
+ * The form currently simulates submission (no backend endpoint wired).
+ * Replace the setTimeout in handleSubmit with a real API call when
+ * the backend is ready.
+ */
+
 "use client";
 
 import { useState, useRef, useCallback, type FormEvent } from "react";

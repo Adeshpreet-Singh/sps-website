@@ -1,3 +1,16 @@
+/**
+ * @fileoverview Next.js middleware for URL normalization.
+ *
+ * Handles legacy URL redirects to maintain SEO juice and prevent 404s
+ * from old site migrations:
+ * - /index → / (301)
+ * - /index.html → / (301)
+ * - /:path*.html → /:path* (301, strips .html extension)
+ *
+ * The matcher config limits this middleware to only the affected routes,
+ * avoiding unnecessary processing on every request.
+ */
+
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 

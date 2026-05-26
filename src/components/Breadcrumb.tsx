@@ -1,3 +1,22 @@
+/**
+ * @fileoverview Visual breadcrumb navigation.
+ *
+ * Renders a horizontal breadcrumb trail with "/" separators. The last item
+ * is rendered as plain text with aria-current="page"; all others are links.
+ * "Home" is always the first item (hardcoded).
+ *
+ * Paired with BreadcrumbJsonLd for structured data — use both together
+ * for visual + SEO breadcrumbs.
+ *
+ * @example
+ * ```tsx
+ * <Breadcrumb items={[
+ *   { name: "Services", path: "/services" },
+ *   { name: "Plumbing", path: "/services/plumbing" },
+ * ]} />
+ * ```
+ */
+
 import Link from "next/link";
 import type { BreadcrumbItem } from "@/lib/types";
 
