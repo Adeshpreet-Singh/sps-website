@@ -9,6 +9,7 @@ import { ThemeProvider, themeScript } from "@/components/ThemeProvider";
 import RouteChangeProgress from "@/components/RouteChangeProgress";
 import ScrollToTop from "@/components/ScrollToTop";
 import ScrollProgress from "@/components/ScrollProgress";
+import PageTransition from "@/components/PageTransition";
 import { Suspense } from "react";
 
 const inter = Inter({
@@ -167,8 +168,8 @@ export default function RootLayout({
             Skip to main content
           </a>
           <Navbar />
-          <main id="main-content" className="flex-1 animate-fade-in" tabIndex={-1}>
-            <ErrorBoundary>{children}</ErrorBoundary>
+          <main id="main-content" className="flex-1" tabIndex={-1}>
+            <PageTransition><ErrorBoundary>{children}</ErrorBoundary></PageTransition>
           </main>
           <Footer />
           <ScrollToTop />
