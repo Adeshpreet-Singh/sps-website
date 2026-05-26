@@ -141,7 +141,7 @@ export default function Navbar() {
                     onMouseEnter={() => setServicesOpen(true)}
                     aria-expanded={servicesOpen}
                     aria-haspopup="true"
-                    className={`relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-all duration-200 motion-reduce:transition-none hover:-translate-y-0.5 group ${
+                    className={`relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 group magnetic-hover ${
                       isServicesActive
                         ? "text-accent-safe"
                         : "text-text dark:text-dark-text hover:text-accent"
@@ -156,7 +156,7 @@ export default function Navbar() {
                     />
                     {/* Animated underline */}
                     <span
-                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-300 ease-out motion-reduce:transition-none ${
+                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                         isServicesActive
                           ? "w-5 animate-accent-pulse"
                           : "w-0 group-hover:w-5"
@@ -202,34 +202,35 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
-              {/* Desktop Nav — visible on tablet (md) and up */}
-              <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 group magnetic-hover ${
-                        isActive
-                          ? "text-accent-safe"
-                          : "text-text dark:text-dark-text hover:text-accent"
-                      }`}
-                    >
-                      {link.label}
-                      {/* Animated underline — grows from center on hover/active */}
-                      <span
-                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-                          isActive
-                            ? "w-5 animate-accent-pulse"
-                            : "w-0 group-hover:w-5"
-                        }`}
-                      />
-                    </Link>
-                  );
-                })}
-              </nav>
+              );
+            }
+
+            // Regular nav links
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 group magnetic-hover ${
+                  isActive
+                    ? "text-accent-safe"
+                    : "text-text dark:text-dark-text hover:text-accent"
+                }`}
+              >
+                {link.label}
+                {/* Animated underline — grows from center on hover/active */}
+                <span
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                    isActive
+                      ? "w-5 animate-accent-pulse"
+                      : "w-0 group-hover:w-5"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+        </nav>
 
         {/* Desktop CTAs — visible on lg and up */}
         <div className="hidden items-center gap-3 lg:flex">
@@ -362,7 +363,7 @@ export default function Navbar() {
                     }`}
                   >
                     <div className="ml-4 border-l-2 border-border/50 dark:border-dark-border/50 pl-3 py-1 stagger-children">
-                      {services.map((service, sIdx) => (
+                      {services.map((service) => (
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
