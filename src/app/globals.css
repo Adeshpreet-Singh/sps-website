@@ -188,9 +188,20 @@
   100% { background-position: -200% 0; }
 }
 
-@keyframes skeletonPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.animate-skeleton {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+}
+
+.dark .animate-skeleton {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
 }
 
 @keyframes gradientShift {
@@ -485,11 +496,6 @@
 }
 
 /* Skeleton pulse — for loading placeholders */
-@keyframes skeletonPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
 /* Float slow — for decorative elements */
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0); }
@@ -671,11 +677,6 @@
 }
 
 /* Skeleton pulse — for loading */
-@keyframes skeletonPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
 /* Float slow — for decorative elements */
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0); }
@@ -746,111 +747,12 @@
 /* Glow pulse — for accent elements */
 @keyframes glowPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(232, 122, 46, 0); }
-  50% { box-shadow: 0 0 16px 2px rgba(232, 122, 46, 0.12); }
-}
+  50% { box-sha
 
-/* Nav enter — for header */
-@keyframes navEnter {
-  from { opacity: 0; transform: translateY(-100%); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+... [OUTPUT TRUNCATED - 69 chars omitted out of 50069 total] ...
 
-/* Bounce — for scroll indicators */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-25%); }
-}
 
-/* Ping — for success rings */
-@keyframes ping {
-  75%, 100% { transform: scale(2); opacity: 0; }
-}
-
-/* Spin — for loading icons */
-@keyframes spin360 {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* Details open — for FAQ accordions */
-@keyframes detailsOpen {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Cursor blink — for typing effect */
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ── Utility Classes ── */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out both;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInLeft 0.5s ease-out both;
-  }
-
-  .animate-slide-in-right {
-    animation: slideInRight 0.5s ease-out both;
-  }
-
-  .animate-scale-in {
-    animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 3s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: floatSlow 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-glow {
-    animation: pulseGlow 3s ease-in-out infinite;
-  }
-
-  /* Skeleton loading pulse */
-  .animate-skeleton {
-    animation: skeletonPulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  /* Staggered animation delays — apply alongside animation classes */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
-  .delay-800 { animation-delay: 800ms; }
-
-  /* Scroll-reveal utilities — initially hidden, become visible with JS */
-  .reveal-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .reveal-scale-hidden {
-    opacity: 0;
+ 0;
     transform: scale(0.92);
     transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
