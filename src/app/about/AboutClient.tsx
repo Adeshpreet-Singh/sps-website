@@ -33,54 +33,50 @@ import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 import StatCounter from "@/components/StatCounter";
 
+const STATS = [
+  { label: "Years in Business", value: siteConfig.stats.yearsInBusiness },
+  { label: "Installations", value: siteConfig.stats.installations },
+  { label: "Licensed & Insured", value: siteConfig.stats.licensedInsured },
+  { label: "Customer Rating", value: siteConfig.stats.rating },
+];
+
+const LEADERS = [
+  { name: "Rajat Kumar", role: "Director & Co-Founder" },
+  { name: "Diksha Saini", role: "Director & Co-Founder" },
+];
+
+const VALUES_DATA = [
+  {
+    icon: Clock,
+    title: "Reliability",
+    description: "We show up on time, every time. No exceptions, no excuses.",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Quality",
+    description: "Every installation meets manufacturer specs and building codes.",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
+  },
+  {
+    icon: Users,
+    title: "Respect",
+    description: "We treat your home like our own. Clean, careful, professional.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop",
+  },
+  {
+    icon: Shield,
+    title: "Transparency",
+    description: "No hidden fees. No surprises. Just honest, upfront pricing.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
+  },
+];
+
 export default function AboutClient() {
   const [storyRef, storyVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal();
   const [valuesRef, valuesVisible] = useScrollReveal();
   const [leadersRef, leadersVisible] = useScrollReveal();
-
-  const values = [
-    {
-      icon: <Clock className="w-7 h-7" aria-hidden="true" />,
-      title: "Reliability",
-      description:
-        "We show up on time, every time. No exceptions, no excuses.",
-      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <BadgeCheck className="w-7 h-7" aria-hidden="true" />,
-      title: "Quality",
-      description:
-        "Every installation meets manufacturer specs and building codes.",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Users className="w-7 h-7" aria-hidden="true" />,
-      title: "Respect",
-      description:
-        "We treat your home like our own. Clean, careful, professional.",
-      image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop",
-    },
-    {
-      icon: <Shield className="w-7 h-7" aria-hidden="true" />,
-      title: "Transparency",
-      description:
-        "No hidden fees. No surprises. Just honest, upfront pricing.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
-    },
-  ];
-
-  const stats = [
-    { label: "Years in Business", value: siteConfig.stats.yearsInBusiness },
-    { label: "Installations", value: siteConfig.stats.installations },
-    { label: "Licensed & Insured", value: siteConfig.stats.licensedInsured },
-    { label: "Customer Rating", value: siteConfig.stats.rating },
-  ];
-
-  const leaders = [
-    { name: "Rajat Kumar", role: "Director & Co-Founder" },
-    { name: "Diksha Saini", role: "Director & Co-Founder" },
-  ];
 
   return (
     <div className="flex flex-col">
@@ -173,7 +169,7 @@ export default function AboutClient() {
       <section aria-label="Company statistics" className="bg-surface-alt dark:bg-dark-surface-alt py-12 sm:py-14 md:py-16 lg:py-20">
         <div ref={statsRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${statsVisible ? "reveal-visible" : ""}`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stagger-children">
-            {stats.map((stat) => (
+            {STATS.map((stat) => (
               <StatCounter
                 key={stat.label}
                 value={stat.value}
@@ -204,7 +200,7 @@ export default function AboutClient() {
             every day.
           </p>
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 stagger-children">
-            {values.map((value, idx) => (
+            {VALUES_DATA.map((value, idx) => (
               <div
                 key={value.title}
                 className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(232,122,46,0.08)] transition-all duration-300 hover:-translate-y-1 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1}`}
@@ -223,7 +219,7 @@ export default function AboutClient() {
                 <div className="absolute inset-0 bg-navy-dark/80 backdrop-blur-sm" />
                 <div className="relative p-6">
                   <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
-                    {value.icon}
+                    <value.icon className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">
                     {value.title}
@@ -249,7 +245,7 @@ export default function AboutClient() {
             focus on customer satisfaction.
           </p>
           <div className="mt-14 grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto stagger-children" role="list" aria-label="Leadership team members">
-            {leaders.map((leader) => (
+            {LEADERS.map((leader) => (
               <div
                 key={leader.name}
                 role="listitem"
