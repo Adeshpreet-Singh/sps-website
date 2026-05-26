@@ -83,14 +83,14 @@ export function ErrorContent({
         <button
           type="button"
           onClick={reset}
-          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press min-h-[44px]"
+          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press min-h-[44px] motion-reduce:transition-none motion-reduce:transform-none"
         >
           <RefreshCw className="h-4 w-4" aria-hidden="true" />
           Try Again
         </button>
         <Link
           href={secondaryHref}
-          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-all hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 btn-press min-h-[44px]"
+          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-6 py-3 text-sm font-semibold text-text dark:text-dark-text transition-all hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 btn-press min-h-[44px] motion-reduce:transition-none motion-reduce:transform-none"
         >
           {secondaryHref === "/" && <Home className="h-4 w-4" aria-hidden="true" />}
           {secondaryLabel}

@@ -160,7 +160,7 @@ export default function TestimonialCarousel({
         <div className="hidden lg:block" aria-hidden="true">
           {/* Left peek */}
           <div className="absolute left-0 top-0 bottom-0 w-[calc(50%-340px)] z-0 pointer-events-none">
-            <div className="h-full opacity-40 scale-[0.92] blur-[1px] transition-all duration-700 ease-out">
+            <div className="h-full opacity-40 scale-[0.92] blur-[1px] transition-all duration-700 ease-out motion-reduce:transition-none">
               <TestimonialCard
                 testimonial={testimonials[prevIndex]}
                 isActive={false}
@@ -171,7 +171,7 @@ export default function TestimonialCarousel({
           </div>
           {/* Right peek */}
           <div className="absolute right-0 top-0 bottom-0 w-[calc(50%-340px)] z-0 pointer-events-none">
-            <div className="h-full opacity-40 scale-[0.92] blur-[1px] transition-all duration-700 ease-out">
+            <div className="h-full opacity-40 scale-[0.92] blur-[1px] transition-all duration-700 ease-out motion-reduce:transition-none">
               <TestimonialCard
                 testimonial={testimonials[nextIndex]}
                 isActive={false}
@@ -223,10 +223,10 @@ export default function TestimonialCarousel({
         <div className="flex items-center justify-center gap-4 mt-8">
           <button
             onClick={goToPrev}
-            className="group flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-surface-alt shadow-md dark:shadow-dark-card border border-border dark:border-dark-border text-navy dark:text-dark-text-muted hover:bg-accent hover:text-white hover:border-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+            className="group flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-surface-alt shadow-md dark:shadow-dark-card border border-border dark:border-dark-border text-navy dark:text-dark-text-muted hover:bg-accent hover:text-white hover:border-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            <ChevronLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5 motion-reduce:transition-none motion-reduce:transform-none" />
           </button>
 
           {/* Dot indicators — inline with arrows */}
@@ -255,10 +255,10 @@ export default function TestimonialCarousel({
 
           <button
             onClick={goToNext}
-            className="group flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-surface-alt shadow-md dark:shadow-dark-card border border-border dark:border-dark-border text-navy dark:text-dark-text-muted hover:bg-accent hover:text-white hover:border-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+            className="group flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-dark-surface-alt shadow-md dark:shadow-dark-card border border-border dark:border-dark-border text-navy dark:text-dark-text-muted hover:bg-accent hover:text-white hover:border-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:transform-none" />
           </button>
         </div>
       )}
@@ -304,15 +304,15 @@ function TestimonialCard({
   totalSlides,
 }: TestimonialCardProps) {
   return (
-    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5">
+    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
       {/* Top accent gradient bar — with hover glow */}
-      <div className="h-1 w-full bg-gradient-to-r from-accent via-accent-light to-accent transition-all duration-500 group-hover/card:h-1.5 group-hover/card:shadow-[0_2px_12px_rgba(232,122,46,0.3)]" />
+      <div className="h-1 w-full bg-gradient-to-r from-accent via-accent-light to-accent transition-all duration-500 group-hover/card:h-1.5 group-hover/card:shadow-[0_2px_12px_rgba(232,122,46,0.3)] motion-reduce:transition-none" />
 
       <div className="p-6 sm:p-8">
         {/* Quote icon — subtle background element */}
         <div className="relative">
           <Quote
-            className="absolute -top-1 -left-1 h-10 w-10 sm:h-12 sm:w-12 text-accent/[0.07] fill-accent/[0.03] transition-all duration-500 group-hover/card:text-accent/[0.12] group-hover/card:fill-accent/[0.06] group-hover/card:scale-110"
+            className="absolute -top-1 -left-1 h-10 w-10 sm:h-12 sm:w-12 text-accent/[0.07] fill-accent/[0.03] transition-all duration-500 group-hover/card:text-accent/[0.12] group-hover/card:fill-accent/[0.06] group-hover/card:scale-110 motion-reduce:transition-none motion-reduce:transform-none"
             aria-hidden="true"
           />
 
@@ -343,7 +343,7 @@ function TestimonialCard({
         {/* Author info — with avatar */}
         <div className="mt-6 pt-5 border-t border-border/50 dark:border-dark-border/50 flex items-center gap-4">
           {/* Avatar */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 shadow-sm transition-all duration-300 group-hover/card:ring-accent/40 group-hover/card:shadow-md group-hover/card:scale-105">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 shadow-sm transition-all duration-300 group-hover/card:ring-accent/40 group-hover/card:shadow-md group-hover/card:scale-105 motion-reduce:transition-none motion-reduce:transform-none">
             <Image
               src={t.photo || testimonialAvatars[t.name] || ""}
               alt={t.name}
@@ -374,7 +374,7 @@ function TestimonialCard({
           </div>
 
           {/* Service badge */}
-          <span className="hidden sm:inline-flex shrink-0 text-xs font-medium bg-surface-alt dark:bg-dark-surface-alt text-text-muted dark:text-dark-text-muted rounded-full px-3 py-1.5 border border-border/50 dark:border-dark-border/50 transition-all duration-300 group-hover/card:border-accent/30 group-hover/card:text-accent-safe">
+          <span className="hidden sm:inline-flex shrink-0 text-xs font-medium bg-surface-alt dark:bg-dark-surface-alt text-text-muted dark:text-dark-text-muted rounded-full px-3 py-1.5 border border-border/50 dark:border-dark-border/50 transition-all duration-300 group-hover/card:border-accent/30 group-hover/card:text-accent-safe motion-reduce:transition-none">
             {t.service}
           </span>
         </div>

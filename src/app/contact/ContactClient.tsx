@@ -109,8 +109,8 @@ function ContactCard({
     <Wrapper
       {...(href ? { href, className: "group block focus-visible:outline-none", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
-      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-[400ms] hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface">
-        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
+      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-[400ms] hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-white dark:focus-within:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
           <Icon className="w-5 h-5 text-white" aria-hidden="true" />
         </div>
         <div className="min-w-0">

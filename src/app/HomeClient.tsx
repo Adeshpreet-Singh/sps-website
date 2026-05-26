@@ -116,14 +116,14 @@ export default function HomeClient() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up delay-300">
               <Link
                 href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/35 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer animate-cta-pulse"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/35 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer animate-cta-pulse motion-reduce:transition-none motion-reduce:transform-none"
               >
                 Get a Free Quote
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
               <a
                 href={siteConfig.phoneLink}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl border border-white/25 px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl border border-white/25 px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press motion-reduce:transition-none motion-reduce:transform-none"
                 aria-label={`Call us at ${siteConfig.phone}`}
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />

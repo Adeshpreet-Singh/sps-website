@@ -175,10 +175,10 @@ export default function ServicePageLayout({
                   key={item}
                   className="flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-surface-alt hover:translate-x-1 group motion-reduce:transition-none motion-reduce:transform-none"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/20 group-hover:scale-110 icon-bounce">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/20 group-hover:scale-110 icon-bounce motion-reduce:transition-none motion-reduce:transform-none">
                     <Check className="h-4 w-4 text-accent" strokeWidth={3} aria-hidden="true" />
                   </span>
-                  <span className="text-text dark:text-dark-text transition-colors duration-200 group-hover:text-accent">{item}</span>
+                  <span className="text-text dark:text-dark-text transition-colors duration-200 group-hover:text-accent motion-reduce:transition-none">{item}</span>
                 </li>
               ))}
             </ul>
@@ -213,7 +213,7 @@ export default function ServicePageLayout({
                   className="group relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up"
                   style={{ animationDelay: `${idx * 120}ms` }}
                 >
-                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/30">
+                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/30 motion-reduce:transition-none motion-reduce:transform-none">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <div className="relative mt-2 h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 overflow-hidden rounded-xl lg:mt-4 group">
@@ -221,7 +221,7 @@ export default function ServicePageLayout({
                       src={image}
                       alt={title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110 motion-reduce:transition-none motion-reduce:transform-none"
                       sizes="(max-width: 639px) 64px, (max-width: 1023px) 80px, 96px"
                       loading="lazy"
                     />
@@ -268,13 +268,13 @@ export default function ServicePageLayout({
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <Link
               href="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark motion-reduce:transition-none motion-reduce:transform-none"
             >
               Get a Free Quote
             </Link>
             <Link
               href="/services"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark motion-reduce:transition-none motion-reduce:transform-none"
             >
               View All Services
             </Link>

@@ -148,7 +148,7 @@ export default function Navbar() {
           <span className="inline-flex items-center rounded-full bg-navy dark:bg-accent px-4 py-1.5 text-sm font-bold text-white tracking-wide transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(232,122,46,0.3)] motion-reduce:transition-none motion-reduce:transform-none">
             SPS
           </span>
-          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted lg:inline transition-colors duration-300 group-hover:text-accent">
+          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted lg:inline transition-colors duration-300 group-hover:text-accent motion-reduce:transition-none">
             Smith Pro Services
           </span>
         </Link>

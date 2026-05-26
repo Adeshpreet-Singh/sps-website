@@ -52,7 +52,7 @@ export default function FaqAccordion({
                 : ""
             } ${
               enableHoverEffects
-                ? "hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] dark:hover:border-accent/20 hover:-translate-y-0.5"
+                ? "hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] dark:hover:border-accent/20 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none"
                 : ""
             }`}
           >

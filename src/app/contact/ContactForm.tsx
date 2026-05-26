@@ -315,7 +315,7 @@ function ErrorMessage({
       <button
         type="button"
         onClick={onRetry}
-        className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press"
+        className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press motion-reduce:transition-none motion-reduce:transform-none"
       >
         <RefreshCw className="h-4 w-4" aria-hidden="true" />
         Try Again
@@ -549,7 +549,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading || !canSubmit()}
-          className="relative inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 w-full sm:w-auto overflow-hidden btn-press btn-shimmer"
+          className="relative inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 w-full sm:w-auto overflow-hidden btn-press btn-shimmer motion-reduce:transition-none motion-reduce:transform-none"
         >
           {loading ? (
             <>
