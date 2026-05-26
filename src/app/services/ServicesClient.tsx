@@ -29,6 +29,7 @@ import { services, siteConfig, serviceImageAlts, serviceImages, whyUsFeatures } 
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLazyVideo } from "@/hooks/useLazyVideo";
+import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 
@@ -176,8 +177,21 @@ export default function ServicesClient() {
         )}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-navy/60" />
+        {/* Animated gradient overlay */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-navy-light/20 gradient-animated" />
+        {/* Decorative shapes */}
+        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-accent/5 blur-3xl animate-parallax-float" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] left-[-10%] w-[350px] h-[350px] sm:w-[600px] sm:h-[600px] rounded-full bg-white/[0.03] blur-3xl animate-parallax-float delay-500" />
+        {/* Animated dots */}
+        <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30 animate-dot-pulse" />
+        <div aria-hidden="true" className="absolute top-32 right-[20%] w-2 h-2 rounded-full bg-white/20 animate-dot-pulse delay-300" />
+        <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20 animate-dot-pulse delay-500" />
+        {/* Horizontal accent lines */}
+        <div aria-hidden="true" className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="relative mx-auto max-w-3xl">
+          <Breadcrumb items={[{ name: "Services", path: "/services" }]} />
           <span className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/70 animate-fade-in">
             What We Do
           </span>
@@ -291,7 +305,7 @@ export default function ServicesClient() {
       {/* ── Why Choose Us ── */}
       <section aria-label="Why choose us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
         <div ref={whyRef} className={`mx-auto max-w-5xl reveal-hidden ${whyVisible ? "reveal-visible" : ""}`}>
-          <h2 className="text-center font-heading text-3xl font-bold text-text dark:text-dark-text sm:text-4xl">
+          <h2 className="text-center font-heading text-3xl font-bold text-text dark:text-dark-text sm:text-4xl heading-underline">
             Why Choose SPS?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-text-muted dark:text-dark-text-muted lg:text-lg">

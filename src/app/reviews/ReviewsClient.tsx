@@ -18,6 +18,7 @@ import Image from "next/image";
 import { testimonials, siteConfig, testimonialAvatars } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
+import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CTABanner from "@/components/CTABanner";
 
@@ -81,8 +82,18 @@ export default function ReviewsClient() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-navy/70" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent" />
+        {/* Animated gradient overlay */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-navy-light/20 gradient-animated" />
+        {/* Animated dots */}
+        <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30 animate-dot-pulse" />
+        <div aria-hidden="true" className="absolute top-32 right-[20%] w-2 h-2 rounded-full bg-white/20 animate-dot-pulse delay-300" />
+        <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20 animate-dot-pulse delay-500" />
+        {/* Horizontal accent lines */}
+        <div aria-hidden="true" className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
+            <Breadcrumb items={[{ name: "Reviews", path: "/reviews" }]} />
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white animate-slide-up">
               What Our Customers Say
             </h1>
@@ -99,7 +110,7 @@ export default function ReviewsClient() {
       <section aria-label="Overall rating" className="-mt-12 relative z-10 pb-16 sm:pb-20">
         <div ref={ratingRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale-hidden ${ratingVisible ? "reveal-scale-visible" : ""}`}>
           <div className="mx-auto max-w-xl">
-            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
+            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 gradient-border-shine">
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1.5 star-rating-pop" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, i) => (

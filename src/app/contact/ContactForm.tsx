@@ -196,6 +196,7 @@ function FloatingSelect({
   onChange,
 }: FloatingSelectProps) {
   const [hasValue, setHasValue] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   const borderClass = error
     ? "border-error focus:border-error focus:ring-error/20"
@@ -210,7 +211,11 @@ function FloatingSelect({
         name={id}
         required={required}
         defaultValue=""
-        onBlur={onBlur}
+        onFocus={() => setFocused(true)}
+        onBlur={() => {
+          setFocused(false);
+          onBlur?.();
+        }}
         onChange={(e) => {
           setHasValue(e.target.value !== "");
           onChange?.(e.target.value);
@@ -231,7 +236,7 @@ function FloatingSelect({
       <label
         htmlFor={id}
         className={`absolute left-4 pointer-events-none transition-all duration-200 ${
-          hasValue
+          hasValue || focused
             ? "top-2 text-xs text-accent-safe"
             : "top-1/2 -translate-y-1/2 text-base text-text-muted dark:text-dark-text-muted"
         }`}

@@ -42,6 +42,8 @@ import {
 } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import ScrollReveal from "@/components/ScrollReveal";
+import Breadcrumb from "@/components/Breadcrumb";
+import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
 
 /* ================================================================== */
@@ -62,8 +64,15 @@ export default function PricingClient() {
         <div aria-hidden="true" className="absolute top-20 left-[10%] h-48 w-48 sm:h-72 sm:w-72 rounded-full bg-accent/5 blur-3xl animate-float" />
         <div aria-hidden="true" className="absolute bottom-32 right-[8%] h-64 w-64 sm:h-96 sm:w-96 rounded-full bg-accent/4 blur-3xl animate-float delay-300" />
         <div aria-hidden="true" className="hidden sm:block absolute top-1/3 right-[15%] h-48 w-48 rounded-full border border-white/5 animate-float delay-500" />
+        {/* Animated dots and accent lines */}
+        <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30 animate-dot-pulse" />
+        <div aria-hidden="true" className="absolute top-32 right-[20%] w-2 h-2 rounded-full bg-white/20 animate-dot-pulse delay-300" />
+        <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20 animate-dot-pulse delay-500" />
+        <div aria-hidden="true" className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-3xl">
+          <Breadcrumb items={[{ name: "Pricing", path: "/pricing" }]} />
           <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in">
             Transparent Pricing
           </span>
@@ -213,6 +222,7 @@ export default function PricingClient() {
       {/*  5. WHY TRANSPARENT PRICING                                  */}
       {/* ============================================================ */}
       <section aria-label="Why transparent pricing" className="relative overflow-hidden bg-navy-dark text-white">
+        <CursorGlow />
         <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
         <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />
 
@@ -294,7 +304,7 @@ export default function PricingClient() {
 
 function TrustBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur">
+    <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
       {icon}
       {text}
     </div>
@@ -538,8 +548,8 @@ function ValueProp({
   description: string;
 }) {
   return (
-    <div className="text-center">
-      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white">
+    <div className="group text-center rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] hover:-translate-y-1">
+      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
         {icon}
       </div>
       <h3 className="text-lg font-bold text-white">{title}</h3>

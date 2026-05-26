@@ -385,12 +385,13 @@ export default function Navbar() {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="ml-4 border-l-2 border-border/50 dark:border-dark-border/50 pl-3 py-1 stagger-children">
+                    <div className="ml-4 border-l-2 border-border/50 dark:border-dark-border/50 pl-3 py-1 stagger-children" role="menu">
                       {services.map((service) => (
                         <Link
                           key={service.slug}
                           href={`/services/${service.slug}`}
                           onClick={() => setMobileOpen(false)}
+                          role="menuitem"
                           className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-muted dark:text-dark-text-muted hover:text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in"
                         >
                           <span className="flex h-6 w-6 items-center justify-center rounded bg-accent/10 text-accent text-[10px] font-bold">
@@ -402,6 +403,7 @@ export default function Navbar() {
                       <Link
                         href="/services"
                         onClick={() => setMobileOpen(false)}
+                        role="menuitem"
                         className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in"
                       >
                         View All Services →
