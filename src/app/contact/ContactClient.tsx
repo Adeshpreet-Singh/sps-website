@@ -266,8 +266,8 @@ export default function ContactPage() {
             </ContactCard>
 
             {/* Response time badge */}
-            <div className="flex items-center gap-3 rounded-xl border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10 px-5 py-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10">
+            <div className="flex items-center gap-3 rounded-xl border border-accent/20 dark:border-accent/30 bg-accent/5 dark:bg-accent/10 px-5 py-4 badge-glow cursor-default">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 icon-bounce">
                 <Clock className="h-5 w-5 text-accent" aria-hidden="true" />
               </div>
               <div>

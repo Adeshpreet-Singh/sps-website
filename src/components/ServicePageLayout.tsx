@@ -150,13 +150,13 @@ export default function ServicePageLayout({
             {includedSubtitle}
           </p>
           <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-none dark:border dark:border-dark-border sm:p-8 lg:p-10">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 stagger-check">
               {service.items.map((item) => (
                 <div
                   key={item}
                   className="flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-surface-alt hover:translate-x-1 group"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/20 group-hover:scale-110">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/20 group-hover:scale-110 icon-bounce">
                     <Check className="h-4 w-4 text-accent" strokeWidth={3} aria-hidden="true" />
                   </span>
                   <span className="text-text dark:text-dark-text transition-colors duration-200 group-hover:text-accent">{item}</span>
@@ -226,7 +226,7 @@ export default function ServicePageLayout({
                 key={faq.question}
                 className="group rounded-xl bg-white dark:bg-dark-surface shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-dark-border transition-all open:shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold text-navy dark:text-dark-text select-none transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold text-navy dark:text-dark-text select-none transition-colors hover:text-accent [&::-webkit-details-marker]:hidden faq-summary-hover">
                   {faq.question}
                   <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border dark:border-dark-border text-text-muted dark:text-dark-text-muted transition-all group-open:border-accent group-open:bg-accent group-open:text-white">
                     <Plus className="h-4 w-4 transition-transform group-open:hidden" aria-hidden="true" />

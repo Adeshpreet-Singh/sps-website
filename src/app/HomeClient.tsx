@@ -475,10 +475,10 @@ src={testimonialAvatars[t.name]}
         {/* Cursor glow effect */}
         <CursorGlow />
         {/* Decorative floating shapes */}
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
-        <div aria-hidden="true" className="absolute top-12 right-[15%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/[0.06]" />
-        <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
+        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />
+        <div aria-hidden="true" className="absolute top-12 right-[15%] w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/[0.06] animate-parallax-float delay-500" />
+        <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30 animate-parallax-float" />
 
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16 lg:py-28 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">

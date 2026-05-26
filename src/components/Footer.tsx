@@ -27,7 +27,7 @@ export default function Footer() {
           {/* Column 1 — Logo & About */}
           <div>
             <Link href="/" className="inline-block group" aria-label="SPS Smith Pro Services — Home">
-              <span className="text-2xl font-extrabold tracking-tight text-white group-hover:text-accent transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(232,122,46,0.4)]">
+              <span className="text-2xl font-extrabold tracking-tight text-white group-hover:text-accent transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(232,122,46,0.4)] icon-bounce inline-block">
                 SPS
               </span>
               <span className="ml-2 text-sm font-medium text-white/70 group-hover:text-white/90 transition-colors duration-200">

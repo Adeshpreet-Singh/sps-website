@@ -286,6 +286,9 @@ export default function ReviewsPage() {
         <CursorGlow />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent-light/10 via-transparent to-transparent" />
+        {/* Decorative floating shapes */}
+        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] left-[-5%] w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />
         <div ref={ctaRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">

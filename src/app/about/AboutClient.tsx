@@ -182,12 +182,12 @@ export default function AboutPage() {
 
             {/* Right — image */}
             <div className="lg:col-span-2">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl group img-zoom-hover">
                 <Image
                   src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=800&fit=crop"
                   alt="Our team at work"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>

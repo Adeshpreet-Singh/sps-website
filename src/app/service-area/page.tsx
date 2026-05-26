@@ -150,7 +150,7 @@ export default function ServiceAreaPage() {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3 stagger-tags">
               {serviceAreas.map((city) => (
                 <span
                   key={city}

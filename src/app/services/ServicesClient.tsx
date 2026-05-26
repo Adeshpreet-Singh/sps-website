@@ -214,11 +214,11 @@ export default function ServicesPage() {
                       src={serviceImages[service.slug]}
                       alt={serviceImageAlts[service.slug] ?? service.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 animate-image-reveal"
                       sizes="(max-width: 768px) 100vw, 600px"
                     />
                     {/* Gradient overlay on image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-60" />
                     {/* Service number badge */}
                     <span className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-navy shadow-md backdrop-blur-sm">
                       {service.number}

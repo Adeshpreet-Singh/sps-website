@@ -1012,6 +1012,112 @@
   .animate-stagger-fade {
     animation: staggerFade 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  /* ── Animation Polish — Service & UI Enhancements ── */
+
+  /* Stagger children for service include items */
+  .stagger-check > * {
+    opacity: 0;
+    transform: translateX(-8px);
+    animation: checkItemEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .stagger-check > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-check > *:nth-child(2) { animation-delay: 40ms; }
+  .stagger-check > *:nth-child(3) { animation-delay: 80ms; }
+  .stagger-check > *:nth-child(4) { animation-delay: 120ms; }
+  .stagger-check > *:nth-child(5) { animation-delay: 160ms; }
+  .stagger-check > *:nth-child(6) { animation-delay: 200ms; }
+  .stagger-check > *:nth-child(7) { animation-delay: 240ms; }
+  .stagger-check > *:nth-child(8) { animation-delay: 280ms; }
+  .stagger-check > *:nth-child(9) { animation-delay: 320ms; }
+  .stagger-check > *:nth-child(10) { animation-delay: 360ms; }
+  @keyframes checkItemEnter {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Textarea focus glow — matching input focus enhancement */
+  .dark textarea:focus-visible {
+    box-shadow: 0 0 0 2px rgba(232, 122, 46, 0.3), 0 0 12px rgba(232, 122, 46, 0.1);
+  }
+
+  /* Response badge hover glow */
+  .badge-glow {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .badge-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(232, 122, 46, 0.15);
+  }
+
+  /* Image reveal — for lazy-loaded images */
+  @keyframes imageReveal {
+    from { opacity: 0; filter: blur(8px); transform: scale(1.02); }
+    to   { opacity: 1; filter: blur(0); transform: scale(1); }
+  }
+  .animate-image-reveal {
+    animation: imageReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Smooth icon container scale */
+  .icon-bounce {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .icon-bounce:hover {
+    transform: scale(1.12);
+  }
+
+  /* FAQ summary hover highlight */
+  .faq-summary-hover {
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+  }
+  .faq-summary-hover:hover {
+    background-color: rgba(232, 122, 46, 0.03);
+    padding-left: 1.75rem;
+  }
+  .dark .faq-summary-hover:hover {
+    background-color: rgba(232, 122, 46, 0.06);
+  }
+
+  /* City tag stagger — for service area pages */
+  .stagger-tags > * {
+    opacity: 0;
+    transform: scale(0.9) translateY(4px);
+    animation: tagEnter 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .stagger-tags > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-tags > *:nth-child(2) { animation-delay: 30ms; }
+  .stagger-tags > *:nth-child(3) { animation-delay: 60ms; }
+  .stagger-tags > *:nth-child(4) { animation-delay: 90ms; }
+  .stagger-tags > *:nth-child(5) { animation-delay: 120ms; }
+  .stagger-tags > *:nth-child(6) { animation-delay: 150ms; }
+  .stagger-tags > *:nth-child(7) { animation-delay: 180ms; }
+  .stagger-tags > *:nth-child(8) { animation-delay: 210ms; }
+  .stagger-tags > *:nth-child(9) { animation-delay: 240ms; }
+  .stagger-tags > *:nth-child(10) { animation-delay: 270ms; }
+  .stagger-tags > *:nth-child(11) { animation-delay: 300ms; }
+  .stagger-tags > *:nth-child(12) { animation-delay: 330ms; }
+  .stagger-tags > *:nth-child(13) { animation-delay: 360ms; }
+  .stagger-tags > *:nth-child(14) { animation-delay: 390ms; }
+  .stagger-tags > *:nth-child(15) { animation-delay: 420ms; }
+  @keyframes tagEnter {
+    from { opacity: 0; transform: scale(0.9) translateY(4px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* Section divider accent line — animated on scroll */
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .section-divider.is-visible {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 /* ── Nav enter keyframe (outside @layer for specificity) ── */
