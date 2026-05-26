@@ -36,13 +36,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize from localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    const initialTheme = stored ?? "system";
-    setThemeState(initialTheme);
+    // Defer state updates to avoid synchronous setState in effect body
+    requestAnimationFrame(() => {
+      const stored = localStorage.getItem("theme") as Theme | null;
+      const initialTheme = stored ?? "system";
+      setThemeState(initialTheme);
 
-    const resolved = initialTheme === "system" ? getSystemTheme() : initialTheme;
-    setResolvedTheme(resolved);
-    applyTheme(resolved);
+      const resolved = initialTheme === "system" ? getSystemTheme() : initialTheme;
+      setResolvedTheme(resolved);
+      applyTheme(resolved);
+    });
   }, []);
 
   // Listen for system theme changes when in "system" mode

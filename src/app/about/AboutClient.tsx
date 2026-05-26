@@ -35,7 +35,7 @@ function AboutStat({
   });
 
   return (
-    <div className="relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-none dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden reveal-scale-visible">
+    <div className={`relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-none dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden ${started ? "reveal-scale-visible" : ""}`}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-accent rounded-b-full" />
       <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy dark:text-dark-text mt-2 tabular-nums">
         {display}

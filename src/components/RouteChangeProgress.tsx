@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 /**
@@ -16,6 +16,7 @@ export default function RouteChangeProgress() {
   const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
   const [opacity, setOpacity] = useState(0);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
   const startProgress = useCallback(() => {
     setVisible(true);
@@ -53,14 +54,23 @@ export default function RouteChangeProgress() {
 
   // Trigger progress on route change
   useEffect(() => {
-    const cleanup = startProgress();
-    const completeTimer = setTimeout(() => {
-      completeProgress();
-    }, 100);
+    // Defer to next frame to avoid synchronous setState in effect body
+    const raf = requestAnimationFrame(() => {
+      const cleanup = startProgress();
+      const completeTimer = setTimeout(() => {
+        completeProgress();
+      }, 100);
+
+      // Store cleanup for later
+      cleanupRef.current = () => {
+        cleanup?.();
+        clearTimeout(completeTimer);
+      };
+    });
 
     return () => {
-      cleanup?.();
-      clearTimeout(completeTimer);
+      cancelAnimationFrame(raf);
+      cleanupRef.current?.();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, searchParams]);

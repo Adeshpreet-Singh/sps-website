@@ -450,7 +450,7 @@ src={testimonialAvatars[t.name]}
       {/* ============================================================ */}
       {/*  8. FINAL CTA BANNER                                         */}
       {/* ============================================================ */}
-      <section id="contact" aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white">
+      <section ref={ctaRef} id="contact" aria-label="Contact us" className={`relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
         {/* Cursor glow effect */}
         <CursorGlow />
         {/* Decorative floating shapes */}

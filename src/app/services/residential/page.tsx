@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { services, type FaqItem } from "@/lib/data";
+import {
+  services,
+  type FaqItem,
+  processStepsData,
+  processStepImages,
+  serviceHeroImages,
+} from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { MessageSquare, ClipboardList, Wrench, ShieldCheck } from "lucide-react";
+import { processStepIconMap } from "@/lib/icons";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
@@ -20,40 +26,13 @@ export const metadata: Metadata = {
 
 const service = services.find((s) => s.slug === "residential")!;
 
-const processSteps: ProcessStep[] = [
-  {
-    step: 1,
-    title: "Free Consultation",
-    description:
-      "Tell us about your project — what you need installed, your timeline, and any special requirements. We'll provide a transparent quote with no hidden fees.",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
-  },
-  {
-    step: 2,
-    title: "Scheduling & Coordination",
-    description:
-      "We coordinate with your retailer for delivery timing and schedule the installation at a time that works for you — including evenings and weekends.",
-    icon: ClipboardList,
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&h=200&fit=crop",
-  },
-  {
-    step: 3,
-    title: "Professional Installation",
-    description:
-      "Our licensed technician arrives on time, protects your floors and surfaces, and installs everything to manufacturer specs — warranty-compliant and code-compliant.",
-    icon: Wrench,
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=200&h=200&fit=crop",
-  },
-  {
-    step: 4,
-    title: "Walkthrough & Cleanup",
-    description:
-      "We walk you through the installation, answer any questions, test everything, and leave your space spotless. Old appliances? We haul them away.",
-    icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=200&h=200&fit=crop",
-  },
-];
+const processSteps: ProcessStep[] = processStepsData["residential"].map(
+  (step, idx) => ({
+    ...step,
+    icon: processStepIconMap[step.iconName],
+    image: processStepImages[idx],
+  })
+);
 
 const faqs: FaqItem[] = [
   {
@@ -87,7 +66,7 @@ export default function ResidentialServicePage() {
   return (
     <ServicePageLayout
       service={service}
-      heroImageUrl="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=600&fit=crop"
+      heroImageUrl={serviceHeroImages["residential"]}
       processSteps={processSteps}
       faqs={faqs}
       includedSubtitle="Everything you need for a hassle-free installation experience."

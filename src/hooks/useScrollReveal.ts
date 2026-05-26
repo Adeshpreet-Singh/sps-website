@@ -92,11 +92,12 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 
     // If user prefers reduced motion, show immediately
     if (prefersReducedMotion) {
-      setIsVisible(true);
+      // Defer to avoid synchronous setState in effect body
+      requestAnimationFrame(() => setIsVisible(true));
       return;
     }
 
-    const threshold = options.threshold ?? 0.1;
+    const threshold = Array.isArray(options.threshold) ? options.threshold[0] ?? 0.1 : options.threshold ?? 0.1;
     const rootMargin = options.rootMargin ?? "0px 0px -60px 0px";
 
     const disconnect = observe(element, threshold, rootMargin, (intersecting) => {

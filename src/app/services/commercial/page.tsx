@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { services, type FaqItem } from "@/lib/data";
+import {
+  services,
+  type FaqItem,
+  processStepsData,
+  processStepImages,
+  serviceHeroImages,
+} from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { CalendarClock, MessageSquare, Wrench, ShieldCheck } from "lucide-react";
+import { processStepIconMap } from "@/lib/icons";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
@@ -20,40 +26,13 @@ export const metadata: Metadata = {
 
 const service = services.find((s) => s.slug === "commercial")!;
 
-const processSteps: ProcessStep[] = [
-  {
-    step: 1,
-    title: "Project Consultation",
-    description:
-      "We meet with your team to understand scope, timeline, and site requirements. Multi-unit? No problem — we'll assess volume and logistics.",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
-  },
-  {
-    step: 2,
-    title: "Scheduling & Logistics",
-    description:
-      "We build a phased installation schedule that minimizes disruption — including after-hours and weekend work when needed.",
-    icon: CalendarClock,
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&h=200&fit=crop",
-  },
-  {
-    step: 3,
-    title: "Execution & Installation",
-    description:
-      "Our crew handles everything — delivery coordination, installation, testing, and cleanup. We work in parallel to hit your deadlines.",
-    icon: Wrench,
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=200&h=200&fit=crop",
-  },
-  {
-    step: 4,
-    title: "Handover & Support",
-    description:
-      "Full walkthrough with your team, deficiency resolution, and post-handover support. We stand behind every install.",
-    icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=200&h=200&fit=crop",
-  },
-];
+const processSteps: ProcessStep[] = processStepsData["commercial"].map(
+  (step, idx) => ({
+    ...step,
+    icon: processStepIconMap[step.iconName],
+    image: processStepImages[idx],
+  })
+);
 
 const faqs: FaqItem[] = [
   {
@@ -87,7 +66,7 @@ export default function CommercialServicePage() {
   return (
     <ServicePageLayout
       service={service}
-      heroImageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop"
+      heroImageUrl={serviceHeroImages["commercial"]}
       processSteps={processSteps}
       faqs={faqs}
       includedSubtitle="End-to-end service for commercial installation projects of any scale."

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { RefreshCw, Home } from "lucide-react";
 import Link from "next/link";
 import ErrorIcon from "@/components/ErrorIcon";
@@ -19,17 +19,28 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     console.error("[GlobalError]", error);
+    headingRef.current?.focus();
   }, [error]);
 
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-dark-surface px-4 sm:px-6">
-        <div className="max-w-lg text-center">
+        <div role="alert" className="max-w-lg text-center">
           {/* Error icon */}
           <ErrorIcon size="lg" />
-          <h1 className="text-2xl sm:text-3xl font-bold text-text dark:text-dark-text mb-4">
+          <h1
+            ref={headingRef}
+            tabIndex={-1}
+            className="text-2xl sm:text-3xl font-bold text-text dark:text-dark-text mb-4 focus:outline-none"
+          >
             Something went wrong
           </h1>
           <p className="text-text-muted dark:text-dark-text-muted mb-2 leading-relaxed">

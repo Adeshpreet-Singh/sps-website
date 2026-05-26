@@ -287,6 +287,14 @@ export const serviceImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
 };
 
+/** Common process step images — reused by all service detail pages */
+export const processStepImages = [
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
+  "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&h=200&fit=crop",
+  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=200&h=200&fit=crop",
+  "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=200&h=200&fit=crop",
+] as const;
+
 /** Descriptive alt text per service slug */
 export const serviceImageAlts: Record<string, string> = {
   "appliance-installation":
@@ -297,6 +305,145 @@ export const serviceImageAlts: Record<string, string> = {
     "Residential home exterior representing appliance and plumbing services for homeowners",
   commercial:
     "Commercial building lobby representing large-scale appliance installation projects",
+};
+
+/** Process step data per service slug — icon names map to lucide-react via iconMap */
+export const processStepsData: Record<
+  string,
+  { step: number; title: string; description: string; iconName: string }[]
+> = {
+  "appliance-installation": [
+    {
+      step: 1,
+      title: "Book Online or Call",
+      description:
+        "Fill out our quick booking form or give us a call. Tell us what appliance you need installed and when works for you.",
+      iconName: "MessageSquare",
+    },
+    {
+      step: 2,
+      title: "We Confirm & Schedule",
+      description:
+        "Our team reviews your request, confirms the details, and locks in a convenient appointment window.",
+      iconName: "ClipboardList",
+    },
+    {
+      step: 3,
+      title: "Professional Installation",
+      description:
+        "A licensed, insured technician arrives on time with all the tools and parts needed for a clean, code-compliant install.",
+      iconName: "Wrench",
+    },
+    {
+      step: 4,
+      title: "Post-Install Walkthrough",
+      description:
+        "We walk you through the finished work, answer any questions, and make sure everything is working perfectly before we leave.",
+      iconName: "ShieldCheck",
+    },
+  ],
+  plumbing: [
+    {
+      step: 1,
+      title: "Book Online or Call",
+      description:
+        "Reach out through our booking form or call us directly. Let us know what plumbing work you need and we'll get the ball rolling.",
+      iconName: "MessageSquare",
+    },
+    {
+      step: 2,
+      title: "We Confirm & Schedule",
+      description:
+        "Our team reviews the scope of work, confirms materials and timing, and schedules your appointment at a time that suits you.",
+      iconName: "ClipboardList",
+    },
+    {
+      step: 3,
+      title: "Professional Installation",
+      description:
+        "A licensed plumber arrives equipped with the right tools and parts. Every connection is code-compliant and built to last.",
+      iconName: "Wrench",
+    },
+    {
+      step: 4,
+      title: "Post-Install Walkthrough",
+      description:
+        "We test every connection, walk you through the completed work, and leave your space spotless. No mess, no callbacks.",
+      iconName: "ShieldCheck",
+    },
+  ],
+  residential: [
+    {
+      step: 1,
+      title: "Free Consultation",
+      description:
+        "Tell us about your project — what you need installed, your timeline, and any special requirements. We'll provide a transparent quote with no hidden fees.",
+      iconName: "MessageSquare",
+    },
+    {
+      step: 2,
+      title: "Scheduling & Coordination",
+      description:
+        "We coordinate with your retailer for delivery timing and schedule the installation at a time that works for you — including evenings and weekends.",
+      iconName: "ClipboardList",
+    },
+    {
+      step: 3,
+      title: "Professional Installation",
+      description:
+        "Our licensed technician arrives on time, protects your floors and surfaces, and installs everything to manufacturer specs — warranty-compliant and code-compliant.",
+      iconName: "Wrench",
+    },
+    {
+      step: 4,
+      title: "Walkthrough & Cleanup",
+      description:
+        "We walk you through the installation, answer any questions, test everything, and leave your space spotless. Old appliances? We haul them away.",
+      iconName: "ShieldCheck",
+    },
+  ],
+  commercial: [
+    {
+      step: 1,
+      title: "Project Consultation",
+      description:
+        "We meet with your team to understand scope, timeline, and site requirements. Multi-unit? No problem — we'll assess volume and logistics.",
+      iconName: "MessageSquare",
+    },
+    {
+      step: 2,
+      title: "Scheduling & Logistics",
+      description:
+        "We build a phased installation schedule that minimizes disruption — including after-hours and weekend work when needed.",
+      iconName: "CalendarClock",
+    },
+    {
+      step: 3,
+      title: "Execution & Installation",
+      description:
+        "Our crew handles everything — delivery coordination, installation, testing, and cleanup. We work in parallel to hit your deadlines.",
+      iconName: "Wrench",
+    },
+    {
+      step: 4,
+      title: "Handover & Support",
+      description:
+        "Full walkthrough with your team, deficiency resolution, and post-handover support. We stand behind every install.",
+      iconName: "ShieldCheck",
+    },
+  ],
+};
+
+/** Hero image URLs per service slug — used by ServicePageLayout */
+export const serviceHeroImages: Record<string, string> = {
+  "appliance-installation":
+    "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop",
+  plumbing:
+    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop",
+  residential:
+    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=600&fit=crop",
+  commercial:
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop",
 };
 
 /** Avatar URLs for testimonial authors — keyed by name */

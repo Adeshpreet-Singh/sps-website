@@ -20,7 +20,8 @@ export default function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    // Defer initial scroll check to avoid synchronous setState in effect body
+    requestAnimationFrame(handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
@@ -198,7 +199,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
-            className="rounded-md p-2.5 text-text-muted dark:text-dark-text-muted transition-colors hover:text-text dark:hover:text-dark-text motion-reduce:transition-none"
+            className="rounded-md p-3 text-text-muted dark:text-dark-text-muted transition-colors hover:text-text dark:hover:text-dark-text motion-reduce:transition-none min-w-[44px] min-h-[44px]"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" aria-hidden="true" />

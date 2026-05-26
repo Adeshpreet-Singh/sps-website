@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { RefreshCw, Phone, Home } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/data";
@@ -29,16 +29,23 @@ export default function RouteError({
   secondaryHref?: string;
   secondaryLabel?: string;
 }) {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     console.error("[RouteError]", error);
+    headingRef.current?.focus();
   }, [error]);
 
   return (
-    <div role="alert" className="min-h-[60vh] flex flex-col items-center justify-center bg-white dark:bg-dark-surface px-4 sm:px-6 py-20">
-      <div className="max-w-lg text-center">
+    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-white dark:bg-dark-surface px-4 sm:px-6 py-20">
+      <div role="alert" className="max-w-lg text-center">
         {/* Error icon */}
         <ErrorIcon size="lg" />
-        <h1 className="text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text mb-4">
+        <h1
+          ref={headingRef}
+          tabIndex={-1}
+          className="text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text mb-4 focus:outline-none"
+        >
           {title}
         </h1>
         <p className="text-text-muted dark:text-dark-text-muted mb-2 leading-relaxed">

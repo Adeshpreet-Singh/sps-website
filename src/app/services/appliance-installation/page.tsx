@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { services, type FaqItem } from "@/lib/data";
+import {
+  services,
+  type FaqItem,
+  processStepsData,
+  processStepImages,
+  serviceHeroImages,
+} from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { MessageSquare, ClipboardList, Wrench, ShieldCheck } from "lucide-react";
+import { processStepIconMap } from "@/lib/icons";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
@@ -20,40 +26,13 @@ export const metadata: Metadata = {
 
 const service = services.find((s) => s.slug === "appliance-installation")!;
 
-const processSteps: ProcessStep[] = [
-  {
-    step: 1,
-    title: "Book Online or Call",
-    description:
-      "Fill out our quick booking form or give us a call. Tell us what appliance you need installed and when works for you.",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
-  },
-  {
-    step: 2,
-    title: "We Confirm & Schedule",
-    description:
-      "Our team reviews your request, confirms the details, and locks in a convenient appointment window.",
-    icon: ClipboardList,
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&h=200&fit=crop",
-  },
-  {
-    step: 3,
-    title: "Professional Installation",
-    description:
-      "A licensed, insured technician arrives on time with all the tools and parts needed for a clean, code-compliant install.",
-    icon: Wrench,
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=200&h=200&fit=crop",
-  },
-  {
-    step: 4,
-    title: "Post-Install Walkthrough",
-    description:
-      "We walk you through the finished work, answer any questions, and make sure everything is working perfectly before we leave.",
-    icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=200&h=200&fit=crop",
-  },
-];
+const processSteps: ProcessStep[] = processStepsData["appliance-installation"].map(
+  (step, idx) => ({
+    ...step,
+    icon: processStepIconMap[step.iconName],
+    image: processStepImages[idx],
+  })
+);
 
 const faqs: FaqItem[] = [
   {
@@ -87,7 +66,7 @@ export default function ApplianceInstallationPage() {
   return (
     <ServicePageLayout
       service={service}
-      heroImageUrl="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop"
+      heroImageUrl={serviceHeroImages["appliance-installation"]}
       processSteps={processSteps}
       faqs={faqs}
       includedSubtitle="Every installation covers the full scope — no surprise add-ons."

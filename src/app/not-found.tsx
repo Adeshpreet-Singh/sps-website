@@ -1,7 +1,16 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Home, Wrench, Phone, ArrowLeft } from "lucide-react";
+import { Home, Wrench, Phone, Info } from "lucide-react";
 
 export default function NotFound() {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
+
   return (
     <section
       aria-label="Page not found"
@@ -27,7 +36,11 @@ export default function NotFound() {
         </div>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-text dark:text-dark-text mb-4">
+      <h1
+        ref={headingRef}
+        tabIndex={-1}
+        className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-text dark:text-dark-text mb-4 focus:outline-none"
+      >
         Page Not Found
       </h1>
 
@@ -97,7 +110,7 @@ export default function NotFound() {
             className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px]"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
-              <ArrowLeft className="w-5 h-5 text-white" aria-hidden="true" />
+              <Info className="w-5 h-5 text-white" aria-hidden="true" />
             </div>
             <div className="text-left min-w-0">
               <p className="font-semibold text-text dark:text-dark-text group-hover:text-accent transition-colors text-sm">

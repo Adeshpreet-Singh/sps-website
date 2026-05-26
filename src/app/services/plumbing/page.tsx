@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { services, type FaqItem } from "@/lib/data";
+import {
+  services,
+  type FaqItem,
+  processStepsData,
+  processStepImages,
+  serviceHeroImages,
+} from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { MessageSquare, ClipboardList, Wrench, ShieldCheck } from "lucide-react";
+import { processStepIconMap } from "@/lib/icons";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
@@ -20,40 +26,13 @@ export const metadata: Metadata = {
 
 const service = services.find((s) => s.slug === "plumbing")!;
 
-const processSteps: ProcessStep[] = [
-  {
-    step: 1,
-    title: "Book Online or Call",
-    description:
-      "Reach out through our booking form or call us directly. Let us know what plumbing work you need and we'll get the ball rolling.",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
-  },
-  {
-    step: 2,
-    title: "We Confirm & Schedule",
-    description:
-      "Our team reviews the scope of work, confirms materials and timing, and schedules your appointment at a time that suits you.",
-    icon: ClipboardList,
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&h=200&fit=crop",
-  },
-  {
-    step: 3,
-    title: "Professional Installation",
-    description:
-      "A licensed plumber arrives equipped with the right tools and parts. Every connection is code-compliant and built to last.",
-    icon: Wrench,
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=200&h=200&fit=crop",
-  },
-  {
-    step: 4,
-    title: "Post-Install Walkthrough",
-    description:
-      "We test every connection, walk you through the completed work, and leave your space spotless. No mess, no callbacks.",
-    icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=200&h=200&fit=crop",
-  },
-];
+const processSteps: ProcessStep[] = processStepsData["plumbing"].map(
+  (step, idx) => ({
+    ...step,
+    icon: processStepIconMap[step.iconName],
+    image: processStepImages[idx],
+  })
+);
 
 const faqs: FaqItem[] = [
   {
@@ -87,7 +66,7 @@ export default function PlumbingPage() {
   return (
     <ServicePageLayout
       service={service}
-      heroImageUrl="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop"
+      heroImageUrl={serviceHeroImages["plumbing"]}
       processSteps={processSteps}
       faqs={faqs}
       includedSubtitle="Full-service plumbing — from rough-in to final fixture."

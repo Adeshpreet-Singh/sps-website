@@ -39,6 +39,7 @@ export default function Skeleton({
 export function CardSkeleton({ className = "" }: { className?: string }) {
   return (
     <div
+      aria-hidden="true"
       className={`rounded-2xl bg-white dark:bg-dark-surface p-6 border border-border dark:border-dark-border animate-skeleton-enter ${className}`}
     >
       <Skeleton variant="rounded" className="h-40 w-full mb-5" />
@@ -55,6 +56,7 @@ export function CardSkeleton({ className = "" }: { className?: string }) {
 export function TestimonialSkeleton({ className = "" }: { className?: string }) {
   return (
     <div
+      aria-hidden="true"
       className={`rounded-2xl bg-white dark:bg-dark-surface p-8 border-l-4 border-gray-200 dark:border-dark-border animate-skeleton-enter ${className}`}
     >
       <div className="flex items-center gap-3 mb-4">
@@ -75,7 +77,7 @@ export function TestimonialSkeleton({ className = "" }: { className?: string }) 
 /** Service page skeleton: hero + content sections */
 export function ServicePageSkeleton() {
   return (
-    <div className="min-h-screen">
+    <div aria-hidden="true" className="min-h-screen">
       {/* Hero skeleton */}
       <div className="relative overflow-hidden px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
         <div className="absolute inset-0 bg-gray-100 dark:bg-dark-surface-alt" />
@@ -117,7 +119,7 @@ export function ServicePageSkeleton() {
 /** Contact form skeleton */
 export function ContactFormSkeleton() {
   return (
-    <div className="flex flex-col gap-5">
+    <div aria-hidden="true" className="flex flex-col gap-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <Skeleton variant="rounded" className="h-14" />
         <Skeleton variant="rounded" className="h-14" />
@@ -136,7 +138,7 @@ export function ContactFormSkeleton() {
 /** Page hero skeleton */
 export function HeroSkeleton({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative overflow-hidden py-20 sm:py-28 md:py-36 ${className}`}>
+    <div aria-hidden="true" className={`relative overflow-hidden py-20 sm:py-28 md:py-36 ${className}`}>
       <div className="absolute inset-0 bg-gray-100 dark:bg-dark-surface-alt" />
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
         <Skeleton className="h-5 w-28 mx-auto mb-4" />
@@ -159,7 +161,7 @@ export function GridSectionSkeleton({
   className?: string;
 }) {
   return (
-    <div className={`px-4 sm:px-6 py-12 sm:py-16 lg:py-20 ${className}`}>
+    <div aria-hidden="true" className={`px-4 sm:px-6 py-12 sm:py-16 lg:py-20 ${className}`}>
       <div className="mx-auto max-w-5xl">
         <Skeleton className="h-8 w-48 mx-auto mb-4" />
         <Skeleton className="h-4 w-80 mx-auto mb-10" />

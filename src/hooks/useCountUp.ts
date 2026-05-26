@@ -38,7 +38,8 @@ export function useCountUp({
     ).matches;
 
     if (prefersReducedMotion) {
-      setDisplay(target.toFixed(decimals));
+      // Defer to avoid synchronous setState in effect body
+      requestAnimationFrame(() => setDisplay(target.toFixed(decimals)));
       return;
     }
 

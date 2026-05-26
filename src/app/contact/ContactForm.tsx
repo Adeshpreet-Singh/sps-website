@@ -481,23 +481,25 @@ export default function ContactForm() {
       </div>
 
       {/* Submit with loading state */}
-      <button
-        type="submit"
-        disabled={loading || !canSubmit()}
-        className="relative inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 w-full sm:w-auto overflow-hidden btn-press btn-shimmer"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-            <span className="animate-pulse">Sending…</span>
-          </>
-        ) : (
-          <>
-            <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-            Request a Quote
-          </>
-        )}
-      </button>
+      <div aria-live="polite">
+        <button
+          type="submit"
+          disabled={loading || !canSubmit()}
+          className="relative inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-8 py-4 font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-md disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 w-full sm:w-auto overflow-hidden btn-press btn-shimmer"
+        >
+          {loading ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+              <span className="animate-pulse">Sending…</span>
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              Request a Quote
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Privacy note */}
       <p className="text-xs text-text-light text-center sm:text-left">
