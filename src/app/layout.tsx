@@ -45,8 +45,33 @@ export const metadata: Metadata = {
   },
   description:
     "Metro Vancouver's trusted appliance installation & plumbing team. Licensed, insured, warranty-compliant. Serving Surrey, Vancouver, Burnaby & beyond.",
+  keywords: [
+    "appliance installation",
+    "plumbing services",
+    "Metro Vancouver",
+    "Surrey plumber",
+    "Vancouver appliance installer",
+    "licensed plumber BC",
+    "dishwasher installation",
+    "washer dryer hookup",
+    "toilet installation",
+    "residential plumbing",
+    "commercial appliance installation",
+    "Smith Pro Services",
+  ],
+  authors: [{ name: "Smith Pro Services Ltd." }],
+  creator: "Smith Pro Services Ltd.",
+  publisher: "Smith Pro Services Ltd.",
   alternates: {
     canonical: "/",
+    languages: {
+      "en-CA": "/",
+    },
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
   openGraph: {
     type: "website",
@@ -80,6 +105,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+  },
+  other: {
+    "theme-color": "#1B2A4A",
   },
 };
 
@@ -141,6 +169,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
