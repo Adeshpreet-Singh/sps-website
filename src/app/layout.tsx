@@ -94,7 +94,7 @@ export default function RootLayout({
     name: siteConfig.name,
     image: `${siteConfig.url}/og-image.jpg`,
     url: siteConfig.url,
-    telephone: siteConfig.phoneLink.replace("tel:", ""),
+    telephone: siteConfig.phoneE164,
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
@@ -130,7 +130,7 @@ export default function RootLayout({
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: siteConfig.stats.rating,
-      reviewCount: "10000",
+      reviewCount: "150",
     },
     founder: [
       { "@type": "Person", name: "Rajat Kumar" },

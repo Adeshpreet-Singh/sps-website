@@ -24,7 +24,6 @@ import {
   Star,
   Phone,
   Sparkles,
-  ChevronDown,
   DollarSign,
   ShieldCheck,
   Clock,
@@ -45,6 +44,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Breadcrumb from "@/components/Breadcrumb";
 import CursorGlow from "@/components/CursorGlow";
 import CTABanner from "@/components/CTABanner";
+import FaqAccordion from "@/components/FaqAccordion";
 
 /* ================================================================== */
 /*  PRICING PAGE                                                       */
@@ -279,10 +279,8 @@ export default function PricingClient() {
             </p>
           </div>
 
-          <div className="space-y-4">
-            {pricingFaqItems.map((faq, idx) => (
-              <FaqItem key={faq.question} faq={faq} index={idx} />
-            ))}
+          <div className="stagger-children">
+            <FaqAccordion faqs={pricingFaqItems} enableHoverEffects />
           </div>
         </ScrollReveal>
       </section>
@@ -564,23 +562,3 @@ function ValueProp({
   );
 }
 
-function FaqItem({ faq, index }: { faq: { question: string; answer: string }; index: number }) {
-  return (
-    <details
-      className="group rounded-xl bg-white dark:bg-dark-surface border border-border dark:border-dark-border overflow-hidden transition-all duration-300 hover:border-accent/30 hover:shadow-sm"
-    >
-      <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-base font-semibold text-navy dark:text-dark-text transition-colors hover:text-accent [&::-webkit-details-marker]:hidden min-h-[48px] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-[-2px] focus-visible:rounded-xl">
-        <span>{faq.question}</span>
-        <ChevronDown
-          className="h-5 w-5 shrink-0 text-text-muted dark:text-dark-text-muted transition-transform duration-300 group-open:rotate-180"
-          aria-hidden="true"
-        />
-      </summary>
-      <div className="details-content border-l-[3px] border-accent bg-accent/[0.03] dark:bg-accent/[0.06] mx-5 sm:mx-6 mb-5 sm:mb-6 rounded-r-lg px-5 sm:px-6 py-3 sm:py-4">
-        <p className="text-text-muted dark:text-dark-text-muted leading-relaxed">
-          {faq.answer}
-        </p>
-      </div>
-    </details>
-  );
-}

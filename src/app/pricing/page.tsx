@@ -51,7 +51,7 @@ function PricingJsonLd() {
       provider: {
         "@type": "LocalBusiness",
         name: siteConfig.name,
-        telephone: siteConfig.phoneLink.replace("tel:", ""),
+        telephone: siteConfig.phoneE164,
       },
       offers: {
         "@type": "Offer",
@@ -74,7 +74,7 @@ function PricingJsonLd() {
       provider: {
         "@type": "LocalBusiness",
         name: siteConfig.name,
-        telephone: siteConfig.phoneLink.replace("tel:", ""),
+        telephone: siteConfig.phoneE164,
       },
       offers: {
         "@type": "Offer",

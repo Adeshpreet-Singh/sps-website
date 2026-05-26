@@ -69,7 +69,7 @@ function ServiceJsonLd({
     provider: {
       "@type": "LocalBusiness",
       name: siteConfig.name,
-      telephone: siteConfig.phoneLink.replace("tel:", ""),
+      telephone: siteConfig.phoneE164,
     },
     areaServed: {
       "@type": "GeoCircle",

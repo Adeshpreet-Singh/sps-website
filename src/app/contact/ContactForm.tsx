@@ -18,15 +18,15 @@
  * - Service type: required select
  *
  * @remarks
- * The form currently simulates submission (no backend endpoint wired).
- * Replace the setTimeout in handleSubmit with a real API call when
- * the backend is ready.
+ * The form sends submissions via mailto: link, which opens the user's
+ * email client with all form data pre-filled. Replace with a real API
+ * call when a backend endpoint is available.
  */
 
 "use client";
 
 import { useState, useRef, useCallback, type FormEvent } from "react";
-import { serviceTypeOptions, retailerOptions } from "@/lib/data";
+import { serviceTypeOptions, retailerOptions, siteConfig } from "@/lib/data";
 import {
   Send,
   CheckCircle,
@@ -282,11 +282,11 @@ function SuccessMessage() {
         <div className="absolute inset-0 rounded-full border-2 border-success/30 animate-ping-once" />
       </div>
       <h3 className="text-2xl font-heading font-bold text-text dark:text-dark-text mb-2">
-        Thank you!
+        Request Sent!
       </h3>
       <p className="text-text-muted dark:text-dark-text-muted max-w-md mb-6">
-        Your quote request has been received. We&apos;ll get back to you within
-        24 hours.
+        Your quote request has been emailed to us. We&apos;ll get back to you
+        within 24 hours.
       </p>
       {/* Next steps hint */}
       <div className="flex items-center gap-2 text-sm text-accent-safe font-medium">
@@ -406,11 +406,39 @@ export default function ContactForm() {
     errorRef.current = null;
     setError(null);
 
-    // Simulate network request (no backend wired yet — always succeed)
+    // Build mailto link with form data so the message actually reaches the business
+    const formData = new FormData(formRef.current!);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const serviceType = formData.get("serviceType") as string;
+    const retailer = formData.get("retailer") as string;
+    const message = formData.get("message") as string;
+
+    const subject = encodeURIComponent(`Quote Request — ${serviceType}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Service: ${serviceType}` +
+        (retailer ? `\nRetailer: ${retailer}` : "") +
+        (message ? `\n\nMessage:\n${message}` : ""),
+    );
+
+    const mailtoUrl = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+
+    // Open mailto in a hidden iframe to avoid navigating away from the page
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = mailtoUrl;
+    document.body.appendChild(iframe);
+
+    // Show success after a brief delay (gives mail client time to open)
     setTimeout(() => {
+      document.body.removeChild(iframe);
       setLoading(false);
       setSubmitted(true);
-    }, 1200);
+    }, 1500);
   }
 
   function handleRetry() {

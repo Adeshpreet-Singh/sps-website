@@ -40,7 +40,10 @@ const companyLinks: FooterLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-const legalLinks: FooterLink[] = [];
+const legalLinks: FooterLink[] = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
 
 /** Memoized current year — only recalculates once per module load (SSR/CSR). */
 const currentYear = new Date().getFullYear();
