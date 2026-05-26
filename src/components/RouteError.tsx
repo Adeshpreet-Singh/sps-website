@@ -18,8 +18,6 @@ interface ErrorContentProps {
   showPhone?: boolean;
   secondaryHref?: string;
   secondaryLabel?: string;
-  /** When true, renders <html><body> shell (for global-error.tsx) */
-  fullPage?: boolean;
 }
 
 /**

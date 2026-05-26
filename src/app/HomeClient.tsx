@@ -9,7 +9,7 @@ import {
   ArrowRight,
   MapPin,
 } from "lucide-react";
-import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars, homeFaqItems } from "@/lib/data";
+import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, homeFaqItems } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLazyVideo } from "@/hooks/useLazyVideo";

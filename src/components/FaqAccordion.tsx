@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useCallback } from "react";
 import { Plus, Minus } from "lucide-react";
 import type { FaqItem } from "@/lib/data";

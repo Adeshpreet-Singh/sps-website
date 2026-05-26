@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import {
-  services,
-  type FaqItem,
-  processStepsData,
-  processStepImages,
-  serviceHeroImages,
-} from "@/lib/data";
-import { buildProcessSteps } from "@/lib/icons";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import type { FaqItem } from "@/lib/data";
+import { createServicePage } from "@/lib/createServicePage";
 
 export const metadata: Metadata = {
   title: "Residential Installation",
@@ -22,10 +15,6 @@ export const metadata: Metadata = {
     url: "/services/residential",
   },
 };
-
-const service = services.find((s) => s.slug === "residential")!;
-
-const processSteps = buildProcessSteps("residential", processStepsData, processStepImages);
 
 const faqs: FaqItem[] = [
   {
@@ -55,16 +44,11 @@ const faqs: FaqItem[] = [
   },
 ];
 
-export default function ResidentialServicePage() {
-  return (
-    <ServicePageLayout
-      service={service}
-      heroImageUrl={serviceHeroImages["residential"]}
-      processSteps={processSteps}
-      faqs={faqs}
-      includedSubtitle="Everything you need for a hassle-free installation experience."
-      processSubtitle="From first call to final walkthrough — here's how it works."
-      ctaDescription="Tell us about your project and we'll get back to you with a free quote — usually within the hour."
-    />
-  );
-}
+export default createServicePage({
+  slug: "residential",
+  metadata,
+  faqs,
+  includedSubtitle: "Everything you need for a hassle-free installation experience.",
+  processSubtitle: "From first call to final walkthrough — here's how it works.",
+  ctaDescription: "Tell us about your project and we'll get back to you with a free quote — usually within the hour.",
+});

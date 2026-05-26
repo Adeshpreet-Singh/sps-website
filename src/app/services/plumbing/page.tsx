@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import {
-  services,
-  type FaqItem,
-  processStepsData,
-  processStepImages,
-  serviceHeroImages,
-} from "@/lib/data";
-import { buildProcessSteps } from "@/lib/icons";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import type { FaqItem } from "@/lib/data";
+import { createServicePage } from "@/lib/createServicePage";
 
 export const metadata: Metadata = {
   title: "Plumbing Services",
@@ -22,10 +15,6 @@ export const metadata: Metadata = {
     url: "/services/plumbing",
   },
 };
-
-const service = services.find((s) => s.slug === "plumbing")!;
-
-const processSteps = buildProcessSteps("plumbing", processStepsData, processStepImages);
 
 const faqs: FaqItem[] = [
   {
@@ -55,16 +44,11 @@ const faqs: FaqItem[] = [
   },
 ];
 
-export default function PlumbingPage() {
-  return (
-    <ServicePageLayout
-      service={service}
-      heroImageUrl={serviceHeroImages["plumbing"]}
-      processSteps={processSteps}
-      faqs={faqs}
-      includedSubtitle="Full-service plumbing — from rough-in to final fixture."
-      processSubtitle="From first call to final walkthrough — here's how it works."
-      ctaDescription="Get a free quote or schedule your plumbing installation today. Licensed plumbers, clean work, fair pricing."
-    />
-  );
-}
+export default createServicePage({
+  slug: "plumbing",
+  metadata,
+  faqs,
+  includedSubtitle: "Full-service plumbing — from rough-in to final fixture.",
+  processSubtitle: "From first call to final walkthrough — here's how it works.",
+  ctaDescription: "Get a free quote or schedule your plumbing installation today. Licensed plumbers, clean work, fair pricing.",
+});

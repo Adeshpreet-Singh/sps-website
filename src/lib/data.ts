@@ -257,7 +257,7 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export interface WhyUsFeature {
+interface WhyUsFeature {
   icon: ServiceIconName;
   title: string;
   description: string;
@@ -351,7 +351,7 @@ const servicePhotoIds: Record<string, string> = {
 };
 
 /** Build an Unsplash URL for a service image at a given size. */
-export function getServiceImage(
+function getServiceImage(
   slug: string,
   width: number,
   height: number,
@@ -520,7 +520,7 @@ export const serviceHeroImages: Record<string, string> = Object.fromEntries(
 );
 
 /** Avatar URLs for testimonial authors — keyed by name */
-export interface PricingFeature {
+interface PricingFeature {
   label: string;
   included: boolean;
   tooltip?: string;
@@ -739,14 +739,14 @@ export const pricingFaqItems: FaqItem[] = [
   },
 ];
 
-export interface PricingFeatureRow {
+export interface ComparisonRow {
   feature: string;
   basic: string | boolean;
   standard: string | boolean;
   pro: string | boolean;
 }
 
-export const comparisonRows: PricingFeatureRow[] = [
+export const comparisonRows: ComparisonRow[] = [
   { feature: "Appliance installations", basic: "1 appliance", standard: "Up to 2", pro: "Unlimited" },
   { feature: "Licensed & insured technician", basic: true, standard: true, pro: true },
   { feature: "Connection & testing", basic: "Standard", standard: "Full", pro: "Full" },

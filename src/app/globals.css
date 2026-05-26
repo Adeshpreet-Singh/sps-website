@@ -669,13 +669,6 @@
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* Page enter — for route transitions */
-@keyframes pageEnter {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* Skeleton pulse — for loading */
 /* Float slow — for decorative elements */
 @keyframes floatSlow {
@@ -1163,9 +1156,21 @@
   /* Skeleton fade-in — smooth entry for loading states */
   .animate-skeleton-enter {
     animation: fadeIn 0.3s ease-out both;
-  }
 
-  /* Tooltip fade */
+  /* Page transition — route change animation */
+  .page-transition {
+    transition: opacity 0.2s ease-out, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .page-transition-exit {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .page-transition, .page-transition-exit {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
   .tooltip-enter {
     animation: fadeIn 0.15s ease-out both;
   }

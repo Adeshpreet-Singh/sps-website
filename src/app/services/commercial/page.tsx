@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import {
-  services,
-  type FaqItem,
-  processStepsData,
-  processStepImages,
-  serviceHeroImages,
-} from "@/lib/data";
-import { buildProcessSteps } from "@/lib/icons";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import type { FaqItem } from "@/lib/data";
+import { createServicePage } from "@/lib/createServicePage";
 
 export const metadata: Metadata = {
   title: "Commercial Installation",
@@ -22,10 +15,6 @@ export const metadata: Metadata = {
     url: "/services/commercial",
   },
 };
-
-const service = services.find((s) => s.slug === "commercial")!;
-
-const processSteps = buildProcessSteps("commercial", processStepsData, processStepImages);
 
 const faqs: FaqItem[] = [
   {
@@ -55,16 +44,11 @@ const faqs: FaqItem[] = [
   },
 ];
 
-export default function CommercialServicePage() {
-  return (
-    <ServicePageLayout
-      service={service}
-      heroImageUrl={serviceHeroImages["commercial"]}
-      processSteps={processSteps}
-      faqs={faqs}
-      includedSubtitle="End-to-end service for commercial installation projects of any scale."
-      processSubtitle="A proven workflow for commercial projects — on time and on budget."
-      ctaDescription="Whether it's 5 units or 500, we'll put together a custom quote that fits your timeline and budget."
-    />
-  );
-}
+export default createServicePage({
+  slug: "commercial",
+  metadata,
+  faqs,
+  includedSubtitle: "End-to-end service for commercial installation projects of any scale.",
+  processSubtitle: "A proven workflow for commercial projects — on time and on budget.",
+  ctaDescription: "Whether it's 5 units or 500, we'll put together a custom quote that fits your timeline and budget.",
+});

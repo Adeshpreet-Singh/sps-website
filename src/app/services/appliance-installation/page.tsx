@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import {
-  services,
-  type FaqItem,
-  processStepsData,
-  processStepImages,
-  serviceHeroImages,
-} from "@/lib/data";
-import { buildProcessSteps } from "@/lib/icons";
-import ServicePageLayout from "@/components/ServicePageLayout";
+import type { FaqItem } from "@/lib/data";
+import { createServicePage } from "@/lib/createServicePage";
 
 export const metadata: Metadata = {
   title: "Appliance Installation",
@@ -22,10 +15,6 @@ export const metadata: Metadata = {
     url: "/services/appliance-installation",
   },
 };
-
-const service = services.find((s) => s.slug === "appliance-installation")!;
-
-const processSteps = buildProcessSteps("appliance-installation", processStepsData, processStepImages);
 
 const faqs: FaqItem[] = [
   {
@@ -55,16 +44,11 @@ const faqs: FaqItem[] = [
   },
 ];
 
-export default function ApplianceInstallationPage() {
-  return (
-    <ServicePageLayout
-      service={service}
-      heroImageUrl={serviceHeroImages["appliance-installation"]}
-      processSteps={processSteps}
-      faqs={faqs}
-      includedSubtitle="Every installation covers the full scope — no surprise add-ons."
-      processSubtitle="From first call to final walkthrough — here's how it works."
-      ctaDescription="Get a free quote or schedule your appliance installation today. We'll take care of everything."
-    />
-  );
-}
+export default createServicePage({
+  slug: "appliance-installation",
+  metadata,
+  faqs,
+  includedSubtitle: "Every installation covers the full scope — no surprise add-ons.",
+  processSubtitle: "From first call to final walkthrough — here's how it works.",
+  ctaDescription: "Get a free quote or schedule your appliance installation today. We'll take care of everything.",
+});

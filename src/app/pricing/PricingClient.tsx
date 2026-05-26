@@ -22,7 +22,7 @@ import {
   pricingFaqItems,
   type PricingTier,
   type PlumbingTier,
-  type PricingFeatureRow,
+  type ComparisonRow,
 } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -472,7 +472,7 @@ function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
   );
 }
 
-function ComparisonRow({ row, index }: { row: PricingFeatureRow; index: number }) {
+function ComparisonRow({ row, index }: { row: ComparisonRow; index: number }) {
   const values = [row.basic, row.standard, row.pro];
 
   return (
