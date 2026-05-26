@@ -31,7 +31,6 @@ export default function HomeClient() {
   const [whyUsGridRef, whyUsGridVisible] = useScrollReveal();
   const [testimonialsRef, testimonialsVisible] = useScrollReveal();
   const [serviceAreaRef, serviceAreaVisible] = useScrollReveal();
-  const [ctaRef, ctaVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal({ threshold: 0.3 });
 
   // Lazy-load hero video — only starts buffering when hero is in/near viewport
@@ -155,7 +154,7 @@ export default function HomeClient() {
       </section>
 
       {/* ============================================================ */}
-      {/*  4. SERVICES OVERVIEW                                        */}
+      {/*  3. SERVICES OVERVIEW                                        */}
       {/* ============================================================ */}
       <section id="services" aria-label="Services" className="bg-gradient-to-b from-white to-surface-alt dark:from-dark-surface dark:to-dark-surface-alt">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
@@ -240,7 +239,7 @@ src={serviceImages[svc.slug]}
       </section>
 
       {/* ============================================================ */}
-      {/*  5. WHY CHOOSE US                                            */}
+      {/*  4. WHY CHOOSE US                                            */}
       {/* ============================================================ */}
       <section id="why-us" aria-label="Why choose us" className="relative overflow-hidden bg-navy-dark text-white">
         {/* Cursor glow effect */}
@@ -299,7 +298,7 @@ src={serviceImages[svc.slug]}
         </div>
       </section>
       {/* ============================================================ */}
-      {/*  6. TESTIMONIALS                                             */}
+      {/*  5. TESTIMONIALS                                             */}
       {/* ============================================================ */}
       <section id="testimonials" aria-label="Testimonials" className="relative bg-white dark:bg-dark-surface border-t border-border dark:border-dark-border">
         <div ref={testimonialsRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
@@ -358,7 +357,7 @@ src={testimonialAvatars[t.name]}
                   ))}
                   <span className="sr-only">{t.rating} out of 5 stars</span>
                 </div>
-                <span className="mt-3 inline-block text-xs font-medium bg-accent/10 text-accent rounded-full px-3 py-1">
+                <span className="mt-3 inline-block text-xs font-medium bg-accent/10 text-accent-safe rounded-full px-3 py-1">
                   {t.service}
                 </span>
               </div>
@@ -368,7 +367,7 @@ src={testimonialAvatars[t.name]}
       </section>
 
       {/* ============================================================ */}
-      {/*  7. SERVICE AREA                                             */}
+      {/*  6. SERVICE AREA                                             */}
       {/* ============================================================ */}
       <section id="service-area" aria-label="Service area" className="relative bg-dot-grid">
         <div ref={serviceAreaRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${serviceAreaVisible ? "reveal-visible" : ""}`}>
@@ -401,7 +400,7 @@ src={testimonialAvatars[t.name]}
 
           <p className="text-center text-text-muted text-sm">
             Don&apos;t see your area?{" "}
-            <Link href="/contact" className="text-accent font-semibold hover:underline">
+            <Link href="/contact" className="text-accent-safe font-semibold hover:underline">
               Contact us
             </Link>{" "}
             — we may still be able to help.
@@ -410,14 +409,13 @@ src={testimonialAvatars[t.name]}
       </section>
 
       {/* ============================================================ */}
-      {/*  8. FINAL CTA BANNER                                         */}
+      {/*  7. FINAL CTA BANNER                                         */}
       {/* ============================================================ */}
       <CTABanner
         description="Get a free quote for your next appliance installation or plumbing project. We&apos;re here to help."
         secondaryLabel={`Call ${siteConfig.phone}`}
         secondaryIsPhone
       />
-      </section>
     </>
   );
 }

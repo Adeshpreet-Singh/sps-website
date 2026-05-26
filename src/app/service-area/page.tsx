@@ -214,38 +214,15 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
-      {/* CTA — gradient bg */}
-      <section aria-label="Contact us" className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-navy via-navy-light to-navy-dark text-white">
-        <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Don&apos;t see your area?
-            </h2>
-            <p className="text-white/80 mb-10 max-w-xl mx-auto text-lg">
-              We may still be able to help. Reach out and we&apos;ll let you know
-              if we can accommodate your location.
-            </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-              <a
-                href={siteConfig.phoneLink}
-                aria-label={`Call us at ${siteConfig.phone}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent text-white px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-medium transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer"
-              >
-                <Phone className="w-4 h-4" aria-hidden="true" />
-                {siteConfig.phone}
-              </a>
-              <a
-                href={siteConfig.emailLink}
-                aria-label={`Email us at ${siteConfig.email}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 hover:-translate-y-0.5 active:translate-y-0 btn-press"
-              >
-                <Mail className="w-4 h-4" aria-hidden="true" />
-                {siteConfig.email}
-              </a>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
+      {/* CTA */}
+      <CTABanner
+        title="Don't see your area?"
+        description="We may still be able to help. Reach out and we&apos;ll let you know if we can accommodate your location."
+        primaryLabel={`Call ${siteConfig.phone}`}
+        primaryIsPhone
+        secondaryLabel={siteConfig.email}
+        secondaryIsEmail
+      />
     </div>
   );
 }

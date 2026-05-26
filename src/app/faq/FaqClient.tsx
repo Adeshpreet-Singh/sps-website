@@ -7,6 +7,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
+import CTABanner from "@/components/CTABanner";
 
 const generalFaqs: FaqItem[] = [
   {
@@ -82,7 +83,6 @@ const plumbingFaqs: FaqItem[] = [
 ];
 
 export default function FaqClient() {
-  const [ctaRef, ctaVisible] = useScrollReveal();
 
   // Build FAQPage JSON-LD schema
   const faqSchema = {
@@ -170,38 +170,13 @@ export default function FaqClient() {
       />
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-10 sm:py-14 md:py-20 lg:py-28">
-        {/* Cursor glow effect */}
-        <CursorGlow />
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
-
-        <div ref={ctaRef} className={`relative mx-auto max-w-3xl px-4 sm:px-6 text-center reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            Still have questions?
-          </h2>
-          <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            Our team is happy to help. Reach out and we&apos;ll get you the
-            answers you need.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-            <a
-              href={siteConfig.phoneLink}
-              aria-label={`Call us at ${siteConfig.phone}`}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 active:translate-y-0 btn-press"
-            >
-              Call {siteConfig.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+      <CTABanner
+        title="Still have questions?"
+        description="Our team is happy to help. Reach out and we&apos;ll get you the answers you need."
+        primaryLabel="Contact Us"
+        secondaryLabel={`Call ${siteConfig.phone}`}
+        secondaryIsPhone
+      />
     </div>
   );
 }

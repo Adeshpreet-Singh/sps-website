@@ -2,19 +2,18 @@
 
 import { Star, ExternalLink, Quote } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { testimonials, siteConfig, testimonialAvatars } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import CTABanner from "@/components/CTABanner";
 
 export default function ReviewsClient() {
   const [ratingRef, ratingVisible] = useScrollReveal();
   const [gridRef, gridVisible] = useScrollReveal();
   const [linksRef, linksVisible] = useScrollReveal();
-  const [ctaRef, ctaVisible] = useScrollReveal();
 
-  const rating: number = 4.6;
+  const rating: number = parseFloat(siteConfig.stats.rating);
   const fullStars = Math.floor(rating);
   const hasHalf = rating % 1 >= 0.5;
 
@@ -22,7 +21,7 @@ export default function ReviewsClient() {
   const ratingSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Smith Pro Services Ltd.",
+    name: siteConfig.name,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: rating.toString(),
@@ -113,7 +112,7 @@ export default function ReviewsClient() {
                   Based on Google and Homestars reviews
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2">
-                  <span className="text-sm font-semibold text-accent">
+                  <span className="text-sm font-semibold text-accent-safe">
                     {siteConfig.stats.installations} satisfied customers
                   </span>
                 </div>
@@ -261,34 +260,11 @@ export default function ReviewsClient() {
       </section>
 
       {/* CTA */}
-      <section aria-label="Contact us" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-16 sm:py-20">
-        {/* Cursor glow effect */}
-        <CursorGlow />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent-light/10 via-transparent to-transparent" />
-        {/* Decorative floating shapes */}
-        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] left-[-5%] w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />
-        <div ref={ctaRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Experience the Smith Pro difference
-            </h2>
-            <p className="mt-4 text-lg text-white/80">
-              Ready to work with Metro Vancouver&apos;s most trusted appliance
-              installation and plumbing team?
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-accent px-6 sm:px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer"
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABanner
+        title="Experience the Smith Pro difference"
+        description="Ready to work with Metro Vancouver&apos;s most trusted appliance installation and plumbing team?"
+        primaryLabel="Get in Touch"
+      />
     </div>
   );
 }

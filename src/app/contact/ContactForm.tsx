@@ -206,7 +206,7 @@ function FloatingSelect({
         htmlFor={id}
         className={`absolute left-4 pointer-events-none transition-all duration-200 ${
           hasValue
-            ? "top-2 text-xs text-accent"
+            ? "top-2 text-xs text-accent-safe"
             : "top-1/2 -translate-y-1/2 text-base text-text-muted dark:text-dark-text-muted"
         }`}
       >

@@ -9,51 +9,19 @@ import {
   BadgeCheck,
   Sparkles,
   Users,
-  ArrowRight,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useCountUp } from "@/hooks/useCountUp";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CursorGlow from "@/components/CursorGlow";
-
-function AboutStat({
-  stat,
-  started,
-}: {
-  stat: { label: string; value: string | number };
-  started: boolean;
-}) {
-  const numericValue =
-    typeof stat.value === "number" ? stat.value : parseFloat(String(stat.value)) || 0;
-  const isDecimal = String(stat.value).includes(".");
-  const display = useCountUp({
-    target: numericValue,
-    duration: 2000,
-    shouldStart: started,
-    decimals: isDecimal ? 1 : 0,
-  });
-
-  return (
-    <div className={`relative bg-white dark:bg-dark-surface rounded-xl p-6 text-center shadow-card dark:shadow-none dark:border dark:border-dark-border hover:shadow-card-hover dark:hover:border-accent/30 transition-all reveal-scale-hidden ${started ? "reveal-scale-visible" : ""}`}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-accent rounded-b-full" />
-      <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy dark:text-dark-text mt-2 tabular-nums">
-        {display}
-        {String(stat.value).includes("★") && "★"}
-      </p>
-      <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted uppercase tracking-wider">
-        {stat.label}
-      </p>
-    </div>
-  );
-}
+import CTABanner from "@/components/CTABanner";
+import StatCounter from "@/components/StatCounter";
 
 export default function AboutClient() {
   const [storyRef, storyVisible] = useScrollReveal();
   const [statsRef, statsVisible] = useScrollReveal();
   const [valuesRef, valuesVisible] = useScrollReveal();
   const [leadersRef, leadersVisible] = useScrollReveal();
-  const [ctaRef, ctaVisible] = useScrollReveal();
 
   const values = [
     {
@@ -190,7 +158,15 @@ export default function AboutClient() {
         <div ref={statsRef} className={`mx-auto max-w-5xl px-4 sm:px-6 reveal-hidden ${statsVisible ? "reveal-visible" : ""}`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 stagger-children">
             {stats.map((stat) => (
-              <AboutStat key={stat.label} stat={stat} started={statsVisible} />
+              <StatCounter
+                key={stat.label}
+                value={stat.value}
+                label={stat.label}
+                started={statsVisible}
+                variant="card"
+                decimals={String(stat.value).includes(".") ? 1 : 0}
+                suffix={String(stat.value).includes("★") ? "★" : ""}
+              />
             ))}
           </div>
         </div>
@@ -281,41 +257,13 @@ export default function AboutClient() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section aria-label="Get started" className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy py-10 sm:py-14 md:py-20 lg:py-28">
-        {/* Cursor glow effect */}
-        <CursorGlow />
-        {/* Decorative elements */}
-        <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl" />
-        <div aria-hidden="true" className="absolute top-12 right-[15%] w-20 h-20 rounded-full border border-white/[0.06]" />
-        <div aria-hidden="true" className="absolute bottom-16 left-[20%] w-2 h-2 rounded-full bg-accent/30" />
-
-        <div ref={ctaRef} className={`relative mx-auto max-w-3xl px-4 sm:px-6 text-center reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            Ready to work with us?
-          </h2>
-          <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            Get a free quote for your next appliance installation or plumbing
-            project. We&apos;re here to help.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-xl hover:bg-accent-dark hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-lg shadow-accent/25 btn-press btn-shimmer"
-            >
-              Contact Us
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/services"
-              aria-label="View all services"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:-translate-y-0.5 active:translate-y-0 transition-all btn-press"
-            >
-              View Services
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTABanner
+        title="Ready to work with us?"
+        description="Get a free quote for your next appliance installation or plumbing project. We&apos;re here to help."
+        primaryLabel="Contact Us"
+        secondaryLabel="View Services"
+        secondaryHref="/services"
+      />
     </div>
   );
 }

@@ -1,22 +1,10 @@
 "use client";
 
-import RouteError from "@/components/RouteError";
+import { createRouteErrorPage } from "@/components/RouteError";
 
-export default function ApplianceInstallationError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  return (
-    <RouteError
-      error={error}
-      reset={reset}
-      title="Couldn't load appliance installation details"
-      description="Something went wrong while loading this service page. Try again or browse all our services."
-      secondaryHref="/services"
-      secondaryLabel="All Services"
-    />
-  );
-}
+export default createRouteErrorPage({
+  title: "Couldn't load appliance installation details",
+  description: "Something went wrong while loading this service page. Try again or browse all our services.",
+  secondaryHref: "/services",
+  secondaryLabel: "All Services",
+});

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, Mail, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -10,9 +10,11 @@ interface CTABannerProps {
   description?: string;
   primaryLabel?: string;
   primaryHref?: string;
+  primaryIsPhone?: boolean;
   secondaryLabel?: string;
   secondaryHref?: string;
   secondaryIsPhone?: boolean;
+  secondaryIsEmail?: boolean;
   className?: string;
 }
 
@@ -27,9 +29,11 @@ export default function CTABanner({
   description = "Get a free quote for your next appliance installation or plumbing project. We're here to help.",
   primaryLabel = "Get a Free Quote",
   primaryHref = "/contact",
+  primaryIsPhone = false,
   secondaryLabel,
   secondaryHref,
   secondaryIsPhone = false,
+  secondaryIsEmail = false,
   className = "",
 }: CTABannerProps) {
   return (
@@ -51,13 +55,24 @@ export default function CTABanner({
           {description}
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-          <Link
-            href={primaryHref}
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
-          >
-            {primaryLabel}
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
+          {primaryIsPhone ? (
+            <a
+              href={siteConfig.phoneLink}
+              aria-label={`Call us at ${siteConfig.phone}`}
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
+            >
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              {primaryLabel}
+            </a>
+          ) : (
+            <Link
+              href={primaryHref}
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer"
+            >
+              {primaryLabel}
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          )}
           {secondaryLabel &&
             (secondaryIsPhone ? (
               <a
@@ -66,6 +81,15 @@ export default function CTABanner({
                 aria-label={`Call us at ${siteConfig.phone}`}
               >
                 <Phone className="w-4 h-4" aria-hidden="true" />
+                {secondaryLabel}
+              </a>
+            ) : secondaryIsEmail ? (
+              <a
+                href={siteConfig.emailLink}
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all hover:-translate-y-0.5 active:translate-y-0 btn-press"
+                aria-label={`Email us at ${siteConfig.email}`}
+              >
+                <Mail className="w-4 h-4" aria-hidden="true" />
                 {secondaryLabel}
               </a>
             ) : secondaryHref ? (

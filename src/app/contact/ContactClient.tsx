@@ -186,7 +186,7 @@ export default function ContactClient() {
                   <div className="text-center py-12 text-text-muted dark:text-dark-text-muted">
                     <p className="font-medium mb-2">The contact form couldn&apos;t load.</p>
                     <p className="text-sm">Please call us directly at{" "}
-                      <a href={siteConfig.phoneLink} className="text-accent font-semibold hover:underline">
+                      <a href={siteConfig.phoneLink} className="text-accent-safe font-semibold hover:underline">
                         {siteConfig.phone}
                       </a>
                     </p>

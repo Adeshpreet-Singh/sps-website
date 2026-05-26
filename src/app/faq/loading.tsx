@@ -1,6 +1,6 @@
 import Skeleton, { HeroSkeleton } from "@/components/Skeleton";
 
-export default function FAQLoading() {
+export default function FaqLoading() {
   return (
     <div role="status" aria-label="Loading FAQ">
       <span className="sr-only">Loading FAQ...</span>

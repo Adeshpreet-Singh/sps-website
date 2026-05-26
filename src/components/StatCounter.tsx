@@ -46,7 +46,7 @@ export default function StatCounter({
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-accent rounded-b-full" />
         <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy dark:text-dark-text mt-2 tabular-nums">
           {isText ? value : display}
-          {suffix && <span className="text-accent">{suffix}</span>}
+          {suffix && <span className="text-accent-safe">{suffix}</span>}
         </p>
         <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted uppercase tracking-wider">
           {label}

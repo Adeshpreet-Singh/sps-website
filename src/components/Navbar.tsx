@@ -115,7 +115,7 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 motion-reduce:transition-none hover:-translate-y-0.5 group ${
                   isActive
-                    ? "text-accent"
+                    ? "text-accent-safe"
                     : "text-text dark:text-dark-text hover:text-accent"
                 }`}
               >
@@ -217,7 +217,7 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center motion-reduce:transition-none ${
                   isActive
-                    ? "bg-accent/10 text-accent border-l-3 border-accent"
+                    ? "bg-accent/10 text-accent-safe border-l-3 border-accent"
                     : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-3 border-transparent transition-all duration-200"
                 } ${mobileOpen ? "animate-slide-in-right" : ""}`}
                 style={mobileOpen ? { animationDelay: `${idx * 50}ms` } : undefined}

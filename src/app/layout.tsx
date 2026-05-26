@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/lib/data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -71,17 +72,17 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Smith Pro Services Ltd.",
-    image: "https://spsinstallation.com/og-image.jpg",
-    url: "https://spsinstallation.com",
-    telephone: "+1-604-865-0619",
-    email: "info@spsinstallation.com",
+    name: siteConfig.name,
+    image: `${siteConfig.url}/og-image.jpg`,
+    url: siteConfig.url,
+    telephone: siteConfig.phoneLink.replace("tel:", ""),
+    email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "10750 135a St, #4205",
-      addressLocality: "Surrey",
-      addressRegion: "BC",
-      postalCode: "V3T 0V4",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.province,
+      postalCode: siteConfig.address.postal,
       addressCountry: "CA",
     },
     geo: {
@@ -109,7 +110,7 @@ export default function RootLayout({
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.6",
+      ratingValue: siteConfig.stats.rating,
       reviewCount: "10000",
     },
     founder: [
@@ -136,13 +137,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "SPS Installation",
-              url: "https://spsinstallation.com",
+              name: siteConfig.shortName + " Installation",
+              url: siteConfig.url,
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://spsinstallation.com/faq?q={search_term_string}",
+                  urlTemplate: `${siteConfig.url}/faq?q={search_term_string}`,
                 },
                 "query-input": "required name=search_term_string",
               },

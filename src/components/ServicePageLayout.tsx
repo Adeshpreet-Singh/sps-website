@@ -50,8 +50,8 @@ function ServiceJsonLd({
     url: serviceUrl,
     provider: {
       "@type": "LocalBusiness",
-      name: "Smith Pro Services Ltd.",
-      telephone: "+1-604-865-0619",
+      name: siteConfig.name,
+      telephone: siteConfig.phoneLink.replace("tel:", ""),
     },
     areaServed: {
       "@type": "GeoCircle",
@@ -191,7 +191,7 @@ export default function ServicePageLayout({
                     />
                   </div>
                   <div className="lg:mt-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-accent">
+                    <span className="text-xs font-bold uppercase tracking-widest text-accent-safe">
                       Step {step}
                     </span>
                     <h3 className="mt-1 text-lg font-bold text-navy dark:text-dark-text">{title}</h3>
