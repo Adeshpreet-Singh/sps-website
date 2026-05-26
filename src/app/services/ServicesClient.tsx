@@ -351,14 +351,14 @@ export default function ServicesClient() {
               <a
                 href={siteConfig.phoneLink}
                 aria-label={`Call us at ${siteConfig.phone}`}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />
                 Call {siteConfig.phone}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all duration-300 hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all duration-300 hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >
                 Contact Us Online
               </Link>

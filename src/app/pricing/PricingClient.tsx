@@ -401,7 +401,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         {/* CTA */}
         <Link
           href={tier.ctaHref}
-          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer ${
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
             tier.popular
               ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
               : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
@@ -486,7 +486,7 @@ function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
         {/* CTA */}
         <Link
           href={tier.ctaHref}
-          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer ${
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
             tier.popular
               ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
               : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
@@ -523,10 +523,12 @@ function ComparisonRow({ row, index }: { row: ComparisonRow; index: number }) {
             value ? (
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-success/10">
                 <Check className="h-3.5 w-3.5 text-success" strokeWidth={3} aria-hidden="true" />
+                <span className="sr-only">Included</span>
               </span>
             ) : (
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-surface-alt dark:bg-dark-surface-alt">
                 <X className="h-3.5 w-3.5 text-text-muted/40 dark:text-dark-text-muted/40" strokeWidth={3} aria-hidden="true" />
+                <span className="sr-only">Not included</span>
               </span>
             )
           ) : (

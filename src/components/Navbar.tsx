@@ -341,6 +341,7 @@ export default function Navbar() {
           <a
             href={siteConfig.phoneLink}
             className="flex items-center justify-center gap-2 rounded-lg bg-navy/5 dark:bg-accent/10 px-4 py-2.5 text-sm font-semibold text-navy dark:text-accent transition-all duration-200 hover:bg-navy/10 dark:hover:bg-accent/20 motion-reduce:transition-none"
+            aria-label={`Call us at ${siteConfig.phone}`}
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             {siteConfig.phone}
