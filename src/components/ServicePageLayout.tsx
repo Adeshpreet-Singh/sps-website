@@ -173,7 +173,7 @@ export default function ServicePageLayout({
               {service.items.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-surface-alt hover:translate-x-1 group"
+                  className="flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-all duration-200 hover:bg-surface-alt hover:translate-x-1 group motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/10 transition-all duration-200 group-hover:bg-accent/20 group-hover:scale-110 icon-bounce">
                     <Check className="h-4 w-4 text-accent" strokeWidth={3} aria-hidden="true" />

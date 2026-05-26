@@ -40,6 +40,7 @@ export default function TestimonialCarousel({
   const touchEndX = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const totalSlides = testimonials.length;
 
   const goToSlide = useCallback(
@@ -86,18 +87,30 @@ export default function TestimonialCarousel({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!containerRef.current?.contains(document.activeElement)) return;
+      // Check if focus is on a dot (tablist)
+      const isDotFocused = document.activeElement?.getAttribute("role") === "tab";
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         goToPrev();
+        // If on a dot, move focus to prev dot
+        if (isDotFocused) {
+          const prevIdx = (currentIndex - 1 + totalSlides) % totalSlides;
+          dotRefs.current[prevIdx]?.focus();
+        }
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
         goToNext();
+        // If on a dot, move focus to next dot
+        if (isDotFocused) {
+          const nextIdx = (currentIndex + 1) % totalSlides;
+          dotRefs.current[nextIdx]?.focus();
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [goToNext, goToPrev]);
+  }, [goToNext, goToPrev, currentIndex, totalSlides]);
 
   // Touch/swipe handlers
   const handleTouchStart = (e: TouchEvent) => {
@@ -222,6 +235,8 @@ export default function TestimonialCarousel({
               <button
                 key={t.name}
                 onClick={() => goToSlide(idx)}
+                ref={(el) => { dotRefs.current[idx] = el; }}
+                tabIndex={idx === currentIndex ? 0 : -1}
                 className={`relative rounded-full transition-all duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   idx === currentIndex
                     ? "h-2.5 w-8 bg-accent"

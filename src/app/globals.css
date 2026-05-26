@@ -531,6 +531,14 @@
   .img-zoom-hover:hover img {
     transform: scale(1.08);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .img-zoom-hover img {
+      transition: none !important;
+    }
+    .img-zoom-hover:hover img {
+      transform: none !important;
+    }
+  }
 
 
   /* Gradient border accent — for cards */
@@ -556,6 +564,11 @@
   }
   .dark .gradient-border-accent::before {
     background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light), #334155);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-border-accent::before {
+      transition: none !important;
+    }
   }
 
   /* Text gradient accent */
@@ -819,6 +832,12 @@
   .gradient-border-shine:hover::before {
     opacity: 1;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-border-shine::before {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
 
   /* Star rating pop — use with reveal-visible for staggered star entrance */
   .star-rating-pop > * {
@@ -858,6 +877,11 @@
   .reveal-visible .heading-underline::after {
     width: 60px;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .heading-underline::after {
+      transition: none !important;
+    }
+  }
 
   /* Icon lift on hover — subtle upward motion */
   .icon-lift {
@@ -865,6 +889,14 @@
   }
   .icon-lift:hover {
     transform: translateY(-3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .icon-lift {
+      transition: none !important;
+    }
+    .icon-lift:hover {
+      transform: none !important;
+    }
   }
 
 
@@ -913,6 +945,16 @@
   .card-tilt:hover {
     transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .card-tilt {
+      transition: none !important;
+      transform-style: flat !important;
+      perspective: none !important;
+    }
+    .card-tilt:hover {
+      transform: none !important;
+    }
+  }
 
   /* Smooth focus-within — highlight entire form group on focus */
   .focus-within-highlight {
@@ -951,6 +993,14 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(232, 122, 46, 0.15);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .badge-glow {
+      transition: none !important;
+    }
+    .badge-glow:hover {
+      transform: none !important;
+    }
+  }
 
   /* Image reveal — for lazy-loaded images */
   .animate-image-reveal {
@@ -964,6 +1014,14 @@
   .icon-bounce:hover {
     transform: scale(1.12);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .icon-bounce {
+      transition: none !important;
+    }
+    .icon-bounce:hover {
+      transform: none !important;
+    }
+  }
 
   /* FAQ summary hover highlight */
   .faq-summary-hover {
@@ -975,6 +1033,14 @@
   }
   .dark .faq-summary-hover:hover {
     background-color: rgba(232, 122, 46, 0.06);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-summary-hover {
+      transition: none !important;
+    }
+    .faq-summary-hover:hover {
+      padding-left: inherit !important;
+    }
   }
 
   /* FAQ accordion — smooth content fade on expand */
