@@ -1,45 +1,58 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronUp } from "lucide-react";
 
 /**
  * ScrollToTop — floating action button that appears after scrolling down.
  * Smooth scroll-to-top with entrance/exit animations.
+ *
+ * Uses a ref to track visibility in the scroll handler so the callback
+ * doesn't depend on state — avoids re-registering the scroll listener
+ * on every visibility change.
+ *
+ * Respects prefers-reduced-motion reactively via matchMedia listener.
  */
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   const [animating, setAnimating] = useState<"enter" | "exit" | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const visibleRef = useRef(false);
+
+  // Reactively track prefers-reduced-motion
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   const handleScroll = useCallback(() => {
     const shouldShow = window.scrollY > 400;
-    if (shouldShow && !visible) {
+    if (shouldShow && !visibleRef.current) {
+      visibleRef.current = true;
       setVisible(true);
       setAnimating("enter");
-    } else if (!shouldShow && visible) {
+    } else if (!shouldShow && visibleRef.current) {
+      visibleRef.current = false;
       setAnimating("exit");
-      // Wait for exit animation to complete before hiding
       setTimeout(() => {
         setVisible(false);
         setAnimating(null);
       }, 200);
     }
-  }, [visible]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Respect reduced motion
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: prefersReducedMotion ? "auto" : "smooth",
+      behavior: reducedMotion ? "auto" : "smooth",
     });
   };
 

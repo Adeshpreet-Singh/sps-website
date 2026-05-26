@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
     // Optimize image sizes for responsive delivery
     deviceSizes: [640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // Cache optimized images for 30 days
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 
   // Enable built-in compression (gzip/brotli)
@@ -37,6 +39,16 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // ISR-aware HTML caching with stale-while-revalidate
+      {
+        source: "/:path((?!api|_next|favicon|robots|sitemap).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=3600, stale-while-revalidate=86400",
           },
         ],
       },

@@ -10,6 +10,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 import HomeClient from "./HomeClient";
 
+// ISR: revalidate every 24 hours (homepage content is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
   description:

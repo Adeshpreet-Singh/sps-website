@@ -156,7 +156,9 @@ export default function Navbar() {
             // Handle Services dropdown separately
             if (link.label === "Services") {
               return (
-                <div key={link.href} ref={servicesRef} className="relative">
+                <div key={link.href} ref={servicesRef} className="relative"
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
                     onMouseEnter={() => setServicesOpen(true)}

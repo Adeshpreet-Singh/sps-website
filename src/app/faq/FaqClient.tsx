@@ -18,6 +18,7 @@ import { siteConfig, type FaqItem } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CursorGlow from "@/components/CursorGlow";
+import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import FaqAccordion from "@/components/FaqAccordion";
 import CTABanner from "@/components/CTABanner";
@@ -131,6 +132,7 @@ export default function FaqClient() {
         <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20" />
 
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
+          <Breadcrumb items={[{ name: "FAQ", path: "/faq" }]} />
           <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 rounded-full border border-accent/20 animate-fade-in">
             Help Center
           </span>

@@ -240,8 +240,6 @@
   100% { transform: scale(4); opacity: 0; }
 }
 
-/* ── Enhanced Animation Keyframes ── */
-
 /* Smooth slide down — for nav entrance */
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-8px); }
@@ -392,19 +390,6 @@
   to   { transform: scaleX(1); }
 }
 
-/* Content swap — for tab/accordion transitions */
-@keyframes contentSwap {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Badge enter — for notification/counter badges */
-@keyframes badgeEnter {
-  0% { transform: scale(0) translateY(4px); opacity: 0; }
-  60% { transform: scale(1.15) translateY(-1px); opacity: 1; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
-}
-
 /* Image reveal — for lazy-loaded images */
 @keyframes imageReveal {
   from { opacity: 0; filter: blur(8px); transform: scale(1.02); }
@@ -488,20 +473,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Gradient shift — for animated backgrounds */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Skeleton pulse — for loading placeholders */
-/* Float slow — for decorative elements */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
 /* Float medium — for subtle floating */
 @keyframes floatMedium {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -513,24 +484,6 @@
 @keyframes badgePulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
-}
-
-/* Progress stripe — for loading bars */
-@keyframes progressStripe {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 0; }
-}
-
-/* Check draw — for success states */
-@keyframes checkDraw {
-  0% { stroke-dashoffset: 24; }
-  100% { stroke-dashoffset: 0; }
-}
-
-/* Ripple — for button effects */
-@keyframes ripple {
-  0% { transform: scale(0); opacity: 0.35; }
-  100% { transform: scale(4); opacity: 0; }
 }
 
 /* Spin loader — for loading indicators */
@@ -545,31 +498,8 @@
   100% { transform: scale(1); }
 }
 
-/* Toast slide in — for notifications */
-@keyframes toastSlideIn {
-  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Toast slide out — for notifications */
-@keyframes toastSlideOut {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to   { opacity: 0; transform: translateY(-12px) scale(0.96); }
-}
-
-/* Shimmer — for loading placeholders */
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
 /* Glow pulse — for accent elements */
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 122, 46, 0); }
-  50% { box-shadow: 0 0 16px 2px rgba(232, 122, 46, 0.12); }
-}
 
-/* Nav enter — for header entrance */
 @keyframes navEnter {
   from { opacity: 0; transform: translateY(-100%); }
   to   { opacity: 1; transform: translateY(0); }
@@ -604,144 +534,7 @@
   50% { opacity: 0; }
 }
 
-/* Scale bounce — for interactive elements */
-@keyframes scaleBounce {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
-
-/* Gradient shift — for animated backgrounds */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Gradient shine — for border effects */
-@keyframes gradientShine {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Gradient text shimmer — for hero text */
-@keyframes gradientTextShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Parallax float — for decorative elements */
-@keyframes parallaxFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-4px) rotate(0.5deg); }
-  75% { transform: translateY(4px) rotate(-0.5deg); }
-}
-
-/* Focus ring pulse — for accessibility */
-@keyframes focusRingPulse {
-  0% { outline-color: rgba(232, 122, 46, 0.6); }
-  50% { outline-color: rgba(232, 122, 46, 0.3); }
-  100% { outline-color: rgba(232, 122, 46, 0.6); }
-}
-
-/* FAB enter — for scroll-to-top */
-@keyframes fabEnter {
-  from { transform: translateY(16px) scale(0.8); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* FAB exit — for scroll-to-top */
-@keyframes fabExit {
-  from { transform: translateY(0) scale(1); opacity: 1; }
-  to   { transform: translateY(16px) scale(0.8); opacity: 0; }
-}
-
-/* Hamburger morph — for mobile menu */
-@keyframes hamburgerMorph {
-  0% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(3px) rotate(0); }
-  100% { transform: translateY(6px) rotate(45deg); }
-}
-
-/* Stagger fade — for loading states */
-@keyframes staggerFade {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-/* Skeleton pulse — for loading */
-/* Float slow — for decorative elements */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Float medium — for subtle floating */
-@keyframes floatMedium {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  33% { transform: translateY(-6px) rotate(1deg); }
-  66% { transform: translateY(-3px) rotate(-1deg); }
-}
-
-/* Badge pulse — for notifications */
-@keyframes badgePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* Progress stripe — for loading bars */
-@keyframes progressStripe {
-  0% { background-position: 0 0; }
-  100% { background-position: 40px 0; }
-}
-
-/* Check draw — for success states */
-@keyframes checkDraw {
-  0% { stroke-dashoffset: 24; }
-  100% { stroke-dashoffset: 0; }
-}
-
-/* Ripple — for button effects */
-@keyframes ripple {
-  0% { transform: scale(0); opacity: 0.35; }
-  100% { transform: scale(4); opacity: 0; }
-}
-
-/* Spin loader — for loading indicators */
-@keyframes spinLoader {
-  to { transform: rotate(360deg); }
-}
-
-/* Tag pop — for city tags */
-@keyframes tagPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-/* Toast slide in — for notifications */
-@keyframes toastSlideIn {
-  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Toast slide out — for notifications */
-@keyframes toastSlideOut {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to   { opacity: 0; transform: translateY(-12px) scale(0.96); }
-}
-
-/* Shimmer — for loading placeholders */
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
 /* Glow pulse — for accent elements */
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 122, 46, 0); }
-  50% { box-sha
-
 ... [OUTPUT TRUNCATED - 69 chars omitted out of 50069 total] ...
 
 
@@ -812,10 +605,6 @@
   .icon-spin-hover:hover svg {
     animation: spin360 0.5s ease-in-out;
   }
-  @keyframes spin360 {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
 
   /* Stagger-in for list items */
   .stagger-item {
@@ -839,10 +628,6 @@
   details .details-content {
     animation: detailsOpen 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  @keyframes detailsOpen {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 
   /* Smooth summary indicator rotation */
   details .details-indicator {
@@ -856,17 +641,10 @@
   .animate-bounce-limited {
     animation: bounce 1s ease-in-out 3;
   }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-25%); }
-  }
 
   /* Ping limited to 2 iterations (for success ring) */
   .animate-ping-once {
     animation: ping 1s cubic-bezier(0, 0, 0.2, 1) 2;
-  }
-  @keyframes ping {
-    75%, 100% { transform: scale(2); opacity: 0; }
   }
 
   /* Subtle dot grid background pattern */
@@ -940,8 +718,6 @@
     color: var(--color-accent-dark);
   }
 
-  /* ── Enhanced Dark Mode Polish ── */
-
   /* Glow effect for accent buttons in dark mode */
   .dark .btn-glow:hover {
     box-shadow: 0 0 20px rgba(232, 122, 46, 0.25), 0 4px 12px rgba(232, 122, 46, 0.15);
@@ -954,11 +730,6 @@
   }
 
   /* Smooth focus ring animation — enhances the base focus-visible */
-  @keyframes focusRingPulse {
-    0% { outline-color: rgba(232, 122, 46, 0.6); }
-    50% { outline-color: rgba(232, 122, 46, 0.3); }
-    100% { outline-color: rgba(232, 122, 46, 0.6); }
-  }
 
   @media (prefers-reduced-motion: no-preference) {
     :focus-visible {
@@ -979,16 +750,6 @@
   }
 
   /* Smooth page entrance — applied to main content area */
-  @keyframes pageEnter {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
   .animate-page-enter {
     animation: pageEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -1003,21 +764,12 @@
   }
 
   /* Badge pulse for notifications or highlights */
-  @keyframes badgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
 
   .animate-badge-pulse {
     animation: badgePulse 2s ease-in-out infinite;
   }
 
   /* Subtle float animation for decorative elements */
-  @keyframes floatMedium {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    33% { transform: translateY(-6px) rotate(1deg); }
-    66% { transform: translateY(-3px) rotate(-1deg); }
-  }
 
   .animate-float-medium {
     animation: floatMedium 8s ease-in-out infinite;
@@ -1037,8 +789,6 @@
   .dark ::-webkit-scrollbar-thumb:hover {
     background: var(--color-dark-text-muted);
   }
-
-  /* ── Animation Polish Additions ── */
 
   /* Fade-right reveal (for ScrollReveal component) */
   .reveal-right-hidden {
@@ -1204,29 +954,14 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* ── Animation Polish Enhancements ── */
-
   /* Star fill animation — staggered pop-in for rating stars */
-  @keyframes starPop {
-    0% { transform: scale(0) rotate(-15deg); opacity: 0; }
-    60% { transform: scale(1.2) rotate(5deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
-  }
   .animate-star-pop {
     animation: starPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* Scroll-to-top button entrance */
-  @keyframes fabEnter {
-    from { transform: translateY(16px) scale(0.8); opacity: 0; }
-    to   { transform: translateY(0) scale(1); opacity: 1; }
-  }
   .animate-fab-enter {
     animation: fabEnter 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  @keyframes fabExit {
-    from { transform: translateY(0) scale(1); opacity: 1; }
-    to   { transform: translateY(16px) scale(0.8); opacity: 0; }
   }
   .animate-fab-exit {
     animation: fabExit 0.2s ease-in both;
@@ -1249,19 +984,11 @@
   }
 
   /* City tag tap/ripple micro-interaction */
-  @keyframes tagPop {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.95); }
-    100% { transform: scale(1); }
-  }
   .animate-tag-pop {
     animation: tagPop 0.2s ease-out;
   }
 
   /* Button loading spinner */
-  @keyframes spinLoader {
-    to { transform: rotate(360deg); }
-  }
   .animate-spin-loader {
     animation: spinLoader 0.8s linear infinite;
   }
@@ -1272,24 +999,14 @@
   }
 
   /* Scroll indicator pulse */
-  @keyframes scrollHint {
-    0%, 100% { opacity: 0.6; transform: translateY(0); }
-    50% { opacity: 1; transform: translateY(4px); }
-  }
   .animate-scroll-hint {
     animation: scrollHint 2s ease-in-out infinite;
   }
 
   /* Decorative dot pulse — for accent dots */
-  @keyframes dotPulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.4); opacity: 1; }
-  }
   .animate-dot-pulse {
     animation: dotPulse 2s ease-in-out infinite;
   }
-
-  /* ── Animation Polish — Final Pass ── */
 
   /* Gradient border shine — animated light sweep across card edges */
   .gradient-border-shine {
@@ -1319,10 +1036,6 @@
   }
   .gradient-border-shine:hover::before {
     opacity: 1;
-  }
-  @keyframes gradientShine {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
   }
 
   /* Star rating pop — use with reveal-visible for staggered star entrance */
@@ -1354,10 +1067,6 @@
   }
 
   /* Enhanced CTA pulse — subtle scale breathing for hero buttons */
-  @keyframes ctaPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(232, 122, 46, 0.2); }
-    50% { box-shadow: 0 4px 30px rgba(232, 122, 46, 0.35); }
-  }
   .animate-cta-pulse {
     animation: ctaPulse 3s ease-in-out infinite;
   }
@@ -1391,44 +1100,25 @@
   }
 
   /* Smooth content swap — for tab/accordion transitions */
-  @keyframes contentSwap {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
   .animate-content-swap {
     animation: contentSwap 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* Badge entrance — for notification/counter badges */
-  @keyframes badgeEnter {
-    0% { transform: scale(0) translateY(4px); opacity: 0; }
-    60% { transform: scale(1.15) translateY(-1px); opacity: 1; }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
-  }
   .animate-badge-enter {
     animation: badgeEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* Accent line grow — for horizontal dividers */
-  @keyframes lineGrow {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
   .animate-line-grow {
     animation: lineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
     transform-origin: center;
   }
 
   /* Smooth text reveal — for hero headings */
-  @keyframes textReveal {
-    from { clip-path: inset(0 100% 0 0); opacity: 0; }
-    to   { clip-path: inset(0 0% 0 0); opacity: 1; }
-  }
   .animate-text-reveal {
     animation: textReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-
-  /* ── Animation Polish — Additional Enhancements ── */
 
   /* Smooth image load-in — fade + slight scale */
   .img-load-fade {
@@ -1442,21 +1132,11 @@
   }
 
   /* Parallax float — slower, more subtle than animate-float */
-  @keyframes parallaxFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-4px) rotate(0.5deg); }
-    75% { transform: translateY(4px) rotate(-0.5deg); }
-  }
   .animate-parallax-float {
     animation: parallaxFloat 10s ease-in-out infinite;
   }
 
   /* Gradient text shimmer — animated gradient for headings */
-  @keyframes gradientTextShimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
   .animate-gradient-text {
     background-size: 200% 200%;
     animation: gradientTextShimmer 4s ease-in-out infinite;
@@ -1466,27 +1146,11 @@
   }
 
   /* Smooth number counter entrance */
-  @keyframes counterEnter {
-    from {
-      opacity: 0;
-      transform: translateY(8px) scale(0.95);
-      filter: blur(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
   .animate-counter-enter {
     animation: counterEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* Accent line pulse — for active nav indicator */
-  @keyframes accentPulse {
-    0%, 100% { opacity: 1; width: 20px; }
-    50% { opacity: 0.7; width: 24px; }
-  }
   .animate-accent-pulse {
     animation: accentPulse 2s ease-in-out infinite;
   }
@@ -1511,15 +1175,9 @@
   }
 
   /* Stagger fade for loading states */
-  @keyframes staggerFade {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
   .animate-stagger-fade {
     animation: staggerFade 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-
-  /* ── Animation Polish — Service & UI Enhancements ── */
 
   /* Stagger children for service include items */
   .stagger-check > * {
@@ -1537,10 +1195,6 @@
   .stagger-check > *:nth-child(8) { animation-delay: 280ms; }
   .stagger-check > *:nth-child(9) { animation-delay: 320ms; }
   .stagger-check > *:nth-child(10) { animation-delay: 360ms; }
-  @keyframes checkItemEnter {
-    from { opacity: 0; transform: translateX(-8px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
 
   /* Textarea focus glow — matching input focus enhancement */
   .dark textarea:focus-visible {
@@ -1558,10 +1212,6 @@
   }
 
   /* Image reveal — for lazy-loaded images */
-  @keyframes imageReveal {
-    from { opacity: 0; filter: blur(8px); transform: scale(1.02); }
-    to   { opacity: 1; filter: blur(0); transform: scale(1); }
-  }
   .animate-image-reveal {
     animation: imageReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
@@ -1619,10 +1269,6 @@
   .stagger-tags > *:nth-child(13) { animation-delay: 360ms; }
   .stagger-tags > *:nth-child(14) { animation-delay: 390ms; }
   .stagger-tags > *:nth-child(15) { animation-delay: 420ms; }
-  @keyframes tagEnter {
-    from { opacity: 0; transform: scale(0.9) translateY(4px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-  }
 
   /* Section divider accent line — animated on scroll */
   .section-divider {
@@ -1638,35 +1284,12 @@
   }
 }
 
-/* ── Nav enter keyframe (outside @layer for specificity) ── */
-@keyframes navEnter {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ── Animation Polish — Final Enhancements ── */
-
 /* 404 page number pulse */
-@keyframes numberPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.02); opacity: 0.9; }
-}
 .animate-404-pulse {
   animation: numberPulse 3s ease-in-out infinite;
 }
 
 /* Tag stagger entrance — more dynamic than stagger-tags */
-@keyframes tagBounceIn {
-  0% { opacity: 0; transform: scale(0.8) translateY(8px); }
-  60% { opacity: 1; transform: scale(1.05) translateY(-2px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
-}
 .animate-tag-bounce {
   animation: tagBounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -1685,19 +1308,11 @@
 }
 
 /* Smooth content reveal — for lazy loaded images */
-@keyframes blurReveal {
-  from { opacity: 0; filter: blur(10px); transform: scale(1.05); }
-  to   { opacity: 1; filter: blur(0); transform: scale(1); }
-}
 .animate-blur-reveal {
   animation: blurReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Section entrance — for full sections appearing on scroll */
-@keyframes sectionEnter {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 .animate-section-enter {
   animation: sectionEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -1713,20 +1328,11 @@
 }
 
 /* Text typing cursor blink — for hero text */
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 .animate-cursor-blink {
   animation: cursorBlink 1s step-end infinite;
 }
 
 /* Smooth scale bounce — for interactive elements */
-@keyframes scaleBounce {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
 .animate-scale-bounce {
   animation: scaleBounce 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -1761,8 +1367,6 @@
 .gradient-border-animated:hover::before {
   opacity: 1;
 }
-
-/* ── Performance Hints ── */
 
 /* Promote animated elements to their own compositor layer */
 .animate-float,

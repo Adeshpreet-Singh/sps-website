@@ -119,7 +119,7 @@ export default function ReviewsClient() {
                 <p className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-navy dark:text-dark-text">
                   {RATING} / 5
                 </p>
-                <span className="sr-only">{rating} out of 5 stars</span>
+                <span className="sr-only">{RATING} out of 5 stars</span>
                 <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted">
                   Based on Google and Homestars reviews
                 </p>

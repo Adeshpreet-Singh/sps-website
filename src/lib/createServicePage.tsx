@@ -52,7 +52,7 @@ export function createServicePage({
   const service = services.find((s) => s.slug === slug)!;
   const processSteps = buildProcessSteps(slug, processStepsData, processStepImages);
 
-  return function ServicePage() {
+  function ServicePage() {
     return (
       <ServicePageLayout
         service={service}
@@ -64,5 +64,10 @@ export function createServicePage({
         ctaDescription={ctaDescription}
       />
     );
-  };
+  }
+
+  // ISR: revalidate every 24 hours (service content is stable)
+  ServicePage.revalidate = 86400;
+
+  return ServicePage;
 }

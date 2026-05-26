@@ -28,6 +28,7 @@ import {
 import { services, siteConfig, serviceImageAlts, serviceImages, whyUsFeatures } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useLazyVideo } from "@/hooks/useLazyVideo";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 
@@ -146,6 +147,7 @@ export default function ServicesClient() {
   const [servicesListRef, servicesListVisible] = useScrollReveal();
   const [whyRef, whyVisible] = useScrollReveal();
   const [ctaRef, ctaVisible] = useScrollReveal();
+  const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
 
   return (
     <div className="min-h-screen">
@@ -154,21 +156,24 @@ export default function ServicesClient() {
 
       {/* ── Hero Section ── */}
       <section
+        ref={heroRef}
         aria-label="Services hero"
         className="relative overflow-hidden px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white"
       >
-        {/* Background video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop"
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-          src="https://videos.pexels.com/video-files/5765849/5765849-uhd_2560_1440_25fps.mp4"
-        />
+        {/* Background video — deferred until hero is in viewport */}
+        {heroVisible && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop"
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+            src="https://videos.pexels.com/video-files/5765849/5765849-uhd_2560_1440_25fps.mp4"
+          />
+        )}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-navy/60" />
 
