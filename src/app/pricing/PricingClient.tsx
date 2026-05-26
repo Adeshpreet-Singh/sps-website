@@ -97,7 +97,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  2. APPLIANCE INSTALLATION PRICING CARDS                     */}
       {/* ============================================================ */}
-      <section aria-label="Appliance installation pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section aria-label="Appliance installation pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-7xl">
           {/* Section header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -138,7 +138,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  3. FEATURE COMPARISON TABLE                                 */}
       {/* ============================================================ */}
-      <section aria-label="Feature comparison" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section aria-label="Feature comparison" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">
@@ -193,7 +193,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  4. PLUMBING PRICING CARDS                                   */}
       {/* ============================================================ */}
-      <section aria-label="Plumbing pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section aria-label="Plumbing pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-7xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -268,7 +268,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  6. FAQ                                                      */}
       {/* ============================================================ */}
-      <section aria-label="Pricing FAQ" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section aria-label="Pricing FAQ" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-3xl">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">

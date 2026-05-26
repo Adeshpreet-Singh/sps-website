@@ -132,7 +132,7 @@ export default function HomeClient() {
 
             {/* Scroll-down indicator — smooth scroll to services */}
             <div className="mt-10 sm:mt-16 flex items-center gap-2 text-white/80 animate-fade-in delay-500">
-              <a href="#services" className="flex items-center gap-2 hover:text-white/80 transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm" aria-label="Scroll to services section">
+              <a href="#services" className="flex items-center gap-2 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm" aria-label="Scroll to services section">
                 <ChevronDown className="h-5 w-5 animate-bounce-limited" aria-hidden="true" />
                 <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
               </a>
