@@ -190,7 +190,7 @@ export default function Navbar() {
                   {/* Services dropdown */}
                   {servicesOpen && (
                     <div
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 rounded-xl bg-white dark:bg-dark-surface shadow-[0_10px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-border/50 dark:border-dark-border/50 py-2 animate-scale-in origin-top stagger-children"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 rounded-xl bg-white dark:bg-dark-surface shadow-[0_10px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-border/50 dark:border-dark-border/50 py-2 animate-scale-in origin-top stagger-children backdrop-blur-xl"
                       role="menu"
                     >
                       {services.map((service) => (
@@ -199,7 +199,7 @@ export default function Navbar() {
                           href={`/services/${service.slug}`}
                           onClick={() => setServicesOpen(false)}
                           role="menuitem"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent transition-all duration-200 motion-reduce:transition-none animate-fade-in"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent transition-all duration-200 motion-reduce:transition-none animate-fade-in hover:pl-5"
                         >
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent text-xs font-bold">
                             {service.number}
@@ -312,7 +312,7 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className={`fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-white dark:bg-dark-surface shadow-[-4px_0_20px_rgba(0,0,0,0.15)] dark:shadow-[-4px_0_20px_rgba(0,0,0,0.5)] border-l border-border/50 dark:border-dark-border/50 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden motion-reduce:transition-none ${
+        className={`fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-white/98 dark:bg-dark-surface/98 backdrop-blur-xl shadow-[-4px_0_20px_rgba(0,0,0,0.15)] dark:shadow-[-4px_0_20px_rgba(0,0,0,0.5)] border-l border-border/50 dark:border-dark-border/50 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden motion-reduce:transition-none ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -441,7 +441,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press"
+            className="rounded-full bg-accent px-5 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
           >
             Get a Free Quote
           </Link>

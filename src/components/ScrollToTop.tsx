@@ -62,7 +62,7 @@ export default function ScrollToTop() {
     <button
       type="button"
       onClick={scrollToTop}
-      aria-label="Scroll to top"
+      aria-label="Scroll to top" aria-live="polite"
       className={`fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-accent/25 transition-all duration-200 hover:bg-accent-dark hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-md btn-press ${
         animating === "enter"
           ? "animate-fab-enter"

@@ -41,6 +41,8 @@ export default function CTABanner({
       aria-label="Contact us"
       className={`relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy text-white py-16 sm:py-20 lg:py-28 ${className}`}
     >
+      {/* Top accent line */}
+      <div aria-hidden="true" className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       {/* Decorative floating shapes */}
       <div aria-hidden="true" className="absolute top-[-10%] left-[-5%] w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-float" />
       <div aria-hidden="true" className="absolute bottom-[-15%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-white/[0.03] blur-3xl animate-float delay-300" />

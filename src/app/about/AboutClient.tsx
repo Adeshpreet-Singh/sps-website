@@ -140,7 +140,7 @@ export default function AboutClient() {
                 <div className="w-10 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-accent">Our Story</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text dark:text-dark-text heading-underline">
                 Built on Trust, Driven by Craft
               </h2>
               {/* Decorative quote */}
@@ -253,7 +253,7 @@ export default function AboutClient() {
             {VALUES_DATA.map((value, idx) => (
               <div
                 key={value.title}
-                className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(232,122,46,0.08)] transition-all duration-300 hover:-translate-y-1 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1}`}
+                className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_40px_rgba(232,122,46,0.12)] transition-all duration-500 hover:-translate-y-1.5 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1}`}
               >
                 {/* Background image — decorative */}
                 <div aria-hidden="true" className="absolute inset-0">
@@ -312,7 +312,7 @@ export default function AboutClient() {
               <div
                 key={leader.name}
                 role="listitem"
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/30 gradient-border-shine card-tilt"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />

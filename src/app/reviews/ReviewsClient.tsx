@@ -141,7 +141,7 @@ export default function ReviewsClient() {
             {testimonials.map((t, idx) => (
               <div
                 key={t.name}
-                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-shadow duration-300 hover:shadow-card-hover dark:hover:border-accent/20 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:border-accent/30 hover:-translate-y-0.5 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* Left accent gradient border */}
                 <div className="absolute left-0 top-8 bottom-8 w-1 rounded-r-full bg-gradient-to-b from-accent to-accent-light" />
@@ -224,7 +224,7 @@ export default function ReviewsClient() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Read our reviews on Google Business (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover gradient-border-shine"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:border-accent/30 hover:-translate-y-1 card-hover gradient-border-shine"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -249,7 +249,7 @@ export default function ReviewsClient() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Read our reviews on Homestars (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:-translate-y-1 card-hover gradient-border-shine"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:border-accent/30 hover:-translate-y-1 card-hover gradient-border-shine"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">

@@ -216,7 +216,7 @@ function FAQSection({
   return (
     <section id={id} aria-label={title} className={`${bgColor} px-4 sm:px-6 py-16 sm:py-20 lg:py-28`}>
       <div ref={ref} className={`mx-auto max-w-3xl reveal-hidden ${isVisible ? "reveal-visible" : ""}`}>
-        <h2 className="text-center text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl heading-underline">
           {title}
         </h2>
         <p className="mt-4 text-text-muted dark:text-dark-text-muted text-center max-w-xl mx-auto text-lg">

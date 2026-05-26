@@ -906,6 +906,7 @@
   /* Skeleton fade-in — smooth entry for loading states */
   .animate-skeleton-enter {
     animation: fadeIn 0.3s ease-out both;
+  }
 
   /* Page transition — route change animation */
   .page-transition {

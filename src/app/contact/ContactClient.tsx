@@ -108,7 +108,7 @@ function ContactCard({
     <Wrapper
       {...(href ? { href, className: "group block", "aria-label": `${label}: ${typeof children === "string" ? children : ""}` } : { className: "group" })}
     >
-      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 card-tilt gradient-border-shine">
+      <div className="flex items-start gap-4 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-5 transition-all duration-400 hover:shadow-card-hover dark:hover:border-accent/30 hover:border-accent/30 hover:-translate-y-1 card-tilt gradient-border-shine">
         <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
           <Icon className="w-5 h-5 text-white" aria-hidden="true" />
         </div>

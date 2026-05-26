@@ -158,7 +158,7 @@ export default function ServiceAreaPage() {
               {serviceAreas.map((city) => (
                 <span
                   key={city}
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy hover:shadow-lg hover:shadow-navy/20 hover:scale-105 active:scale-95 cursor-default"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy hover:shadow-xl hover:shadow-navy/25 hover:scale-105 active:scale-95 cursor-default"
                   role="listitem"
                 >
                   <MapPin className="w-3.5 h-3.5 text-accent group-hover:text-accent-light transition-colors" aria-hidden="true" />
@@ -209,7 +209,7 @@ export default function ServiceAreaPage() {
             ].map(({ icon: Icon, title, desc }, idx) => (
               <ScrollReveal key={title} delay={(idx + 1) as 1 | 2 | 3 | 4}>
                 <div
-                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-300 hover:shadow-card-hover hover:border-accent/20 hover:-translate-y-1 dark:hover:shadow-dark-card-hover"
+                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-500 hover:shadow-card-hover hover:border-accent/30 hover:-translate-y-1 dark:hover:shadow-dark-card-hover dark:hover:border-accent/30"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Icon className="w-6 h-6 text-accent" aria-hidden="true" />

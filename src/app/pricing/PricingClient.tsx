@@ -309,7 +309,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       <div
         className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
           tier.popular
-            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_40px_rgba(232,122,46,0.2)] dark:hover:shadow-[0_0_40px_rgba(232,122,46,0.15)]"
+            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_50px_rgba(232,122,46,0.25)] dark:hover:shadow-[0_0_50px_rgba(232,122,46,0.2)]"
             : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
         }`}
       >
@@ -411,7 +411,7 @@ function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
       <div
         className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
           tier.popular
-            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_40px_rgba(232,122,46,0.2)] dark:hover:shadow-[0_0_40px_rgba(232,122,46,0.15)]"
+            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_50px_rgba(232,122,46,0.25)] dark:hover:shadow-[0_0_50px_rgba(232,122,46,0.2)]"
             : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
         }`}
       >

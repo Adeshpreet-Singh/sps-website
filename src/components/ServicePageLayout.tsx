@@ -192,10 +192,10 @@ export default function ServicePageLayout({
               {processSteps.map(({ step, title, description, icon: Icon, image }, idx) => (
                 <li
                   key={step}
-                  className="relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up"
+                  className="group relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up"
                   style={{ animationDelay: `${idx * 120}ms` }}
                 >
-                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md shadow-accent/20">
+                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/30">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <div className="relative mt-2 h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 overflow-hidden rounded-xl lg:mt-4 group">

@@ -115,7 +115,7 @@ export default function HomeClient() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up delay-300">
               <Link
                 href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg sm:rounded-xl bg-accent px-6 sm:px-8 lg:px-10 py-3.5 sm:py-4 lg:py-5 text-base sm:text-lg font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/35 hover:-translate-y-0.5 active:translate-y-0 active:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark btn-press btn-shimmer animate-cta-pulse"
               >
                 Get a Free Quote
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -167,7 +167,7 @@ export default function HomeClient() {
             {siteConfig.retailers.map((retailer) => (
               <span
                 key={retailer}
-                className="inline-flex items-center rounded-full border border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface-alt px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-navy dark:text-dark-text select-none transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-sm hover:scale-105 cursor-default"
+                className="inline-flex items-center rounded-full border border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface-alt px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-navy dark:text-dark-text select-none transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-md hover:shadow-accent/10 hover:scale-105 cursor-default active:scale-95"
               >
                 {retailer}
               </span>
@@ -211,7 +211,7 @@ export default function HomeClient() {
 src={serviceImages[svc.slug]}
                       alt={svc.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
@@ -379,7 +379,7 @@ src={serviceImages[svc.slug]}
               <li
                 key={city}
                 role="listitem"
-                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-md active:scale-95 reveal-hidden reveal-visible"
+                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-lg hover:shadow-accent/15 active:scale-95"
               >
                 {city}
               </li>

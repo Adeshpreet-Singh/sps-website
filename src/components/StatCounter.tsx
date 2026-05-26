@@ -62,7 +62,7 @@ export default function StatCounter({
         started ? "animate-counter-enter" : ""
       }`}
     >
-      <p className="text-3xl sm:text-4xl font-bold text-white tabular-nums">
+      <p className="text-3xl sm:text-4xl font-bold text-white tabular-nums tracking-tight">
         {isText ? value : display}
         {suffix && <span className="text-accent">{suffix}</span>}
       </p>

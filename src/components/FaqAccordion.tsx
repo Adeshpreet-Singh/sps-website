@@ -67,7 +67,7 @@ export default function FaqAccordion({
               >
                 <span>{faq.question}</span>
                 <span
-                  className={`faq-icon ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-text-muted dark:text-dark-text-muted transition-all duration-300 ${
+                  className={`faq-icon ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-text-muted dark:text-dark-text-muted transition-all duration-300 hover:scale-110 ${
                     isOpen
                       ? "border-accent bg-accent text-white"
                       : "border-border dark:border-dark-border"
