@@ -157,18 +157,17 @@ export default function ServiceAreaPage() {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="flex flex-wrap justify-center gap-3 stagger-tags" role="list" aria-label="Cities we serve">
+            <ul className="flex flex-wrap justify-center gap-3 stagger-tags" aria-label="Cities we serve">
               {serviceAreas.map((city) => (
-                <span
+                <li
                   key={city}
                   className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy dark:hover:bg-accent dark:hover:border-accent dark:hover:text-white hover:shadow-xl hover:shadow-navy/25 dark:hover:shadow-accent/25 hover:scale-105 active:scale-95 cursor-default motion-reduce:transition-none motion-reduce:transform-none"
-                  role="listitem"
                 >
                   <MapPin className="w-3.5 h-3.5 text-accent group-hover:text-accent-light transition-colors" aria-hidden="true" />
                   {city}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </ScrollReveal>
         </div>
       </section>

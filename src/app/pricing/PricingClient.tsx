@@ -22,7 +22,7 @@ import {
   X,
   ArrowRight,
   Star,
-  Phone,
+
   Sparkles,
   DollarSign,
   ShieldCheck,
@@ -119,7 +119,7 @@ export default function PricingClient() {
           {/* Pricing cards — 3-column grid */}
           <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
             {pricingTiers.map((tier, idx) => (
-              <PricingCard key={tier.slug} tier={tier} index={idx} />
+              <TierCard key={tier.slug} tier={tier} index={idx} />
             ))}
           </div>
 
@@ -214,7 +214,7 @@ export default function PricingClient() {
           {/* Plumbing cards — 3-column grid */}
           <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
             {plumbingTiers.map((tier, idx) => (
-              <PlumbingCard key={tier.slug} tier={tier} index={idx} />
+              <TierCard key={tier.slug} tier={tier} index={idx} popularBadge="Best Value" />
             ))}
           </div>
         </ScrollReveal>
@@ -311,8 +311,29 @@ function TrustBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   );
 }
 
-function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
+/**
+ * Unified tier card for both installation and plumbing pricing.
+ * Handles two feature formats:
+ * - Object features: `{ label, included, tooltip? }` (installation tiers)
+ * - String features: plain string (plumbing tiers — always included)
+ */
+function TierCard({
+  tier,
+  index,
+  popularBadge = "Most Popular",
+}: {
+  tier: PricingTier | PlumbingTier;
+  index: number;
+  popularBadge?: string;
+}) {
   const Icon = iconMap[tier.icon];
+
+  /** Normalize features to a common shape for rendering */
+  const normalizedFeatures = tier.features.map((f) =>
+    typeof f === "string"
+      ? { label: f, included: true as const, tooltip: undefined }
+      : f,
+  );
 
   return (
     <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
@@ -328,7 +349,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
               <Star className="h-4 w-4" />
-              Most Popular
+              {popularBadge}
             </span>
           </div>
         )}
@@ -367,7 +388,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
 
         {/* Features list */}
         <ul className="flex-1 space-y-3 mb-8">
-          {tier.features.map((feature) => (
+          {normalizedFeatures.map((feature) => (
             <li key={feature.label} className="flex items-start gap-3 group/feature">
               {feature.included ? (
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
@@ -391,91 +412,6 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
                     ({feature.tooltip})
                   </span>
                 )}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA */}
-        <Link
-          href={tier.ctaHref}
-          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
-            tier.popular
-              ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
-              : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"
-          }`}
-        >
-          {tier.ctaLabel}
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
-      </div>
-    </ScrollReveal>
-  );
-}
-
-function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
-  const Icon = iconMap[tier.icon];
-
-  return (
-    <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
-      <div
-        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none ${
-          tier.popular
-            ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_50px_rgba(232,122,46,0.25)] dark:hover:shadow-[0_0_50px_rgba(232,122,46,0.2)]"
-            : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
-        }`}
-      >
-        {/* Popular badge */}
-        {tier.popular && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-sm font-bold text-white shadow-lg shadow-accent/25">
-              <Star className="h-4 w-4" />
-              Best Value
-            </span>
-          </div>
-        )}
-
-        {/* Icon */}
-        <div
-          className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${
-            tier.popular
-              ? "bg-gradient-to-br from-accent to-accent-light text-white shadow-md shadow-accent/20"
-              : "bg-accent/10 text-accent"
-          }`}
-        >
-          <Icon className="h-6 w-6" aria-hidden="true" />
-        </div>
-
-        {/* Title & tagline */}
-        <h3 className="text-xl font-bold text-navy dark:text-dark-text">
-          {tier.name}
-        </h3>
-        <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
-          {tier.tagline}
-        </p>
-
-        {/* Price */}
-        <div className="mt-6 mb-6 rounded-xl bg-surface-alt/60 dark:bg-dark-surface-alt/40 px-4 py-4 -mx-1">
-          <span className="text-4xl font-bold text-navy dark:text-dark-text tracking-tight">
-            {tier.price}
-          </span>
-          <span className="ml-1 text-sm text-text-muted dark:text-dark-text-muted">
-            {tier.priceNote}
-          </span>
-        </div>
-
-        {/* Divider */}
-        <div className="mb-6 h-px bg-border dark:bg-dark-border" aria-hidden="true" />
-
-        {/* Features list */}
-        <ul className="flex-1 space-y-3 mb-8">
-          {tier.features.map((feature) => (
-            <li key={feature} className="flex items-start gap-3">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-success/10">
-                <Check className="h-3 w-3 text-success" strokeWidth={3} aria-hidden="true" />
-              </span>
-              <span className="text-sm text-text dark:text-dark-text">
-                {feature}
               </span>
             </li>
           ))}
