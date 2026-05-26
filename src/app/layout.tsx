@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   description:
     "Metro Vancouver's trusted appliance installation & plumbing team. Licensed, insured, warranty-compliant. Serving Surrey, Vancouver, Burnaby & beyond.",
   alternates: {
-    canonical: "https://spsinstallation.com/",
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://spsinstallation.com",
+    url: siteConfig.url,
     siteName: "SPS Installation",
     title: "SPS Installation — Appliance Installation & Plumbing | Metro Vancouver",
     description: "Metro Vancouver's trusted appliance installation & plumbing team.",
