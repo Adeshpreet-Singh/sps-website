@@ -8,7 +8,6 @@ import {
   ChevronDown,
   ArrowRight,
   MapPin,
-  Quote,
 } from "lucide-react";
 import { siteConfig, services, whyUsFeatures, testimonials, serviceAreas, serviceImages, testimonialAvatars, homeFaqItems } from "@/lib/data";
 import { iconMap } from "@/lib/icons";
@@ -303,23 +302,33 @@ src={serviceImages[svc.slug]}
       {/* ============================================================ */}
       {/*  5. TESTIMONIALS                                             */}
       {/* ============================================================ */}
-      <section id="testimonials" aria-label="Testimonials" className="relative bg-white dark:bg-dark-surface border-t border-border dark:border-dark-border">
-        <div ref={testimonialsRef} className={`mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-20 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
-          {/* Section header */}
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm mb-3">
-              Testimonials
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">
+      <section id="testimonials" aria-label="Testimonials" className="relative bg-gradient-to-b from-white via-surface-alt/50 to-white dark:from-dark-surface dark:via-dark-surface-alt/30 dark:to-dark-surface border-t border-border dark:border-dark-border overflow-hidden">
+        {/* Subtle background decoration */}
+        <div aria-hidden="true" className="absolute top-10 left-[5%] h-64 w-64 rounded-full bg-accent/[0.03] blur-3xl" />
+        <div aria-hidden="true" className="absolute bottom-10 right-[5%] h-48 w-48 rounded-full bg-accent/[0.02] blur-3xl" />
+
+        <div ref={testimonialsRef} className={`relative mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-24 lg:px-8 reveal-hidden ${testimonialsVisible ? "reveal-visible" : ""}`}>
+          {/* Section header — refined with accent underline */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-accent animate-dot-pulse" />
+              <p className="text-accent-safe font-semibold tracking-wide uppercase text-sm">
+                Testimonials
+              </p>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy dark:text-dark-text">
               What our customers say
             </h2>
-            {/* Large decorative quote icon */}
-            <div className="mt-4 flex justify-center">
-              <Quote className="h-12 w-12 text-accent/15" aria-hidden="true" />
+            <p className="mt-4 text-text-muted dark:text-dark-text-muted leading-relaxed max-w-lg mx-auto">
+              Real reviews from homeowners and businesses across Metro Vancouver who trust Smith Pro Services.
+            </p>
+            {/* Accent underline */}
+            <div className="mt-5 flex justify-center">
+              <span aria-hidden="true" className="block h-1 w-16 rounded-full bg-gradient-to-r from-accent to-accent-light" />
             </div>
           </div>
 
-          {/* Testimonial carousel with auto-play, swipe, and stagger animation */}
+          {/* Testimonial carousel with auto-play, swipe, and crossfade */}
           <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
