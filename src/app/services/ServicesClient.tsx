@@ -173,6 +173,7 @@ export default function ServicesClient() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
             src="https://videos.pexels.com/video-files/5765849/5765849-uhd_2560_1440_25fps.mp4"
+            fetchPriority="high"
           />
         )}
         {/* Dark overlay */}
@@ -231,6 +232,7 @@ export default function ServicesClient() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110 animate-image-reveal"
                       sizes="(max-width: 768px) 100vw, 600px"
+                      loading="lazy"
                     />
                     {/* Gradient overlay on image */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />

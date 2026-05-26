@@ -283,6 +283,7 @@ export default function ContactClient() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 400px"
+                loading="lazy"
               />
               {/* Overlay with quick stats */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-4">

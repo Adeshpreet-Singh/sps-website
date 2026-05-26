@@ -180,6 +180,7 @@ export default function AboutClient() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 40vw"
+                  loading="lazy"
                 />
                 {/* Image overlay accent */}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -263,6 +264,7 @@ export default function AboutClient() {
                     fill
                     className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
                     sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                 </div>
                 {/* Overlay with enhanced blur */}

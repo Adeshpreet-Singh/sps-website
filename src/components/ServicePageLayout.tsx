@@ -223,6 +223,7 @@ export default function ServicePageLayout({
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="(max-width: 639px) 64px, (max-width: 1023px) 80px, 96px"
+                      loading="lazy"
                     />
                   </div>
                   <div className="lg:mt-4">

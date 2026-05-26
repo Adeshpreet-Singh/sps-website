@@ -336,6 +336,7 @@ function TestimonialCard({
               className="object-cover"
               sizes="(max-width: 640px) 48px, 56px"
               priority={slideIndex === 0}
+              loading={slideIndex === 0 ? undefined : "lazy"}
             />
           </div>
 

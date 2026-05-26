@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     // Cache optimized images for 30 days
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Allow SVG optimization with security
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Enable built-in compression (gzip/brotli)

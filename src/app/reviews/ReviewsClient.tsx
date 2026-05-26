@@ -188,6 +188,7 @@ export default function ReviewsClient() {
                           fill
                           className="object-cover"
                           sizes="40px"
+                          loading="lazy"
                         />
                       </div>
                     )}

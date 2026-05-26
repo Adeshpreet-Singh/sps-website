@@ -79,6 +79,7 @@ export default function HomeClient() {
             className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
           src="/videos/hero-bg.mp4"
           aria-hidden="true"
+          fetchPriority="high"
         />
         )}
         {/* Dark overlay for text readability — semi-transparent to show video */}
@@ -213,6 +214,7 @@ src={serviceImages[svc.slug]}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 640px) 100vw, 50vw"
+                      loading="lazy"
                     />
                   </div>
 

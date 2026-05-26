@@ -95,6 +95,7 @@ export default function ServiceAreaPage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 600px"
+                      loading="lazy"
                     />
                     {/* Label */}
                     <div className="absolute bottom-4 left-4 right-4 text-center">
