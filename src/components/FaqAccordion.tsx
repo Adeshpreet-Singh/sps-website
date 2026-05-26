@@ -93,7 +93,7 @@ export default function FaqAccordion({
               }}
             >
               <div className="overflow-hidden">
-                <div className="faq-content border-l-3 border-accent bg-accent/[0.03] dark:bg-accent/[0.06] mx-4 sm:mx-6 mb-4 sm:mb-5 rounded-r-lg px-4 sm:px-5 py-3 sm:py-4 text-text-muted dark:text-dark-text-muted leading-relaxed text-sm sm:text-base">
+                <div className="faq-content border-l-[3px] border-accent bg-accent/[0.03] dark:bg-accent/[0.06] mx-4 sm:mx-6 mb-4 sm:mb-5 rounded-r-lg px-4 sm:px-5 py-3 sm:py-4 text-text-muted dark:text-dark-text-muted leading-relaxed text-sm sm:text-base">
                   {faq.answer}
                 </div>
               </div>

@@ -233,7 +233,7 @@ export default function ServicesClient() {
                       sizes="(max-width: 768px) 100vw, 600px"
                     />
                     {/* Gradient overlay on image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
                     {/* Service number badge — decorative */}
                     <span aria-hidden="true" className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-navy shadow-md backdrop-blur-sm">
                       {service.number}

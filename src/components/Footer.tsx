@@ -97,7 +97,7 @@ export default function Footer() {
               <span className="text-2xl font-extrabold tracking-tight text-white group-hover:text-accent transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(232,122,46,0.4)] icon-bounce inline-block">
                 SPS
               </span>
-              <span className="ml-2 text-sm font-medium text-white/70 group-hover:text-white/90 transition-colors duration-200">
+              <span className="ml-2 text-sm font-medium text-white/70 group-hover:text-white/90 transition-colors duration-300">
                 Smith Pro Services
               </span>
             </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none link-underline min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none link-underline min-h-[44px] flex items-center animate-fade-in"
                   >
                     {service.title}
                   </Link>
@@ -186,7 +186,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none link-underline min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none link-underline min-h-[44px] flex items-center animate-fade-in"
                   >
                     {link.label}
                   </Link>
@@ -208,7 +208,7 @@ export default function Footer() {
                 <a
                   href={siteConfig.phoneLink}
                   aria-label={`Call us at ${siteConfig.phone}`}
-                  className="flex items-center gap-2.5 py-2 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none min-h-[44px]"
+                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
                 >
                   <Phone
                     className="h-4 w-4 text-accent flex-shrink-0"
@@ -221,7 +221,7 @@ export default function Footer() {
                 <a
                   href={siteConfig.emailLink}
                   aria-label={`Email us at ${siteConfig.email}`}
-                  className="flex items-center gap-2.5 py-2 transition-all duration-200 hover:text-accent hover:translate-x-1 motion-reduce:transition-none min-h-[44px]"
+                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
                 >
                   <Mail
                     className="h-4 w-4 text-accent flex-shrink-0"
@@ -247,7 +247,7 @@ export default function Footer() {
             {/* Quick CTA */}
             <Link
               href="/contact"
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
             >
               Get a Free Quote
             </Link>
@@ -268,7 +268,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="hover:text-accent transition-colors duration-200 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
+                className="hover:text-accent transition-colors duration-300 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
               >
                 {link.label}
               </Link>

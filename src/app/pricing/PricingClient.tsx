@@ -574,7 +574,7 @@ function FaqItem({ faq, index }: { faq: { question: string; answer: string }; in
           aria-hidden="true"
         />
       </summary>
-      <div className="details-content px-5 sm:px-6 pb-5 sm:pb-6">
+      <div className="details-content border-l-[3px] border-accent bg-accent/[0.03] dark:bg-accent/[0.06] mx-5 sm:mx-6 mb-5 sm:mb-6 rounded-r-lg px-5 sm:px-6 py-3 sm:py-4">
         <p className="text-text-muted dark:text-dark-text-muted leading-relaxed">
           {faq.answer}
         </p>

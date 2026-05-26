@@ -168,7 +168,7 @@ export default function ServicePageLayout({
               {includedSubtitle}
             </p>
           </div>
-          <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-dark-card dark:border dark:border-dark-border sm:p-8 lg:p-10">
+          <div className="mt-12 rounded-2xl bg-white dark:bg-dark-surface p-6 shadow-card dark:shadow-dark-card dark:border dark:border-dark-border sm:p-8 lg:p-10 hover:shadow-card-hover dark:hover:shadow-dark-card-hover transition-shadow duration-300">
             <ul className="grid gap-4 sm:grid-cols-2 stagger-check list-none p-0 m-0">
               {service.items.map((item) => (
                 <li

@@ -61,7 +61,7 @@ export default function CTABanner({
             <a
               href={siteConfig.phoneLink}
               aria-label={`Call us at ${siteConfig.phone}`}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy motion-reduce:transition-none motion-reduce:transform-none"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               {primaryLabel}
@@ -70,7 +70,7 @@ export default function CTABanner({
             <Link
               href={primaryHref}
               aria-label={primaryLabel}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-dark transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg shadow-lg shadow-accent/25 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy motion-reduce:transition-none motion-reduce:transform-none"
             >
               {primaryLabel}
               <ArrowRight className="w-4 h-4" aria-hidden="true" />

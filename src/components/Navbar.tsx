@@ -145,7 +145,7 @@ export default function Navbar() {
           <span className="inline-flex items-center rounded-full bg-navy dark:bg-accent px-4 py-1.5 text-sm font-bold text-white tracking-wide transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(232,122,46,0.3)] motion-reduce:transition-none motion-reduce:transform-none">
             SPS
           </span>
-          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted lg:inline">
+          <span className="hidden text-sm font-medium text-text-muted dark:text-dark-text-muted lg:inline transition-colors duration-300 group-hover:text-accent">
             Smith Pro Services
           </span>
         </Link>
@@ -179,7 +179,7 @@ export default function Navbar() {
                     />
                     {/* Animated underline */}
                     <span
-                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                         isServicesActive
                           ? "w-5 animate-accent-pulse"
                           : "w-0 group-hover:w-5"
@@ -244,7 +244,7 @@ export default function Navbar() {
                 {link.label}
                 {/* Animated underline — grows from center on hover/active */}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-accent transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                     isActive
                       ? "w-5 animate-accent-pulse"
                       : "w-0 group-hover:w-5"
@@ -268,7 +268,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             aria-label="Get a free quote"
-            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
+            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
           >
             Get a Quote
           </Link>
@@ -358,7 +358,7 @@ export default function Navbar() {
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className={`w-full rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center justify-between motion-reduce:transition-none ${
                       isServicesActive
-                        ? "bg-accent/10 text-accent-safe border-l-3 border-accent"
+                        ? "bg-accent/10 text-accent-safe border-l-[3px] border-accent"
                         : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent"
                     } ${mobileOpen ? "animate-slide-in-right" : ""}`}
                     style={
@@ -423,8 +423,8 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center motion-reduce:transition-none ${
                   isActive
-                    ? "bg-accent/10 text-accent-safe border-l-3 border-accent"
-                    : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-3 border-transparent transition-all duration-200"
+                    ? "bg-accent/10 text-accent-safe border-l-[3px] border-accent"
+                    : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-[3px] border-transparent transition-all duration-200"
                 } ${mobileOpen ? "animate-slide-in-right" : ""}`}
                 style={
                   mobileOpen

@@ -167,7 +167,7 @@ export default function HomeClient() {
             {siteConfig.retailers.map((retailer) => (
               <span
                 key={retailer}
-                className="inline-flex items-center rounded-full border border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface-alt px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-navy dark:text-dark-text select-none transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-md hover:shadow-accent/10 hover:scale-105 cursor-default active:scale-95"
+                className="inline-flex items-center rounded-full border border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface-alt px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-navy dark:text-dark-text select-none transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-md hover:shadow-accent/10 hover:scale-105 cursor-default active:scale-95 motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {retailer}
               </span>
@@ -203,7 +203,7 @@ export default function HomeClient() {
                   key={svc.slug}
                   href={`/services/${svc.slug}`}
                   aria-label={`${svc.title} - ${svc.shortDescription}`}
-                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover card-tilt"
+                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover card-tilt motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   {/* Service image */}
                   <div className="-mx-6 -mt-6 sm:-mx-8 sm:-mt-8 relative h-40 sm:h-48 overflow-hidden rounded-t-2xl">
@@ -301,7 +301,7 @@ src={serviceImages[svc.slug]}
               return (
                 <div
                   key={feature.title}
-                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] card-tilt"
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] card-tilt motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   {/* Icon in accent circle */}
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white icon-lift">
