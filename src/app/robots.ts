@@ -8,6 +8,9 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/data";
 
+// ISR: revalidate robots.txt every 24 hours
+export const revalidate = 86400;
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [

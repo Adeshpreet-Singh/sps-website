@@ -8,6 +8,9 @@
 import type { Metadata } from "next";
 import FaqClient from "./FaqClient";
 
+// ISR: revalidate every 24 hours (FAQ content is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Frequently asked questions about SPS Installation services — appliance installation, plumbing, pricing & scheduling.",

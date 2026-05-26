@@ -13,6 +13,7 @@
 
 "use client";
 
+import { useCallback } from "react";
 import Link from "next/link";
 import { siteConfig, services } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -43,13 +44,15 @@ const legalLinks: FooterLink[] = [
   { label: "Terms of Service", href: "#" },
 ];
 
+/** Memoized current year — only recalculates once per module load (SSR/CSR). */
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const [footerRef, footerVisible] = useScrollReveal({ threshold: 0.1 });
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
   return (
     <footer className="relative bg-navy dark:bg-dark-surface text-white transition-colors duration-300">

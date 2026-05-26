@@ -13,6 +13,9 @@
 
 import type { Metadata } from "next";
 
+// ISR: revalidate every 24 hours (service area is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Service Area",
   description:

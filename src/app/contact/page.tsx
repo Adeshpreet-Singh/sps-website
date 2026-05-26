@@ -10,6 +10,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 import ContactClient from "./ContactClient";
 
+// ISR: revalidate every 24 hours (contact info is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Contact Us",
   description: `Get a free quote for appliance installation or plumbing. Call ${siteConfig.phone} or fill out our online form.`,

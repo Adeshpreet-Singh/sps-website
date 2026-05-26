@@ -10,6 +10,9 @@ import type { Metadata } from "next";
 import { siteConfig, pricingTiers, plumbingTiers } from "@/lib/data";
 import PricingClient from "./PricingClient";
 
+// ISR: revalidate every 24 hours (pricing is stable)
+export const revalidate = 86400;
+
 /* ── SEO Metadata ── */
 
 export const metadata: Metadata = {

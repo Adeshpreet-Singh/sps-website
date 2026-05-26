@@ -33,6 +33,7 @@ import {
   XCircle,
   Loader2,
   RefreshCw,
+  ArrowRight,
 } from "lucide-react";
 import ErrorIcon from "@/components/ErrorIcon";
 
@@ -126,7 +127,7 @@ function FloatingInput({
     ? "border-error focus:border-error focus:ring-error/20"
     : valid
       ? "border-success focus:border-success focus:ring-success/20"
-      : "border-border focus:border-accent focus:ring-accent/20";
+      : "border-border dark:border-dark-border focus:border-accent focus:ring-accent/20";
 
   return (
     <div className="relative">
@@ -200,7 +201,7 @@ function FloatingSelect({
     ? "border-error focus:border-error focus:ring-error/20"
     : valid
       ? "border-success focus:border-success focus:ring-success/20"
-      : "border-border focus:border-accent focus:ring-accent/20";
+      : "border-border dark:border-dark-border focus:border-accent focus:ring-accent/20";
 
   return (
     <div className="relative">
@@ -278,10 +279,15 @@ function SuccessMessage() {
       <h3 className="text-2xl font-heading font-bold text-text dark:text-dark-text mb-2">
         Thank you!
       </h3>
-      <p className="text-text-muted dark:text-dark-text-muted max-w-md">
+      <p className="text-text-muted dark:text-dark-text-muted max-w-md mb-6">
         Your quote request has been received. We&apos;ll get back to you within
         24 hours.
       </p>
+      {/* Next steps hint */}
+      <div className="flex items-center gap-2 text-sm text-accent-safe font-medium">
+        <span>Check your email for a confirmation</span>
+        <ArrowRight className="w-4 h-4" aria-hidden="true" />
+      </div>
     </div>
   );
 }
@@ -325,6 +331,8 @@ export default function ContactForm() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   // Track current values for live validation
   const [values, setValues] = useState<Record<string, string>>({});
+  // Ref for error to avoid circular dependency in updateValue callback
+  const errorRef = useRef<string | null>(null);
 
   const markTouched = useCallback((field: string) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
@@ -334,9 +342,12 @@ export default function ContactForm() {
     (field: string, value: string) => {
       setValues((prev) => ({ ...prev, [field]: value }));
       // Clear form-level error when user starts editing
-      if (error) setError(null);
+      if (errorRef.current) {
+        errorRef.current = null;
+        setError(null);
+      }
     },
-    [error]
+    [],
   );
 
   // Derive errors only for touched fields
@@ -387,6 +398,7 @@ export default function ContactForm() {
     if (!isFormValid()) return;
 
     setLoading(true);
+    errorRef.current = null;
     setError(null);
 
     // Simulate network request with occasional failure for demo
@@ -395,9 +407,9 @@ export default function ContactForm() {
       // Simulate ~10% failure rate for realistic UX
       const shouldFail = Math.random() < 0.1;
       if (shouldFail) {
-        setError(
-          "We couldn't send your request due to a network issue. Please try again or call us directly."
-        );
+        const msg = "We couldn't send your request due to a network issue. Please try again or call us directly.";
+        errorRef.current = msg;
+        setError(msg);
       } else {
         setSubmitted(true);
       }
@@ -405,6 +417,7 @@ export default function ContactForm() {
   }
 
   function handleRetry() {
+    errorRef.current = null;
     setError(null);
     setSubmitted(false);
   }
@@ -528,7 +541,7 @@ export default function ContactForm() {
       </div>
 
       {/* Privacy note */}
-      <p className="text-xs text-text-light text-center sm:text-left">
+      <p className="text-xs text-text-light dark:text-dark-text-muted text-center sm:text-left">
         Your information is secure and will only be used to respond to your
         inquiry.
       </p>

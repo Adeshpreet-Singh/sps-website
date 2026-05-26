@@ -9,6 +9,9 @@
 import type { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
+// ISR: revalidate every 24 hours (about page content is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "About Us",
   description: "Learn about SPS Installation — Metro Vancouver's trusted team for appliance installation & plumbing since 2025.",

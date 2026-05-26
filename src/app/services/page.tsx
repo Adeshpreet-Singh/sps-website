@@ -9,6 +9,9 @@
 import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
+// ISR: revalidate every 24 hours (services hub is stable)
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Our Services",
   description: "Appliance installation & plumbing services for residential & commercial properties across Metro Vancouver.",

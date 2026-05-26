@@ -6,6 +6,7 @@
  * - Contact info cards (phone, email, hours, address, message)
  * - JSON-LD LocalBusiness structured data for rich search results
  * - Dynamically loaded ContactForm (code-split, no SSR)
+ * - Trust signals section with key differentiators
  *
  * The ContactForm is loaded via next/dynamic with ssr:false because it
  * contains form state and validation that only runs client-side. A
@@ -26,6 +27,10 @@ import {
   MapPin,
   Building,
   MessageCircle,
+  Shield,
+  BadgeCheck,
+  Star,
+  ChevronDown,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { ContactFormSkeleton } from "@/components/Skeleton";
@@ -120,9 +125,28 @@ function ContactCard({
   );
 }
 
+/* ---------- Trust signal item ---------- */
+function TrustSignal({
+  icon: Icon,
+  label,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+}) {
+  return (
+    <div className="flex items-center gap-2.5 text-sm text-text-muted dark:text-dark-text-muted">
+      <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+        <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
+      </div>
+      <span className="font-medium">{label}</span>
+    </div>
+  );
+}
+
 export default function ContactClient() {
   const [formRef, formVisible] = useScrollReveal();
   const [infoRef, infoVisible] = useScrollReveal();
+  const [trustRef, trustVisible] = useScrollReveal();
 
   const fullAddress = `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.province} ${siteConfig.address.postal}`;
 
@@ -144,9 +168,21 @@ export default function ContactClient() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-navy/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy/70" />
+        {/* Animated gradient overlay */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-navy-light/20 gradient-animated" />
+        {/* Decorative shapes */}
+        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full bg-accent/5 blur-3xl animate-parallax-float" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] left-[-5%] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] rounded-full bg-white/[0.03] blur-3xl animate-parallax-float delay-500" />
+        <div aria-hidden="true" className="absolute top-20 left-[15%] w-3 h-3 rounded-full bg-accent/30 animate-dot-pulse" />
+        <div aria-hidden="true" className="absolute top-36 right-[20%] w-2 h-2 rounded-full bg-white/20 animate-dot-pulse delay-300" />
+        <div aria-hidden="true" className="absolute bottom-20 left-[30%] w-4 h-4 rounded-full bg-accent/20 animate-dot-pulse delay-500" />
+        {/* Horizontal accent lines */}
+        <div aria-hidden="true" className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in">
+          <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in border border-white/10">
             We&apos;re Here to Help
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 sm:mb-6 tracking-tight animate-slide-up">
@@ -176,6 +212,11 @@ export default function ContactClient() {
               Email Us
             </a>
           </div>
+
+          {/* Scroll indicator */}
+          <div className="mt-8 animate-scroll-hint" aria-hidden="true">
+            <ChevronDown className="w-5 h-5 mx-auto text-white/40" />
+          </div>
         </div>
       </section>
 
@@ -187,12 +228,18 @@ export default function ContactClient() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — Contact Form */}
           <div ref={formRef} className={`lg:col-span-3 reveal-hidden ${formVisible ? "reveal-visible" : ""}`}>
-            <div className="rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 sm:p-6 md:p-8 lg:p-10 shadow-card dark:shadow-none focus-within-highlight">
+            <div className="rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 sm:p-6 md:p-8 lg:p-10 shadow-card dark:shadow-none focus-within-highlight relative overflow-hidden">
+              {/* Subtle gradient accent at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent-light to-accent opacity-60" />
               <div className="flex items-center gap-3 mb-2">
-                <MessageCircle className="h-6 w-6 text-accent" aria-hidden="true" />
-                <h2 className="text-2xl font-heading font-bold text-text dark:text-dark-text">
-                  Request a Quote
-                </h2>
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <MessageCircle className="h-5 w-5 text-accent" aria-hidden="true" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-heading font-bold text-text dark:text-dark-text">
+                    Request a Quote
+                  </h2>
+                </div>
               </div>
               <p id="form-instructions" className="text-text-muted dark:text-dark-text-muted text-sm mb-8">
                 Fields marked with <span className="text-error">*</span> are
@@ -213,17 +260,26 @@ export default function ContactClient() {
                 <ContactForm />
               </ErrorBoundary>
             </div>
+
+            {/* Trust signals below form */}
+            <div ref={trustRef} className={`mt-8 reveal-hidden ${trustVisible ? "reveal-visible" : ""}`}>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <TrustSignal icon={Shield} label="Licensed & Insured" />
+                <TrustSignal icon={BadgeCheck} label="Warranty-Compliant" />
+                <TrustSignal icon={Star} label={`${siteConfig.stats.rating}★ Rating`} />
+              </div>
+            </div>
           </div>
 
           {/* Right — Contact Image + Info Cards */}
           <div ref={infoRef} className={`lg:col-span-2 flex flex-col gap-6 lg:sticky lg:top-8 self-start stagger-children reveal-left-hidden ${infoVisible ? "reveal-left-visible" : ""}`}>
             {/* Contact image */}
-            <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-2xl lg:h-72">
+            <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-2xl lg:h-72 group img-zoom-hover">
               <Image
                 src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=800&fit=crop"
                 alt="SPS Installation service van and professional tools ready for appliance installation"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
               {/* Overlay with quick stats */}
@@ -237,11 +293,16 @@ export default function ContactClient() {
                   </span>
                 </div>
               </div>
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
-            <h2 className="text-xl font-heading font-bold text-text dark:text-dark-text">
-              Contact Information
-            </h2>
+            <div className="flex items-center gap-3">
+              <h2 className="text-xl font-heading font-bold text-text dark:text-dark-text">
+                Contact Information
+              </h2>
+              <div className="flex-1 h-px bg-gradient-to-r from-border dark:from-dark-border to-transparent" />
+            </div>
 
             <ContactCard
               icon={Phone}
