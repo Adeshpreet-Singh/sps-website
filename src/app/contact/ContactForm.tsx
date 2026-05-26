@@ -290,7 +290,7 @@ function SuccessMessage() {
       </p>
       {/* Next steps hint */}
       <div className="flex items-center gap-2 text-sm text-accent-safe font-medium">
-        <span>Check your email for a confirmation</span>
+        <span>We&apos;ll be in touch within 24 hours</span>
         <ArrowRight className="w-4 h-4" aria-hidden="true" />
       </div>
     </div>

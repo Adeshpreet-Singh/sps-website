@@ -11,7 +11,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Home, Wrench, Phone, Info } from "lucide-react";
+import { Home, Wrench, Phone, Info, DollarSign, Star, HelpCircle } from "lucide-react";
 
 export default function NotFound() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -66,7 +66,7 @@ export default function NotFound() {
         <p className="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-dark-text-muted mb-4">
           Or try one of these
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" role="list" aria-label="Quick navigation">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" role="list" aria-label="Quick navigation">
           <Link
             href="/services"
             role="listitem"
@@ -120,6 +120,63 @@ export default function NotFound() {
               </p>
               <p className="text-xs text-text-muted dark:text-dark-text-muted truncate">
                 Who we are
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/pricing"
+            role="listitem"
+            aria-label="View our transparent pricing packages"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px] card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
+              <DollarSign className="w-5 h-5 text-white" aria-hidden="true" />
+            </div>
+            <div className="text-left min-w-0">
+              <p className="font-semibold text-text dark:text-dark-text group-hover:text-accent transition-colors text-sm">
+                Pricing
+              </p>
+              <p className="text-xs text-text-muted dark:text-dark-text-muted truncate">
+                Transparent packages
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/reviews"
+            role="listitem"
+            aria-label="Read customer reviews and testimonials"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px] card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
+              <Star className="w-5 h-5 text-white" aria-hidden="true" />
+            </div>
+            <div className="text-left min-w-0">
+              <p className="font-semibold text-text dark:text-dark-text group-hover:text-accent transition-colors text-sm">
+                Reviews
+              </p>
+              <p className="text-xs text-text-muted dark:text-dark-text-muted truncate">
+                Customer testimonials
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/faq"
+            role="listitem"
+            aria-label="Frequently asked questions"
+            className="group flex items-center gap-3 rounded-xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-4 transition-all duration-300 hover:shadow-card-hover dark:hover:border-accent/20 hover:border-accent/20 hover:-translate-y-0.5 min-h-[44px] card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center shrink-0 shadow-md shadow-navy/20 dark:shadow-none">
+              <HelpCircle className="w-5 h-5 text-white" aria-hidden="true" />
+            </div>
+            <div className="text-left min-w-0">
+              <p className="font-semibold text-text dark:text-dark-text group-hover:text-accent transition-colors text-sm">
+                FAQ
+              </p>
+              <p className="text-xs text-text-muted dark:text-dark-text-muted truncate">
+                Common questions
               </p>
             </div>
           </Link>

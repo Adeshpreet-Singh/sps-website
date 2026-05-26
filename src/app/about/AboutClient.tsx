@@ -152,18 +152,18 @@ export default function AboutClient() {
                 </p>
               </div>
               <p>
-                Founded in 2025, {siteConfig.shortName} was built on a simple
+                Founded in {siteConfig.legal.incorporated.split(",")[1]?.trim() || "2025"}, {siteConfig.shortName} was built on a simple
                 idea: homeowners deserve the same level of care and
                 professionalism for their appliance installations as they get
                 from the appliances themselves.
               </p>
               <p>
-                Over {siteConfig.stats.yearsInBusiness} years and{" "}
-                {siteConfig.stats.installations} installations later, we&apos;ve
-                grown into Metro Vancouver&apos;s go-to team for appliance
-                installation and plumbing services. From single-family homes in
-                Surrey to multi-unit developments across the Lower Mainland, our
-                work speaks for itself.
+                Our team brings {siteConfig.stats.yearsInBusiness} years of
+                combined trade experience and{" "}
+                {siteConfig.stats.installations} completed installations to
+                every job. From single-family homes in Surrey to multi-unit
+                developments across the Lower Mainland, we&apos;re building a
+                reputation one project at a time.
               </p>
               <p>
                 We&apos;re not just installers. We&apos;re your home&apos;s last

@@ -39,10 +39,7 @@ const companyLinks: FooterLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-const legalLinks: FooterLink[] = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-];
+const legalLinks: FooterLink[] = [];
 
 /** Memoized current year — only recalculates once per module load (SSR/CSR). */
 const currentYear = new Date().getFullYear();
@@ -263,16 +260,20 @@ export default function Footer() {
               &copy; {currentYear} {siteConfig.legal.name}. All rights
               reserved.
             </p>
-            <span className="hidden sm:inline text-white/30">|</span>
-            {legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-accent transition-colors duration-300 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {legalLinks.length > 0 && (
+              <>
+                <span className="hidden sm:inline text-white/30">|</span>
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="hover:text-accent transition-colors duration-300 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
