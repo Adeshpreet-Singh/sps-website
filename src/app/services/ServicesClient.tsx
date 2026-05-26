@@ -192,7 +192,7 @@ export default function ServicesClient() {
 
         <div className="relative mx-auto max-w-3xl">
           <Breadcrumb items={[{ name: "Services", path: "/services" }]} />
-          <span className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/70 animate-fade-in">
+          <span className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/70 animate-fade-in motion-reduce:transition-none">
             What We Do
           </span>
           <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl animate-slide-up">
@@ -220,7 +220,7 @@ export default function ServicesClient() {
             return (
               <article
                 key={service.slug}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* ── Top: Image ── */}
                 {serviceImages[service.slug] && (
@@ -288,7 +288,7 @@ export default function ServicesClient() {
                       <Link
                         href={`/services/${service.slug}`}
                         aria-label={`Learn more about ${service.title}`}
-                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer motion-reduce:transition-none"
                       >
                         Learn More
                         <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -318,7 +318,7 @@ export default function ServicesClient() {
               return (
               <div
                 key={title}
-                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine"
+                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 icon-lift">
                   <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
@@ -337,7 +337,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <div ref={ctaRef} className={`mx-auto max-w-2xl reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
           <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
             <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text sm:text-3xl lg:text-4xl">
@@ -351,14 +351,14 @@ export default function ServicesClient() {
               <a
                 href={siteConfig.phoneLink}
                 aria-label={`Call us at ${siteConfig.phone}`}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" />
                 Call {siteConfig.phone}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all duration-300 hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none"
               >
                 Contact Us Online
               </Link>

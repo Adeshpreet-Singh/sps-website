@@ -73,7 +73,7 @@ export default function PricingClient() {
 
         <div className="relative z-10 mx-auto max-w-3xl">
           <Breadcrumb items={[{ name: "Pricing", path: "/pricing" }]} />
-          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in">
+          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in motion-reduce:transition-none">
             Transparent Pricing
           </span>
           <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white animate-slide-up">
@@ -97,7 +97,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  2. APPLIANCE INSTALLATION PRICING CARDS                     */}
       {/* ============================================================ */}
-      <section aria-label="Appliance installation pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
+      <section aria-label="Appliance installation pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <ScrollReveal className="mx-auto max-w-7xl">
           {/* Section header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -138,7 +138,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  3. FEATURE COMPARISON TABLE                                 */}
       {/* ============================================================ */}
-      <section aria-label="Feature comparison" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
+      <section aria-label="Feature comparison" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">
@@ -193,7 +193,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  4. PLUMBING PRICING CARDS                                   */}
       {/* ============================================================ */}
-      <section aria-label="Plumbing pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
+      <section aria-label="Plumbing pricing" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <ScrollReveal className="mx-auto max-w-7xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -268,7 +268,7 @@ export default function PricingClient() {
       {/* ============================================================ */}
       {/*  6. FAQ                                                      */}
       {/* ============================================================ */}
-      <section aria-label="Pricing FAQ" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:px-8">
+      <section aria-label="Pricing FAQ" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <ScrollReveal className="mx-auto max-w-3xl">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-navy dark:text-dark-text">
@@ -319,7 +319,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
   return (
     <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
       <div
-        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
+        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none ${
           tier.popular
             ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_50px_rgba(232,122,46,0.25)] dark:hover:shadow-[0_0_50px_rgba(232,122,46,0.2)]"
             : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"
@@ -421,7 +421,7 @@ function PlumbingCard({ tier, index }: { tier: PlumbingTier; index: number }) {
   return (
     <ScrollReveal delay={((index % 3) + 1) as 1 | 2 | 3}>
       <div
-        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 ${
+        className={`relative flex flex-col rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none ${
           tier.popular
             ? "bg-white dark:bg-dark-surface border-2 border-accent shadow-[0_0_30px_rgba(232,122,46,0.15)] dark:shadow-[0_0_30px_rgba(232,122,46,0.1)] hover:shadow-[0_0_50px_rgba(232,122,46,0.25)] dark:hover:shadow-[0_0_50px_rgba(232,122,46,0.2)]"
             : "bg-white dark:bg-dark-surface border border-border dark:border-dark-border shadow-card dark:shadow-dark-card hover:shadow-card-hover dark:hover:shadow-dark-card-hover gradient-border-accent"

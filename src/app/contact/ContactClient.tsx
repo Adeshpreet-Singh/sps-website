@@ -184,7 +184,7 @@ export default function ContactClient() {
 
         <div className="relative max-w-4xl mx-auto text-center">
           <Breadcrumb items={[{ name: "Contact Us", path: "/contact" }]} />
-          <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in border border-white/10">
+          <span className="inline-block rounded-full bg-white/10 text-white/80 text-sm font-medium px-4 py-1.5 mb-6 animate-fade-in border border-white/10 motion-reduce:transition-none">
             We&apos;re Here to Help
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 sm:mb-6 tracking-tight animate-slide-up">
@@ -199,7 +199,7 @@ export default function ContactClient() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <a
               href={siteConfig.phoneLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press btn-shimmer"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press btn-shimmer motion-reduce:transition-none motion-reduce:transform-none"
               aria-label={`Call us at ${siteConfig.phone}`}
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
@@ -207,7 +207,7 @@ export default function ContactClient() {
             </a>
             <a
               href={siteConfig.emailLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5 active:translate-y-0 btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5 active:translate-y-0 btn-press motion-reduce:transition-none motion-reduce:transform-none"
               aria-label={`Email us at ${siteConfig.email}`}
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
@@ -225,7 +225,7 @@ export default function ContactClient() {
       {/* Two-Column Layout */}
       <section
         aria-label="Contact form and information"
-        className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 -mt-4 sm:-mt-8"
+        className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left — Contact Form */}

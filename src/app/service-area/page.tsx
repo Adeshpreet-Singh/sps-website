@@ -81,7 +81,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Coverage Area — gradient border card, CSS grid pattern */}
-      <section aria-label="Coverage details" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 -mt-6 sm:-mt-12">
+      <section aria-label="Coverage details" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-12">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal variant="fade-scale">
             <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-accent via-accent-light to-navy gradient-border-shine">
@@ -142,7 +142,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Cities Grid — badges with hover fill */}
-      <section aria-label="Cities we serve" className="py-16 sm:py-20 px-4 sm:px-6 bg-surface-alt dark:bg-dark-surface-alt">
+      <section aria-label="Cities we serve" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-surface-alt dark:bg-dark-surface-alt">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -173,7 +173,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* Service Details — two-column icon cards */}
-      <section aria-label="Service details" className="py-16 sm:py-20 px-4 sm:px-6">
+      <section aria-label="Service details" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-14">

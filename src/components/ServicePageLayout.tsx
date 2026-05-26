@@ -131,7 +131,7 @@ export default function ServicePageLayout({
       {/* Hero */}
       <section
         aria-label="Service hero"
-        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 text-center text-white"
       >
         <div aria-hidden="true" className="absolute inset-0">
           <Image src={heroImageUrl} alt="" fill className="object-cover" priority sizes="100vw" />
@@ -152,7 +152,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* What's Included */}
-      <section aria-label="What's included" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <section aria-label="What's included" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -187,7 +187,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* Our Process */}
-      <section aria-label="Our process" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <section aria-label="Our process" className="bg-surface-alt dark:bg-dark-surface-alt px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-5xl">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -242,7 +242,7 @@ export default function ServicePageLayout({
       </section>
 
       {/* FAQs */}
-      <section aria-label="Frequently asked questions" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <section aria-label="Frequently asked questions" className="bg-surface dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <ScrollReveal className="mx-auto max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-navy dark:text-dark-text lg:text-4xl">
@@ -259,18 +259,8 @@ export default function ServicePageLayout({
       {/* CTA */}
       <section
         aria-label="Get started"
-        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 py-16 sm:py-20 lg:py-28 text-center text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-light px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 text-center text-white"
       >
-        <div aria-hidden="true" className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=400&fit=crop"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-navy/50" />
         <ScrollReveal className="relative z-10 mx-auto max-w-2xl">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Ready to get started?</h2>
           <p className="mt-5 text-lg text-white/70 lg:text-xl">{ctaDescription}</p>
@@ -283,7 +273,7 @@ export default function ServicePageLayout({
             </Link>
             <Link
               href="/services"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 btn-press"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white backdrop-blur transition-all hover:border-white/40 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer"
             >
               View All Services
             </Link>

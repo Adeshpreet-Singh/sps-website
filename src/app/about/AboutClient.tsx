@@ -113,7 +113,7 @@ export default function AboutClient() {
 
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
           <Breadcrumb items={[{ name: "About Us", path: "/about" }]} />
-          <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 rounded-full border border-accent/20 animate-fade-in">
+          <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 rounded-full border border-accent/20 animate-fade-in motion-reduce:transition-none">
             Est. {siteConfig.legal.incorporated}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white animate-slide-up">
@@ -144,7 +144,7 @@ export default function AboutClient() {
                 Built on Trust, Driven by Craft
               </h2>
               {/* Decorative quote */}
-              <div className="relative pl-6 border-l-2 border-accent/30">
+              <div className="relative pl-6 border-l-2 border-accent/30 transition-all duration-300 hover:border-accent/60 motion-reduce:transition-none">
                 <p className="text-lg italic text-text dark:text-dark-text/80">
                   &ldquo;Homeowners deserve the same level of care and professionalism
                   for their appliance installations as they get from the appliances
@@ -253,7 +253,7 @@ export default function AboutClient() {
             {VALUES_DATA.map((value, idx) => (
               <div
                 key={value.title}
-                className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_40px_rgba(232,122,46,0.12)] transition-all duration-500 hover:-translate-y-1.5 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1}`}
+                className={`group relative rounded-xl overflow-hidden border border-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_40px_rgba(232,122,46,0.12)] transition-all duration-500 hover:-translate-y-1.5 reveal-scale-hidden ${valuesVisible ? "reveal-scale-visible" : ""} reveal-delay-${idx + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* Background image — decorative */}
                 <div aria-hidden="true" className="absolute inset-0">
@@ -312,7 +312,7 @@ export default function AboutClient() {
               <div
                 key={leader.name}
                 role="listitem"
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />
