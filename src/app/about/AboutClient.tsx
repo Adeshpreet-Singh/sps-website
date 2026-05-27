@@ -178,7 +178,7 @@ export default function AboutClient() {
                   src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=800&fit=crop"
                   alt="Our team at work"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none motion-reduce:transform-none"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   loading="lazy"
                 />
@@ -273,7 +273,7 @@ export default function AboutClient() {
                 {/* Subtle gradient accent on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative p-6">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
                     <value.icon className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">
@@ -283,7 +283,7 @@ export default function AboutClient() {
                     {value.description}
                   </p>
                   {/* Bottom accent line */}
-                  <div className="mt-4 w-0 h-0.5 bg-accent rounded-full group-hover:w-12 transition-all duration-500" />
+                  <div className="mt-4 w-0 h-0.5 bg-accent rounded-full group-hover:w-12 transition-all duration-500 motion-reduce:transition-none" />
                 </div>
               </div>
             ))}
@@ -315,15 +315,15 @@ export default function AboutClient() {
               <div
                 key={leader.name}
                 role="listitem"
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt motion-reduce:transition-none motion-reduce:transform-none"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />
                 <div className="absolute inset-[1.5px] rounded-[10px] bg-white dark:bg-dark-surface -z-10" />
 
                 {/* Avatar with initial */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <span className="text-2xl font-bold text-accent group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-navy to-navy-light dark:from-dark-surface-alt dark:to-dark-border flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-300 motion-reduce:transition-none">
+                  <span className="text-2xl font-bold text-accent group-hover:scale-110 transition-transform duration-300 motion-reduce:transition-none motion-reduce:transform-none">
                     {leader.initial}
                   </span>
                 </div>
@@ -332,7 +332,7 @@ export default function AboutClient() {
                 </h3>
                 <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">{leader.role}</p>
                 {/* Decorative role accent */}
-                <div className="mt-3 w-8 h-0.5 bg-accent/30 rounded-full group-hover:w-12 group-hover:bg-accent transition-all duration-300" />
+                <div className="mt-3 w-8 h-0.5 bg-accent/30 rounded-full group-hover:w-12 group-hover:bg-accent transition-all duration-300 motion-reduce:transition-none" />
               </div>
             ))}
           </div>

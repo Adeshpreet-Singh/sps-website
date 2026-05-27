@@ -223,7 +223,7 @@ export default function ServicesClient() {
                 key={service.slug}
                 role="listitem"
                 aria-label={service.title}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1} motion-reduce:transition-none motion-reduce:transform-none`}
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 dark:border-dark-border/60 bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card transition-all duration-300 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-tilt reveal-hidden ${servicesListVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* ── Top: Image ── */}
                 {serviceImages[service.slug] && (
@@ -232,7 +232,7 @@ export default function ServicesClient() {
                       src={serviceImages[service.slug]}
                       alt={serviceImageAlts[service.slug] ?? service.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110 animate-image-reveal"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 animate-image-reveal motion-reduce:transition-none motion-reduce:transform-none"
                       sizes="(max-width: 768px) 100vw, 600px"
                       loading="lazy"
                     />
@@ -248,7 +248,7 @@ export default function ServicesClient() {
                 <div className="flex flex-col md:flex-row">
                   {/* ── Left: Icon + Number ── */}
                   <div className="flex shrink-0 items-center justify-center gap-3 bg-gradient-to-br from-[#0f1b3d] to-[#1a2760] px-6 py-6 text-white md:flex-col md:px-8 md:w-56 md:py-14">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:transform-none">
                       <Icon className="h-8 w-8" aria-hidden="true" />
                     </div>
                     <span className="text-sm font-semibold tracking-wider text-white/80">
@@ -323,7 +323,7 @@ export default function ServicesClient() {
               <div
                 key={title}
                 role="listitem"
-                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-md card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
+                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:border-accent/30 card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 icon-lift">
                   <Icon className="h-6 w-6 text-accent" aria-hidden="true" />

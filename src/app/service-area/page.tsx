@@ -212,7 +212,7 @@ export default function ServiceAreaPage() {
               <ScrollReveal key={title} delay={(idx + 1) as 1 | 2 | 3 | 4}>
                 <div
                   role="listitem"
-                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-500 hover:shadow-card-hover hover:border-accent/30 hover:-translate-y-1 dark:hover:shadow-dark-card-hover dark:hover:border-accent/30 motion-reduce:transition-none motion-reduce:transform-none"
+                  className="group flex gap-5 rounded-2xl border border-border dark:border-dark-border bg-surface dark:bg-dark-surface p-6 transition-all duration-500 hover:border-accent/30 dark:hover:border-accent/30 card-hover motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Icon className="w-6 h-6 text-accent" aria-hidden="true" />

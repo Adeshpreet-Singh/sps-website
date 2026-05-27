@@ -110,7 +110,7 @@ export default function ReviewsClient() {
       <section aria-label="Overall rating" className="-mt-12 relative z-10 pb-16 sm:pb-20">
         <div ref={ratingRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale-hidden ${ratingVisible ? "reveal-scale-visible" : ""}`}>
           <div className="mx-auto max-w-xl">
-            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] dark:shadow-none ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 gradient-border-shine">
+            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 gradient-border-shine">
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1.5 star-rating-pop" aria-label={`${RATING} out of 5 stars`}>
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -154,7 +154,7 @@ export default function ReviewsClient() {
                 key={t.name}
                 role="listitem"
                 aria-label={`Review by ${t.name}`}
-                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5 card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
               >
                 {/* Left accent gradient border */}
                 <div className="absolute left-0 top-8 bottom-8 w-1 rounded-r-full bg-gradient-to-b from-accent to-accent-light" />
@@ -239,7 +239,7 @@ export default function ReviewsClient() {
                 rel="noopener noreferrer"
                 role="listitem"
                 aria-label="Read our reviews on Google Business (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -265,7 +265,7 @@ export default function ReviewsClient() {
                 rel="noopener noreferrer"
                 role="listitem"
                 aria-label="Read our reviews on Homestars (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">

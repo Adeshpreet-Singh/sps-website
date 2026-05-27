@@ -215,7 +215,7 @@ export default function HomeClient() {
                   href={`/services/${svc.slug}`}
                   role="listitem"
                   aria-label={`${svc.title} - ${svc.shortDescription}`}
-                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-hover card-tilt motion-reduce:transition-none motion-reduce:transform-none"
+                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-tilt motion-reduce:transition-none motion-reduce:transform-none"
                 >
                   {/* Service image */}
                   <div className="-mx-6 -mt-6 sm:-mx-8 sm:-mt-8 relative h-40 sm:h-48 overflow-hidden rounded-t-2xl">
@@ -223,7 +223,7 @@ export default function HomeClient() {
 src={serviceImages[svc.slug]}
                       alt={svc.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110 motion-reduce:transition-none motion-reduce:transform-none"
                       sizes="(max-width: 640px) 100vw, 50vw"
                       loading="lazy"
                     />
@@ -235,7 +235,7 @@ src={serviceImages[svc.slug]}
                   </span>
 
                   {/* Icon in gradient rounded square */}
-                  <div className="mt-4 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-light text-white shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
+                  <div className="mt-4 mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-light text-white shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
 

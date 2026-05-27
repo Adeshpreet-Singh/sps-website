@@ -318,7 +318,7 @@ function TestimonialCard({
   totalSlides,
 }: TestimonialCardProps) {
   return (
-    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
+    <article className="group/card rounded-2xl bg-white dark:bg-dark-surface shadow-card dark:shadow-dark-card border border-border/60 dark:border-dark-border/60 overflow-hidden transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover motion-reduce:transition-none motion-reduce:transform-none">
       {/* Top accent gradient bar — with hover glow */}
       <div className="h-1 w-full bg-gradient-to-r from-accent via-accent-light to-accent transition-all duration-500 group-hover/card:h-1.5 group-hover/card:shadow-[0_2px_12px_rgba(232,122,46,0.3)] motion-reduce:transition-none" />
 

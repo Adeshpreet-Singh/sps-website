@@ -46,7 +46,7 @@ export default function FaqAccordion({
         return (
           <div
             key={faq.question}
-            className={`faq-item rounded-xl bg-white dark:bg-dark-surface shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-dark-border transition-all duration-300 ${
+            className={`faq-item rounded-xl bg-white dark:bg-dark-surface shadow-[0_1px_3px_rgba(0,0,0,0.06)] dark:shadow-none dark:border dark:border-dark-border transition-all duration-300 motion-reduce:transition-none ${
               isOpen
                 ? "shadow-[0_4px_16px_rgba(0,0,0,0.08)] dark:border-accent/30 ring-1 ring-accent/10 dark:ring-accent/20"
                 : ""

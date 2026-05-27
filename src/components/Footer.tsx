@@ -165,7 +165,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none link-underline min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in"
                   >
                     {service.title}
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none link-underline min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in"
                   >
                     {link.label}
                   </Link>
