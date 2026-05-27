@@ -31,14 +31,14 @@ export default function Breadcrumb({
         <li>
           <Link
             href="/"
-            className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
+            className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark"
           >
             Home
           </Link>
         </li>
         {items.map((item, idx) => (
           <li key={item.path} className="flex items-center gap-2">
-            <span className="text-white/40" aria-hidden="true">
+            <span className="text-white/60" aria-hidden="true">
               /
             </span>
             {idx === items.length - 1 ? (
@@ -48,7 +48,7 @@ export default function Breadcrumb({
             ) : (
               <Link
                 href={item.path}
-                className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
+                className="text-white/70 hover:text-white transition-colors motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark"
               >
                 {item.name}
               </Link>

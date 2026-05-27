@@ -165,7 +165,7 @@ export default function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                   >
                     {service.title}
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in"
+                    className="block py-2 text-sm text-white/70 transition-all duration-300 hover:text-accent hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] flex items-center animate-fade-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                   >
                     {link.label}
                   </Link>
@@ -209,7 +209,7 @@ export default function Footer() {
                 <a
                   href={siteConfig.phoneLink}
                   aria-label={`Call us at ${siteConfig.phone}`}
-                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
+                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                 >
                   <Phone
                     className="h-4 w-4 text-accent flex-shrink-0"
@@ -222,7 +222,7 @@ export default function Footer() {
                 <a
                   href={siteConfig.emailLink}
                   aria-label={`Email us at ${siteConfig.email}`}
-                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
+                  className="flex items-center gap-2.5 py-2 transition-all duration-300 hover:text-accent hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                 >
                   <Mail
                     className="h-4 w-4 text-accent flex-shrink-0"
@@ -272,7 +272,7 @@ export default function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="hover:text-accent transition-colors duration-300 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center"
+                    className="hover:text-accent transition-colors duration-300 motion-reduce:transition-none py-1 min-h-[44px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                   >
                     {link.label}
                   </Link>

@@ -125,7 +125,7 @@ export default function AboutClient() {
           </p>
           {/* Scroll indicator */}
           <div className="mt-10 animate-scroll-hint" aria-hidden="true">
-            <ChevronDown className="w-5 h-5 mx-auto text-white/40" />
+            <ChevronDown className="w-5 h-5 mx-auto text-white/60" />
           </div>
         </div>
       </section>

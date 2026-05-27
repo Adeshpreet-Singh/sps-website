@@ -234,7 +234,7 @@ function FAQSection({
           <div className="mt-8 text-center">
             <Link
               href={linkHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface rounded-sm"
             >
               {linkText}
               <ArrowRight className="w-4 h-4" aria-hidden="true" />

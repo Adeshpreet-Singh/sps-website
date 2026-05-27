@@ -167,7 +167,7 @@ export default function Navbar() {
                     onMouseEnter={() => setServicesOpen(true)}
                     aria-expanded={servicesOpen}
                     aria-haspopup="true"
-                    className={`relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 group ${
+                    className={`relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none hover:-translate-y-0.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm ${
                       isServicesActive
                         ? "text-accent-safe"
                         : "text-text dark:text-dark-text hover:text-accent"
@@ -202,7 +202,7 @@ export default function Navbar() {
                           href={`/services/${service.slug}`}
                           onClick={() => setServicesOpen(false)}
                           role="menuitem"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent transition-all duration-200 motion-reduce:transition-none animate-fade-in hover:pl-5 min-h-[44px]"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent transition-all duration-200 motion-reduce:transition-none animate-fade-in hover:pl-5 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
                         >
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent-safe text-xs font-bold">
                             {service.number}
@@ -220,7 +220,7 @@ export default function Navbar() {
                           href="/services"
                           onClick={() => setServicesOpen(false)}
                           role="menuitem"
-                          className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px]"
+                          className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
                         >
                           View All Services
                         </Link>
@@ -238,7 +238,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none hover:-translate-y-0.5 group ${
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none hover:-translate-y-0.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm ${
                   isActive
                     ? "text-accent-safe"
                     : "text-text dark:text-dark-text hover:text-accent"
@@ -263,7 +263,7 @@ export default function Navbar() {
           <a
             href={siteConfig.phoneLink}
             aria-label={`Call us at ${siteConfig.phone}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy dark:text-accent transition-all duration-200 hover:text-accent dark:hover:text-accent-light hover:-translate-y-0.5 motion-reduce:transition-none"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy dark:text-accent transition-all duration-200 hover:text-accent dark:hover:text-accent-light hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded-sm"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             {siteConfig.phone}
@@ -343,7 +343,7 @@ export default function Navbar() {
         <div className="border-b border-border dark:border-dark-border px-5 py-3">
           <a
             href={siteConfig.phoneLink}
-            className="flex items-center justify-center gap-2 rounded-lg bg-navy/5 dark:bg-accent/10 px-4 py-2.5 text-sm font-semibold text-navy dark:text-accent transition-all duration-200 hover:bg-navy/10 dark:hover:bg-accent/20 motion-reduce:transition-none"
+            className="flex items-center justify-center gap-2 rounded-lg bg-navy/5 dark:bg-accent/10 px-4 py-2.5 text-sm font-semibold text-navy dark:text-accent transition-all duration-200 hover:bg-navy/10 dark:hover:bg-accent/20 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
             aria-label={`Call us at ${siteConfig.phone}`}
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
@@ -360,7 +360,7 @@ export default function Navbar() {
                 <div key={link.href}>
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className={`w-full rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center justify-between motion-reduce:transition-none ${
+                    className={`w-full rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center justify-between motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
                       isServicesActive
                         ? "bg-accent/10 text-accent-safe border-l-[3px] border-accent"
                         : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent"
@@ -398,7 +398,7 @@ export default function Navbar() {
                           href={`/services/${service.slug}`}
                           onClick={() => setMobileOpen(false)}
                           role="menuitem"
-                          className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-muted dark:text-dark-text-muted hover:text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px]"
+                          className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-muted dark:text-dark-text-muted hover:text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
                         >
                           <span className="flex h-6 w-6 items-center justify-center rounded bg-accent/10 text-accent-safe text-[10px] font-bold">
                             {service.number}
@@ -410,7 +410,7 @@ export default function Navbar() {
                         href="/services"
                         onClick={() => setMobileOpen(false)}
                         role="menuitem"
-                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px]"
+                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
                       >
                         View All Services →
                       </Link>
@@ -427,7 +427,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 aria-current={isActive ? "page" : undefined}
-                className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center motion-reduce:transition-none ${
+                className={`rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
                   isActive
                     ? "bg-accent/10 text-accent-safe border-l-[3px] border-accent"
                     : "text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent hover:translate-x-1 border-l-[3px] border-transparent"
@@ -450,7 +450,7 @@ export default function Navbar() {
             href="/contact"
             onClick={() => setMobileOpen(false)}
             aria-label="Get a free quote — contact SPS Installation"
-            className="rounded-full bg-accent px-5 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
+            className="rounded-full bg-accent px-5 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
           >
             Get a Free Quote
           </Link>

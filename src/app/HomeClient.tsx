@@ -215,7 +215,7 @@ export default function HomeClient() {
                   href={`/services/${svc.slug}`}
                   role="listitem"
                   aria-label={`${svc.title} - ${svc.shortDescription}`}
-                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-tilt motion-reduce:transition-none motion-reduce:transform-none"
+                  className="group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 border-t-4 border-accent shadow-card dark:shadow-dark-card transition-all duration-300 hover:shadow-card-hover dark:hover:shadow-dark-card-hover overflow-hidden card-tilt motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
                 >
                   {/* Service image */}
                   <div className="-mx-6 -mt-6 sm:-mx-8 sm:-mt-8 relative h-40 sm:h-48 overflow-hidden rounded-t-2xl">
@@ -402,7 +402,7 @@ src={serviceImages[svc.slug]}
 
           <p className="text-center text-text-muted dark:text-dark-text-muted text-sm">
             Don&apos;t see your area?{" "}
-            <Link href="/contact" className="text-accent-safe font-semibold hover:underline underline-offset-2">
+            <Link href="/contact" className="text-accent-safe font-semibold hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface rounded-sm">
               Contact us
             </Link>{" "}
             — we may still be able to help.
@@ -441,7 +441,7 @@ src={serviceImages[svc.slug]}
             <Link
               href="/faq"
               aria-label="View all frequently asked questions"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent-safe hover:text-accent-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface rounded-sm"
             >
               View all FAQs
               <ChevronRight className="h-4 w-4" aria-hidden="true" />

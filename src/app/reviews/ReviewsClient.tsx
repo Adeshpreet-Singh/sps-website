@@ -110,7 +110,7 @@ export default function ReviewsClient() {
       <section aria-label="Overall rating" className="-mt-12 relative z-10 pb-16 sm:pb-20">
         <div ref={ratingRef} className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-scale-hidden ${ratingVisible ? "reveal-scale-visible" : ""}`}>
           <div className="mx-auto max-w-xl">
-            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 gradient-border-shine">
+            <div className="rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none">
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1.5 star-rating-pop" aria-label={`${RATING} out of 5 stars`}>
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -239,7 +239,7 @@ export default function ReviewsClient() {
                 rel="noopener noreferrer"
                 role="listitem"
                 aria-label="Read our reviews on Google Business (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -256,7 +256,7 @@ export default function ReviewsClient() {
                       <p className="text-xs sm:text-sm text-text-muted dark:text-dark-text-muted">Read our reviews</p>
                     </div>
                   </div>
-                  <ExternalLink className="h-5 w-5 text-text-muted dark:text-dark-text-muted transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  <ExternalLink className="h-5 w-5 text-text-muted dark:text-dark-text-muted transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none" aria-hidden="true" />
                 </div>
               </a>
               <a
@@ -265,7 +265,7 @@ export default function ReviewsClient() {
                 rel="noopener noreferrer"
                 role="listitem"
                 aria-label="Read our reviews on Homestars (opens in new tab)"
-                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+                className="group relative rounded-2xl bg-white dark:bg-dark-surface p-5 sm:p-6 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 card-hover gradient-border-shine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -279,7 +279,7 @@ export default function ReviewsClient() {
                       <p className="text-xs sm:text-sm text-text-muted dark:text-dark-text-muted">Verified reviews</p>
                     </div>
                   </div>
-                  <ExternalLink className="h-5 w-5 text-text-muted dark:text-dark-text-muted transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  <ExternalLink className="h-5 w-5 text-text-muted dark:text-dark-text-muted transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:transform-none" aria-hidden="true" />
                 </div>
               </a>
             </div>

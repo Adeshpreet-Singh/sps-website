@@ -217,7 +217,7 @@ export default function ContactClient() {
 
           {/* Scroll indicator */}
           <div className="mt-8 animate-scroll-hint" aria-hidden="true">
-            <ChevronDown className="w-5 h-5 mx-auto text-white/40" />
+            <ChevronDown className="w-5 h-5 mx-auto text-white/60" />
           </div>
         </div>
       </section>
@@ -252,7 +252,7 @@ export default function ContactClient() {
                   <div className="text-center py-12 text-text-muted dark:text-dark-text-muted">
                     <p className="font-medium mb-2">The contact form couldn&apos;t load.</p>
                     <p className="text-sm">Please call us directly at{" "}
-                      <a href={siteConfig.phoneLink} className="text-accent-safe font-semibold hover:underline min-h-[44px] inline-flex items-center">
+                      <a href={siteConfig.phoneLink} className="text-accent-safe font-semibold hover:underline min-h-[44px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface rounded-sm">
                         {siteConfig.phone}
                       </a>
                     </p>

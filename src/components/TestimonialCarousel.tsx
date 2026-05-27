@@ -254,7 +254,7 @@ export default function TestimonialCarousel({
                 className={`relative rounded-full transition-all duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   idx === currentIndex
                     ? "h-2.5 w-8 bg-accent"
-                    : "h-2.5 w-2.5 bg-border dark:bg-dark-border hover:bg-accent/40"
+                    : "h-3 w-3 sm:h-2.5 sm:w-2.5 bg-border dark:bg-dark-border hover:bg-accent/40 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 }`}
                 role="tab"
                 aria-selected={idx === currentIndex}
@@ -292,7 +292,7 @@ export default function TestimonialCarousel({
 
       {/* Slide counter — subtle */}
       {totalSlides > 1 && (
-        <p className="mt-3 text-center text-xs text-text-muted/60 dark:text-dark-text-muted/60 tabular-nums">
+        <p className="mt-3 text-center text-xs text-text-muted/70 dark:text-dark-text-muted/70 tabular-nums">
           {currentIndex + 1} / {totalSlides}
         </p>
       )}

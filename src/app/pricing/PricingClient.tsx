@@ -396,14 +396,14 @@ function TierCard({
                 </span>
               ) : (
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-surface-alt dark:bg-dark-surface-alt">
-                  <X className="h-3 w-3 text-text-muted/50 dark:text-dark-text-muted/50" strokeWidth={3} aria-hidden="true" />
+                  <X className="h-3 w-3 text-text-muted/70 dark:text-dark-text-muted/70" strokeWidth={3} aria-hidden="true" />
                 </span>
               )}
               <span
                 className={`text-sm ${
                   feature.included
                     ? "text-text dark:text-dark-text"
-                    : "text-text-muted/60 dark:text-dark-text-muted/60"
+                    : "text-text-muted/70 dark:text-dark-text-muted/70"
                 }`}
               >
                 {feature.label}
@@ -462,7 +462,7 @@ function ComparisonRow({ row, index }: { row: ComparisonRow; index: number }) {
               </span>
             ) : (
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-surface-alt dark:bg-dark-surface-alt">
-                <X className="h-3.5 w-3.5 text-text-muted/40 dark:text-dark-text-muted/40" strokeWidth={3} aria-hidden="true" />
+                <X className="h-3.5 w-3.5 text-text-muted/70 dark:text-dark-text-muted/70" strokeWidth={3} aria-hidden="true" />
                 <span className="sr-only">Not included</span>
               </span>
             )
@@ -487,8 +487,8 @@ function ValueProp({
   description: string;
 }) {
   return (
-    <div role="listitem" className="group text-center rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] hover:-translate-y-1">
-      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
+    <div role="listitem" className="group text-center rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none">
+      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:transform-none">
         {icon}
       </div>
       <h3 className="text-lg font-bold text-white">{title}</h3>

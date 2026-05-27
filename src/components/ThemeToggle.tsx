@@ -19,7 +19,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="relative inline-flex items-center justify-center rounded-full p-2 text-text transition-colors duration-200 hover:text-accent hover:bg-surface-alt dark:text-dark-text dark:hover:text-accent dark:hover:bg-dark-surface-alt motion-reduce:transition-none min-w-[44px] min-h-[44px]"
+      className="relative inline-flex items-center justify-center rounded-full p-2 text-text transition-colors duration-200 hover:text-accent hover:bg-surface-alt dark:text-dark-text dark:hover:text-accent dark:hover:bg-dark-surface-alt motion-reduce:transition-none min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
       aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
       <span className="relative block h-5 w-5">
