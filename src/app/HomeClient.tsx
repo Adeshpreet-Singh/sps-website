@@ -18,6 +18,7 @@
 
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -55,6 +56,16 @@ export default function HomeClient() {
 
   // Lazy-load hero video — only starts buffering when hero is in/near viewport
   const [heroRef, heroVisible] = useLazyVideo<HTMLDivElement>();
+  // Disable video autoplay for users who prefer reduced motion
+  const [allowAutoplay, setAllowAutoplay] = useState(true);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setAllowAutoplay(!mql.matches);
+    const handler = (e: MediaQueryListEvent) => setAllowAutoplay(!e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   return (
     <>
@@ -67,13 +78,13 @@ export default function HomeClient() {
         {/* Background video — deferred until hero is in viewport */}
         {heroVisible && (
           <video
-            autoPlay
+            autoPlay={allowAutoplay}
             muted
             loop
             playsInline
             preload="metadata"
             poster="/videos/hero-poster.jpg"
-            className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+            className="absolute inset-0 h-full w-full object-cover"
           src="/videos/hero-bg.mp4"
           aria-hidden="true"
           fetchPriority="high"

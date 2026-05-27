@@ -35,6 +35,7 @@ export default function TestimonialCarousel({
 }: TestimonialCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("right");
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -42,6 +43,15 @@ export default function TestimonialCarousel({
   const progressRef = useRef<HTMLDivElement>(null);
   const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const totalSlides = testimonials.length;
+
+  // Reactively track prefers-reduced-motion — disables auto-play
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -61,9 +71,9 @@ export default function TestimonialCarousel({
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Auto-play with progress bar reset
+  // Auto-play with progress bar reset — disabled for reduced-motion users
   useEffect(() => {
-    if (isPaused || totalSlides <= 1) return;
+    if (isPaused || reducedMotion || totalSlides <= 1) return;
 
     // Reset the progress bar by:
     // 1. Removing transition (instant reset to 0%)
@@ -81,7 +91,7 @@ export default function TestimonialCarousel({
 
     const timer = setInterval(goToNext, autoPlayInterval);
     return () => clearInterval(timer);
-  }, [isPaused, goToNext, autoPlayInterval, totalSlides, currentIndex]);
+  }, [isPaused, reducedMotion, goToNext, autoPlayInterval, totalSlides, currentIndex]);
 
   // Keyboard navigation — scoped to container to avoid global key conflicts
   useEffect(() => {
@@ -267,8 +277,8 @@ export default function TestimonialCarousel({
         </div>
       )}
 
-      {/* Progress bar — refined, centered */}
-      {totalSlides > 1 && !isPaused && (
+      {/* Progress bar — refined, centered (hidden for reduced-motion users) */}
+      {totalSlides > 1 && !isPaused && !reducedMotion && (
         <div className="mt-5 mx-auto max-w-[200px]">
           <div className="h-[3px] rounded-full bg-border/40 dark:bg-dark-border/40 overflow-hidden">
             <div

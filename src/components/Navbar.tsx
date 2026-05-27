@@ -271,7 +271,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             aria-label="Get a free quote — contact SPS Installation"
-            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer"
+            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-accent-dark hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm motion-reduce:transition-none motion-reduce:transform-none btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
           >
             Get a Quote
           </Link>
