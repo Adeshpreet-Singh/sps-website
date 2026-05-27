@@ -64,7 +64,7 @@ const SERVICES_JSON_LD = {
   name: siteConfig.name,
   description: siteConfig.description,
   url: siteConfig.url,
-  telephone: siteConfig.phone,
+  telephone: siteConfig.phoneE164,
   email: siteConfig.email,
   address: {
     "@type": "PostalAddress",
@@ -101,7 +101,7 @@ const SERVICES_JSON_LD = {
     "@type": "AggregateRating",
     ratingValue: siteConfig.stats.rating,
     bestRating: "5",
-    ratingCount: "50",
+    ratingCount: "150",
   },
 };
 

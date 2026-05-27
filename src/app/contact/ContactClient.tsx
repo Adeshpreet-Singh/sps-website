@@ -52,7 +52,7 @@ function ContactJsonLd() {
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
+    telephone: siteConfig.phoneE164,
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
@@ -77,7 +77,7 @@ function ContactJsonLd() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: siteConfig.phone,
+      telephone: siteConfig.phoneE164,
       contactType: "customer service",
       email: siteConfig.email,
       availableLanguage: "English",

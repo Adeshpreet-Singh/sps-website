@@ -37,7 +37,7 @@ const generalFaqs: FaqItem[] = [
   {
     question: "How do I get a quote?",
     answer:
-      "You can request a free quote by filling out our online contact form or calling us directly at our phone number. We'll get back to you promptly with a transparent, no-obligation estimate.",
+      `You can request a free quote by filling out our online contact form or calling us directly at ${siteConfig.phone}. We'll get back to you promptly with a transparent, no-obligation estimate.`,
   },
   {
     question: "What are your business hours?",
