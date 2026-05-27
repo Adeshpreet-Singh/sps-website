@@ -161,7 +161,7 @@ export default function ServiceAreaPage() {
               {serviceAreas.map((city) => (
                 <li
                   key={city}
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy dark:hover:bg-accent dark:hover:border-accent dark:hover:text-white hover:shadow-xl hover:shadow-navy/25 dark:hover:shadow-accent/25 hover:scale-105 active:scale-95 cursor-default motion-reduce:transition-none motion-reduce:transform-none"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-navy/15 dark:border-dark-border bg-surface dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text transition-all duration-300 hover:bg-navy hover:text-white hover:border-navy dark:hover:bg-accent dark:hover:border-accent dark:hover:text-white hover:shadow-xl hover:shadow-navy/25 dark:hover:shadow-accent/25 hover:scale-105 active:scale-95 cursor-default motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
                 >
                   <MapPin className="w-3.5 h-3.5 text-accent group-hover:text-accent-light transition-colors" aria-hidden="true" />
                   {city}

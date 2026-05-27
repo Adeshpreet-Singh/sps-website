@@ -149,7 +149,7 @@ export default function FaqClient() {
             plumbing services. Can&apos;t find your answer?{" "}
             <Link
               href="/contact"
-              className="text-accent underline underline-offset-2 hover:text-accent-dark transition-colors"
+              className="text-accent underline underline-offset-2 hover:text-accent-dark transition-colors min-h-[44px] inline-flex items-center"
             >
               Contact us
             </Link>

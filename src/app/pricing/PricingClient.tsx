@@ -304,8 +304,8 @@ export default function PricingClient() {
 
 function TrustBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div role="listitem" className="flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10 motion-reduce:transition-none motion-reduce:transform-none">
-      {icon}
+    <div role="listitem" className="flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]">
+      <span aria-hidden="true">{icon}</span>
       {text}
     </div>
   );
@@ -421,7 +421,7 @@ function TierCard({
         <Link
           href={tier.ctaHref}
           aria-label={`${tier.ctaLabel} — ${tier.name} package`}
-          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface ${
+          className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 btn-press btn-shimmer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface min-h-[44px] ${
             tier.popular
               ? "bg-accent text-white shadow-lg shadow-accent/25 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
               : "bg-navy dark:bg-accent text-white hover:bg-navy-light dark:hover:bg-accent-dark hover:shadow-lg"

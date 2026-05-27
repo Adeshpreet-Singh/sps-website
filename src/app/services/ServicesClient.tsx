@@ -292,7 +292,7 @@ export default function ServicesClient() {
                       <Link
                         href={`/services/${service.slug}`}
                         aria-label={`Learn more about ${service.title}`}
-                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer motion-reduce:transition-none"
+                        className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-light hover:gap-3 btn-press btn-shimmer motion-reduce:transition-none min-h-[44px]"
                       >
                         Learn More
                         <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
@@ -363,7 +363,7 @@ export default function ServicesClient() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all duration-300 hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border dark:border-dark-border px-8 py-4 text-base font-semibold text-text dark:text-dark-text transition-all duration-300 hover:bg-surface-alt hover:-translate-y-0.5 active:translate-y-0 sm:w-auto btn-press motion-reduce:transition-none motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-dark-surface min-h-[44px]"
               >
                 Contact Us Online
               </Link>

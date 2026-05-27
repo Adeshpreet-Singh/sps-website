@@ -142,7 +142,7 @@ export default function HomeClient() {
 
             {/* Scroll-down indicator — smooth scroll to services */}
             <div className="mt-10 sm:mt-16 flex items-center gap-2 text-white/80 animate-fade-in delay-500">
-              <a href="#services" className="flex items-center gap-2 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm" aria-label="Scroll to services section">
+              <a href="#services" className="flex items-center gap-2 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-dark rounded-sm min-h-[44px] px-2" aria-label="Scroll to services section">
                 <ChevronDown className="h-5 w-5 animate-bounce-limited" aria-hidden="true" />
                 <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
               </a>
@@ -393,7 +393,7 @@ src={serviceImages[svc.slug]}
               <li
                 key={city}
                 role="listitem"
-                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent dark:hover:bg-accent dark:hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-lg hover:shadow-accent/15 active:scale-95 motion-reduce:transition-none motion-reduce:transform-none"
+                className="rounded-full border border-border dark:border-dark-border bg-white/80 dark:bg-dark-surface-alt px-5 py-2.5 text-sm font-medium text-navy dark:text-dark-text hover:bg-accent hover:text-white hover:border-accent dark:hover:bg-accent dark:hover:border-accent transition-all duration-300 cursor-default hover:scale-105 hover:shadow-lg hover:shadow-accent/15 active:scale-95 motion-reduce:transition-none motion-reduce:transform-none min-h-[44px] inline-flex items-center"
               >
                 {city}
               </li>

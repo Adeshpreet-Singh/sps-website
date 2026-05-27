@@ -199,7 +199,7 @@ export default function ContactClient() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
             <a
               href={siteConfig.phoneLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press btn-shimmer motion-reduce:transition-none motion-reduce:transform-none"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg btn-press btn-shimmer motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
               aria-label={`Call us at ${siteConfig.phone}`}
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
@@ -207,7 +207,7 @@ export default function ContactClient() {
             </a>
             <a
               href={siteConfig.emailLink}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5 active:translate-y-0 btn-press motion-reduce:transition-none motion-reduce:transform-none"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5 active:translate-y-0 btn-press motion-reduce:transition-none motion-reduce:transform-none min-h-[44px]"
               aria-label={`Email us at ${siteConfig.email}`}
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
@@ -252,7 +252,7 @@ export default function ContactClient() {
                   <div className="text-center py-12 text-text-muted dark:text-dark-text-muted">
                     <p className="font-medium mb-2">The contact form couldn&apos;t load.</p>
                     <p className="text-sm">Please call us directly at{" "}
-                      <a href={siteConfig.phoneLink} className="text-accent-safe font-semibold hover:underline">
+                      <a href={siteConfig.phoneLink} className="text-accent-safe font-semibold hover:underline min-h-[44px] inline-flex items-center">
                         {siteConfig.phone}
                       </a>
                     </p>
