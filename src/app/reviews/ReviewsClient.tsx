@@ -154,7 +154,7 @@ export default function ReviewsClient() {
                 key={t.name}
                 role="listitem"
                 aria-label={`Review by ${t.name}`}
-                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1}`}
+                className={`group relative rounded-2xl bg-white dark:bg-dark-surface p-6 sm:p-8 shadow-card dark:shadow-dark-card ring-1 ring-border dark:ring-dark-border transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-0.5 card-tilt reveal-hidden ${gridVisible ? "reveal-visible" : ""} reveal-delay-${(idx % 3) + 1} motion-reduce:transition-none motion-reduce:transform-none`}
               >
                 {/* Left accent gradient border */}
                 <div className="absolute left-0 top-8 bottom-8 w-1 rounded-r-full bg-gradient-to-b from-accent to-accent-light" />

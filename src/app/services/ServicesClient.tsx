@@ -323,7 +323,7 @@ export default function ServicesClient() {
               <div
                 key={title}
                 role="listitem"
-                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:border-accent/30 card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
+                className="flex flex-col items-center rounded-xl border border-border/60 dark:border-dark-border/60 bg-surface-alt dark:bg-dark-surface-alt p-6 text-center transition-all duration-300 hover:border-accent/30 hover:shadow-card-hover dark:hover:shadow-dark-card-hover card-hover gradient-border-shine motion-reduce:transition-none motion-reduce:transform-none"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 icon-lift">
                   <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
@@ -344,7 +344,7 @@ export default function ServicesClient() {
       {/* ── Bottom CTA ── */}
       <section aria-label="Contact us" className="bg-white dark:bg-dark-surface px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <div ref={ctaRef} className={`mx-auto max-w-2xl reveal-hidden ${ctaVisible ? "reveal-visible" : ""}`}>
-          <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
+          <div className="rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 text-center shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14 transition-all duration-300 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-accent/40 motion-reduce:transition-none">
             <h2 className="font-heading text-2xl font-bold text-text dark:text-dark-text sm:text-3xl lg:text-4xl">
               Not sure what you need?
             </h2>

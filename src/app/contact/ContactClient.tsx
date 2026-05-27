@@ -135,8 +135,8 @@ function TrustSignal({
   label: string;
 }) {
   return (
-    <div className="flex items-center gap-2.5 text-sm text-text-muted dark:text-dark-text-muted">
-      <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-2.5 text-sm text-text-muted dark:text-dark-text-muted rounded-xl border border-border/50 dark:border-dark-border/50 bg-white dark:bg-dark-surface p-3 transition-all duration-300 hover:border-accent/30 hover:shadow-sm motion-reduce:transition-none">
+      <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 transition-transform duration-300 hover:scale-110 motion-reduce:transition-none motion-reduce:transform-none">
         <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
       </div>
       <span className="font-medium">{label}</span>

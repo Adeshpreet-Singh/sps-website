@@ -63,7 +63,7 @@ export default function Footer() {
       {/* Trust badges bar */}
       <div className="border-b border-white/10 dark:border-dark-border">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/70 sm:gap-10" role="list" aria-label="Credentials">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/70 sm:gap-10 stagger-children" role="list" aria-label="Credentials">
             <div className="flex items-center gap-2" role="listitem">
               <Shield className="h-4 w-4 text-accent" aria-hidden="true" />
               <span>Licensed &amp; Insured</span>

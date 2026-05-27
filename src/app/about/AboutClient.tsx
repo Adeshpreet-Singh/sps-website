@@ -315,7 +315,7 @@ export default function AboutClient() {
               <div
                 key={leader.name}
                 role="listitem"
-                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt motion-reduce:transition-none motion-reduce:transform-none"
+                className="group relative flex flex-col items-center text-center p-8 bg-white dark:bg-dark-surface rounded-xl shadow-card transition-all duration-500 hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:-translate-y-1 dark:border dark:border-dark-border dark:hover:border-accent/40 gradient-border-shine card-tilt motion-reduce:transition-none motion-reduce:transform-none"
               >
                 {/* Gradient border effect */}
                 <div className="absolute inset-0 rounded-xl p-[1.5px] bg-gradient-to-br from-accent/40 via-navy/20 to-accent/40 dark:via-dark-border/20 -z-10 group-hover:from-accent group-hover:via-navy/40 dark:group-hover:via-dark-border/40 group-hover:to-accent transition-all duration-500" />

@@ -18,7 +18,7 @@
 import type { FaqItem, Service } from "@/lib/data";
 import { siteConfig } from "@/lib/data";
 import type { ProcessStep } from "@/lib/types";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -137,9 +137,21 @@ export default function ServicePageLayout({
           <Image src={heroImageUrl} alt="" fill className="object-cover" priority sizes="100vw" />
         </div>
         <div className="absolute inset-0 bg-navy/50" />
+        {/* Animated gradient overlay */}
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-navy-light/20 gradient-animated" />
+        {/* Decorative floating shapes */}
+        <div aria-hidden="true" className="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-accent/5 blur-3xl animate-parallax-float" />
+        <div aria-hidden="true" className="absolute bottom-[-15%] left-[-10%] w-[350px] h-[350px] sm:w-[600px] sm:h-[600px] rounded-full bg-white/[0.03] blur-3xl animate-parallax-float delay-500" />
+        {/* Animated accent dots */}
+        <div aria-hidden="true" className="absolute top-16 left-[15%] w-3 h-3 rounded-full bg-accent/30 animate-dot-pulse" />
+        <div aria-hidden="true" className="absolute top-32 right-[20%] w-2 h-2 rounded-full bg-white/20 animate-dot-pulse delay-300" />
+        <div aria-hidden="true" className="absolute bottom-24 left-[30%] w-4 h-4 rounded-full bg-accent/20 animate-dot-pulse delay-500" />
+        {/* Horizontal accent lines */}
+        <div aria-hidden="true" className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        <div aria-hidden="true" className="absolute bottom-1/3 right-0 w-40 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <Breadcrumb items={[{ name: "Services", path: "/services" }, { name: service.title, path: `/services/${service.slug}` }]} />
-          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in">
+          <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide text-accent-light backdrop-blur animate-fade-in border border-white/10 motion-reduce:transition-none">
             Service #{service.number}
           </span>
           <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white animate-slide-up">
@@ -148,6 +160,10 @@ export default function ServicePageLayout({
           <p className="mt-6 text-lg leading-relaxed text-white/70 lg:text-xl animate-slide-up delay-200">
             {service.description}
           </p>
+          {/* Scroll indicator */}
+          <div className="mt-8 animate-scroll-hint" aria-hidden="true">
+            <ChevronDown className="w-5 h-5 mx-auto text-white/40" />
+          </div>
         </div>
       </section>
 
@@ -210,7 +226,7 @@ export default function ServicePageLayout({
               {processSteps.map(({ step, title, description, icon: Icon, image }, idx) => (
                 <li
                   key={step}
-                  className="group relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up"
+                  className="group relative flex items-start gap-5 lg:flex-col lg:items-center lg:text-center animate-slide-up hover:-translate-y-1 transition-transform duration-300 motion-reduce:transition-none motion-reduce:transform-none rounded-xl p-2 -m-2"
                   style={{ animationDelay: `${idx * 120}ms` }}
                 >
                   <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md shadow-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/30 motion-reduce:transition-none motion-reduce:transform-none">
