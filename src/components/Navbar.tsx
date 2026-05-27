@@ -204,7 +204,7 @@ export default function Navbar() {
                           role="menuitem"
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-text dark:text-dark-text hover:bg-surface-alt dark:hover:bg-dark-surface-alt hover:text-accent transition-all duration-200 motion-reduce:transition-none animate-fade-in hover:pl-5"
                         >
-                          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent text-xs font-bold">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent-safe text-xs font-bold">
                             {service.number}
                           </span>
                           <div>
@@ -400,7 +400,7 @@ export default function Navbar() {
                           role="menuitem"
                           className="flex items-center gap-2.5 rounded-md px-3 py-2 text-sm text-text-muted dark:text-dark-text-muted hover:text-accent hover:bg-accent/5 transition-all duration-200 motion-reduce:transition-none animate-fade-in"
                         >
-                          <span className="flex h-6 w-6 items-center justify-center rounded bg-accent/10 text-accent text-[10px] font-bold">
+                          <span className="flex h-6 w-6 items-center justify-center rounded bg-accent/10 text-accent-safe text-[10px] font-bold">
                             {service.number}
                           </span>
                           {service.title}

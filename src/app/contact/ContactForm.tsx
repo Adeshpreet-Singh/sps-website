@@ -119,6 +119,7 @@ interface FloatingInputProps {
   valid?: boolean;
   onBlur?: () => void;
   onChange?: (value: string) => void;
+  autoComplete?: string;
 }
 
 function FloatingInput({
@@ -131,6 +132,7 @@ function FloatingInput({
   valid,
   onBlur,
   onChange,
+  autoComplete,
 }: FloatingInputProps) {
   return (
     <div className="relative">
@@ -140,6 +142,7 @@ function FloatingInput({
         type={type}
         required={required}
         placeholder={placeholder ?? " "}
+        autoComplete={autoComplete}
         onBlur={onBlur}
         onChange={(e) => onChange?.(e.target.value)}
         aria-invalid={!!error}
@@ -469,6 +472,7 @@ export default function ContactForm() {
           label="Full Name"
           required
           placeholder=" "
+          autoComplete="name"
           error={getFieldError("name")}
           valid={isFieldValid("name")}
           onBlur={() => markTouched("name")}
@@ -480,6 +484,7 @@ export default function ContactForm() {
           type="tel"
           required
           placeholder=" "
+          autoComplete="tel"
           error={getFieldError("phone")}
           valid={isFieldValid("phone")}
           onBlur={() => markTouched("phone")}
@@ -493,6 +498,7 @@ export default function ContactForm() {
         type="email"
         required
         placeholder=" "
+        autoComplete="email"
         error={getFieldError("email")}
         valid={isFieldValid("email")}
         onBlur={() => markTouched("email")}
@@ -525,6 +531,7 @@ export default function ContactForm() {
           rows={5}
           maxLength={MAX_MESSAGE_LENGTH}
           placeholder=" "
+          autoComplete="off"
           onChange={(e) => {
             setMessageLen(e.target.value.length);
             updateValue("message", e.target.value);

@@ -16,7 +16,7 @@
  * user's saved theme preference, preventing flash-of-wrong-theme (FOWT).
  */
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/data";
@@ -36,6 +36,12 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1B2A4A",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -105,9 +111,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
-  },
-  other: {
-    "theme-color": "#1B2A4A",
   },
 };
 

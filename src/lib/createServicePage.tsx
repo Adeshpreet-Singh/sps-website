@@ -4,8 +4,18 @@
  *
  * Each page only needs to provide its unique metadata and FAQ content;
  * the shared wiring (service lookup, process steps, hero image) is handled here.
+ *
+ * Usage in a page module:
+ * ```ts
+ * // app/services/plumbing/page.tsx
+ * export const metadata = { ... };
+ * export const revalidate = 86400;
+ * export default createServicePage({ slug: "plumbing", ... });
+ * ```
+ *
+ * Note: `revalidate` must be exported as a named export from the page module
+ * for Next.js ISR to work — it cannot be set as a property on the component.
  */
-import type { Metadata } from "next";
 import type { FaqItem } from "@/lib/data";
 import { services, processStepsData, processStepImages, serviceHeroImages } from "@/lib/data";
 import { buildProcessSteps } from "@/lib/icons";
@@ -14,8 +24,6 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 interface ServicePageConfig {
   /** Service slug matching data.ts (e.g. "residential", "plumbing") */
   slug: string;
-  /** Next.js page-level metadata */
-  metadata: Metadata;
   /** FAQ items specific to this service */
   faqs: FaqItem[];
   /** Subtitle for the "What's Included" section */
@@ -32,9 +40,9 @@ interface ServicePageConfig {
  * ```ts
  * // app/services/plumbing/page.tsx
  * export const metadata = { ... };
+ * export const revalidate = 86400;
  * export default createServicePage({
  *   slug: "plumbing",
- *   metadata,
  *   faqs: [...],
  *   includedSubtitle: "...",
  *   processSubtitle: "...",
@@ -65,9 +73,6 @@ export function createServicePage({
       />
     );
   }
-
-  // ISR: revalidate every 24 hours (service content is stable)
-  ServicePage.revalidate = 86400;
 
   return ServicePage;
 }

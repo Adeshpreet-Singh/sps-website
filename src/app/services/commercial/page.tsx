@@ -14,6 +14,8 @@ import type { Metadata } from "next";
 import type { FaqItem } from "@/lib/data";
 import { createServicePage } from "@/lib/createServicePage";
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Commercial Installation",
   description:
@@ -58,7 +60,6 @@ const faqs: FaqItem[] = [
 
 export default createServicePage({
   slug: "commercial",
-  metadata,
   faqs,
   includedSubtitle: "End-to-end service for commercial installation projects of any scale.",
   processSubtitle: "A proven workflow for commercial projects — on time and on budget.",

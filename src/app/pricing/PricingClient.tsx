@@ -304,7 +304,7 @@ export default function PricingClient() {
 
 function TrustBadge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10 motion-reduce:transition-none motion-reduce:transform-none">
+    <div role="listitem" className="flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:scale-105 hover:shadow-lg hover:shadow-white/10 motion-reduce:transition-none motion-reduce:transform-none">
       {icon}
       {text}
     </div>
@@ -487,7 +487,7 @@ function ValueProp({
   description: string;
 }) {
   return (
-    <div className="group text-center rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] hover:-translate-y-1">
+    <div role="listitem" className="group text-center rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:bg-white/[0.1] hover:border-white/20 hover:shadow-[0_0_20px_rgba(232,122,46,0.08)] hover:-translate-y-1">
       <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5">
         {icon}
       </div>

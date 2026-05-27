@@ -27,9 +27,8 @@ export default function PageTransition({
     prevPathRef.current = pathname;
 
     // Use View Transitions API if available (Chrome 111+, Edge 111+)
-    const doc = document as any;
-    if (typeof doc.startViewTransition === "function") {
-      doc.startViewTransition(() => {
+    if (typeof document.startViewTransition === "function") {
+      document.startViewTransition(() => {
         setDisplayChildren(children);
       });
       return;
